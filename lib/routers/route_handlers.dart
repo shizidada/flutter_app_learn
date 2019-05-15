@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 import 'package:fluro/fluro.dart';
-
 import 'package:flutter_app_learn/pages/home_page/home.dart';
+
 import 'package:flutter_app_learn/pages/login_page/login.dart';
 import 'package:flutter_app_learn/pages/register_page/register.dart';
 import 'package:flutter_app_learn/pages/welcome_page/welcome.dart';

@@ -63,6 +63,7 @@ IndexedStack(
           return Card(
             child: ListTile(
               leading: Icon(Icons.code),
+              trailing: Icon(Icons.keyboard_arrow_right),
               title: Text('${datas[index].fullName}'),
               subtitle: Text('${datas[index].name}'),
               onTap: () => _listTileClick(index),

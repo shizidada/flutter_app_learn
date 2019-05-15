@@ -1,17 +1,16 @@
-import 'package:fancy_bottom_navigation/fancy_bottom_navigation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_app_learn/pages/login_page/login.dart';
 
-class SettingFragment extends StatefulWidget {
-  SettingFragment({Key key, this.globalKey}) : super(key: key);
+class MeFragment extends StatefulWidget {
+  // MeFragment({Key key, this.globalKey}) : super(key: key);
+  // final GlobalKey globalKey;
 
-  final GlobalKey globalKey;
   @override
-  State<StatefulWidget> createState() => _SettingFragmentState();
+  State<StatefulWidget> createState() => _MeFragmentState();
 }
 
-class _SettingFragmentState extends State<SettingFragment> with AutomaticKeepAliveClientMixin {
+class _MeFragmentState extends State<MeFragment> with AutomaticKeepAliveClientMixin {
   
   void _raisedButtonClick() {
     // Navigator.of(context)
@@ -57,7 +56,7 @@ class _SettingFragmentState extends State<SettingFragment> with AutomaticKeepAli
     super.build(context);
     return Scaffold(
         appBar: AppBar(
-          title: Text("Setting"),
+          title: Text("Me"),
         ),
         body: Column(
           mainAxisSize: MainAxisSize.max,
@@ -78,9 +77,9 @@ class _SettingFragmentState extends State<SettingFragment> with AutomaticKeepAli
               ),
               color: Theme.of(context).accentColor,
               onPressed: () {
-                final FancyBottomNavigationState fState =
-                    widget.globalKey.currentState;
-                fState.setPage(2);
+                // final FancyBottomNavigationState fState =
+                //     widget.globalKey.currentState;
+                // fState.setPage(2);
               },
             ),
             RaisedButton(

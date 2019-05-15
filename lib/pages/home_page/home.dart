@@ -1,74 +1,102 @@
-import "package:flutter/material.dart";
-
-import 'package:fancy_bottom_navigation/fancy_bottom_navigation.dart';
-import 'package:flutter_app_learn/fragments/home_fragment/home_fragment.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter_app_learn/fragments/constact_fragment/constact_fragment.dart';
 import 'package:flutter_app_learn/fragments/discover_fragment/discover_fragment.dart';
-import 'package:flutter_app_learn/fragments/settings_fragment/settings_fragment.dart';
+import 'package:flutter_app_learn/fragments/home_fragment/home_fragment.dart';
+import 'package:flutter_app_learn/fragments/me_fragment/me_fragment.dart';
 
-/// https://www.jianshu.com/p/9e5f4c81cc7d
+const int ThemeColor = 0xFFC91B3A;
 
 class HomePage extends StatefulWidget {
-  HomePage({Key key}) : super(key: key);
   @override
-  _HomePageState createState() => _HomePageState();
+  State<StatefulWidget> createState() {
+    return _MyHomePageState();
+  }
 }
 
-class _HomePageState extends State<HomePage> {
-  int currentPage = 0;
-  GlobalKey bottomNavigationKey = GlobalKey();
+class _MyHomePageState extends State<HomePage>
+    with SingleTickerProviderStateMixin {
+  TabController controller;
+  String appBarTitle = tabData[0]['text'];
+
+  static List tabData = [
+    {'text': 'Home', 'icon': Icon(Icons.home)},
+    {'text': 'Constact', 'icon': Icon(Icons.supervisor_account)},
+    {'text': 'Discover', 'icon': Icon(Icons.pageview)},
+    {'text': 'Me', 'icon': Icon(Icons.account_circle)}
+  ];
+
+  List<Widget> myTabs = [];
+
+  @override
+  void initState() {
+    super.initState();
+
+    controller = TabController(
+        initialIndex: 0, vsync: this, length: 4); // 这里的length 决定有多少个底导 submenus
+
+    for (int i = 0; i < tabData.length; i++) {
+      myTabs.add(Tab(text: tabData[i]['text'], icon: tabData[i]['icon']));
+    }
+
+    controller.addListener(() {
+      if (controller.indexIsChanging) {
+        _onTabChange();
+      }
+    });
+  }
+
+  @override
+  void dispose() {
+    controller.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        decoration: BoxDecoration(color: Colors.white),
-        child: Center(
-          child: _getPage(currentPage),
-        ),
-      ),
-      bottomNavigationBar: FancyBottomNavigation(
-        tabs: [
-          TabData(iconData: Icons.home, title: "Home"),
-          TabData(iconData: Icons.supervisor_account, title: "Constact"),
-          TabData(iconData: Icons.pageview, title: "Discover"),
-          TabData(iconData: Icons.account_circle, title: "Setting")
-        ],
-        initialSelection: 0,
-        key: bottomNavigationKey,
-        onTabChangedListener: (position) {
-          setState(() {
-            currentPage = position;
-          });
-        },
-      ),
-      drawer: Drawer(
-        child: ListView(
-          children: <Widget>[Text("Hello"), Text("World")],
+      body: TabBarView(controller: controller, children: <Widget>[
+        HomeFragment(),
+        ConstactFragment(),
+        DiscoverFragment(),
+        MeFragment()
+      ]),
+      bottomNavigationBar: Material(
+        // color: const Color(0xFFF0EEEF), //底部导航栏主题颜色
+        child: SafeArea(
+          child: Container(
+            height: 65.0,
+            decoration: BoxDecoration(
+              color: const Color(0xFFF0F0F0),
+              boxShadow: <BoxShadow>[
+                BoxShadow(
+                  color: const Color(0xFFd0d0d0),
+                  blurRadius: 3.0,
+                  spreadRadius: 2.0,
+                  offset: Offset(-1.0, -1.0),
+                ),
+              ],
+            ),
+            child: TabBar(
+                controller: controller,
+                indicatorColor: Theme.of(context).primaryColor,
+                //tab标签的下划线颜色
+                // labelColor: const Color(0xFF000000),
+                indicatorWeight: 0.1, // 设置显示下划线 高度
+                labelColor: Theme.of(context).primaryColor,
+                unselectedLabelColor: const Color(0xFF8E8E8E),
+                tabs: myTabs),
+          ),
         ),
       ),
     );
   }
 
-  _getPage(int page) {
-    switch (page) {
-      case 0:
-        return HomeFragment();
-      case 1:
-        return ConstactFragment();
-      case 2:
-        return DiscoverFragment();
-      case 3:
-        return SettingFragment(
-          globalKey: bottomNavigationKey,
-        );
-      default:
+  void _onTabChange() {
+    if (this.mounted) {
+      this.setState(() {
+        appBarTitle = tabData[controller.index]['text'];
+      });
     }
   }
 }
-
-// floatingActionButton: FloatingActionButton(
-//   onPressed: _incrementCounter,
-//   tooltip: 'Increment',
-//   child: Icon(Icons.add),
-// ),
