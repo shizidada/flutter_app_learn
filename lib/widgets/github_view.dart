@@ -18,10 +18,9 @@ class _GithubViewState extends State<GithubView>
 /*1、IndexedStack 存储页面
 IndexedStack(
   children: <Widget>[
-    BookHousePage(),
-    FunctionPage(),
-    ChatPage(),
-    MinePage()
+    Page1(),
+    Page2(),
+    Page3()
   ],
   index: _currentPageIndex,
  */
@@ -33,11 +32,10 @@ IndexedStack(
   void initState() {
     super.initState();
     print("initState");
-    _loadDataFromNet();
+    _loadData();
   }
 
-  _loadDataFromNet() {
-    print(datas.length);
+  _loadData() {
     if (datas.length == 0) {
       getStarred().then((res) => setState(() {
             datas = GitHubStarred.formJson(res.data).githubItem;
@@ -46,15 +44,8 @@ IndexedStack(
   }
 
   @override
-  void dispose() {
-    super.dispose();
-  }
-
-  @override
   Widget build(BuildContext context) {
     super.build(context);
-    print("datas build");
-    // print(datas);
     Widget childWidget;
     if (datas != null && datas.length != 0) {
       childWidget = ListView.builder(

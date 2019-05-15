@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
-import 'widgets/github_view.dart';
+import 'package:flutter_app_learn/widgets/github_view.dart';
 
 class HomeFragment extends StatefulWidget {
   @override
@@ -23,7 +23,9 @@ class _HomeFragmentState extends State<HomeFragment>
 
   @override
   void dispose() {
-    _tabController.dispose();
+    if (this.mounted) {
+      _tabController.dispose();
+    }
     super.dispose();
   }
 
@@ -34,12 +36,20 @@ class _HomeFragmentState extends State<HomeFragment>
     );
   }
 
+  List<Widget> _listChild() {
+    return [
+      Center(child: GithubView()),
+      Center(child: Text('GitLab')),
+      Center(child: Text('BitBucket')),
+    ];
+  }
+
   @override
   Widget build(BuildContext context) {
     super.build(context);
     return Scaffold(
       appBar: AppBar(
-        title: Text("Home"),
+        title: Text("Starred"),
         bottom: TabBar(
           tabs: <Widget>[
             _createTab(Icons.settings_ethernet),
@@ -51,11 +61,7 @@ class _HomeFragmentState extends State<HomeFragment>
       ),
       body: TabBarView(
         controller: _tabController,
-        children: <Widget>[
-          Center(child: GithubView()),
-          Center(child: Text('GitLab')),
-          Center(child: Text('BitBucket')),
-        ],
+        children: _listChild(),
       ),
     );
   }

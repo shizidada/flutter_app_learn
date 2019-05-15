@@ -19,17 +19,51 @@ class _DetailPageState extends State<DetailPage> {
   @override
   Widget build(BuildContext context) {
     GithubItem githubItem = widget?.githubItem;
-    String description = githubItem.description;
+    print(githubItem?.language);
 
     return Scaffold(
       appBar: new AppBar(
         title: new Text("Detail"),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[Text(description)],
-        ),
+      body: Card(
+        child: Container(
+          width: MediaQuery.of(context).size.width,
+            child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: <Widget>[
+            Container(
+              height: 40,
+              child: Text("id : " + githubItem?.id.toString()),
+            ),
+            Container(
+              height: 40,
+              child: Text("nodeId : " + githubItem?.nodeId),
+            ),
+            Container(
+              height: 40,
+              child: Text("name : " + githubItem?.name),
+            ),
+            Container(
+              height: 40,
+              child: Text("fullName : " + githubItem?.fullName),
+            ),
+            Container(
+              height: 40,
+              child: Text(githubItem.language == null
+                  ? "language: "
+                  : "language: " + githubItem?.language),
+            ),
+            Container(
+              height: 40,
+              child: Text("private : " + githubItem?.private.toString()),
+            ),
+            Container(
+              height: 40,
+              child: Text("描述 : " + githubItem?.description),
+            ),
+          ],
+        )),
       ),
     );
   }

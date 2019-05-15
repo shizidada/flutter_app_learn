@@ -1,23 +1,24 @@
+
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
-class ConstactFragment extends StatefulWidget {
+class FllowingFragment extends StatefulWidget {
   @override
-  State<StatefulWidget> createState() => _ConstactFragmentState();
+  State<StatefulWidget> createState() => _FllowingFragmentState();
 }
 
-class _ConstactFragmentState extends State<ConstactFragment> with AutomaticKeepAliveClientMixin {
+class _FllowingFragmentState extends State<FllowingFragment> with AutomaticKeepAliveClientMixin {
   @override
   Widget build(BuildContext context) {
     super.build(context);
     return Scaffold(
       appBar: AppBar(
-        title: Text("Constact"),
+        title: Text("Fllowing"),
       ),
       body: Column(
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
-          Text("This is the Constact page"),
+          Text("This is the Fllowing page"),
         ],
       ),
     );
