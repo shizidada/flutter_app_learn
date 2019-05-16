@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_app_learn/models/github/GitHubStarred.dart';
-import 'package:flutter_app_learn/models/github/GithubItem.dart';
+import 'package:flutter_app_learn/models/github/StarredItem.dart';
 import 'package:flutter_app_learn/pages/detail_page/detail.dart';
 import 'package:flutter_app_learn/service/GithubService.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -13,7 +13,7 @@ class GithubView extends StatefulWidget {
 
 class _GithubViewState extends State<GithubView>
     with AutomaticKeepAliveClientMixin {
-  List<GithubItem> datas = [];
+  List<StarredItem> datas = [];
 
 /*1、IndexedStack 存储页面
 IndexedStack(
@@ -91,7 +91,7 @@ IndexedStack(
   }
 
   _listTileClick(int index) {
-    GithubItem githubItem = datas[index];
+    StarredItem githubItem = datas[index];
     Navigator.push(
         context,
         MaterialPageRoute(

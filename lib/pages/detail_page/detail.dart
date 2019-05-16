@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app_learn/models/github/GithubItem.dart';
+import 'package:flutter_app_learn/models/github/StarredItem.dart';
 
 class DetailPage extends StatefulWidget {
   DetailPage({Key key, this.githubItem}) : super(key: key);
 
-  final GithubItem githubItem;
+  final StarredItem githubItem;
 
   @override
   State<StatefulWidget> createState() => _DetailPageState();
@@ -18,7 +18,7 @@ class _DetailPageState extends State<DetailPage> {
 
   @override
   Widget build(BuildContext context) {
-    GithubItem githubItem = widget?.githubItem;
+    StarredItem githubItem = widget?.githubItem;
     print(githubItem?.language);
 
     return Scaffold(

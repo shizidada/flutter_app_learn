@@ -1,4 +1,4 @@
-class GithubItem {
+class StarredItem {
   int id;
   String nodeId;
   String name;
@@ -7,7 +7,7 @@ class GithubItem {
   String description;
   String language;
 
-  GithubItem(
+  StarredItem(
       {this.id,
       this.nodeId,
       this.name,
@@ -16,8 +16,8 @@ class GithubItem {
       this.description,
       this.language});
 
-  factory GithubItem.fromJson(Map<String, dynamic> parsedJson) {
-    return GithubItem(
+  factory StarredItem.fromJson(Map<String, dynamic> parsedJson) {
+    return StarredItem(
       id: parsedJson["id"],
       nodeId: parsedJson["node_id"],
       name: parsedJson["name"],
