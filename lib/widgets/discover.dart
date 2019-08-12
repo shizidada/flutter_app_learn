@@ -10,6 +10,19 @@ class Discover extends StatefulWidget {
 
 class _DiscoverState extends State<Discover>
     with AutomaticKeepAliveClientMixin {
+  int _currentIndex = 0;
+
+  void _incrementHandle() {
+    int currentIndex = Provide.value<CurrentIndexProvide>(context).currentIndex;
+    currentIndex++;
+    Provide.value<CurrentIndexProvide>(context).changeIndex(currentIndex);
+
+    setState(() {
+      _currentIndex = currentIndex;
+    });
+    print(currentIndex);
+  }
+
   @override
   Widget build(BuildContext context) {
     super.build(context);
@@ -22,12 +35,9 @@ class _DiscoverState extends State<Discover>
         children: <Widget>[
           Text("This is the Discover page"),
           RaisedButton(
-            child: Text("dianji"),
+            child: Text("Counter $_currentIndex"),
             onPressed: () {
-              int currentIndex =
-                  Provide.value<CurrentIndexProvide>(context).currentIndex;
-              Provide.value<CurrentIndexProvide>(context).changeIndex(1);
-              print(currentIndex);
+              _incrementHandle();
             },
           )
         ],
