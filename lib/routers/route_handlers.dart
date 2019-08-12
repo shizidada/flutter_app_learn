@@ -1,38 +1,38 @@
 import 'package:flutter/material.dart';
 
 import 'package:fluro/fluro.dart';
-import 'package:flutter_app_learn/pages/home_page/home.dart';
+import 'package:flutter_app_learn/pages/home.dart';
 
-import 'package:flutter_app_learn/pages/login_page/login.dart';
-import 'package:flutter_app_learn/pages/register_page/register.dart';
-import 'package:flutter_app_learn/pages/web_view_page/WebViewPage.dart';
-import 'package:flutter_app_learn/pages/welcome_page/welcome.dart';
+import 'package:flutter_app_learn/pages/login.dart';
+import 'package:flutter_app_learn/pages/register.dart';
+import 'package:flutter_app_learn/pages/webview.dart';
+import 'package:flutter_app_learn/pages/welcome.dart';
 
 /* 主界面 */
-var rootHandler = new Handler(
+Handler rootHandler = new Handler(
   handlerFunc: (BuildContext context, Map<String, List<String>> params) {
     return new WelcomePage();
   },
 );
 
 // home 界面
-var homeHandler = new Handler(
+Handler homeHandler = new Handler(
   handlerFunc: (BuildContext context, Map<String, List<String>> params) {
     return new HomePage();
   },
 );
 
-var loginHander = Handler(
+Handler loginHander = Handler(
     handlerFunc: (BuildContext context, Map<String, List<String>> params) {
   return LoginPage();
 });
 
-var registerHander = Handler(
+Handler registerHander = Handler(
     handlerFunc: (BuildContext context, Map<String, List<String>> params) {
   return RegisterPage();
 });
 
-var webViewHander = Handler(
+Handler webViewHander = Handler(
     handlerFunc: (BuildContext context, Map<String, List<String>> params) {
   String title = params["title"]?.first;
   String url = params["url"]?.first;

@@ -1,17 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:flutter_app_learn/models/github/FloowingItem.dart';
-import 'package:flutter_app_learn/models/github/GithubFllowing.dart';
-import 'package:flutter_app_learn/pages/web_view_page/WebViewPage.dart';
+
+import 'package:flutter_app_learn/models/FloowingItem.dart';
+import 'package:flutter_app_learn/models/GithubFllowing.dart';
+
 import 'package:flutter_app_learn/service/GithubService.dart';
+
+import 'package:flutter_app_learn/pages/webview.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 
-class FllowingFragment extends StatefulWidget {
+class Fllowing extends StatefulWidget {
   @override
-  State<StatefulWidget> createState() => _FllowingFragmentState();
+  State<StatefulWidget> createState() => _FllowingState();
 }
 
-class _FllowingFragmentState extends State<FllowingFragment>
+class _FllowingState extends State<Fllowing>
     with AutomaticKeepAliveClientMixin {
   List<FloowingItem> fllowingItems;
   @override

@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:flutter_app_learn/models/github/GitHubStarred.dart';
-import 'package:flutter_app_learn/models/github/StarredItem.dart';
-import 'package:flutter_app_learn/pages/detail_page/detail.dart';
+import 'package:flutter_app_learn/models/GitHubStarred.dart';
+import 'package:flutter_app_learn/models/StarredItem.dart';
+
+import 'package:flutter_app_learn/pages/detail.dart';
 import 'package:flutter_app_learn/service/GithubService.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 
@@ -13,7 +14,7 @@ class GithubView extends StatefulWidget {
 
 class _GithubViewState extends State<GithubView>
     with AutomaticKeepAliveClientMixin {
-  List<StarredItem> datas = [];
+  List<StarredItem> _datas = [];
 
 /*1、IndexedStack 存储页面
 IndexedStack(
@@ -36,9 +37,9 @@ IndexedStack(
   }
 
   _loadData() {
-    if (datas.length == 0) {
+    if (_datas.length == 0) {
       getStarred().then((res) => setState(() {
-            datas = GitHubStarred.formJson(res.data).githubItem;
+            _datas = GitHubStarred.formJson(res.data).githubItem;
           }));
     }
   }
@@ -47,16 +48,16 @@ IndexedStack(
   Widget build(BuildContext context) {
     super.build(context);
     Widget childWidget;
-    if (datas != null && datas.length != 0) {
+    if (_datas != null && _datas.length != 0) {
       childWidget = ListView.builder(
-        itemCount: datas.length,
+        itemCount: _datas.length,
         itemBuilder: (contxt, index) {
           return Card(
             child: ListTile(
               leading: Icon(Icons.code),
               trailing: Icon(Icons.keyboard_arrow_right),
-              title: Text('${datas[index].fullName}'),
-              subtitle: Text('${datas[index].name}'),
+              title: Text('${_datas[index].fullName}'),
+              subtitle: Text('${_datas[index].name}'),
               onTap: () => _listTileClick(index),
               // isThreeLine: true,
             ),
@@ -91,7 +92,7 @@ IndexedStack(
   }
 
   _listTileClick(int index) {
-    StarredItem githubItem = datas[index];
+    StarredItem githubItem = _datas[index];
     Navigator.push(
         context,
         MaterialPageRoute(

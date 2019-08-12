@@ -1,18 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:flutter_app_learn/models/github/GithubUser.dart';
+import 'package:flutter_app_learn/models/GithubUser.dart';
 import 'package:flutter_app_learn/service/GithubService.dart';
 
-class UserFragment extends StatefulWidget {
+class User extends StatefulWidget {
   // MeFragment({Key key, this.globalKey}) : super(key: key);
   // final GlobalKey globalKey;
 
   @override
-  State<StatefulWidget> createState() => _UserFragmentState();
+  State<StatefulWidget> createState() => _UserState();
 }
 
-class _UserFragmentState extends State<UserFragment>
-    with AutomaticKeepAliveClientMixin {
+class _UserState extends State<User> with AutomaticKeepAliveClientMixin {
   GitHubUser user;
 
   @override

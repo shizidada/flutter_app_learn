@@ -1,45 +1,52 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
-import 'package:flutter_app_learn/fragments/discover_fragment/discover_fragment.dart';
-import 'package:flutter_app_learn/fragments/following_fragment/following_fragment.dart';
-import 'package:flutter_app_learn/fragments/home_fragment/home_fragment.dart';
-import 'package:flutter_app_learn/fragments/user_fragment/user_fragment.dart';
+import 'package:flutter_swiper/flutter_swiper.dart';
+
+import 'package:flutter_app_learn/widgets/discover.dart';
+import 'package:flutter_app_learn/widgets/following.dart';
+import 'package:flutter_app_learn/widgets/home.dart';
+import 'package:flutter_app_learn/widgets/user.dart';
 
 class HomePage extends StatefulWidget {
   @override
-  State<StatefulWidget> createState() => _MyHomePageState();
+  State<StatefulWidget> createState() => _HomePageState();
 }
 
-class _MyHomePageState extends State<HomePage>
+class _HomePageState extends State<HomePage>
     with SingleTickerProviderStateMixin {
-  TabController controller;
+  TabController _controller;
+  List<Widget> _tabs = [];
 
-  static List tabData = [
-    {'text': 'Starred', 'icon': Icon(Icons.home)},
-    {'text': 'Following', 'icon': Icon(Icons.supervisor_account)},
-    {'text': 'Discover', 'icon': Icon(Icons.pageview)},
-    {'text': 'User', 'icon': Icon(Icons.account_circle)}
+  static List _tabData = [
+    {'text': '首页', 'icon': Icon(Icons.home)},
+    {'text': '关注', 'icon': Icon(Icons.supervisor_account)},
+    {'text': '发现', 'icon': Icon(Icons.pageview)},
+    {'text': '我的', 'icon': Icon(Icons.account_circle)}
   ];
-
-  List<Widget> myTabs = [];
 
   @override
   void initState() {
     super.initState();
 
-    controller = TabController(
+    _controller = TabController(
         initialIndex: 0, vsync: this, length: 4); // 这里的length 决定有多少个底导 submenus
 
-    for (int i = 0; i < tabData.length; i++) {
-      myTabs.add(Tab(text: tabData[i]['text'], icon: tabData[i]['icon']));
+    for (int i = 0; i < _tabData.length; i++) {
+      _tabs.add(Tab(text: _tabData[i]['text'], icon: _tabData[i]['icon']));
     }
 
-    controller.addListener(() {
-      if (controller.indexIsChanging) {
+    _controller.addListener(() {
+      if (_controller.indexIsChanging) {
         _onTabChange();
       }
     });
+  }
+
+  void _onTabChange() {
+    if (this.mounted) {
+      this.setState(() {});
+    }
   }
 
   // @override
@@ -53,22 +60,19 @@ class _MyHomePageState extends State<HomePage>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: TabBarView(controller: controller, children: <Widget>[
-        HomeFragment(),
-        FllowingFragment(),
-        DiscoverFragment(),
-        UserFragment()
-      ]),
+      body: TabBarView(
+          controller: _controller,
+          children: <Widget>[Home(), Fllowing(), Discover(), User()]),
       bottomNavigationBar: Material(
         // color: const Color(0xFFF0EEEF), //底部导航栏主题颜色
         child: SafeArea(
           child: Container(
-            height: 65.0,
+            height: 60.0,
             decoration: BoxDecoration(
-              color: const Color(0xFFF0F0F0),
+              color: const Color(0xFFFFFFF),
               boxShadow: <BoxShadow>[
                 BoxShadow(
-                  color: const Color(0xFFd0d0d0),
+                  color: const Color(0xFFFFFFF),
                   blurRadius: 3.0,
                   spreadRadius: 2.0,
                   offset: Offset(-1.0, -1.0),
@@ -76,23 +80,17 @@ class _MyHomePageState extends State<HomePage>
               ],
             ),
             child: TabBar(
-                controller: controller,
+                controller: _controller,
                 indicatorColor: Theme.of(context).primaryColor,
                 //tab标签的下划线颜色
                 // labelColor: const Color(0xFF000000),
                 indicatorWeight: 0.1, // 设置显示下划线 高度
                 labelColor: Theme.of(context).primaryColor,
                 unselectedLabelColor: const Color(0xFF8E8E8E),
-                tabs: myTabs),
+                tabs: _tabs),
           ),
         ),
       ),
     );
-  }
-
-  void _onTabChange() {
-    if (this.mounted) {
-      this.setState(() {});
-    }
   }
 }

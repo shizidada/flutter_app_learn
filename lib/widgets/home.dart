@@ -3,12 +3,12 @@ import 'package:flutter/widgets.dart';
 
 import 'package:flutter_app_learn/widgets/github_view.dart';
 
-class HomeFragment extends StatefulWidget {
+class Home extends StatefulWidget {
   @override
-  State<StatefulWidget> createState() => _HomeFragmentState();
+  State<StatefulWidget> createState() => _HomeState();
 }
 
-class _HomeFragmentState extends State<HomeFragment>
+class _HomeState extends State<Home>
     with SingleTickerProviderStateMixin, AutomaticKeepAliveClientMixin {
   TabController _tabController;
 
