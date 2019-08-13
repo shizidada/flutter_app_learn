@@ -6,7 +6,7 @@ import 'package:flutter_app_learn/models/GithubFllowing.dart';
 
 import 'package:flutter_app_learn/service/GithubService.dart';
 
-import 'package:flutter_app_learn/pages/webview.dart';
+import 'package:flutter_app_learn/pages/webview_page.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 class Fllowing extends StatefulWidget {

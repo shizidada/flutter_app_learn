@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
-import 'package:flutter_swiper/flutter_swiper.dart';
+// import 'package:flutter_swiper/flutter_swiper.dart';
 
 import 'package:flutter_app_learn/widgets/discover.dart';
 import 'package:flutter_app_learn/widgets/following.dart';

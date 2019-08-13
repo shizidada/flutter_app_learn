@@ -4,8 +4,7 @@ import 'package:fluro/fluro.dart';
 import 'package:provide/provide.dart';
 import './provider/current_index_provide.dart';
 
-import 'package:flutter_app_learn/pages/home.dart';
-import 'package:flutter_app_learn/pages/welcome.dart';
+import 'package:flutter_app_learn/pages/index_page.dart';
 import 'package:flutter_app_learn/utils/share_util.dart';
 
 import 'routers/application.dart';
@@ -34,43 +33,30 @@ void main() async {
 }
 
 class FlutterLearnApp extends StatelessWidget {
-  FlutterLearnApp() {
-    final router = new Router();
-    Routes.configureRoutes(router);
-    Application.router = router;
-  }
-
-  showWelcomePage() {
-    bool showWelcome = sp.getBool("showWelcome");
-    print(showWelcome);
-    if (showWelcome == null || showWelcome == false) {
-      sp.putBool("showWelcome", true);
-      return WelcomePage();
-    } else {
-      return HomePage();
-    }
-  }
+  // showWelcomePage() {
+  //   bool showWelcome = sp.getBool("showWelcome");
+  //   print(showWelcome);
+  //   if (showWelcome == null || showWelcome == false) {
+  //     sp.putBool("showWelcome", true);
+  //     return WelcomePage();
+  //   } else {
+  //     return IndexPage();
+  //   }
+  // }
 
   @override
   Widget build(BuildContext context) {
-    var materialApp = MaterialApp(
-        title: 'Flutter Learn App',
-        theme: ThemeData(
-          primarySwatch: Colors.lightBlue,
-        ),
-        home: showWelcomePage(),
-        // home: WelcomePage(),
-        // Application.router.generator
-        onGenerateRoute: (RouteSettings routeSettings) {
-          RouteMatch match = Application.router.matchRoute(
-              null, routeSettings.name,
-              routeSettings: routeSettings,
-              transitionType: TransitionType.inFromRight);
-          return match.route;
-        });
-
-    // print("initialRoute");
-    // print(materialApp.initialRoute);
-    return materialApp;
+    final router = Router();
+    Routes.configureRoutes(router);
+    Application.router = router;
+    return Container(
+      child: MaterialApp(
+          title: 'Flutter Learn App',
+          theme: ThemeData(
+            primaryColor: Colors.red,
+          ),
+          home: IndexPage(),
+          onGenerateRoute: Application.router.generator),
+    );
   }
 }
