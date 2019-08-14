@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
-import 'package:flutter_app_learn/models/FloowingItem.dart';
-import 'package:flutter_app_learn/models/GithubFllowing.dart';
+import 'package:flutter_app_learn/models/floowing_item.dart';
+import 'package:flutter_app_learn/models/github_fllowing.dart';
 
-import 'package:flutter_app_learn/service/GithubService.dart';
+import 'package:flutter_app_learn/service/github_service.dart';
 
 import 'package:flutter_app_learn/pages/webview_page.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';

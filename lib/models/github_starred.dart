@@ -1,4 +1,4 @@
-import 'package:flutter_app_learn/models/StarredItem.dart';
+import 'package:flutter_app_learn/models/starred_item.dart';
 
 class GitHubStarred {
   final List<StarredItem> githubItem;
