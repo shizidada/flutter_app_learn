@@ -25,6 +25,12 @@ void main() async {
 }
 
 class FlutterLearnApp extends StatelessWidget {
+  FlutterLearnApp() {
+    final router = Router();
+    Routes.configureRoutes(router);
+    Application.router = router;
+  }
+
   // showWelcomePage() {
   //   bool showWelcome = sp.getBool("showWelcome");
   //   print(showWelcome);
@@ -38,9 +44,6 @@ class FlutterLearnApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final router = Router();
-    Routes.configureRoutes(router);
-    Application.router = router;
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(
