@@ -1,11 +1,9 @@
 import 'dart:async';
 
+import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
-
-// import "package:flutter_app_learn/views/home_page/home.dart";
-// import 'package:video_player/video_player.dart';
-// import 'package:chewie/chewie.dart';
+import 'package:flutter_app_learn/routers/application.dart';
 
 class WelcomePage extends StatefulWidget {
   @override
@@ -15,41 +13,30 @@ class WelcomePage extends StatefulWidget {
 class _WelcomePageState extends State<WelcomePage>
     with SingleTickerProviderStateMixin {
   bool _visible = true;
-
-  AnimationController animationController;
-  Animation<double> animation;
-
-  bool isFirst = false;
+  AnimationController _animationController;
+  Animation<double> _animation;
 
   startTime() async {
-    var _duration = new Duration(seconds: 3);
-    return new Timer(_duration, navigationPage);
+    var _duration = Duration(seconds: 3);
+    return Timer(_duration, navigationPage);
   }
 
   void navigationPage() {
-    // Navigator.of(context).pop();
-    // Navigator.push(context, MaterialPageRoute(builder: (context) => new HomePage(title: "Home")));
-    Navigator.pushNamedAndRemoveUntil(context, "home", (route) => route == null);
-    // Navigator.pushAndRemoveUntil(context,
-    //     new MaterialPageRoute(builder: (BuildContext context) {
-    //   return HomePage();
-    // }), (route) => route == null);
-
-
+    Application.router
+        .navigateTo(context, '/login', transition: TransitionType.fadeIn);
   }
 
   @override
   void initState() {
-    print("initState");
     super.initState();
 
-    animationController = new AnimationController(
-        vsync: this, duration: new Duration(seconds: 3));
-    animation = new CurvedAnimation(
-        parent: animationController, curve: Curves.fastOutSlowIn);
+    _animationController =
+        AnimationController(vsync: this, duration: Duration(seconds: 3));
+    _animation = CurvedAnimation(
+        parent: _animationController, curve: Curves.fastOutSlowIn);
 
-    animation.addListener(() => this.setState(() {}));
-    animationController.forward();
+    _animation.addListener(() => this.setState(() {}));
+    _animationController.forward();
 
     setState(() {
       _visible = !_visible;
@@ -59,31 +46,26 @@ class _WelcomePageState extends State<WelcomePage>
 
   @override
   void didChangeDependencies() {
-    print('didChangeDependencies');
     super.didChangeDependencies();
   }
 
   @override
   void didUpdateWidget(WelcomePage oldWidget) {
-    print('didUpdateWidget');
     super.didUpdateWidget(oldWidget);
   }
 
   @override
   void deactivate() {
-    print('deactivate');
     super.deactivate();
   }
 
   @override
   void dispose() {
-    print('dispose');
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    print("build");
     // print(playerController);
     return Scaffold(
       // 防止键盘弹出影响布局高度
@@ -91,26 +73,26 @@ class _WelcomePageState extends State<WelcomePage>
       body: Stack(
         fit: StackFit.expand,
         children: <Widget>[
-          new Column(
+          Column(
             mainAxisAlignment: MainAxisAlignment.end,
             mainAxisSize: MainAxisSize.min,
             children: <Widget>[
               Padding(
                   padding: EdgeInsets.only(bottom: 30.0),
-                  child: new Image.asset(
+                  child: Image.asset(
                     'assets/images/logo.png',
                     height: 25.0,
                     fit: BoxFit.scaleDown,
                   ))
             ],
           ),
-          new Column(
+          Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              new Image.asset(
+              Image.asset(
                 'assets/images/logo.png',
-                width: animation.value * 250,
-                height: animation.value * 250,
+                width: _animation.value * 400,
+                height: _animation.value * 250,
               ),
             ],
           ),
@@ -118,9 +100,4 @@ class _WelcomePageState extends State<WelcomePage>
       ),
     );
   }
-
-  // void _onEnterClick() {
-  //   Navigator.push(context,
-  //       MaterialPageRoute(builder: (context) => new HomePage(title: "Home")));
-  // }
 }

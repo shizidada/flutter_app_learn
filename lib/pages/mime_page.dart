@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
 
+/// 我
 class MimePage extends StatefulWidget {
   @override
   State<StatefulWidget> createState() => _MimePageState();
 }
 
 class _MimePageState extends State<MimePage>
-    with SingleTickerProviderStateMixin {
+    with SingleTickerProviderStateMixin, AutomaticKeepAliveClientMixin {
+  @override
+  bool get wantKeepAlive => true;
+
   @override
   void initState() {
     super.initState();

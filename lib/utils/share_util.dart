@@ -3,23 +3,23 @@ import 'dart:async';
 import 'package:shared_preferences/shared_preferences.dart';
 
 /// 用来做shared_preferences的存储
-class SpUtil {
-  static SpUtil _instance;
-  static Future<SpUtil> get instance async {
+class SharedUtil {
+  static SharedUtil _instance;
+  static Future<SharedUtil> get instance async {
     return await getInstance();
   }
 
   static SharedPreferences _spf;
 
-  SpUtil._();
+  SharedUtil._();
 
   Future _init() async {
     _spf = await SharedPreferences.getInstance();
   }
 
-  static Future<SpUtil> getInstance() async {
+  static Future<SharedUtil> getInstance() async {
     if (_instance == null) {
-      _instance = new SpUtil._();
+      _instance = new SharedUtil._();
       await _instance._init();
     }
     return _instance;

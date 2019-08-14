@@ -9,12 +9,7 @@ import 'package:flutter_app_learn/pages/camera_page.dart';
 import 'package:flutter_app_learn/pages/message_page.dart';
 import 'package:flutter_app_learn/pages/mime_page.dart';
 
-class IndexPage extends StatefulWidget {
-  @override
-  _IndexPageState createState() => _IndexPageState();
-}
-
-class _IndexPageState extends State<IndexPage> {
+class IndexPage extends StatelessWidget {
   final List<BottomNavigationBarItem> _items = [
     BottomNavigationBarItem(
         icon: Icon(Icons.home), title: Text(KString.homeTitle)),

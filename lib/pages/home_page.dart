@@ -4,14 +4,16 @@ import 'package:flutter_app_learn/provider/current_index_provide.dart';
 import 'package:flutter_app_learn/routers/application.dart';
 import 'package:provider/provider.dart';
 
+/// 主页
 class HomePage extends StatefulWidget {
   @override
   State<StatefulWidget> createState() => _HomePageState();
 }
 
 class _HomePageState extends State<HomePage>
-    with SingleTickerProviderStateMixin {
-  // int _currentIndex = 0;
+    with SingleTickerProviderStateMixin, AutomaticKeepAliveClientMixin {
+  @override
+  bool get wantKeepAlive => true;
 
   @override
   void initState() {
@@ -23,16 +25,6 @@ class _HomePageState extends State<HomePage>
     super.dispose();
   }
 
-  // void _incrementHandle() {
-  //   int currentIndex = Provide.value<CurrentIndexProvide>(context).currentIndex;
-  //   currentIndex++;
-  //   Provide.value<CurrentIndexProvide>(context).changeIndex(currentIndex);
-  //   setState(() {
-  //     _currentIndex = currentIndex;
-  //   });
-  //   print(currentIndex);
-  // }
-
   @override
   Widget build(BuildContext context) {
     int currentIndex = Provider.of<CurrentIndexProvide>(context).currentIndex;
@@ -42,12 +34,8 @@ class _HomePageState extends State<HomePage>
           RaisedButton(
             child: Text("detail"),
             onPressed: () {
-              // Application.router.navigateTo(context, "/detail",
-              //     transition: TransitionType.fadeIn);
-              currentIndex++;
-              Provider.of<CurrentIndexProvide>(context)
-                  .changeIndex(currentIndex);
-              // _incrementHandle();
+              Application.router.navigateTo(context, "/login",
+                  transition: TransitionType.inFromRight);
             },
           ),
           Text("$currentIndex")

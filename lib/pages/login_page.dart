@@ -8,17 +8,6 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  void _loginPage() {
-    Navigator.push(
-        context, new MaterialPageRoute(builder: (context) => new LoginPage()));
-  }
-
-  void _registerPage() {
-    Navigator.pushNamed(context, "register");
-    // Navigator.push(context,
-    //     new MaterialPageRoute(builder: (context) => new RegisterPage()));
-  }
-
   @override
   Widget build(BuildContext context) {
     print("build .... ");
@@ -27,11 +16,8 @@ class _LoginPageState extends State<LoginPage> {
     TextEditingController passwordController = TextEditingController();
 
     return Scaffold(
-      appBar: new AppBar(
-        title: new Text("Login"),
-      ),
       // 防止键盘弹出影响布局高度
-      resizeToAvoidBottomPadding: false,
+      resizeToAvoidBottomInset: false,
       body: Column(
         children: <Widget>[
           Expanded(
@@ -46,7 +32,6 @@ class _LoginPageState extends State<LoginPage> {
           ),
           Expanded(
             child: Container(
-//              color: Colors.green,
               padding: EdgeInsets.all(5.0),
               child: Column(
                 children: <Widget>[
@@ -57,9 +42,7 @@ class _LoginPageState extends State<LoginPage> {
                       decoration: InputDecoration(
                         contentPadding: EdgeInsets.all(10),
                         border: OutlineInputBorder(
-//                          gapPadding: 100,
-//                          borderRadius: BorderRadius.circular(10.0)
-                            ),
+                            borderRadius: BorderRadius.circular(10.0)),
                         labelText: "请输入账号",
 //                        helperText: "请输入账号"
                       ),
@@ -100,7 +83,7 @@ class _LoginPageState extends State<LoginPage> {
                   Row(
                     children: <Widget>[
                       OutlineButton(
-                        onPressed: () => _registerPage(),
+                        onPressed: () => {},
                         child: Text("Register"),
                       ),
                     ],
@@ -119,11 +102,11 @@ class _LoginPageState extends State<LoginPage> {
                 children: <Widget>[
                   RaisedButton(
 //                    color: Colors.blue,
-                    onPressed: () => _loginPage(),
+                    onPressed: () => {},
                     child: Text("RaisedButton"),
                   ),
                   OutlineButton(
-                    onPressed: () => _registerPage(),
+                    onPressed: () => {},
                     child: Text("OutlineButton"),
                   ),
                 ],

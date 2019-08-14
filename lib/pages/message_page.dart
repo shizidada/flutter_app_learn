@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
 
+/// 消息
 class MessagePage extends StatefulWidget {
   @override
   State<StatefulWidget> createState() => _MessagePageState();
 }
 
 class _MessagePageState extends State<MessagePage>
-    with SingleTickerProviderStateMixin {
+    with SingleTickerProviderStateMixin, AutomaticKeepAliveClientMixin {
+  @override
+  bool get wantKeepAlive => true;
+
   @override
   void initState() {
     super.initState();
