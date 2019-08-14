@@ -1,21 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_app_learn/provider/current_index_provide.dart';
-import 'package:provide/provide.dart';
+import 'package:provider/provider.dart';
 
-class Discover extends StatefulWidget {
+class DiscoverPage extends StatefulWidget {
   @override
-  State<StatefulWidget> createState() => _DiscoverState();
+  State<StatefulWidget> createState() => _DiscoverPageState();
 }
 
-class _DiscoverState extends State<Discover>
+class _DiscoverPageState extends State<DiscoverPage>
     with AutomaticKeepAliveClientMixin {
   int _currentIndex = 0;
 
   void _incrementHandle() {
-    int currentIndex = Provide.value<CurrentIndexProvide>(context).currentIndex;
+    int currentIndex = Provider.of<CurrentIndexProvide>(context).currentIndex;
     currentIndex++;
-    Provide.value<CurrentIndexProvide>(context).changeIndex(currentIndex);
+    Provider.of<CurrentIndexProvide>(context).changeIndex(currentIndex);
 
     setState(() {
       _currentIndex = currentIndex;
@@ -28,7 +28,7 @@ class _DiscoverState extends State<Discover>
     super.build(context);
     return Scaffold(
       appBar: AppBar(
-        title: Text("Discover"),
+        title: Text("DiscoverPage"),
       ),
       body: Column(
         mainAxisSize: MainAxisSize.min,

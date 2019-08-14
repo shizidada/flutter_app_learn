@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:provide/provide.dart';
+import 'package:provider/provider.dart';
 
 import 'package:flutter_app_learn/config/index.dart';
 import 'package:flutter_app_learn/provider/current_index_provide.dart';
@@ -38,8 +38,8 @@ class _IndexPageState extends State<IndexPage> {
 
   @override
   Widget build(BuildContext context) {
-    int currentIndex = Provide.value<CurrentIndexProvide>(context).currentIndex;
-    return Provide<CurrentIndexProvide>(
+    int currentIndex = Provider.of<CurrentIndexProvide>(context).currentIndex;
+    return Consumer<CurrentIndexProvide>(
       builder: (context, child, value) {
         return Scaffold(
           bottomNavigationBar: BottomNavigationBar(
@@ -47,7 +47,7 @@ class _IndexPageState extends State<IndexPage> {
             currentIndex: currentIndex,
             items: _items,
             onTap: (index) {
-              Provide.value<CurrentIndexProvide>(context).changeIndex(index);
+              Provider.of<CurrentIndexProvide>(context).changeIndex(index);
             },
           ),
           body: IndexedStack(

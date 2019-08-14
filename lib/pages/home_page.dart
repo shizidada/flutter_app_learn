@@ -2,7 +2,7 @@ import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app_learn/provider/current_index_provide.dart';
 import 'package:flutter_app_learn/routers/application.dart';
-import 'package:provide/provide.dart';
+import 'package:provider/provider.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -35,7 +35,7 @@ class _HomePageState extends State<HomePage>
 
   @override
   Widget build(BuildContext context) {
-    int currentIndex = Provide.value<CurrentIndexProvide>(context).currentIndex;
+    int currentIndex = Provider.of<CurrentIndexProvide>(context).currentIndex;
     return Center(
       child: Column(
         children: <Widget>[
@@ -45,7 +45,7 @@ class _HomePageState extends State<HomePage>
               // Application.router.navigateTo(context, "/detail",
               //     transition: TransitionType.fadeIn);
               currentIndex++;
-              Provide.value<CurrentIndexProvide>(context)
+              Provider.of<CurrentIndexProvide>(context)
                   .changeIndex(currentIndex);
               // _incrementHandle();
             },

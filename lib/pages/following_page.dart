@@ -9,12 +9,12 @@ import 'package:flutter_app_learn/service/GithubService.dart';
 import 'package:flutter_app_learn/pages/webview_page.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 
-class Fllowing extends StatefulWidget {
+class FllowingPage extends StatefulWidget {
   @override
-  State<StatefulWidget> createState() => _FllowingState();
+  State<StatefulWidget> createState() => _FllowingPageState();
 }
 
-class _FllowingState extends State<Fllowing>
+class _FllowingPageState extends State<FllowingPage>
     with AutomaticKeepAliveClientMixin {
   List<FloowingItem> fllowingItems;
   @override

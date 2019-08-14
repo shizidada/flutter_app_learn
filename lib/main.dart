@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fluro/fluro.dart';
 
-import 'package:provide/provide.dart';
+import 'package:provider/provider.dart';
 import './provider/current_index_provide.dart';
 
 import 'package:flutter_app_learn/pages/index_page.dart';
@@ -20,15 +20,7 @@ SpUtil sp;
 void main() async {
   sp = await SpUtil.getInstance();
 
-  var currentIndexProvide = CurrentIndexProvide();
-  var providers = Providers();
-
-  providers..provide(Provider<CurrentIndexProvide>.value(currentIndexProvide));
-
-  runApp(ProviderNode(
-    child: FlutterLearnApp(),
-    providers: providers,
-  ));
+  runApp(FlutterLearnApp());
   // FlutterLearnApp()
 }
 
@@ -49,14 +41,21 @@ class FlutterLearnApp extends StatelessWidget {
     final router = Router();
     Routes.configureRoutes(router);
     Application.router = router;
-    return Container(
-      child: MaterialApp(
-          title: 'Flutter Learn App',
-          theme: ThemeData(
-            primaryColor: Colors.red,
-          ),
-          home: IndexPage(),
-          onGenerateRoute: Application.router.generator),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+          builder: (context) => CurrentIndexProvide(),
+        )
+      ],
+      child: Container(
+        child: MaterialApp(
+            title: 'Flutter Learn App',
+            theme: ThemeData(
+              primaryColor: Colors.red,
+            ),
+            home: IndexPage(),
+            onGenerateRoute: Application.router.generator),
+      ),
     );
   }
 }
