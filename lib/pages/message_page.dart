@@ -23,6 +23,7 @@ class _MessagePageState extends State<MessagePage>
 
   @override
   Widget build(BuildContext context) {
+    super.build(context);
     return Center(
       child: Text("MessagePage"),
     );

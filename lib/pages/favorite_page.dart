@@ -23,6 +23,7 @@ class _FavoritePageState extends State<FavoritePage>
 
   @override
   Widget build(BuildContext context) {
+    super.build(context);
     return Center(
       child: Text("FavoritePage"),
     );

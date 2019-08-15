@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app_learn/config/colors.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 
 import 'package:flutter_app_learn/config/index.dart';
@@ -33,11 +35,15 @@ class IndexPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // ScreenUtil.instance = ScreenUtil(width: 750, height: 1334)..init(context);
+    ScreenUtil.instance = ScreenUtil.getInstance()..init(context);
+
     int currentIndex = Provider.of<CurrentIndexProvide>(context).currentIndex;
     return Consumer<CurrentIndexProvide>(
       builder: (context, child, value) {
         return Scaffold(
           bottomNavigationBar: BottomNavigationBar(
+            backgroundColor: KColors.transparentColor,
             type: BottomNavigationBarType.fixed,
             currentIndex: currentIndex,
             items: _items,

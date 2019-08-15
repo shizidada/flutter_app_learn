@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fluro/fluro.dart';
+import 'package:flutter_app_learn/config/colors.dart';
 
 import 'package:provider/provider.dart';
 import './provider/current_index_provide.dart';
@@ -32,9 +33,7 @@ class FlutterLearnApp extends StatelessWidget {
       child: Container(
         child: MaterialApp(
             title: 'Flutter Learn App',
-            theme: ThemeData(
-              primaryColor: Colors.red,
-            ),
+            theme: ThemeData(primaryColor: KColors.primaryColor),
             home: WelcomePage(),
             onGenerateRoute: Application.router.generator),
       ),

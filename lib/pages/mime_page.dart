@@ -23,6 +23,7 @@ class _MimePageState extends State<MimePage>
 
   @override
   Widget build(BuildContext context) {
+    super.build(context);
     return Center(
       child: Text("MimePage"),
     );

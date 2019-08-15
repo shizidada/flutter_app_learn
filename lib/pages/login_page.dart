@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app_learn/config/colors.dart';
+import 'package:flutter_app_learn/routers/application.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class LoginPage extends StatefulWidget {
   LoginPage({Key key}) : super(key: key);
@@ -12,10 +15,26 @@ class _LoginPageState extends State<LoginPage> {
   TextEditingController _passwordController = TextEditingController();
 
   login() {
-    String account = _accountController.text;
-    String password = _passwordController.text;
-
-    print(account + password);
+    String account = _accountController.text.trim();
+    if (account.isEmpty) {
+      Fluttertoast.showToast(
+          msg: '账号不能为空',
+          backgroundColor: KColors.primaryColor,
+          gravity: ToastGravity.CENTER);
+      return;
+    }
+    String password = _passwordController.text.trim();
+    if (password.isEmpty) {
+      Fluttertoast.showToast(
+          msg: '密码不能为空',
+          backgroundColor: KColors.primaryColor,
+          gravity: ToastGravity.CENTER);
+      return;
+    }
+    print('$account $password');
+    if (account == 'admin' && password == '123') {
+      Application.router.navigateTo(context, "/");
+    }
   }
 
   @override
@@ -42,10 +61,11 @@ class _LoginPageState extends State<LoginPage> {
                     child: TextField(
                       controller: _accountController,
                       decoration: InputDecoration(
+                        icon: Icon(Icons.person),
                         contentPadding: EdgeInsets.all(10),
                         border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(10.0)),
-                        labelText: "请输入账号",
+                        hintText: "请输入账号",
                       ),
                     ),
                   ),
@@ -56,9 +76,10 @@ class _LoginPageState extends State<LoginPage> {
                       keyboardType: TextInputType.number,
                       decoration: InputDecoration(
                         contentPadding: EdgeInsets.all(10),
+                        icon: Icon(Icons.lock),
                         border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(10.0)),
-                        labelText: "请输入密码",
+                        hintText: "请输入密码",
                       ),
                       obscureText: true,
                     ),
