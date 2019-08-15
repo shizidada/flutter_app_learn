@@ -1,5 +1,6 @@
 import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_app_learn/config/colors.dart';
 import 'package:flutter_app_learn/provider/current_index_provide.dart';
 import 'package:flutter_app_learn/routers/application.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
@@ -16,13 +17,49 @@ class _HomePageState extends State<HomePage>
   @override
   bool get wantKeepAlive => true;
 
+  TabController controller;
+  var tabs = <Tab>[
+    Tab(
+      text: "精选",
+    ),
+    Tab(
+      text: "爱看",
+    ),
+    Tab(
+      text: "电视剧",
+    ),
+    Tab(
+      text: "电影",
+    ),
+    Tab(
+      text: "综艺",
+    ),
+    Tab(
+      text: "少儿",
+    ),
+    Tab(
+      text: "动漫",
+    ),
+    Tab(
+      text: "NBA",
+    ),
+    Tab(
+      text: "纪录片",
+    ),
+  ];
+
   @override
   void initState() {
+    controller = TabController(
+      length: tabs.length,
+      vsync: this, //动画效果的异步处理，默认格式，背下来即可
+    );
     super.initState();
   }
 
   @override
   void dispose() {
+    controller.dispose();
     super.dispose();
   }
 
@@ -30,49 +67,40 @@ class _HomePageState extends State<HomePage>
   Widget build(BuildContext context) {
     super.build(context);
     int currentIndex = Provider.of<CurrentIndexProvide>(context).currentIndex;
-    return Column(children: <Widget>[
-      Container(
-          height: 250.0,
-          child: Swiper(
-            itemBuilder: (BuildContext context, int index) {
-              return Container(
-                color: Colors.cyan,
-                child: Image.network(
-                  "http://img.zcool.cn/community/01ed9c55499c160000019ae993c9a4.jpg@2o.jpg",
-                  fit: BoxFit.fitWidth,
-                ),
-              );
-            },
-            itemCount: 5,
-            scrollDirection: Axis.horizontal,
-            // loop: true,
-            duration: 300,
-            // autoplay: true,
-            onIndexChanged: (index) {
-              debugPrint("index:$index");
-            },
-            onTap: (index) {
-              debugPrint("点击了第:$index个");
-            },
-//                control:SwiperControl(),
-            pagination: SwiperPagination(
-                alignment: Alignment.bottomRight,
-                margin: EdgeInsets.only(bottom: 20.0, right: 20.0),
-                builder: SwiperPagination.fraction),
-//                autoplayDelay: 3000,
-            // autoplayDisableOnInteraction: true
-          ))
-    ]);
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+          title: TabBar(
+            tabs: tabs,
+            controller: controller,
+            //配置控制器
+            isScrollable: true,
+            indicatorColor: Color(0xffffffff),
+            indicator: null,
+            // indicatorWeight: 1,
+            // indicatorSize: TabBarIndicatorSize.tab,
+            // indicatorPadding: EdgeInsets.only(bottom: 25.0),
+            // labelPadding: EdgeInsets.only(left: 25.0),
+            labelColor: Color(0xffffffff),
+            labelStyle: TextStyle(
+              fontSize: 20.0,
+            ),
+            // unselectedLabelColor: Color(0xff333333),
+            unselectedLabelStyle: TextStyle(
+              fontSize: 18.0,
+            ),
+          ),
+        ),
+        body: TabBarView(
+            controller: controller, //配置控制器
+            children: tabs
+                .map((Tab tab) => Container(
+                      child: Center(
+                        child: Text(tab.text),
+                      ),
+                    ))
+                .toList()),
+      ),
+    );
   }
 }
-
-// children: <Widget>[
-//               RaisedButton(
-//                 child: Text("detail"),
-//                 onPressed: () {
-//                   Application.router.navigateTo(context, "/login",
-//                       transition: TransitionType.inFromRight);
-//                 },
-//               ),
-//               Text("$currentIndex")
-//             ]

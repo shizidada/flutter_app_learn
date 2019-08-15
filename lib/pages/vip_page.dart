@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
-/// 相机
-class CameraPage extends StatefulWidget {
+/// Vip
+class VipPage extends StatefulWidget {
   @override
-  State<StatefulWidget> createState() => _CameraPageState();
+  State<StatefulWidget> createState() => _VipPageState();
 }
 
-class _CameraPageState extends State<CameraPage>
+class _VipPageState extends State<VipPage>
     with SingleTickerProviderStateMixin, AutomaticKeepAliveClientMixin {
   @override
   void initState() {
@@ -22,7 +22,7 @@ class _CameraPageState extends State<CameraPage>
   Widget build(BuildContext context) {
     super.build(context);
     return Center(
-      child: Text("CameraPage"),
+      child: Text("VipPage"),
     );
   }
 
