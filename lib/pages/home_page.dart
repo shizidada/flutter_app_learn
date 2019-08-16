@@ -1,10 +1,11 @@
-import 'package:fluro/fluro.dart';
+// import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_app_learn/config/colors.dart';
-import 'package:flutter_app_learn/provider/current_index_provide.dart';
-import 'package:flutter_app_learn/routers/application.dart';
-import 'package:flutter_swiper/flutter_swiper.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter_app_learn/widgets/home_page_content.dart';
+// import 'package:flutter_app_learn/config/colors.dart';
+// import 'package:flutter_app_learn/provider/current_index_provide.dart';
+// import 'package:flutter_app_learn/routers/application.dart';
+// import 'package:flutter_swiper/flutter_swiper.dart';
+// import 'package:provider/provider.dart';
 
 /// 主页
 class HomePage extends StatefulWidget {
@@ -17,8 +18,8 @@ class _HomePageState extends State<HomePage>
   @override
   bool get wantKeepAlive => true;
 
-  TabController controller;
-  var tabs = <Tab>[
+  TabController _controller;
+  var _appBarTabs = <Tab>[
     Tab(
       text: "精选",
     ),
@@ -50,54 +51,44 @@ class _HomePageState extends State<HomePage>
 
   @override
   void initState() {
-    controller = TabController(
-      length: tabs.length,
+    super.initState();
+    _controller = TabController(
+      length: _appBarTabs.length,
       vsync: this, //动画效果的异步处理，默认格式，背下来即可
     );
-    super.initState();
   }
 
   @override
   void dispose() {
-    controller.dispose();
+    _controller.dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
     super.build(context);
-    int currentIndex = Provider.of<CurrentIndexProvide>(context).currentIndex;
+    // int currentIndex = Provider.of<CurrentIndexProvide>(context).currentIndex;
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
           title: TabBar(
-            tabs: tabs,
-            controller: controller,
+            tabs: _appBarTabs,
+            controller: _controller,
             //配置控制器
             isScrollable: true,
-            indicatorColor: Color(0xffffffff),
-            indicator: null,
-            // indicatorWeight: 1,
-            // indicatorSize: TabBarIndicatorSize.tab,
-            // indicatorPadding: EdgeInsets.only(bottom: 25.0),
-            // labelPadding: EdgeInsets.only(left: 25.0),
-            labelColor: Color(0xffffffff),
-            labelStyle: TextStyle(
-              fontSize: 20.0,
-            ),
-            // unselectedLabelColor: Color(0xff333333),
+            indicatorColor: Colors.transparent,
+            labelStyle: TextStyle(fontSize: 22.0),
+            unselectedLabelColor: Color(0xff333333),
             unselectedLabelStyle: TextStyle(
               fontSize: 18.0,
             ),
           ),
         ),
         body: TabBarView(
-            controller: controller, //配置控制器
-            children: tabs
+            controller: _controller, //配置控制器
+            children: _appBarTabs
                 .map((Tab tab) => Container(
-                      child: Center(
-                        child: Text(tab.text),
-                      ),
+                      child: HomePageContent(title: tab.text),
                     ))
                 .toList()),
       ),

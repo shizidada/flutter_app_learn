@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app_learn/config/colors.dart';
+import 'package:flutter_app_learn/config/index.dart';
 import 'package:flutter_app_learn/routers/application.dart';
+import 'package:flutter_app_learn/utils/share_util.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
 class LoginPage extends StatefulWidget {
@@ -34,6 +36,7 @@ class _LoginPageState extends State<LoginPage> {
     print('$account $password');
     if (account == 'admin' && password == '123') {
       Application.router.navigateTo(context, "/");
+      SharedUtil.putBool(KString.isLogin, true);
     }
   }
 

@@ -4,111 +4,79 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 /// 用来做shared_preferences的存储
 class SharedUtil {
-  static SharedUtil _instance;
-  static Future<SharedUtil> get instance async {
-    return await getInstance();
-  }
-
-  static SharedPreferences _spf;
-
-  SharedUtil._();
-
-  Future _init() async {
-    _spf = await SharedPreferences.getInstance();
-  }
-
-  static Future<SharedUtil> getInstance() async {
-    if (_instance == null) {
-      _instance = new SharedUtil._();
-      await _instance._init();
-    }
-    return _instance;
-  }
-
-  static bool _beforeCheck() {
-    if (_spf == null) {
-      return true;
-    }
-    return false;
-  }
-
   // 判断是否存在数据
-  bool hasKey(String key) {
+  static hasKey(String key) async {
     Set keys = getKeys();
     return keys.contains(key);
   }
 
-  Set<String> getKeys() {
-    if (_beforeCheck()) return null;
-    return _spf.getKeys();
+  static getKeys() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    return prefs.getKeys();
   }
 
-  get(String key) {
-    if (_beforeCheck()) return null;
-    return _spf.get(key);
+  static getString(String key) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    return prefs.getString(key);
   }
 
-  getString(String key) {
-    if (_beforeCheck()) return null;
-    return _spf.getString(key);
+  static Future<bool> putString(String key, String value) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    return prefs.setString(key, value);
   }
 
-  Future<bool> putString(String key, String value) {
-    if (_beforeCheck()) return null;
-    return _spf.setString(key, value);
+  static Future<bool> getBool(String key) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    return prefs.getBool(key) ?? false;
   }
 
-  bool getBool(String key) {
-    if (_beforeCheck()) return null;
-    return _spf.getBool(key);
+  static Future<bool> putBool(String key, bool value) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    return prefs.setBool(key, value ?? false);
   }
 
-  Future<bool> putBool(String key, bool value) {
-    if (_beforeCheck()) return null;
-    return _spf.setBool(key, value);
+  static Future<int> getInt(String key) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    return prefs.getInt(key);
   }
 
-  int getInt(String key) {
-    if (_beforeCheck()) return null;
-    return _spf.getInt(key);
+  static Future<bool> putInt(String key, int value) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    return prefs.setInt(key, value);
   }
 
-  Future<bool> putInt(String key, int value) {
-    if (_beforeCheck()) return null;
-    return _spf.setInt(key, value);
+  static Future<double> getDouble(String key) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    return prefs.getDouble(key);
   }
 
-  double getDouble(String key) {
-    if (_beforeCheck()) return null;
-    return _spf.getDouble(key);
+  static Future<bool> putDouble(String key, double value) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    return prefs.setDouble(key, value);
   }
 
-  Future<bool> putDouble(String key, double value) {
-    if (_beforeCheck()) return null;
-    return _spf.setDouble(key, value);
+  static Future<List<String>> getStringList(String key) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    return prefs.getStringList(key);
   }
 
-  List<String> getStringList(String key) {
-    return _spf.getStringList(key);
+  static Future<bool> putStringList(String key, List<String> value) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    return prefs.setStringList(key, value);
   }
 
-  Future<bool> putStringList(String key, List<String> value) {
-    if (_beforeCheck()) return null;
-    return _spf.setStringList(key, value);
+  dynamic getDynamic(String key) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    return prefs.get(key);
   }
 
-  dynamic getDynamic(String key) {
-    if (_beforeCheck()) return null;
-    return _spf.get(key);
+  static Future<bool> remove(String key) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    return prefs.remove(key);
   }
 
-  Future<bool> remove(String key) {
-    if (_beforeCheck()) return null;
-    return _spf.remove(key);
-  }
-
-  Future<bool> clear() {
-    if (_beforeCheck()) return null;
-    return _spf.clear();
+  static Future<bool> clear() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    return prefs.clear();
   }
 }

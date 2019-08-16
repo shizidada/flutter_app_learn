@@ -3,7 +3,9 @@ import 'dart:async';
 import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_app_learn/config/index.dart';
 import 'package:flutter_app_learn/routers/application.dart';
+import 'package:flutter_app_learn/utils/share_util.dart';
 
 class WelcomePage extends StatefulWidget {
   @override
@@ -17,13 +19,15 @@ class _WelcomePageState extends State<WelcomePage>
   Animation<double> _animation;
 
   startTime() async {
-    var _duration = Duration(seconds: 3);
+    var _duration = Duration(seconds: 2);
     return Timer(_duration, navigationPage);
   }
 
-  void navigationPage() {
-    Application.router
-        .navigateTo(context, '/login', transition: TransitionType.fadeIn);
+  void navigationPage() async {
+    bool isLogin = await SharedUtil.getBool(KString.isLogin);
+    Application.router.navigateTo(context, isLogin ? '/' : '/login',
+        transition: TransitionType.fadeIn,
+        transitionDuration: Duration(seconds: 1));
   }
 
   @override
@@ -70,6 +74,7 @@ class _WelcomePageState extends State<WelcomePage>
     return Scaffold(
       // 防止键盘弹出影响布局高度
       resizeToAvoidBottomPadding: false,
+      // backgroundColor: Colors.grey,
       body: Stack(
         fit: StackFit.expand,
         children: <Widget>[
@@ -80,7 +85,7 @@ class _WelcomePageState extends State<WelcomePage>
               Padding(
                   padding: EdgeInsets.only(bottom: 30.0),
                   child: Image.asset(
-                    'assets/images/logo.png',
+                    'assets/images/splash_logo.jpeg',
                     height: 25.0,
                     fit: BoxFit.scaleDown,
                   ))
@@ -90,9 +95,9 @@ class _WelcomePageState extends State<WelcomePage>
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Image.asset(
-                'assets/images/logo.png',
-                width: _animation.value * 400,
-                height: _animation.value * 250,
+                'assets/images/splash_logo.jpeg',
+                width: _animation.value * 600,
+                height: _animation.value * 300,
               ),
             ],
           ),

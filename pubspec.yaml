@@ -60,9 +60,13 @@ flutter:
   #  - images/a_dot_ham.jpeg
 
   assets:
-    - assets/videos/wanshifu.mp4
-    - assets/videos/aeologic_logo.mp4
-    - assets/images/logo.png
+    # - assets/videos/wanshifu.mp4
+    # - assets/videos/aeologic_logo.mp4
+    - assets/images/1.jpeg
+    - assets/images/2.jpeg
+    - assets/images/3.jpeg
+    - assets/images/4.jpeg
+    - assets/images/splash_logo.jpeg
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
   # For details regarding adding assets from package dependencies, see

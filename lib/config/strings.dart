@@ -4,4 +4,8 @@ class KString {
   static final String messageTitle = "消息";
   static final String vipTitle = "Vip会员";
   static final String mimeTitle = "我";
+
+  static final List<String> tabs = [];
+
+  static final String isLogin = "is_login";
 }
