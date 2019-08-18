@@ -8,4 +8,10 @@ class KString {
   static final List<String> tabs = [];
 
   static final String isLogin = "is_login";
+
+  static final String accountHintText = '请输入账号';
+  static final String passwordHintText = '请输入密码';
+  static final String accountEmpty = '账号不能为空';
+  static final String passwordEmpty = '密码不能为空';
+  static final String accountPasswordError = '账号或密码错误';
 }

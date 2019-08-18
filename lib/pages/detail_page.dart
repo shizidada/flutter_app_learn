@@ -1,6 +1,12 @@
 import 'package:flutter/material.dart';
 
 class DetailPage extends StatefulWidget {
+  DetailPage({Key key, this.id, this.title, this.name}) : super(key: key);
+
+  final int id;
+  final String title;
+  final String name;
+
   @override
   State<StatefulWidget> createState() => _DetailPageState();
 }
@@ -9,6 +15,8 @@ class _DetailPageState extends State<DetailPage> {
   @override
   void initState() {
     super.initState();
+    // DataItem _dataItem = DataItem.fromJson(widget.item);
+    // print(_dataItem);
   }
 
   @override
@@ -17,15 +25,16 @@ class _DetailPageState extends State<DetailPage> {
       appBar: new AppBar(
         title: new Text("Detail"),
       ),
-      body: Card(
-        child: Container(
-            width: MediaQuery.of(context).size.width,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: <Widget>[Text("data")],
-            )),
-      ),
+      body: Container(
+          width: MediaQuery.of(context).size.width,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: <Widget>[
+              Text('name :: ${widget.name}'),
+              Text('id :: ${widget.id.toString()}'),
+              Text('title :: ${widget.title}'),
+            ],
+          )),
     );
   }
 }

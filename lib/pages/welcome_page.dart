@@ -1,10 +1,9 @@
 import 'dart:async';
 
-import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_app_learn/config/index.dart';
-import 'package:flutter_app_learn/routers/application.dart';
+import 'package:flutter_app_learn/utils/navigate_util.dart';
 import 'package:flutter_app_learn/utils/share_util.dart';
 
 class WelcomePage extends StatefulWidget {
@@ -25,9 +24,7 @@ class _WelcomePageState extends State<WelcomePage>
 
   void navigationPage() async {
     bool isLogin = await SharedUtil.getBool(KString.isLogin);
-    Application.router.navigateTo(context, isLogin ? '/' : '/login',
-        transition: TransitionType.fadeIn,
-        transitionDuration: Duration(seconds: 1));
+    NavigatorUtil.pushFadeInReplace(context, isLogin ? '/' : '/login');
   }
 
   @override

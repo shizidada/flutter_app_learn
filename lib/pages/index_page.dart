@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app_learn/config/colors.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 
@@ -43,7 +42,10 @@ class IndexPage extends StatelessWidget {
       builder: (context, child, value) {
         return Scaffold(
           bottomNavigationBar: BottomNavigationBar(
-            backgroundColor: KColors.transparentColor,
+            backgroundColor: KColors.bottomNavigationBarColor,
+
+            // selectedItemColor: Colors.red,
+            // unselectedItemColor: ,
             type: BottomNavigationBarType.fixed,
             currentIndex: currentIndex,
             items: _items,

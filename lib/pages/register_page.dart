@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app_learn/config/index.dart';
 
 class RegisterPage extends StatefulWidget {
   @override
@@ -6,19 +7,16 @@ class RegisterPage extends StatefulWidget {
 }
 
 class _RegisterPageState extends State<RegisterPage> {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: new AppBar(
-        title: new Text("Register"),
+        title: new Text(Titles.registerTitle),
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text("Register Page ...")
-          ],
+          children: <Widget>[Text("Register Page ...")],
         ),
       ),
     );

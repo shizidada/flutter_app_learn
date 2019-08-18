@@ -1,10 +1,7 @@
-// import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_app_learn/config/colors.dart';
 import 'package:flutter_app_learn/widgets/home_page_content.dart';
-// import 'package:flutter_app_learn/config/colors.dart';
 // import 'package:flutter_app_learn/provider/current_index_provide.dart';
-// import 'package:flutter_app_learn/routers/application.dart';
-// import 'package:flutter_swiper/flutter_swiper.dart';
 // import 'package:provider/provider.dart';
 
 /// 主页
@@ -54,7 +51,7 @@ class _HomePageState extends State<HomePage>
     super.initState();
     _controller = TabController(
       length: _appBarTabs.length,
-      vsync: this, //动画效果的异步处理，默认格式，背下来即可
+      vsync: this, // 动画效果的异步处理，默认格式
     );
   }
 
@@ -68,30 +65,33 @@ class _HomePageState extends State<HomePage>
   Widget build(BuildContext context) {
     super.build(context);
     // int currentIndex = Provider.of<CurrentIndexProvide>(context).currentIndex;
-    return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          title: TabBar(
-            tabs: _appBarTabs,
-            controller: _controller,
-            //配置控制器
-            isScrollable: true,
-            indicatorColor: Colors.transparent,
-            labelStyle: TextStyle(fontSize: 22.0),
-            unselectedLabelColor: Color(0xff333333),
-            unselectedLabelStyle: TextStyle(
-              fontSize: 18.0,
-            ),
+    return Scaffold(
+      appBar: AppBar(
+        iconTheme: IconThemeData(color: Colors.white),
+        elevation: 0.0,
+        title: TabBar(
+          tabs: _appBarTabs,
+          controller: _controller,
+          // 配置控制器
+          isScrollable: true,
+          indicatorColor: Colors.transparent,
+          labelStyle: TextStyle(fontSize: 22.0),
+          unselectedLabelColor: KColors.de,
+          unselectedLabelStyle: TextStyle(
+            fontSize: 18.0,
           ),
         ),
-        body: TabBarView(
-            controller: _controller, //配置控制器
-            children: _appBarTabs
-                .map((Tab tab) => Container(
-                      child: HomePageContent(title: tab.text),
-                    ))
-                .toList()),
       ),
+      body: TabBarView(
+          controller: _controller, //配置控制器
+          children: _appBarTabs
+              .map((Tab tab) => Container(
+                    child: HomePageContent(
+                      parentContext: context,
+                      title: tab.text,
+                    ),
+                  ))
+              .toList()),
     );
   }
 }

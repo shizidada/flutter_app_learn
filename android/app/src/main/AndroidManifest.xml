@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.flutter_app_learn">
+    package="org.moose.flutter_app_learn">
 
 
     <uses-permission android:name="android.permission.INTERNET"/>
@@ -11,7 +11,7 @@
          FlutterApplication and put your custom class here. -->
     <application
         android:name="io.flutter.app.FlutterApplication"
-        android:label="flutter_app_learn"
+        android:label="Moose"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"
