@@ -13,48 +13,45 @@ import 'package:flutter_app_learn/pages/mime_page.dart';
 class IndexPage extends StatelessWidget {
   final List<BottomNavigationBarItem> _items = [
     BottomNavigationBarItem(
-        icon: Icon(Icons.tag_faces), title: Text(KString.homeTitle)),
+        icon: Icon(Icons.tag_faces), title: Text(MStrings.homeTitle)),
     BottomNavigationBarItem(
-        icon: Icon(Icons.favorite), title: Text(KString.favoriteTitle)),
+        icon: Icon(Icons.favorite), title: Text(MStrings.favoriteTitle)),
     BottomNavigationBarItem(
-        icon: Icon(Icons.voice_chat), title: Text(KString.vipTitle)),
+        icon: Icon(Icons.message), title: Text(MStrings.messageTitle)),
     BottomNavigationBarItem(
-        icon: Icon(Icons.message), title: Text(KString.messageTitle)),
+        icon: Icon(Icons.voice_chat), title: Text(MStrings.vipTitle)),
     BottomNavigationBarItem(
-        icon: Icon(Icons.person), title: Text(KString.mimeTitle)),
+        icon: Icon(Icons.person), title: Text(MStrings.mimeTitle)),
   ];
 
   final List<Widget> _bodies = [
     HomePage(),
     FavoritePage(),
-    VipPage(),
     MessagePage(),
+    VipPage(),
     MimePage()
   ];
 
   @override
   Widget build(BuildContext context) {
-    // ScreenUtil.instance = ScreenUtil(width: 750, height: 1334)..init(context);
-    ScreenUtil.instance = ScreenUtil.getInstance()..init(context);
-
-    int currentIndex = Provider.of<CurrentIndexProvide>(context).currentIndex;
-    return Consumer<CurrentIndexProvide>(
+    ScreenUtil.instance = ScreenUtil(width: 750, height: 1334)..init(context);
+    CurrentIndexProvider provider = Provider.of<CurrentIndexProvider>(context);
+    return Consumer<CurrentIndexProvider>(
       builder: (context, child, value) {
         return Scaffold(
           bottomNavigationBar: BottomNavigationBar(
-            backgroundColor: KColors.bottomNavigationBarColor,
-
-            // selectedItemColor: Colors.red,
-            // unselectedItemColor: ,
+            backgroundColor: Colors.black,
+            selectedItemColor: Colors.white,
+            unselectedItemColor: Colors.grey[600],
             type: BottomNavigationBarType.fixed,
-            currentIndex: currentIndex,
+            currentIndex: provider.currentIndex,
             items: _items,
             onTap: (index) {
-              Provider.of<CurrentIndexProvide>(context).changeIndex(index);
+              provider.changeIndex(index);
             },
           ),
           body: IndexedStack(
-            index: currentIndex,
+            index: provider.currentIndex,
             children: _bodies,
           ),
         );

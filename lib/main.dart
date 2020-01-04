@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:fluro/fluro.dart';
 import 'package:flutter_app_learn/config/index.dart';
-import 'package:flutter_i18n/flutter_i18n_delegate.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
 
 import 'package:provider/provider.dart';
-import './provider/current_index_provide.dart';
+import 'provider/current_index_provide.dart';
 
 import 'package:flutter_app_learn/pages/welcome_page.dart';
 
@@ -29,25 +27,23 @@ class FlutterLearnApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(
-          builder: (context) => CurrentIndexProvide(),
+          create: (context) => CurrentIndexProvider(),
         )
       ],
-      child: Container(
-        child: MaterialApp(
-          title: 'Flutter Learn App',
-          theme: ThemeData(primaryColor: KColors.primaryColor),
-          home: WelcomePage(),
-          onGenerateRoute: Application.router.generator,
-          localizationsDelegates: [
-            // 国际化
-            FlutterI18nDelegate(
-                useCountryCode: true,
-                fallbackFile: 'zh_CN',
-                path: 'assets/locale'),
-            GlobalMaterialLocalizations.delegate,
-            GlobalWidgetsLocalizations.delegate
-          ],
-        ),
+      child: MaterialApp(
+        title: 'Moose',
+        theme: ThemeData(primaryColor: MColors.primaryColor),
+        home: WelcomePage(),
+        onGenerateRoute: Application.router.generator,
+        // localizationsDelegates: [
+        //   // 国际化
+        //   FlutterI18nDelegate(
+        //       useCountryCode: true,
+        //       fallbackFile: 'zh_CN',
+        //       path: 'assets/locale'),
+        //   GlobalMaterialLocalizations.delegate,
+        //   GlobalWidgetsLocalizations.delegate
+        // ],
       ),
     );
   }

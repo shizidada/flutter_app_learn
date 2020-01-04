@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 /// 列表项
 class ListItem extends StatefulWidget {
@@ -11,6 +12,7 @@ class ListItem extends StatefulWidget {
   final Color titleColor;
   // 描述
   final String describe;
+
   final Color describeColor;
   // 右侧控件
   final Widget rightWidget;
@@ -34,6 +36,7 @@ class ListItem extends StatefulWidget {
 class _ListItemState extends State<ListItem> {
   @override
   Widget build(BuildContext context) {
+    ScreenUtil.instance = ScreenUtil(width: 750, height: 1334)..init(context);
     return FlatButton(
       onPressed: widget.onPressed,
       padding: EdgeInsets.all(0.0),
@@ -43,21 +46,22 @@ class _ListItemState extends State<ListItem> {
         style: BorderStyle.none,
       ),
       child: Container(
-          height: 60.0,
-          width: double.infinity,
+          height: ScreenUtil.getInstance().setHeight(60.0),
+          width: ScreenUtil.screenWidth,
           child: Row(
             children: <Widget>[
               widget.icon != null
                   ? Container(
-                      padding: EdgeInsets.all(14.0),
+                      padding: EdgeInsets.all(
+                          ScreenUtil.getInstance().setWidth(14.0)),
                       child: SizedBox(
-                        height: 32.0,
-                        width: 32.0,
+                        height: ScreenUtil.getInstance().setHeight(64.0),
+                        width: ScreenUtil.getInstance().setWidth(64.0),
                         child: widget.icon,
                       ),
                     )
                   : Container(
-                      width: 14.0,
+                      width: ScreenUtil.getInstance().setWidth(14.0),
                     ),
               Expanded(
                 flex: 1,
@@ -70,7 +74,7 @@ class _ListItemState extends State<ListItem> {
                             widget.title,
                             style: TextStyle(
                               color: widget.titleColor,
-                              fontSize: 14.0,
+                              fontSize: ScreenUtil.getInstance().setSp(32.0),
                               fontWeight: FontWeight.bold,
                             ),
                           )
@@ -80,7 +84,9 @@ class _ListItemState extends State<ListItem> {
                             widget.describe,
                             maxLines: 2,
                             style: TextStyle(
-                                color: widget.describeColor, fontSize: 12.0),
+                              color: widget.describeColor,
+                              fontSize: ScreenUtil.getInstance().setSp(28.0),
+                            ),
                           )
                         : Container(),
                   ],
@@ -88,7 +94,7 @@ class _ListItemState extends State<ListItem> {
               ),
               widget.rightWidget == null ? Container() : widget.rightWidget,
               Container(
-                width: 14.0,
+                width: ScreenUtil.getInstance().setWidth(28.0),
               ),
             ],
           )),

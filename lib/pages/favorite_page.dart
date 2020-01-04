@@ -24,7 +24,7 @@ class _FavoritePageState<BasePage> extends BasePageState
   }
 
   @override
-  Widget buildBody() {
+  Widget buildBody(context) {
     return Container(
       child: Center(
         child: RaisedButton(

@@ -5,6 +5,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_app_learn/config/index.dart';
 import 'package:flutter_app_learn/utils/navigate_util.dart';
 import 'package:flutter_app_learn/utils/share_util.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class WelcomePage extends StatefulWidget {
   @override
@@ -23,7 +24,7 @@ class _WelcomePageState extends State<WelcomePage>
   }
 
   void navigationPage() async {
-    bool isLogin = await SharedUtil.getBool(KString.isLogin);
+    bool isLogin = await SharedUtil.getBool(MStrings.isLogin);
     NavigatorUtil.pushFadeInReplace(context, isLogin ? '/' : '/login');
   }
 
@@ -32,7 +33,7 @@ class _WelcomePageState extends State<WelcomePage>
     super.initState();
 
     _animationController =
-        AnimationController(vsync: this, duration: Duration(seconds: 3));
+        AnimationController(vsync: this, duration: Duration(seconds: 2));
     _animation = CurvedAnimation(
         parent: _animationController, curve: Curves.fastOutSlowIn);
 
@@ -67,7 +68,8 @@ class _WelcomePageState extends State<WelcomePage>
 
   @override
   Widget build(BuildContext context) {
-    // print(playerController);
+    ScreenUtil.instance = ScreenUtil(width: 750, height: 1334)..init(context);
+
     return Scaffold(
       // 防止键盘弹出影响布局高度
       resizeToAvoidBottomPadding: false,
@@ -80,12 +82,17 @@ class _WelcomePageState extends State<WelcomePage>
             mainAxisSize: MainAxisSize.min,
             children: <Widget>[
               Padding(
-                  padding: EdgeInsets.only(bottom: 30.0),
+                  padding: EdgeInsets.only(
+                      bottom: ScreenUtil.getInstance().setHeight(25.0)),
                   child: Image.asset(
                     'assets/images/splash_logo.jpeg',
-                    height: 25.0,
-                    fit: BoxFit.scaleDown,
-                  ))
+                    width: ScreenUtil.getInstance().setWidth(100.0),
+                    fit: BoxFit.cover,
+                  )),
+              Padding(
+                  padding: EdgeInsets.only(
+                      bottom: ScreenUtil.getInstance().setHeight(60.0)),
+                  child: Text('Moose App'))
             ],
           ),
           Column(

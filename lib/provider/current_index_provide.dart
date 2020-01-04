@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class CurrentIndexProvide with ChangeNotifier {
+class CurrentIndexProvider with ChangeNotifier {
   int currentIndex = 0;
 
   changeIndex(int index) {

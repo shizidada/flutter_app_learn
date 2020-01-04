@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app_learn/config/colors.dart';
 import 'package:flutter_app_learn/widgets/home_page_content.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 // import 'package:flutter_app_learn/provider/current_index_provide.dart';
 // import 'package:provider/provider.dart';
 
@@ -64,7 +65,7 @@ class _HomePageState extends State<HomePage>
   @override
   Widget build(BuildContext context) {
     super.build(context);
-    // int currentIndex = Provider.of<CurrentIndexProvide>(context).currentIndex;
+    ScreenUtil.instance = ScreenUtil(width: 750, height: 1334)..init(context);
     return Scaffold(
       appBar: AppBar(
         iconTheme: IconThemeData(color: Colors.white),
@@ -75,10 +76,10 @@ class _HomePageState extends State<HomePage>
           // 配置控制器
           isScrollable: true,
           indicatorColor: Colors.transparent,
-          labelStyle: TextStyle(fontSize: 22.0),
-          unselectedLabelColor: KColors.de,
+          labelStyle: TextStyle(fontSize: ScreenUtil.getInstance().setSp(40.0)),
+          unselectedLabelColor: MColors.de,
           unselectedLabelStyle: TextStyle(
-            fontSize: 18.0,
+            fontSize: ScreenUtil.getInstance().setSp(32.0),
           ),
         ),
       ),

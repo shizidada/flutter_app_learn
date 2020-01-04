@@ -13,9 +13,10 @@ class _DiscoverPageState extends State<DiscoverPage>
   int _currentIndex = 0;
 
   void _incrementHandle() {
-    int currentIndex = Provider.of<CurrentIndexProvide>(context).currentIndex;
+    CurrentIndexProvider currentIndexProvider = Provider.of<CurrentIndexProvider>(context);
+    int currentIndex = currentIndexProvider.currentIndex;
     currentIndex++;
-    Provider.of<CurrentIndexProvide>(context).changeIndex(currentIndex);
+    currentIndexProvider.changeIndex(currentIndex);
 
     setState(() {
       _currentIndex = currentIndex;

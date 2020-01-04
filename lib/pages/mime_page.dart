@@ -3,6 +3,7 @@ import 'package:flutter_app_learn/base/base_page_state.dart';
 import 'package:flutter_app_learn/widgets/list_item.dart';
 import 'package:flutter_app_learn/widgets/top_bar_clipper.dart';
 import 'package:flutter_easyrefresh/easy_refresh.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 /// 我
@@ -31,11 +32,16 @@ class _MimePageState<MimePage> extends BasePageState
   }
 
   @override
-  Widget buildBody() {
+  Widget buildBody(context) {
+    ScreenUtil.instance = ScreenUtil(width: 750, height: 1334)..init(context);
+
+    double width = ScreenUtil.screenWidth;
+    double height = ScreenUtil.screenHeight;
+
     return Stack(
       children: <Widget>[
         Container(
-          height: double.infinity,
+          height: height,
           child: Column(
             children: <Widget>[
               Expanded(
@@ -61,40 +67,44 @@ class _MimePageState<MimePage> extends BasePageState
                 Stack(
                   children: <Widget>[
                     Container(
-                      width: double.infinity,
-                      height: 220.0,
+                      width: width,
+                      height: ScreenUtil.getInstance().setHeight(220.0),
                       color: Colors.white,
                     ),
                     ClipPath(
-                      clipper: TopBarClipper(
-                          MediaQuery.of(context).size.width, 200.0),
+                      clipper: TopBarClipper(ScreenUtil.screenWidth,
+                          ScreenUtil.getInstance().setHeight(200.0)),
                       child: SizedBox(
-                        width: double.infinity,
-                        height: 200.0,
+                        width: width,
+                        height: ScreenUtil.getInstance().setHeight(200.0),
                         child: Container(
-                          width: double.infinity,
-                          height: 240.0,
+                          width: width,
+                          height: ScreenUtil.getInstance().setHeight(240.0),
                           color: Theme.of(context).primaryColor,
                         ),
                       ),
                     ),
                     // 名字
                     Container(
-                      margin: EdgeInsets.only(top: 40.0),
+                      margin: EdgeInsets.only(
+                          top: ScreenUtil.getInstance().setHeight(16.0)),
                       child: Center(
                         child: Text(
                           'Tom',
-                          style: TextStyle(fontSize: 30.0, color: Colors.white),
+                          style: TextStyle(
+                              fontSize: ScreenUtil.getInstance().setSp(40.0),
+                              color: Colors.white),
                         ),
                       ),
                     ),
                     // 图标
                     Container(
-                      margin: EdgeInsets.only(top: 100.0),
+                      margin: EdgeInsets.only(
+                          top: ScreenUtil.getInstance().setHeight(100.0)),
                       child: Center(
                           child: Container(
-                        width: 100.0,
-                        height: 100.0,
+                        width: ScreenUtil.getInstance().setWidth(100.0),
+                        height: ScreenUtil.getInstance().setWidth(100.0),
                         child: PreferredSize(
                           child: Container(
                             child: ClipOval(
@@ -104,7 +114,9 @@ class _MimePageState<MimePage> extends BasePageState
                               ),
                             ),
                           ),
-                          preferredSize: Size(80.0, 80.0),
+                          preferredSize: Size(
+                              ScreenUtil.getInstance().setWidth(180.0),
+                              ScreenUtil.getInstance().setWidth(180.0)),
                         ),
                       )),
                     ),
@@ -112,13 +124,55 @@ class _MimePageState<MimePage> extends BasePageState
                 ),
                 // 内容
                 Container(
-                  width: double.infinity,
+                  // width: width,
                   color: Colors.white,
-                  padding: EdgeInsets.all(10.0),
+                  padding:
+                      EdgeInsets.all(ScreenUtil.getInstance().setWidth(8.0)),
+                  child: Card(
+                      color: Colors.green,
+                      child: Container(
+                        padding: EdgeInsets.all(
+                            ScreenUtil.getInstance().setWidth(8.0)),
+                        child: Column(
+                          children: <Widget>[
+                            ListItem(
+                              icon: Icon(
+                                Icons.person,
+                                color: Colors.white,
+                              ),
+                              title: 'name',
+                              titleColor: Colors.white,
+                              describe: 'Tom',
+                              describeColor: Colors.white,
+                            ),
+                            ListItem(
+                              icon: EmptyIcon(),
+                              title: 18.toString(),
+                              titleColor: Colors.white,
+                              describe: 'ting hao de',
+                              describeColor: Colors.white,
+                            ),
+                            ListItem(
+                              icon: EmptyIcon(),
+                              title: 'nb',
+                              titleColor: Colors.white,
+                              describe: '                                                                                                     ',
+                              describeColor: Colors.white,
+                            )
+                          ],
+                        ),
+                      )),
+                ),
+                Container(
+                  width: width,
+                  color: Colors.white,
+                  padding:
+                      EdgeInsets.all(ScreenUtil.getInstance().setWidth(8.0)),
                   child: Card(
                       color: Colors.blue,
                       child: Container(
-                        padding: EdgeInsets.all(10.0),
+                        padding: EdgeInsets.all(
+                            ScreenUtil.getInstance().setWidth(8.0)),
                         child: Column(
                           children: <Widget>[
                             ListItem(
@@ -152,51 +206,15 @@ class _MimePageState<MimePage> extends BasePageState
                       )),
                 ),
                 Container(
-                  width: double.infinity,
+                  width: width,
                   color: Colors.white,
-                  padding: EdgeInsets.all(10.0),
-                  child: Card(
-                      color: Colors.green,
-                      child: Container(
-                        padding: EdgeInsets.all(10.0),
-                        child: Column(
-                          children: <Widget>[
-                            ListItem(
-                              icon: Icon(
-                                Icons.person,
-                                color: Colors.white,
-                              ),
-                              title: 'name',
-                              titleColor: Colors.white,
-                              describe: 'Tom',
-                              describeColor: Colors.white,
-                            ),
-                            ListItem(
-                              icon: EmptyIcon(),
-                              title: 18.toString(),
-                              titleColor: Colors.white,
-                              describe: 'ting hao de',
-                              describeColor: Colors.white,
-                            ),
-                            ListItem(
-                              icon: EmptyIcon(),
-                              title: 'nb',
-                              titleColor: Colors.white,
-                              describe: 'jjlll',
-                              describeColor: Colors.white,
-                            )
-                          ],
-                        ),
-                      )),
-                ),
-                Container(
-                  width: double.infinity,
-                  color: Colors.white,
-                  padding: EdgeInsets.all(10.0),
+                  padding:
+                      EdgeInsets.all(ScreenUtil.getInstance().setWidth(8.0)),
                   child: Card(
                       color: Colors.teal,
                       child: Container(
-                        padding: EdgeInsets.all(10.0),
+                        padding: EdgeInsets.all(
+                            ScreenUtil.getInstance().setWidth(8.0)),
                         child: Column(
                           children: <Widget>[
                             ListItem(

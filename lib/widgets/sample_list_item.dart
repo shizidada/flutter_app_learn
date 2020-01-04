@@ -1,28 +1,26 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 /// 简单列表项
 class SampleListItem extends StatelessWidget {
   /// 方向
   final Axis direction;
 
-  /// 宽度
-  final double width;
-
   const SampleListItem({
     Key key,
     this.direction = Axis.vertical,
-    this.width = double.infinity,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    ScreenUtil.instance = ScreenUtil(width: 750, height: 1334)..init(context);
     return direction == Axis.vertical
         ? Card(
             child: Container(
               child: Row(
                 children: <Widget>[
                   Container(
-                    height: 100.0,
+                    height: ScreenUtil.getInstance().setHeight(100.0),
                     child: AspectRatio(
                       aspectRatio: 1.0,
                       child: Container(
@@ -45,14 +43,20 @@ class SampleListItem extends StatelessWidget {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: <Widget>[
                                     Container(
-                                      width: 120.0,
-                                      height: 15.0,
+                                      width: ScreenUtil.getInstance()
+                                          .setWidth(120.0),
+                                      height: ScreenUtil.getInstance()
+                                          .setHeight(15.0),
                                       color: Colors.grey[200],
                                     ),
                                     Container(
-                                      width: 60.0,
-                                      height: 10.0,
-                                      margin: EdgeInsets.only(top: 8.0),
+                                      width: ScreenUtil.getInstance()
+                                          .setWidth(60.0),
+                                      height: ScreenUtil.getInstance()
+                                          .setHeight(10.0),
+                                      margin: EdgeInsets.only(
+                                          top: ScreenUtil.getInstance()
+                                              .setWidth(10.0)),
                                       color: Colors.grey[200],
                                     ),
                                   ],
@@ -68,28 +72,34 @@ class SampleListItem extends StatelessWidget {
                               ],
                             ),
                             SizedBox(
-                              height: 8.0,
+                              height: ScreenUtil.getInstance().setHeight(8.0),
                             ),
                             Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: <Widget>[
                                 Container(
-                                  height: 10.0,
+                                  height:
+                                      ScreenUtil.getInstance().setHeight(8.0),
                                   color: Colors.grey[200],
                                 ),
                                 SizedBox(
-                                  height: 4.0,
+                                  height:
+                                      ScreenUtil.getInstance().setHeight(4.0),
                                 ),
                                 Container(
-                                  height: 10.0,
+                                  height:
+                                      ScreenUtil.getInstance().setHeight(8.0),
                                   color: Colors.grey[200],
                                 ),
                                 SizedBox(
-                                  height: 4.0,
+                                  height:
+                                      ScreenUtil.getInstance().setHeight(4.0),
                                 ),
                                 Container(
-                                  height: 10.0,
-                                  width: 150.0,
+                                  height:
+                                      ScreenUtil.getInstance().setHeight(8.0),
+                                  width:
+                                      ScreenUtil.getInstance().setWidth(150.0),
                                   color: Colors.grey[200],
                                 ),
                               ],
@@ -107,13 +117,14 @@ class SampleListItem extends StatelessWidget {
               child: Column(
                 children: <Widget>[
                   Container(
-                    height: 100.0,
-                    width: width,
+                    height: ScreenUtil.getInstance().setHeight(100.0),
+                    width: ScreenUtil.screenWidth,
                     color: Colors.grey[200],
                   ),
                   Container(
-                    width: width,
-                    padding: EdgeInsets.all(10.0),
+                    width: ScreenUtil.screenWidth,
+                    padding:
+                        EdgeInsets.all(ScreenUtil.getInstance().setWidth(10.0)),
                     child: Column(
                       children: <Widget>[
                         Row(
@@ -122,14 +133,20 @@ class SampleListItem extends StatelessWidget {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: <Widget>[
                                 Container(
-                                  width: 80.0,
-                                  height: 15.0,
+                                  width:
+                                      ScreenUtil.getInstance().setWidth(80.0),
+                                  height:
+                                      ScreenUtil.getInstance().setHeight(15.0),
                                   color: Colors.grey[200],
                                 ),
                                 Container(
-                                  width: 60.0,
-                                  height: 10.0,
-                                  margin: EdgeInsets.only(top: 8.0),
+                                  width:
+                                      ScreenUtil.getInstance().setWidth(60.0),
+                                  height:
+                                      ScreenUtil.getInstance().setHeight(10.0),
+                                  margin: EdgeInsets.only(
+                                      top: ScreenUtil.getInstance()
+                                          .setWidth(8.0)),
                                   color: Colors.grey[200],
                                 ),
                               ],
@@ -145,28 +162,28 @@ class SampleListItem extends StatelessWidget {
                           ],
                         ),
                         SizedBox(
-                          height: 8.0,
+                          height: ScreenUtil.getInstance().setHeight(8.0),
                         ),
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
                             Container(
-                              height: 10.0,
+                              height: ScreenUtil.getInstance().setHeight(8.0),
                               color: Colors.grey[200],
                             ),
                             SizedBox(
-                              height: 4.0,
+                              height: ScreenUtil.getInstance().setHeight(4.0),
                             ),
                             Container(
-                              height: 10.0,
+                              height: ScreenUtil.getInstance().setHeight(8.0),
                               color: Colors.grey[200],
                             ),
                             SizedBox(
-                              height: 4.0,
+                              height: ScreenUtil.getInstance().setHeight(4.0),
                             ),
                             Container(
-                              height: 10.0,
-                              width: 100.0,
+                              height: ScreenUtil.getInstance().setHeight(8.0),
+                              width: ScreenUtil.getInstance().setWidth(100.0),
                               color: Colors.grey[200],
                             ),
                           ],

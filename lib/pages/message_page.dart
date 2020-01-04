@@ -38,7 +38,7 @@ class _MessagePageState<MessagePage> extends BasePageState
   // }
 
   @override
-  Widget buildBody() {
+  Widget buildBody(context) {
     return Text("MessagePage");
   }
 }

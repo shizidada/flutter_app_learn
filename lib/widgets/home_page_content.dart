@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_app_learn/utils/navigate_util.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 
 class HomePageContent extends StatefulWidget {
@@ -16,11 +17,11 @@ class HomePageContent extends StatefulWidget {
 
 class _HomePageContentState extends State<HomePageContent>
     with AutomaticKeepAliveClientMixin {
-  List<Widget> _imageList = List();
+  List<Widget> _swiperImageList = List();
 
   @override
   void initState() {
-    _imageList
+    _swiperImageList
       ..add(Image.asset(
         'assets/images/1.jpeg',
         fit: BoxFit.cover,
@@ -44,6 +45,8 @@ class _HomePageContentState extends State<HomePageContent>
   @override
   Widget build(BuildContext context) {
     super.build(context);
+    ScreenUtil.instance = ScreenUtil(width: 750, height: 1334)..init(context);
+
     String title = widget.title;
 
     return Container(
@@ -54,19 +57,25 @@ class _HomePageContentState extends State<HomePageContent>
               itemCount: 20,
               itemBuilder: (contxt, index) {
                 if (index == 0) {
-                  return firstSwiperView();
+                  return firstSwiperView(
+                      ScreenUtil.getInstance().setHeight(300.0));
                 }
-                return Card(
-                  child: ListTile(
-                    leading: Icon(Icons.book),
-                    trailing: Icon(Icons.message),
-                    title: Text("$title $index"),
-                    subtitle: Text("1234567890"),
-                    onTap: () {
-                      NavigatorUtil.pushFromRight(
-                          widget.parentContext, "/detail/$index/$title/江景");
-                    },
-                    // isThreeLine: true,
+                return Container(
+                  padding:
+                      EdgeInsets.all(ScreenUtil.getInstance().setWidth(8.0)),
+                  height: ScreenUtil.getInstance().setHeight(188.0),
+                  child: Card(
+                    child: ListTile(
+                      leading: Icon(Icons.book),
+                      trailing: Icon(Icons.message),
+                      title: Text("$title $index"),
+                      subtitle: Text("1234567890"),
+                      onTap: () {
+                        NavigatorUtil.pushFromRight(
+                            widget.parentContext, "/detail/$index/$title/江景");
+                      },
+                      // isThreeLine: true,
+                    ),
                   ),
                 );
               },
@@ -77,10 +86,10 @@ class _HomePageContentState extends State<HomePageContent>
     );
   }
 
-  Widget firstSwiperView() {
+  Widget firstSwiperView(height) {
     return Container(
-      width: MediaQuery.of(context).size.width,
-      height: 150,
+      width: ScreenUtil.screenWidth,
+      height: height,
       child: Swiper(
         itemCount: 4,
         itemBuilder: _swiperBuilder,
@@ -97,7 +106,7 @@ class _HomePageContentState extends State<HomePageContent>
   }
 
   Widget _swiperBuilder(BuildContext context, int index) {
-    return _imageList[index];
+    return _swiperImageList[index];
   }
 
   @override

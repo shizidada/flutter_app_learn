@@ -11,7 +11,7 @@ class _RegisterPageState extends State<RegisterPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: new AppBar(
-        title: new Text(Titles.registerTitle),
+        title: new Text(MStrings.registerTitle),
       ),
       body: Center(
         child: Column(

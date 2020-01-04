@@ -1,34 +1,44 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app_learn/config/colors.dart';
+import 'package:flutter_app_learn/config/index.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+// import 'package:flutter_app_learn/config/colors.dart';
 
-class LoginItem extends StatelessWidget {
-  LoginItem(this._hintText, this._icon, this._controller);
+class LoginInputItem extends StatelessWidget {
+  LoginInputItem(this._hintText, this._icon, this._controller, this._obscureText, this._keyboardType);
 
   final TextEditingController _controller;
   final Icon _icon;
   final String _hintText;
+  final bool _obscureText;
+  final TextInputType _keyboardType;
 
   @override
   Widget build(BuildContext context) {
+    ScreenUtil.instance = ScreenUtil(width: 750, height: 1334)..init(context);
+    
     return Container(
-      padding: EdgeInsets.all(10),
+      padding: EdgeInsets.all(ScreenUtil.getInstance().setWidth(8.0)),
       child: TextField(
         controller: _controller,
+        keyboardType: _keyboardType,
+        obscureText: _obscureText,
+        cursorColor: MColors.primaryColor,
         decoration: InputDecoration(
           icon: _icon,
-          contentPadding: EdgeInsets.all(10),
+          hintText: _hintText,
+          contentPadding: EdgeInsets.all(ScreenUtil.getInstance().setWidth(16.0)),
+          border: InputBorder.none,
           focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.all(
               Radius.circular(5),
             ),
             borderSide: BorderSide(
-              color: KColors.de, //边线颜色为黄色
+              color: MColors.de, //边线颜色为黄色
               width: 0.5, //边线宽度为2
             ),
           ),
-          enabledBorder:
-              UnderlineInputBorder(borderSide: BorderSide(color: KColors.de)),
-          hintText: _hintText,
+          // enabledBorder:
+          //     UnderlineInputBorder(borderSide: BorderSide(color: MColors.de)),
         ),
       ),
     );

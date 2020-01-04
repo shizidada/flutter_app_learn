@@ -4,6 +4,7 @@ import 'package:flutter_app_learn/utils/navigate_util.dart';
 import 'package:flutter_app_learn/utils/share_util.dart';
 import 'package:flutter_app_learn/utils/toast_util.dart';
 import 'package:flutter_app_learn/widgets/login_input_item.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class LoginPage extends StatefulWidget {
   LoginPage({Key key}) : super(key: key);
@@ -18,29 +19,40 @@ class _LoginPageState extends State<LoginPage> {
 
   bool _check = false;
 
+  @override
+  void initState() { 
+    super.initState();
+  
+    _accountController.text = "admin";
+    _passwordController.text = "123";
+
+  }
+
   _loginHandle() {
     String account = _accountController.text.trim();
     if (account.isEmpty) {
-      ToastUtil.showToast(message: KString.accountEmpty);
+      ToastUtil.showToast(message: MStrings.accountEmpty);
       return;
     }
     String password = _passwordController.text.trim();
     if (password.isEmpty) {
-      ToastUtil.showToast(message: KString.passwordEmpty);
+      ToastUtil.showToast(message: MStrings.passwordEmpty);
       return;
     }
     print('$account $password');
     if (account == 'admin' && password == '123') {
       NavigatorUtil.pushFadeInReplace(context, "/");
-      SharedUtil.putBool(KString.isLogin, true);
+      SharedUtil.putBool(MStrings.isLogin, true);
     } else {
-      ToastUtil.showToast(message: KString.accountPasswordError);
+      ToastUtil.showToast(message: MStrings.accountPasswordError);
     }
   }
 
   @override
   Widget build(BuildContext context) {
     print("build .... ");
+
+    ScreenUtil.instance = ScreenUtil(width: 750, height: 1334)..init(context);
 
     return Scaffold(
         // 防止键盘弹出影响布局高度
@@ -53,16 +65,30 @@ class _LoginPageState extends State<LoginPage> {
             },
             child: Stack(
               children: <Widget>[
-                _buildBackgroud(),
+                _buildBackgroud(
+                  ScreenUtil.screenWidth,
+                  ScreenUtil.screenHeight,
+                ),
                 Container(
-                  padding: EdgeInsets.all(5.0),
-                  margin: EdgeInsets.only(left: 20, top: 380, right: 20),
+                  padding:
+                      EdgeInsets.all(ScreenUtil.getInstance().setWidth(32.0)),
+                  margin: EdgeInsets.only(
+                      top: ScreenUtil.getInstance()
+                          .setHeight(ScreenUtil.screenHeight / 3.0)),
                   child: Column(
                     children: <Widget>[
-                      LoginItem(KString.accountHintText, Icon(Icons.person),
-                          _accountController),
-                      LoginItem(KString.passwordHintText, Icon(Icons.lock),
-                          _passwordController),
+                      LoginInputItem(
+                          MStrings.accountHintText,
+                          Icon(Icons.person),
+                          _accountController,
+                          false,
+                          TextInputType.text),
+                      LoginInputItem(
+                          MStrings.passwordHintText,
+                          Icon(Icons.lock),
+                          _passwordController,
+                          true,
+                          TextInputType.number),
                       Row(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.start,
@@ -90,11 +116,11 @@ class _LoginPageState extends State<LoginPage> {
             )));
   }
 
-  Widget _buildBackgroud() {
+  Widget _buildBackgroud(width, height) {
     return Image.asset(
       "assets/images/login_bg.png",
-      width: double.infinity,
-      height: double.infinity,
+      width: width,
+      height: height,
       fit: BoxFit.cover,
     );
   }
@@ -104,16 +130,18 @@ class _LoginPageState extends State<LoginPage> {
       children: <Widget>[
         Expanded(
           child: Container(
-            height: 40,
-            margin: EdgeInsets.fromLTRB(0, 10, 0, 0),
+            height: ScreenUtil.getInstance().setHeight(65.0),
+            margin: EdgeInsets.fromLTRB(
+                0, ScreenUtil.getInstance().setHeight(20.0), 0, 0),
             child: RaisedButton(
-              color: KColors.primaryColor,
+              color: MColors.primaryColor,
               child: Text(
                 "登录",
-                style: TextStyle(color: KColors.whiteColor),
+                style: TextStyle(color: Colors.white),
               ),
               shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(30)),
+                  borderRadius: BorderRadius.circular(
+                      ScreenUtil.getInstance().setHeight(8.0))),
               onPressed: _loginHandle,
             ),
           ),
@@ -124,12 +152,14 @@ class _LoginPageState extends State<LoginPage> {
 
   Widget _buildRegister() {
     return Container(
-      margin: EdgeInsets.fromLTRB(0, 20, 0, 0),
+      margin: EdgeInsets.fromLTRB(
+          0, ScreenUtil.getInstance().setHeight(40.0), 0, 0),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           Container(
-            padding: EdgeInsets.fromLTRB(0, 0, 10, 0),
+            padding: EdgeInsets.fromLTRB(
+                0, 0, ScreenUtil.getInstance().setHeight(16.0), 0),
             child: Text(
               '忘记密码?',
               textDirection: TextDirection.ltr,
@@ -150,42 +180,3 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 }
-
-// Container(
-//   height: 150,
-//   child: Image.asset(
-//     'assets/images/2.jpeg',
-//     fit: BoxFit.cover,
-//     width: MediaQuery.of(context).size.width,
-//   ),
-// ),
-//             Container(
-// //              height: MediaQuery.of(context).size.height,
-//               decoration: BoxDecoration(
-//                 image: DecorationImage(
-//                   colorFilter: new ColorFilter.mode(
-//                       Colors.black.withOpacity(0.1), BlendMode.dstATop),
-//                   image: AssetImage('assets/images/mountains.jpg'),
-//                   fit: BoxFit.cover,
-//                 ),
-//               ),
-//  Expanded(
-//             child: Container(
-//               color: Colors.yellow,
-//               padding: EdgeInsets.all(5.0),
-//               child: Row(
-//                 mainAxisAlignment: MainAxisAlignment.spaceAround,
-//                 children: <Widget>[
-//                   RaisedButton(
-// //                    color: Colors.blue,
-//                     onPressed: () => {},
-//                     child: Text("RaisedButton"),
-//                   ),
-//                   OutlineButton(
-//                     onPressed: () => {},
-//                     child: Text("OutlineButton"),
-//                   ),
-//                 ],
-//               ),
-//             ),
-//           ),
