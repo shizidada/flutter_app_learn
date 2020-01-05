@@ -17,7 +17,7 @@ class _HomePageState extends State<HomePage>
   bool get wantKeepAlive => true;
 
   TabController _controller;
-  var _appBarTabs = <Tab>[
+  List<Tab> _appBarTabs = <Tab>[
     Tab(
       text: "精选",
     ),
@@ -88,7 +88,6 @@ class _HomePageState extends State<HomePage>
           children: _appBarTabs
               .map((Tab tab) => Container(
                     child: HomePageContent(
-                      parentContext: context,
                       title: tab.text,
                     ),
                   ))

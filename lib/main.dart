@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 
 import 'src/config/index.dart';
 import 'src/provider/current_index_provide.dart';
+import 'src/provider/home_provider.dart';
 import 'src/pages/welcome_page.dart';
 import 'src/routers/application.dart';
 import 'src/routers/routers.dart';
@@ -26,6 +27,9 @@ class FlutterLearnApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(
           create: (context) => CurrentIndexProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => HomeProvider(),
         )
       ],
       child: MaterialApp(

@@ -6,9 +6,7 @@ import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:flutter_app_learn/src/utils/navigate_util.dart';
 
 class HomePageContent extends StatefulWidget {
-  HomePageContent({this.parentContext, @required this.title});
-
-  final BuildContext parentContext;
+  HomePageContent({@required this.title});
 
   final String title;
 
@@ -72,8 +70,7 @@ class _HomePageContentState extends State<HomePageContent>
                       title: Text("$title $index"),
                       subtitle: Text("1234567890"),
                       onTap: () {
-                        NavigatorUtil.pushFromRight(
-                            widget.parentContext, "/detail/$index/$title/江景");
+                        NavigatorUtil.pushFromRight(context, "/detail/$index/$title/江景");
                       },
                       // isThreeLine: true,
                     ),
