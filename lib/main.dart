@@ -1,14 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:fluro/fluro.dart';
-import 'package:flutter_app_learn/config/index.dart';
-
 import 'package:provider/provider.dart';
-import 'provider/current_index_provide.dart';
 
-import 'package:flutter_app_learn/pages/welcome_page.dart';
-
-import 'routers/application.dart';
-import 'routers/routers.dart';
+import 'src/config/index.dart';
+import 'src/provider/current_index_provide.dart';
+import 'src/pages/welcome_page.dart';
+import 'src/routers/application.dart';
+import 'src/routers/routers.dart';
 
 void main() async {
   runApp(FlutterLearnApp());
@@ -32,6 +30,7 @@ class FlutterLearnApp extends StatelessWidget {
       ],
       child: MaterialApp(
         title: 'Moose',
+        // debugShowCheckedModeBanner: false,
         theme: ThemeData(primaryColor: MColors.primaryColor),
         home: WelcomePage(),
         onGenerateRoute: Application.router.generator,

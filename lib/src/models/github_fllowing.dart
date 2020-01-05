@@ -1,4 +1,4 @@
-import 'package:flutter_app_learn/models/floowing_item.dart';
+import 'package:flutter_app_learn/src/models/floowing_item.dart';
 
 class GithubFllowing {
   final List<FloowingItem> fllowingItems;

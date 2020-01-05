@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:flutter_app_learn/utils/navigate_util.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
+
+import 'package:flutter_app_learn/src/utils/navigate_util.dart';
 
 class HomePageContent extends StatefulWidget {
   HomePageContent({this.parentContext, @required this.title});
@@ -23,19 +24,19 @@ class _HomePageContentState extends State<HomePageContent>
   void initState() {
     _swiperImageList
       ..add(Image.asset(
-        'assets/images/1.jpeg',
+        'lib/assets/images/1.jpeg',
         fit: BoxFit.cover,
       ))
       ..add(Image.asset(
-        'assets/images/2.jpeg',
+        'lib/assets/images/2.jpeg',
         fit: BoxFit.cover,
       ))
       ..add(Image.asset(
-        'assets/images/3.jpeg',
+        'lib/assets/images/3.jpeg',
         fit: BoxFit.cover,
       ))
       ..add(Image.asset(
-        'assets/images/4.jpeg',
+        'lib/assets/images/4.jpeg',
         fit: BoxFit.cover,
       ));
     super.initState();
@@ -57,7 +58,7 @@ class _HomePageContentState extends State<HomePageContent>
               itemCount: 20,
               itemBuilder: (contxt, index) {
                 if (index == 0) {
-                  return firstSwiperView(
+                  return bannerSwiperView(
                       ScreenUtil.getInstance().setHeight(300.0));
                 }
                 return Container(
@@ -86,7 +87,7 @@ class _HomePageContentState extends State<HomePageContent>
     );
   }
 
-  Widget firstSwiperView(height) {
+  Widget bannerSwiperView(height) {
     return Container(
       width: ScreenUtil.screenWidth,
       height: height,

@@ -1,11 +1,11 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter_app_learn/config/index.dart';
-import 'package:flutter_app_learn/utils/navigate_util.dart';
-import 'package:flutter_app_learn/utils/share_util.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import 'package:flutter_app_learn/src/config/index.dart';
+import 'package:flutter_app_learn/src/utils/navigate_util.dart';
+import 'package:flutter_app_learn/src/utils/share_util.dart';
 
 class WelcomePage extends StatefulWidget {
   @override
@@ -85,7 +85,7 @@ class _WelcomePageState extends State<WelcomePage>
                   padding: EdgeInsets.only(
                       bottom: ScreenUtil.getInstance().setHeight(25.0)),
                   child: Image.asset(
-                    'assets/images/splash_logo.jpeg',
+                    'lib/assets/images/splash_logo.jpeg',
                     width: ScreenUtil.getInstance().setWidth(100.0),
                     fit: BoxFit.cover,
                   )),
@@ -99,7 +99,7 @@ class _WelcomePageState extends State<WelcomePage>
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Image.asset(
-                'assets/images/splash_logo.jpeg',
+                'lib/assets/images/splash_logo.jpeg',
                 width: _animation.value * 600,
                 height: _animation.value * 300,
               ),

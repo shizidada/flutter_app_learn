@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app_learn/config/colors.dart';
-import 'package:flutter_app_learn/widgets/home_page_content.dart';
+import 'package:flutter_app_learn/src/config/colors.dart';
+import 'package:flutter_app_learn/src/widgets/home_page_content.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 // import 'package:flutter_app_learn/provider/current_index_provide.dart';
 // import 'package:provider/provider.dart';

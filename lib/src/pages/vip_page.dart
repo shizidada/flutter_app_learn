@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app_learn/base/base_page_state.dart';
+import 'package:flutter_app_learn/src/base/base_page_state.dart';
 
 /// Vip
 class VipPage extends BasePage {

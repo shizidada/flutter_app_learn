@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:flutter_app_learn/provider/current_index_provide.dart';
+import 'package:flutter_app_learn/src/provider/current_index_provide.dart';
 import 'package:provider/provider.dart';
 
 class DiscoverPage extends StatefulWidget {

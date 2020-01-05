@@ -1,5 +1,5 @@
 import 'package:fluro/fluro.dart';
-import 'package:flutter_app_learn/routers/application.dart';
+import 'package:flutter_app_learn/src/routers/application.dart';
 
 class NavigatorUtil {
   static push(context, path) {

@@ -1,4 +1,4 @@
-import 'package:flutter_app_learn/config/index.dart';
+import 'package:flutter_app_learn/src/config/index.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
 class ToastUtil {

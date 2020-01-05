@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app_learn/base/base_page_state.dart';
-import 'package:flutter_app_learn/utils/share_util.dart';
+import 'package:flutter_app_learn/src/base/base_page_state.dart';
+import 'package:flutter_app_learn/src/utils/share_util.dart';
 
 /// 关注
 class FavoritePage extends BasePage {

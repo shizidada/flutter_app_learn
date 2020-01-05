@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app_learn/config/index.dart';
-import 'package:flutter_app_learn/utils/navigate_util.dart';
-import 'package:flutter_app_learn/utils/share_util.dart';
-import 'package:flutter_app_learn/utils/toast_util.dart';
-import 'package:flutter_app_learn/widgets/login_input_item.dart';
+import 'package:flutter_app_learn/src/config/index.dart';
+import 'package:flutter_app_learn/src/utils/navigate_util.dart';
+import 'package:flutter_app_learn/src/utils/share_util.dart';
+import 'package:flutter_app_learn/src/utils/toast_util.dart';
+import 'package:flutter_app_learn/src/widgets/login_input_item.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class LoginPage extends StatefulWidget {
@@ -17,15 +17,14 @@ class _LoginPageState extends State<LoginPage> {
   TextEditingController _accountController = TextEditingController();
   TextEditingController _passwordController = TextEditingController();
 
-  bool _check = false;
+  bool _rememberPassword = false;
 
   @override
-  void initState() { 
+  void initState() {
     super.initState();
-  
+
     _accountController.text = "admin";
     _passwordController.text = "123";
-
   }
 
   _loginHandle() {
@@ -96,13 +95,23 @@ class _LoginPageState extends State<LoginPage> {
                           Row(
                             children: <Widget>[
                               Checkbox(
-                                  value: _check,
+                                  value: _rememberPassword,
+                                  checkColor: Colors.white,
+                                  focusColor: Theme.of(context).primaryColor,
+                                  activeColor: Theme.of(context).primaryColor,
                                   onChanged: (value) {
                                     this.setState(() {
-                                      _check = value;
+                                      _rememberPassword = value;
                                     });
                                   }),
-                              Text("记住密码"),
+                              GestureDetector(
+                                child: Text("记住密码"),
+                                onPanDown: (_) {
+                                  this.setState(() {
+                                    _rememberPassword = !_rememberPassword;
+                                  });
+                                },
+                              ),
                             ],
                           )
                         ],
@@ -118,7 +127,7 @@ class _LoginPageState extends State<LoginPage> {
 
   Widget _buildBackgroud(width, height) {
     return Image.asset(
-      "assets/images/login_bg.png",
+      "lib/assets/images/login_bg.png",
       width: width,
       height: height,
       fit: BoxFit.cover,

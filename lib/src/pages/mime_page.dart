@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app_learn/base/base_page_state.dart';
-import 'package:flutter_app_learn/widgets/list_item.dart';
-import 'package:flutter_app_learn/widgets/top_bar_clipper.dart';
+import 'package:flutter_app_learn/src/base/base_page_state.dart';
+import 'package:flutter_app_learn/src/widgets/list_item.dart';
+import 'package:flutter_app_learn/src/widgets/top_bar_clipper.dart';
 import 'package:flutter_easyrefresh/easy_refresh.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:url_launcher/url_launcher.dart';

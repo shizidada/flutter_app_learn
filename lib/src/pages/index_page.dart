@@ -2,33 +2,33 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 
-import 'package:flutter_app_learn/config/index.dart';
-import 'package:flutter_app_learn/provider/current_index_provide.dart';
-import 'package:flutter_app_learn/pages/home_page.dart';
-import 'package:flutter_app_learn/pages/favorite_page.dart';
-import 'package:flutter_app_learn/pages/vip_page.dart';
-import 'package:flutter_app_learn/pages/message_page.dart';
-import 'package:flutter_app_learn/pages/mime_page.dart';
+import 'package:flutter_app_learn/src/config/index.dart';
+import 'package:flutter_app_learn/src/provider/current_index_provide.dart';
+import 'package:flutter_app_learn/src/pages/home_page.dart';
+import 'package:flutter_app_learn/src/pages/favorite_page.dart';
+import 'package:flutter_app_learn/src/pages/vip_page.dart';
+import 'package:flutter_app_learn/src/pages/message_page.dart';
+import 'package:flutter_app_learn/src/pages/mime_page.dart';
 
 class IndexPage extends StatelessWidget {
   final List<BottomNavigationBarItem> _items = [
     BottomNavigationBarItem(
-        icon: Icon(Icons.tag_faces), title: Text(MStrings.homeTitle)),
+        icon: Icon(Icons.home), title: Text(MStrings.homeTitle)),
     BottomNavigationBarItem(
-        icon: Icon(Icons.favorite), title: Text(MStrings.favoriteTitle)),
+        icon: Icon(Icons.view_compact), title: Text(MStrings.vipTitle)),
     BottomNavigationBarItem(
         icon: Icon(Icons.message), title: Text(MStrings.messageTitle)),
     BottomNavigationBarItem(
-        icon: Icon(Icons.voice_chat), title: Text(MStrings.vipTitle)),
+        icon: Icon(Icons.favorite), title: Text(MStrings.favoriteTitle)),
     BottomNavigationBarItem(
         icon: Icon(Icons.person), title: Text(MStrings.mimeTitle)),
   ];
 
   final List<Widget> _bodies = [
     HomePage(),
-    FavoritePage(),
-    MessagePage(),
     VipPage(),
+    MessagePage(),
+    FavoritePage(),
     MimePage()
   ];
 
