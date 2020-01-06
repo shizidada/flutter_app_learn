@@ -1,7 +1,10 @@
 buildscript {
     repositories {
+        maven{ url'http://maven.aliyun.com/nexus/content/groups/public/' }
+        maven{ url'http://maven.aliyun.com/nexus/content/repositories/jcenter'}
         google()
-        jcenter()
+        // jcenter()
+        // jcenter{ url "http://jcenter.bintray.com/"}
     }
 
     dependencies {
@@ -11,8 +14,12 @@ buildscript {
 
 allprojects {
     repositories {
+        maven{ url'http://maven.aliyun.com/nexus/content/groups/public/' }
+        maven{ url'http://maven.aliyun.com/nexus/content/repositories/jcenter'}
+
         google()
-        jcenter()
+        // jcenter()
+        // jcenter{ url "http://jcenter.bintray.com/"}
     }
 }
 

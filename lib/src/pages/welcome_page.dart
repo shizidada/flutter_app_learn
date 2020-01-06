@@ -85,7 +85,7 @@ class _WelcomePageState extends State<WelcomePage>
                   padding: EdgeInsets.only(
                       bottom: ScreenUtil.getInstance().setHeight(25.0)),
                   child: Image.asset(
-                    'lib/assets/images/splash_logo.jpeg',
+                    'assets/images/splash_logo.jpeg',
                     width: ScreenUtil.getInstance().setWidth(100.0),
                     fit: BoxFit.cover,
                   )),
@@ -99,7 +99,7 @@ class _WelcomePageState extends State<WelcomePage>
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Image.asset(
-                'lib/assets/images/splash_logo.jpeg',
+                'assets/images/splash_logo.jpeg',
                 width: _animation.value * 600,
                 height: _animation.value * 300,
               ),

@@ -16,28 +16,28 @@ class HomePageContent extends StatefulWidget {
 
 class _HomePageContentState extends State<HomePageContent>
     with AutomaticKeepAliveClientMixin {
-  List<Widget> _swiperImageList = List();
+  List<Widget> _swiperImageList = [];
 
   @override
   void initState() {
+    super.initState();
     _swiperImageList
       ..add(Image.asset(
-        'lib/assets/images/1.jpeg',
+        'assets/images/1.jpeg',
         fit: BoxFit.cover,
       ))
       ..add(Image.asset(
-        'lib/assets/images/2.jpeg',
+        'assets/images/2.jpeg',
         fit: BoxFit.cover,
       ))
       ..add(Image.asset(
-        'lib/assets/images/3.jpeg',
+        'assets/images/3.jpeg',
         fit: BoxFit.cover,
       ))
       ..add(Image.asset(
-        'lib/assets/images/4.jpeg',
+        'assets/images/4.jpeg',
         fit: BoxFit.cover,
       ));
-    super.initState();
     print("initState ... " + widget.title);
   }
 
@@ -70,7 +70,8 @@ class _HomePageContentState extends State<HomePageContent>
                       title: Text("$title $index"),
                       subtitle: Text("1234567890"),
                       onTap: () {
-                        NavigatorUtil.pushFromRight(context, "/detail/$index/$title/江景");
+                        NavigatorUtil.pushFromRight(
+                            context, "/detail/$index/$title/江景");
                       },
                       // isThreeLine: true,
                     ),

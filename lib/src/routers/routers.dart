@@ -6,10 +6,12 @@ class Routes {
   static String login = "/login";
   static String register = "/register";
   static String detail = "/detail/:id/:title/:name";
+  static String video = "/video";
   static void configureRoutes(Router router) {
     router.define(root, handler: rootHandler);
     router.define(login, handler: loginHandler);
     router.define(register, handler: registerHander);
     router.define(detail, handler: detailHander);
+    router.define(video, handler: videoPlayerHander);
   }
 }

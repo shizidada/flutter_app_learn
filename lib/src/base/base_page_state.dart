@@ -15,11 +15,13 @@ abstract class BasePageState<T extends BasePage> extends State<T>
         iconTheme: IconThemeData(color: Colors.white),
         elevation: 0.0,
       ),
-      body: buildBody(context),
+      body: SafeArea(
+        child: buildBody(context),
+      ),
     );
   }
 
-  Widget buildBody(context);
+  Widget buildBody(BuildContext context);
 
   @override
   bool get wantKeepAlive => true;

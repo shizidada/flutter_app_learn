@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app_learn/src/base/base_page_state.dart';
+import 'package:flutter_app_learn/src/utils/navigate_util.dart';
+import 'package:flutter_app_learn/src/utils/share_util.dart';
 
-/// Vip
+/// 会员
 class VipPage extends BasePage {
   @override
   State<StatefulWidget> createState() => _VipPageState();
@@ -10,7 +12,7 @@ class VipPage extends BasePage {
 class _VipPageState<BasePage> extends BasePageState
     with SingleTickerProviderStateMixin {
   _VipPageState() {
-    title = Text("Vip");
+    title = Text("会员");
   }
 
   // 初始化
@@ -26,6 +28,27 @@ class _VipPageState<BasePage> extends BasePageState
 
   @override
   Widget buildBody(context) {
-      return Container(child: Text('vip_page'),);
+    return Container(
+      child: Column(
+        children: <Widget>[
+          Center(
+            child: RaisedButton(
+              child: Text("Clear Login Info"),
+              onPressed: () {
+                SharedUtil.clear();
+              },
+            ),
+          ),
+          Center(
+            child: RaisedButton(
+              child: Text("Video Player"),
+              onPressed: () {
+                NavigatorUtil.pushFromRight(context, "/video");
+              },
+            ),
+          )
+        ],
+      ),
+    );
   }
 }

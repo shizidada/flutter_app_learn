@@ -5,6 +5,7 @@ import 'package:flutter_app_learn/src/pages/index_page.dart';
 import 'package:flutter_app_learn/src/pages/login_page.dart';
 import 'package:flutter_app_learn/src/pages/register_page.dart';
 import 'package:flutter_app_learn/src/pages/detail_page.dart';
+import 'package:flutter_app_learn/src/pages/video_player_page.dart';
 
 Handler rootHandler = Handler(
     handlerFunc: (BuildContext context, Map<String, List<String>> params) {
@@ -32,4 +33,9 @@ Handler detailHander = Handler(
     title: title,
     name: name,
   );
+});
+
+Handler videoPlayerHander = Handler(
+    handlerFunc: (BuildContext context, Map<String, List<String>> params) {
+  return ViderPlayerPage();
 });

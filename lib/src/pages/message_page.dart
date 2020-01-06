@@ -26,17 +26,6 @@ class _MessagePageState<MessagePage> extends BasePageState
     super.dispose();
   }
 
-  // @override
-  // Widget build(BuildContext context) {
-  //   super.build(context);
-  //   return Scaffold(
-  //     appBar: AppBar(
-  //       title: Text('消息'),
-  //     ),
-  //     body: Text("MessagePage"),
-  //   );
-  // }
-
   @override
   Widget buildBody(context) {
     return Text("MessagePage");
