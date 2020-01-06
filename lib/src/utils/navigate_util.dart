@@ -7,6 +7,10 @@ class NavigatorUtil {
         .navigateTo(context, path, transitionDuration: Duration(seconds: 1));
   }
 
+  static pop(context) {
+    Application.router.pop(context);
+  }
+
   static pushFromRight(context, path) {
     Application.router
         .navigateTo(context, path, transition: TransitionType.inFromRight);
