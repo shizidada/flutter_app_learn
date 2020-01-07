@@ -69,7 +69,7 @@ class _LoginPageState extends State<LoginPage> {
                       padding: EdgeInsets.all(
                           ScreenUtil.getInstance().setWidth(32.0)),
                       margin: EdgeInsets.only(
-                          top: ScreenUtil.getInstance().setHeight(200.0)),
+                          top: ScreenUtil.getInstance().setHeight(260.0)),
                       child: Column(
                         children: <Widget>[
                           LoginInputItem(
@@ -103,7 +103,13 @@ class _LoginPageState extends State<LoginPage> {
                                         });
                                       }),
                                   GestureDetector(
-                                    child: Text("记住密码"),
+                                    child: Text(
+                                      "记住密码",
+                                      style: TextStyle(
+                                        fontSize: ScreenUtil.getInstance()
+                                            .setSp(30.0),
+                                      ),
+                                    ),
                                     onPanDown: (_) {
                                       this.setState(() {
                                         _rememberPassword = !_rememberPassword;
@@ -128,7 +134,7 @@ class _LoginPageState extends State<LoginPage> {
       children: <Widget>[
         Expanded(
           child: Container(
-            height: ScreenUtil.getInstance().setHeight(65.0),
+            height: ScreenUtil.getInstance().setHeight(82.0),
             margin: EdgeInsets.fromLTRB(
                 0, ScreenUtil.getInstance().setHeight(20.0), 0, 0),
             child: RaisedButton(
@@ -156,18 +162,20 @@ class _LoginPageState extends State<LoginPage> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           Container(
-            padding: EdgeInsets.fromLTRB(
-                0, 0, ScreenUtil.getInstance().setHeight(16.0), 0),
+            margin:
+                EdgeInsets.only(right: ScreenUtil.getInstance().setWidth(16.0)),
             child: Text(
               '忘记密码?',
               textDirection: TextDirection.ltr,
-              style: TextStyle(),
+              style: TextStyle(fontSize: ScreenUtil.getInstance().setSp(30.0)),
             ),
           ),
           GestureDetector(
             child: Text(
               "注册",
-              style: TextStyle(color: Colors.black),
+              style: TextStyle(
+                  color: Colors.black,
+                  fontSize: ScreenUtil.getInstance().setSp(30.0)),
             ),
             onTap: () {
               NavigatorUtil.pushFromRight(context, "/register");

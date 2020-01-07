@@ -9,15 +9,10 @@ class MessagePage extends BasePage {
 
 class _MessagePageState<MessagePage> extends BasePageState
     with SingleTickerProviderStateMixin {
-  @override
-  bool get wantKeepAlive => true;
-
-  _MessagePageState() {
-    title = Text('消息');
-  }
 
   @override
   void initState() {
+    title = Text('消息');
     super.initState();
   }
 
@@ -28,6 +23,7 @@ class _MessagePageState<MessagePage> extends BasePageState
 
   @override
   Widget buildBody(context) {
+    print(' ------ MessagePage ------ ');
     return Text("MessagePage");
   }
 }

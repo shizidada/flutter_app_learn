@@ -14,12 +14,11 @@ class WelcomePage extends StatefulWidget {
 
 class _WelcomePageState extends State<WelcomePage>
     with SingleTickerProviderStateMixin {
-  bool _visible = true;
   AnimationController _animationController;
   Animation<double> _animation;
 
-  startTime() async {
-    var _duration = Duration(seconds: 2);
+  startNavigationTime() async {
+    Duration _duration = Duration(seconds: 3);
     return Timer(_duration, navigationPage);
   }
 
@@ -40,10 +39,15 @@ class _WelcomePageState extends State<WelcomePage>
     _animation.addListener(() => this.setState(() {}));
     _animationController.forward();
 
-    setState(() {
-      _visible = !_visible;
-    });
-    startTime();
+    // _animation.addStatusListener((status) {
+    //   if (status == AnimationStatus.completed) {
+    //     _animationController.reverse();
+    //   } else if (status == AnimationStatus.dismissed) {
+    //     _animationController.forward();
+    //   }
+    // });
+
+    startNavigationTime();
   }
 
   @override
@@ -81,14 +85,19 @@ class _WelcomePageState extends State<WelcomePage>
             mainAxisAlignment: MainAxisAlignment.end,
             mainAxisSize: MainAxisSize.min,
             children: <Widget>[
-              Padding(
-                  padding: EdgeInsets.only(
-                      bottom: ScreenUtil.getInstance().setHeight(25.0)),
-                  child: Image.asset(
-                    'assets/images/splash_logo.jpeg',
-                    width: ScreenUtil.getInstance().setWidth(100.0),
-                    fit: BoxFit.cover,
-                  )),
+              RotationTransition(
+                turns:
+                    Tween(begin: 0.0, end: 1.0).animate(_animationController),
+                child: Padding(
+                    padding: EdgeInsets.only(
+                        bottom: ScreenUtil.getInstance().setHeight(25.0)),
+                    child: Image.asset(
+                      'assets/images/splash_logo.jpeg',
+                      width: ScreenUtil.getInstance().setWidth(100.0),
+                      height: ScreenUtil.getInstance().setHeight(100.0),
+                      fit: BoxFit.cover,
+                    )),
+              ),
               Padding(
                   padding: EdgeInsets.only(
                       bottom: ScreenUtil.getInstance().setHeight(60.0)),
@@ -100,8 +109,10 @@ class _WelcomePageState extends State<WelcomePage>
             children: <Widget>[
               Image.asset(
                 'assets/images/splash_logo.jpeg',
-                width: _animation.value * 600,
-                height: _animation.value * 300,
+                width:
+                    _animation.value * ScreenUtil.getInstance().setWidth(600.0),
+                height: _animation.value *
+                    ScreenUtil.getInstance().setHeight(300.0),
               ),
             ],
           ),

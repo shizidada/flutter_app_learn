@@ -32,7 +32,7 @@ class LoginInputItem extends StatelessWidget {
               Radius.circular(5),
             ),
             borderSide: BorderSide(
-              color: MColors.de, //边线颜色为黄色
+              color: Colors.grey, //边线颜色为黄色
               width: 0.5, //边线宽度为2
             ),
           ),

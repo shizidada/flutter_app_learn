@@ -12,7 +12,7 @@ abstract class BasePageState<T extends BasePage> extends State<T>
     return Scaffold(
       appBar: AppBar(
         title: title,
-        iconTheme: IconThemeData(color: Colors.white),
+        // iconTheme: IconThemeData(color: Theme.of(context).primaryColor),
         elevation: 0.0,
       ),
       body: SafeArea(

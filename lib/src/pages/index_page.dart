@@ -10,7 +10,13 @@ import 'package:flutter_app_learn/src/pages/vip_page.dart';
 import 'package:flutter_app_learn/src/pages/message_page.dart';
 import 'package:flutter_app_learn/src/pages/mime_page.dart';
 
-class IndexPage extends StatelessWidget {
+class IndexPage extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() => _IndexPageState();
+}
+
+class _IndexPageState extends State<IndexPage>
+    with AutomaticKeepAliveClientMixin {
   final List<BottomNavigationBarItem> _items = [
     BottomNavigationBarItem(
         icon: Icon(Icons.home), title: Text(MStrings.homeTitle)),
@@ -32,30 +38,49 @@ class IndexPage extends StatelessWidget {
     MimePage()
   ];
 
+  PageController _pageController =
+      PageController(initialPage: 0, keepPage: true);
+
   @override
   Widget build(BuildContext context) {
+    super.build(context);
     ScreenUtil.instance = ScreenUtil(width: 750, height: 1334)..init(context);
+
     CurrentIndexProvider provider = Provider.of<CurrentIndexProvider>(context);
-    return Consumer<CurrentIndexProvider>(
-      builder: (context, child, value) {
-        return Scaffold(
-          bottomNavigationBar: BottomNavigationBar(
-            backgroundColor: Colors.black,
-            selectedItemColor: Colors.white,
-            unselectedItemColor: Colors.grey[600],
-            type: BottomNavigationBarType.fixed,
-            currentIndex: provider.currentIndex,
-            items: _items,
-            onTap: (index) {
-              provider.changeIndex(index);
-            },
-          ),
-          body: IndexedStack(
-            index: provider.currentIndex,
-            children: _bodies,
-          ),
-        );
-      },
+
+    return Scaffold(
+      // body: IndexedStack(
+      //   index: provider.currentIndex,
+      //   children: _bodies,
+      // ),
+
+      body: PageView(
+        children: _bodies,
+        pageSnapping: false,
+        physics: NeverScrollableScrollPhysics(),
+        controller: _pageController,
+        // allowImplicitScrolling: true,
+        onPageChanged: (index) {
+          provider.changeIndex(index);
+        },
+      ),
+
+      bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: Colors.black,
+        selectedItemColor: Colors.white,
+        unselectedItemColor: Colors.grey[600],
+        type: BottomNavigationBarType.fixed,
+        currentIndex: provider.currentIndex,
+        items: _items,
+        onTap: (index) {
+          // provider.changeIndex(index);
+          _pageController.animateToPage(index,
+              duration: const Duration(milliseconds: 300), curve: Curves.ease);
+        },
+      ),
     );
   }
+
+  @override
+  bool get wantKeepAlive => true;
 }

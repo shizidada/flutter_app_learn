@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fluro/fluro.dart';
+import 'package:flutter_app_learn/src/provider/favorite_provider.dart';
 import 'package:provider/provider.dart';
 
 import 'src/config/index.dart';
@@ -30,6 +31,9 @@ class FlutterLearnApp extends StatelessWidget {
         ),
         ChangeNotifierProvider(
           create: (context) => HomeProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => FavoriteProvider(),
         )
       ],
       child: MaterialApp(

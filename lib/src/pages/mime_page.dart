@@ -10,14 +10,9 @@ class MimePage extends BasePage {
 
 class _MimePageState<MimePage> extends BasePageState
     with SingleTickerProviderStateMixin {
-  _MimePageState() {
-    title = Text(
-      '我的',
-    );
-  }
-
   @override
   void initState() {
+    title = Text('我的');
     super.initState();
   }
 
@@ -31,6 +26,7 @@ class _MimePageState<MimePage> extends BasePageState
     ScreenUtil.instance = ScreenUtil(width: 750, height: 1334)..init(context);
     // double width = ScreenUtil.screenWidth;
     // double height = ScreenUtil.screenHeight;
+    print(" ------ MimePage ------ ");
     return Container(child: Text('MimePage'));
   }
 }

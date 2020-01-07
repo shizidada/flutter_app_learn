@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app_learn/src/base/base_page_state.dart';
 import 'package:flutter_app_learn/src/utils/navigate_util.dart';
 import 'package:flutter_app_learn/src/utils/share_util.dart';
+import 'package:flutter_app_learn/src/widgets/comment_Item_view.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 /// 会员
 class VipPage extends BasePage {
@@ -11,13 +13,10 @@ class VipPage extends BasePage {
 
 class _VipPageState<BasePage> extends BasePageState
     with SingleTickerProviderStateMixin {
-  _VipPageState() {
-    title = Text("会员");
-  }
-
   // 初始化
   @override
   void initState() {
+    title = Text("会员");
     super.initState();
   }
 
@@ -28,6 +27,7 @@ class _VipPageState<BasePage> extends BasePageState
 
   @override
   Widget buildBody(context) {
+    print(' ------ VipPage ------ ');
     return Container(
       child: Column(
         children: <Widget>[
@@ -46,9 +46,25 @@ class _VipPageState<BasePage> extends BasePageState
                 NavigatorUtil.pushFromRight(context, "/video");
               },
             ),
+          ),
+          Center(
+            child: RaisedButton(
+              child: Text("Show Bottom Sheet"),
+              onPressed: () {
+                show();
+              },
+            ),
           )
         ],
       ),
     );
+  }
+
+  void show() {
+    showModalBottomSheet(
+        context: context,
+        builder: (BuildContext context) {
+          return CommentItemView();
+        });
   }
 }
