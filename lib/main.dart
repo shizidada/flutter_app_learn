@@ -12,12 +12,12 @@ import 'src/routers/application.dart';
 import 'src/routers/routers.dart';
 
 void main() async {
-  runApp(FlutterLearnApp());
+  runApp(MooseApp());
   // FlutterLearnApp()
 }
 
-class FlutterLearnApp extends StatelessWidget {
-  FlutterLearnApp() {
+class MooseApp extends StatelessWidget {
+  MooseApp() {
     final router = Router();
     Routes.configureRoutes(router);
     Application.router = router;
