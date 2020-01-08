@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fluro/fluro.dart';
+import 'package:flutter_app_learn/src/pages/chat_page.dart';
+import 'package:flutter_app_learn/src/pages/contact_list_page.dart';
 
 import 'package:flutter_app_learn/src/pages/index_page.dart';
 import 'package:flutter_app_learn/src/pages/login_page.dart';
@@ -38,4 +40,17 @@ Handler detailHander = Handler(
 Handler videoPlayerHander = Handler(
     handlerFunc: (BuildContext context, Map<String, List<String>> params) {
   return ViderPlayerPage();
+});
+
+Handler contactListHander = Handler(
+    handlerFunc: (BuildContext context, Map<String, List<String>> params) {
+  return ContactListPage();
+});
+
+Handler chatHander = Handler(
+    handlerFunc: (BuildContext context, Map<String, List<String>> params) {
+  String userId = params['userId']?.first;
+  String username = params['username']?.first;
+  print("$params");
+  return ChatPage(userId: userId, username: username);
 });

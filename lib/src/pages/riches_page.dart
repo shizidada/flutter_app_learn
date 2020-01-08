@@ -1,22 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app_learn/src/base/base_page_state.dart';
+import 'package:flutter_app_learn/src/config/index.dart';
 import 'package:flutter_app_learn/src/utils/navigate_util.dart';
 import 'package:flutter_app_learn/src/utils/share_util.dart';
 import 'package:flutter_app_learn/src/widgets/comment_Item_view.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-/// 会员
-class VipPage extends BasePage {
+/// riches
+class RichesPage extends BasePage {
   @override
-  State<StatefulWidget> createState() => _VipPageState();
+  State<StatefulWidget> createState() => _RichesPageState();
 }
 
-class _VipPageState<BasePage> extends BasePageState
+class _RichesPageState<BasePage> extends BasePageState
     with SingleTickerProviderStateMixin {
   // 初始化
   @override
   void initState() {
-    title = Text("会员");
+    title = Text(MStrings.richesTitle);
     super.initState();
   }
 
@@ -27,7 +27,7 @@ class _VipPageState<BasePage> extends BasePageState
 
   @override
   Widget buildBody(context) {
-    print(' ------ VipPage ------ ');
+    print(' ------ RichesPage ------ ');
     return Container(
       child: Column(
         children: <Widget>[

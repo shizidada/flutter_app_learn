@@ -1,9 +1,11 @@
 class MStrings {
   static final String homeTitle = "首页";
-  static final String favoriteTitle = "关注";
-  static final String messageTitle = "消息";
-  static final String vipTitle = "会员";
-  static final String mimeTitle = "我";
+  static final String richesTitle = "财富";
+  static final String publicPraiseTitle = "口碑";
+  static final String friendTitle = "朋友";
+  static final String mimeTitle = "我的";
+
+  static final String contactTitle = "通讯录";
 
   static final List<String> tabs = [];
 

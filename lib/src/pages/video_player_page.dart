@@ -1,8 +1,5 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_app_learn/src/utils/navigate_util.dart';
-import 'package:flutter_app_learn/src/utils/toast_util.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:video_player/video_player.dart';
@@ -18,8 +15,6 @@ class _ViderPlayerPageState extends State<ViderPlayerPage> {
   VideoPlayerController _videoPlayerController;
 
   SwiperController _swiperController;
-
-  List<Widget> _videoList = [];
 
   bool _isPlaying = false;
 
@@ -50,8 +45,6 @@ class _ViderPlayerPageState extends State<ViderPlayerPage> {
 
     _swiperController = SwiperController();
   }
-
-  _swiperListener() {}
 
   _videoPlayerListener() {
     final bool isPlaying = _videoPlayerController.value.isPlaying;

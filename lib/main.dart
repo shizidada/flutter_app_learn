@@ -5,6 +5,7 @@ import 'package:provider/provider.dart';
 
 import 'src/config/index.dart';
 import 'src/provider/current_index_provide.dart';
+import 'src/provider/friends_provider.dart';
 import 'src/provider/home_provider.dart';
 import 'src/pages/welcome_page.dart';
 import 'src/routers/application.dart';
@@ -34,6 +35,9 @@ class FlutterLearnApp extends StatelessWidget {
         ),
         ChangeNotifierProvider(
           create: (context) => FavoriteProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => FriendsProvider(),
         )
       ],
       child: MaterialApp(

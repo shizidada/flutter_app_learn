@@ -74,49 +74,51 @@ class _WelcomePageState extends State<WelcomePage>
   Widget build(BuildContext context) {
     ScreenUtil.instance = ScreenUtil(width: 750, height: 1334)..init(context);
 
-    return Scaffold(
-      // 防止键盘弹出影响布局高度
-      resizeToAvoidBottomPadding: false,
-      // backgroundColor: Colors.grey,
-      body: Stack(
-        fit: StackFit.expand,
-        children: <Widget>[
-          Column(
-            mainAxisAlignment: MainAxisAlignment.end,
-            mainAxisSize: MainAxisSize.min,
-            children: <Widget>[
-              RotationTransition(
-                turns:
-                    Tween(begin: 0.0, end: 1.0).animate(_animationController),
-                child: Padding(
+    return SafeArea(
+      child: Scaffold(
+        // 防止键盘弹出影响布局高度
+        resizeToAvoidBottomPadding: false,
+        // backgroundColor: Colors.grey,
+        body: Stack(
+          fit: StackFit.expand,
+          children: <Widget>[
+            Column(
+              mainAxisAlignment: MainAxisAlignment.end,
+              mainAxisSize: MainAxisSize.min,
+              children: <Widget>[
+                RotationTransition(
+                  turns:
+                      Tween(begin: 0.0, end: 1.0).animate(_animationController),
+                  child: Padding(
+                      padding: EdgeInsets.only(
+                          bottom: ScreenUtil.getInstance().setHeight(25.0)),
+                      child: Image.asset(
+                        'assets/images/splash_logo.jpeg',
+                        width: ScreenUtil.getInstance().setWidth(100.0),
+                        height: ScreenUtil.getInstance().setHeight(100.0),
+                        fit: BoxFit.cover,
+                      )),
+                ),
+                Padding(
                     padding: EdgeInsets.only(
-                        bottom: ScreenUtil.getInstance().setHeight(25.0)),
-                    child: Image.asset(
-                      'assets/images/splash_logo.jpeg',
-                      width: ScreenUtil.getInstance().setWidth(100.0),
-                      height: ScreenUtil.getInstance().setHeight(100.0),
-                      fit: BoxFit.cover,
-                    )),
-              ),
-              Padding(
-                  padding: EdgeInsets.only(
-                      bottom: ScreenUtil.getInstance().setHeight(60.0)),
-                  child: Text('Moose App'))
-            ],
-          ),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Image.asset(
-                'assets/images/splash_logo.jpeg',
-                width:
-                    _animation.value * ScreenUtil.getInstance().setWidth(600.0),
-                height: _animation.value *
-                    ScreenUtil.getInstance().setHeight(300.0),
-              ),
-            ],
-          ),
-        ],
+                        bottom: ScreenUtil.getInstance().setHeight(60.0)),
+                    child: Text('Moose App'))
+              ],
+            ),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Image.asset(
+                  'assets/images/splash_logo.jpeg',
+                  width: _animation.value *
+                      ScreenUtil.getInstance().setWidth(600.0),
+                  height: _animation.value *
+                      ScreenUtil.getInstance().setHeight(300.0),
+                ),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }
