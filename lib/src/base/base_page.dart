@@ -4,7 +4,7 @@ abstract class BasePage extends StatefulWidget {}
 
 abstract class BasePageState<T extends BasePage> extends State<T>
     with AutomaticKeepAliveClientMixin {
-  Widget title;
+  Widget title = Text("Default Title");
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +12,6 @@ abstract class BasePageState<T extends BasePage> extends State<T>
     return Scaffold(
       appBar: AppBar(
         title: title,
-        // iconTheme: IconThemeData(color: Theme.of(context).primaryColor),
         elevation: 0.0,
       ),
       body: SafeArea(

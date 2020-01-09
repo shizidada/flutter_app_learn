@@ -9,6 +9,7 @@ class FriendsProvider with ChangeNotifier {
   List<UserInfoModel> friendsList = List<UserInfoModel>();
 
   FriendsProvider() {
+    print(" ---- FriendsProvider ---- ");
     this.getFriendsList();
   }
 
@@ -19,6 +20,8 @@ class FriendsProvider with ChangeNotifier {
       Result<UserInfoModel> res = Result<UserInfoModel>.fromJson(userMap);
       friendsList = res.data;
       notifyListeners();
+    }).catchError((error) {
+      print('error $error');
     });
   }
 }

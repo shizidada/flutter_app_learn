@@ -52,13 +52,13 @@ class _ChatPageState extends State<ChatPage> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        appBar: AppBar(
-          title: Text(widget.username),
-          centerTitle: true,
-        ),
-        body: Container(
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(widget.username),
+        centerTitle: true,
+      ),
+      body: SafeArea(
+        child: Container(
           child: Row(
             children: <Widget>[
               Text(widget.username),

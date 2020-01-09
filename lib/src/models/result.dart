@@ -8,13 +8,10 @@ class Result<T> {
   Result({this.data, this.code, this.message, this.status});
 
   @_Converter()
-  List<T> data;
-
-  int code;
-
-  bool status;
-
-  String message;
+  final List<T> data;
+  final int code;
+  final bool status;
+  final String message;
 
   //反序列化
   factory Result.fromJson(Map<String, dynamic> json) => _$ResultFromJson(json);

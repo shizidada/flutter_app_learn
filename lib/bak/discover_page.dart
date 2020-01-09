@@ -13,7 +13,7 @@
 //   int _currentIndex = 0;
 
 //   void _incrementHandle() {
-//     CurrentIndexProvider currentIndexProvider = Provider.of<CurrentIndexProvider>(context);
+//     IndexProvider currentIndexProvider = Provider.of<IndexProvider>(context);
 //     int currentIndex = currentIndexProvider.currentIndex;
 //     currentIndex++;
 //     currentIndexProvider.changeIndex(currentIndex);

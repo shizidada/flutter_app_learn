@@ -58,26 +58,25 @@ class _HomePageState extends State<HomePage>
     super.build(context);
     print('HomePage...');
     ScreenUtil.instance = ScreenUtil(width: 750, height: 1334)..init(context);
-    return SafeArea(
-      child: Scaffold(
-        appBar: AppBar(
-          iconTheme: IconThemeData(color: Colors.white),
-          elevation: 0.0,
-          title: TabBar(
-            tabs: _appBarTabs,
-            controller: _controller,
-            // 配置控制器
-            isScrollable: true,
-            indicatorColor: Colors.transparent,
-            labelStyle:
-                TextStyle(fontSize: ScreenUtil.getInstance().setSp(40.0)),
-            unselectedLabelColor: MColors.de,
-            unselectedLabelStyle: TextStyle(
-              fontSize: ScreenUtil.getInstance().setSp(32.0),
-            ),
+    return Scaffold(
+      appBar: AppBar(
+        iconTheme: IconThemeData(color: Colors.white),
+        elevation: 0.0,
+        title: TabBar(
+          tabs: _appBarTabs,
+          controller: _controller,
+          // 配置控制器
+          isScrollable: true,
+          indicatorColor: Colors.transparent,
+          labelStyle: TextStyle(fontSize: ScreenUtil.getInstance().setSp(40.0)),
+          unselectedLabelColor: MColors.de,
+          unselectedLabelStyle: TextStyle(
+            fontSize: ScreenUtil.getInstance().setSp(32.0),
           ),
         ),
-        body: TabBarView(
+      ),
+      body: SafeArea(
+        child: TabBarView(
             controller: _controller, //配置控制器
             children: _appBarTabs
                 .map((Tab tab) => Container(

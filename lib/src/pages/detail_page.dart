@@ -21,12 +21,12 @@ class _DetailPageState extends State<DetailPage> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        appBar: new AppBar(
-          title: new Text("Detail"),
-        ),
-        body: Container(
+    return Scaffold(
+      appBar: new AppBar(
+        title: new Text("Detail"),
+      ),
+      body: SafeArea(
+        child: Container(
             width: MediaQuery.of(context).size.width,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,

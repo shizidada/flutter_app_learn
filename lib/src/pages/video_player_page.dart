@@ -106,46 +106,48 @@ class _ViderPlayerPageState extends State<ViderPlayerPage> {
   @override
   Widget build(BuildContext context) {
     ScreenUtil.instance = ScreenUtil(width: 750, height: 1334)..init(context);
-    return Material(
-      child: _videoPlayerController.value.initialized
-          // 加载成功
-          ? Stack(
-              children: <Widget>[
-                GestureDetector(
-                  onTapDown: _videoTapDown,
-                  onTapUp: _videoTapUp,
-                  child: Swiper(
-                    itemCount: 2,
-                    loop: false,
-                    scrollDirection: Axis.vertical,
-                    itemWidth: ScreenUtil.screenWidth,
-                    itemHeight: ScreenUtil.screenHeight,
-                    itemBuilder: _videoPlayerBuilder,
-                    onTap: (index) => {_videoPlayOrPause()},
-                    onIndexChanged: (index) => {print("index $index")},
-                    controller: _swiperController,
-                  ),
-                ),
-                Positioned(
-                  left: ScreenUtil.getInstance().setWidth(40),
-                  top: ScreenUtil.getInstance().setHeight(80),
-                  child: Container(
-                    child: Row(
-                      children: <Widget>[
-                        IconButton(
-                          icon: Icon(Icons.close),
-                          onPressed: () {
-                            _videoPlayerController.pause();
-                            NavigatorUtil.pop(context);
-                          },
-                        ),
-                      ],
+    return Scaffold(
+      body: SafeArea(
+        child: _videoPlayerController.value.initialized
+            // 加载成功
+            ? Stack(
+                children: <Widget>[
+                  GestureDetector(
+                    onTapDown: _videoTapDown,
+                    onTapUp: _videoTapUp,
+                    child: Swiper(
+                      itemCount: 2,
+                      loop: false,
+                      scrollDirection: Axis.vertical,
+                      itemWidth: ScreenUtil.screenWidth,
+                      itemHeight: ScreenUtil.screenHeight,
+                      itemBuilder: _videoPlayerBuilder,
+                      onTap: (index) => {_videoPlayOrPause()},
+                      onIndexChanged: (index) => {print("index $index")},
+                      controller: _swiperController,
                     ),
                   ),
-                ),
-              ],
-            )
-          : Container(),
+                  Positioned(
+                    left: ScreenUtil.getInstance().setWidth(40),
+                    top: ScreenUtil.getInstance().setHeight(80),
+                    child: Container(
+                      child: Row(
+                        children: <Widget>[
+                          IconButton(
+                            icon: Icon(Icons.close),
+                            onPressed: () {
+                              _videoPlayerController.pause();
+                              NavigatorUtil.pop(context);
+                            },
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
+              )
+            : Container(),
+      ),
     );
   }
 

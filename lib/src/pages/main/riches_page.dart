@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app_learn/src/base/base_page_state.dart';
+import 'package:flutter_app_learn/src/base/base_page.dart';
 import 'package:flutter_app_learn/src/config/index.dart';
+import 'package:flutter_app_learn/src/provider/index_provider.dart';
 import 'package:flutter_app_learn/src/utils/navigate_util.dart';
 import 'package:flutter_app_learn/src/utils/share_util.dart';
 import 'package:flutter_app_learn/src/widgets/comment_Item_view.dart';
+import 'package:provider/provider.dart';
 
 /// riches
 class RichesPage extends BasePage {
@@ -28,6 +30,7 @@ class _RichesPageState<BasePage> extends BasePageState
   @override
   Widget buildBody(context) {
     print(' ------ RichesPage ------ ');
+    IndexProvider provider = Provider.of<IndexProvider>(context);
     return Container(
       child: Column(
         children: <Widget>[
@@ -52,6 +55,14 @@ class _RichesPageState<BasePage> extends BasePageState
               child: Text("Show Bottom Sheet"),
               onPressed: () {
                 show();
+              },
+            ),
+          ),
+          Center(
+            child: RaisedButton(
+              child: Text("Change Badge"),
+              onPressed: () {
+                provider.changeBadge("99", 0);
               },
             ),
           )

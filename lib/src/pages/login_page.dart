@@ -53,80 +53,79 @@ class _LoginPageState extends State<LoginPage> {
 
     ScreenUtil.instance = ScreenUtil(width: 750, height: 1334)..init(context);
 
-    return SafeArea(
-        child: Scaffold(
-            // 防止键盘弹出影响布局高度
-            resizeToAvoidBottomInset: false,
-            body: GestureDetector(
-                behavior: HitTestBehavior.translucent,
-                // 触摸收起键盘
-                onTap: () {
-                  FocusScope.of(context).requestFocus(FocusNode());
-                },
-                child: Stack(
-                  children: <Widget>[
-                    Container(
-                      padding: EdgeInsets.all(
-                          ScreenUtil.getInstance().setWidth(32.0)),
-                      margin: EdgeInsets.only(
-                          top: ScreenUtil.getInstance().setHeight(260.0)),
-                      child: Column(
-                        children: <Widget>[
-                          LoginInputItem(
-                              MStrings.accountHintText,
-                              Icon(Icons.person),
-                              _accountController,
-                              false,
-                              TextInputType.text),
-                          LoginInputItem(
-                              MStrings.passwordHintText,
-                              Icon(Icons.lock),
-                              _passwordController,
-                              true,
-                              TextInputType.number),
-                          Row(
-                            mainAxisSize: MainAxisSize.max,
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: <Widget>[
-                              Row(
-                                children: <Widget>[
-                                  Checkbox(
-                                      value: _rememberPassword,
-                                      checkColor: Colors.white,
-                                      focusColor:
-                                          Theme.of(context).primaryColor,
-                                      activeColor:
-                                          Theme.of(context).primaryColor,
-                                      onChanged: (value) {
-                                        this.setState(() {
-                                          _rememberPassword = value;
-                                        });
-                                      }),
-                                  GestureDetector(
-                                    child: Text(
-                                      "记住密码",
-                                      style: TextStyle(
-                                        fontSize: ScreenUtil.getInstance()
-                                            .setSp(30.0),
-                                      ),
-                                    ),
-                                    onPanDown: (_) {
+    return Scaffold(
+        // 防止键盘弹出影响布局高度
+        resizeToAvoidBottomInset: false,
+        body: SafeArea(
+          child: GestureDetector(
+              behavior: HitTestBehavior.translucent,
+              // 触摸收起键盘
+              onTap: () {
+                FocusScope.of(context).requestFocus(FocusNode());
+              },
+              child: Stack(
+                children: <Widget>[
+                  Container(
+                    padding:
+                        EdgeInsets.all(ScreenUtil.getInstance().setWidth(32.0)),
+                    margin: EdgeInsets.only(
+                        top: ScreenUtil.getInstance().setHeight(260.0)),
+                    child: Column(
+                      children: <Widget>[
+                        LoginInputItem(
+                            MStrings.accountHintText,
+                            Icon(Icons.person),
+                            _accountController,
+                            false,
+                            TextInputType.text),
+                        LoginInputItem(
+                            MStrings.passwordHintText,
+                            Icon(Icons.lock),
+                            _passwordController,
+                            true,
+                            TextInputType.number),
+                        Row(
+                          mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: <Widget>[
+                            Row(
+                              children: <Widget>[
+                                Checkbox(
+                                    value: _rememberPassword,
+                                    checkColor: Colors.white,
+                                    focusColor: Theme.of(context).primaryColor,
+                                    activeColor: Theme.of(context).primaryColor,
+                                    onChanged: (value) {
                                       this.setState(() {
-                                        _rememberPassword = !_rememberPassword;
+                                        _rememberPassword = value;
                                       });
-                                    },
+                                    }),
+                                GestureDetector(
+                                  child: Text(
+                                    "记住密码",
+                                    style: TextStyle(
+                                      fontSize:
+                                          ScreenUtil.getInstance().setSp(30.0),
+                                    ),
                                   ),
-                                ],
-                              )
-                            ],
-                          ),
-                          _buildLoginButton(),
-                          _buildRegister(),
-                        ],
-                      ),
+                                  onPanDown: (_) {
+                                    this.setState(() {
+                                      _rememberPassword = !_rememberPassword;
+                                    });
+                                  },
+                                ),
+                              ],
+                            )
+                          ],
+                        ),
+                        _buildLoginButton(),
+                        _buildRegister(),
+                      ],
                     ),
-                  ],
-                ))));
+                  ),
+                ],
+              )),
+        ));
   }
 
   Widget _buildLoginButton() {

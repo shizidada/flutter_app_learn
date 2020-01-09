@@ -41,21 +41,21 @@ class _ContactListPageState extends State<ContactListPage>
     print(" ------ FriendsPage $width, $height ------ ");
     FriendsProvider provider = Provider.of<FriendsProvider>(context);
     provider.getFriendsList();
-    return SafeArea(
-      child: Scaffold(
-        appBar: AppBar(
-          title: Text(MStrings.contactTitle),
-          elevation: 0.0,
-          centerTitle: true,
-          actions: <Widget>[
-            IconButton(
-              icon: Icon(Icons.group_add),
-              color: Colors.white,
-              onPressed: () {},
-            ),
-          ],
-        ),
-        body: CustomScrollView(slivers: _buildSlivers(context)),
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(MStrings.contactTitle),
+        elevation: 0.0,
+        centerTitle: true,
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(Icons.group_add),
+            color: Colors.white,
+            onPressed: () {},
+          ),
+        ],
+      ),
+      body: SafeArea(
+        child: CustomScrollView(slivers: _buildSlivers(context)),
       ),
     );
   }

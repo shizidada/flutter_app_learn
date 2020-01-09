@@ -1,3 +1,7 @@
 import 'package:flutter/material.dart';
 
-class HomeProvider extends ChangeNotifier {}
+class HomeProvider extends ChangeNotifier {
+  HomeProvider() {
+    print(" ---- HomeProvider ---- ");
+  }
+}

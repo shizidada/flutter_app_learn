@@ -36,28 +36,28 @@ class _FriendsPageState extends State<FriendsPage>
     double height = ScreenUtil.screenHeight;
     print(" ------ FriendsPage $width, $height ------ ");
     FriendsProvider provider = Provider.of<FriendsProvider>(context);
-    return SafeArea(
-      child: Scaffold(
-        appBar: AppBar(
-          title: Text(MStrings.friendTitle),
-          elevation: 0.0,
-          centerTitle: true,
-          actions: <Widget>[
-            IconButton(
-              icon: Icon(Icons.supervisor_account),
-              color: Colors.white,
-              onPressed: () {
-                NavigatorUtil.pushFromRight(context, '/contact/list');
-              },
-            ),
-            IconButton(
-              icon: Icon(Icons.add),
-              color: Colors.white,
-              onPressed: () {},
-            )
-          ],
-        ),
-        body: Container(
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(MStrings.friendTitle),
+        elevation: 0.0,
+        centerTitle: true,
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(Icons.supervisor_account),
+            color: Colors.white,
+            onPressed: () {
+              NavigatorUtil.pushFromRight(context, '/contact/list');
+            },
+          ),
+          IconButton(
+            icon: Icon(Icons.add),
+            color: Colors.white,
+            onPressed: () {},
+          )
+        ],
+      ),
+      body: SafeArea(
+        child: Container(
             child: Column(
           children: <Widget>[_buildSearch(), _buildFriendList(provider)],
         )),
