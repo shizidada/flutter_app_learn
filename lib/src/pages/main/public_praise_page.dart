@@ -1,18 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app_learn/src/base/base_page.dart';
 import 'package:flutter_app_learn/src/config/index.dart';
 
 /// public praise
-class PublicPraisePage extends BasePage {
+class PublicPraisePage extends StatefulWidget {
   @override
   State<StatefulWidget> createState() => _PublicPraisePageState();
 }
 
-class _PublicPraisePageState<PublicPraisePage> extends BasePageState
+class _PublicPraisePageState extends State<PublicPraisePage>
     with SingleTickerProviderStateMixin {
   @override
   void initState() {
-    title = Text(MStrings.publicPraiseTitle);
     super.initState();
   }
 
@@ -22,8 +20,15 @@ class _PublicPraisePageState<PublicPraisePage> extends BasePageState
   }
 
   @override
-  Widget buildBody(context) {
+  Widget build(BuildContext context) {
     print(' ------ PublicPraisePage ------ ');
-    return Text("PublicPraisePage");
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(MStrings.publicPraiseTitle),
+      ),
+      body: SafeArea(
+        child: Text(MStrings.publicPraiseTitle),
+      ),
+    );
   }
 }

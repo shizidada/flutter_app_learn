@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app_learn/src/widgets/input_item.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CommentItemView extends StatefulWidget {
@@ -9,6 +10,14 @@ class CommentItemView extends StatefulWidget {
 }
 
 class _CommentItemViewState extends State<CommentItemView> {
+  TextEditingController controller;
+
+  @override
+  void initState() {
+    super.initState();
+    controller = TextEditingController();
+  }
+
   @override
   Widget build(BuildContext context) {
     ScreenUtil.instance = ScreenUtil(width: 750, height: 1334)..init(context);
@@ -49,17 +58,9 @@ class _CommentItemViewState extends State<CommentItemView> {
           children: <Widget>[
             Flexible(
               flex: 1,
-              child: TextField(
-                decoration: InputDecoration(
-                    focusedBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(5),
-                  ),
-                  borderSide: BorderSide(
-                    color: Colors.grey, //边线颜色为黄色
-                    width: 0.5, //边线宽度为2
-                  ),
-                )),
+              child: InputItem(
+                icon: Icon(Icons.adb),
+                controller: controller,
               ),
             ),
             Icon(Icons.add)

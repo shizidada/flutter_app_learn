@@ -3,7 +3,7 @@ import 'package:flutter_app_learn/src/config/index.dart';
 import 'package:flutter_app_learn/src/utils/navigate_util.dart';
 import 'package:flutter_app_learn/src/utils/share_util.dart';
 import 'package:flutter_app_learn/src/utils/toast_util.dart';
-import 'package:flutter_app_learn/src/widgets/login_input_item.dart';
+import 'package:flutter_app_learn/src/widgets/input_item.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class LoginPage extends StatefulWidget {
@@ -72,18 +72,17 @@ class _LoginPageState extends State<LoginPage> {
                         top: ScreenUtil.getInstance().setHeight(260.0)),
                     child: Column(
                       children: <Widget>[
-                        LoginInputItem(
-                            MStrings.accountHintText,
-                            Icon(Icons.person),
-                            _accountController,
-                            false,
-                            TextInputType.text),
-                        LoginInputItem(
-                            MStrings.passwordHintText,
-                            Icon(Icons.lock),
-                            _passwordController,
-                            true,
-                            TextInputType.number),
+                        InputItem(
+                          hintText: MStrings.accountHintText,
+                          icon: Icon(Icons.person),
+                          controller: _accountController,
+                        ),
+                        InputItem(
+                          hintText: MStrings.passwordHintText,
+                          icon: Icon(Icons.lock),
+                          controller: _passwordController,
+                          obscureText: true,
+                        ),
                         Row(
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.start,

@@ -1,18 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app_learn/src/base/base_page.dart';
+import 'package:flutter_app_learn/src/config/strings.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 /// 我
-class MimePage extends BasePage {
+class MimePage extends StatefulWidget {
   @override
   State<StatefulWidget> createState() => _MimePageState();
 }
 
-class _MimePageState<MimePage> extends BasePageState
+class _MimePageState extends State<MimePage>
     with SingleTickerProviderStateMixin {
   @override
   void initState() {
-    title = Text('我的');
     super.initState();
   }
 
@@ -22,11 +21,18 @@ class _MimePageState<MimePage> extends BasePageState
   }
 
   @override
-  Widget buildBody(context) {
+  Widget build(BuildContext context) {
     ScreenUtil.instance = ScreenUtil(width: 750, height: 1334)..init(context);
     // double width = ScreenUtil.screenWidth;
     // double height = ScreenUtil.screenHeight;
     print(" ------ MimePage ------ ");
-    return Container(child: Text('MimePage'));
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(MStrings.publicPraiseTitle),
+      ),
+      body: SafeArea(
+        child: Container(child: Text('MimePage')),
+      ),
+    );
   }
 }

@@ -13,6 +13,7 @@ class MStrings {
 
   static final String accountHintText = '请输入账号';
   static final String passwordHintText = '请输入密码';
+  static final String rePasswordHintText = '请输入确认密码';
   static final String accountEmpty = '账号不能为空';
   static final String passwordEmpty = '密码不能为空';
   static final String accountPasswordError = '账号或密码错误';

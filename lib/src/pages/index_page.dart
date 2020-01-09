@@ -47,17 +47,15 @@ class _IndexPageState extends State<IndexPage>
       //   children: _bodies,
       // ),
 
-      body: SafeArea(
-        child: PageView(
-          children: _bodies,
-          pageSnapping: false,
-          physics: NeverScrollableScrollPhysics(),
-          controller: _pageController,
-          // allowImplicitScrolling: true,
-          // onPageChanged: (index) {
-          //   provider.changeIndex(index);
-          // },
-        ),
+      body: PageView(
+        children: _bodies,
+        pageSnapping: false,
+        physics: NeverScrollableScrollPhysics(),
+        controller: _pageController,
+        // allowImplicitScrolling: true,
+        // onPageChanged: (index) {
+        //   provider.changeIndex(index);
+        // },
       ),
 
       bottomNavigationBar: BottomNavigationBar(

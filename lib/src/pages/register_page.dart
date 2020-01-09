@@ -1,89 +1,129 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app_learn/src/config/index.dart';
+import 'package:flutter_app_learn/src/utils/navigate_util.dart';
+import 'package:flutter_app_learn/src/utils/share_util.dart';
+import 'package:flutter_app_learn/src/utils/toast_util.dart';
+import 'package:flutter_app_learn/src/widgets/input_item.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class RegisterPage extends StatefulWidget {
+  RegisterPage({Key key}) : super(key: key);
+
   @override
   State<StatefulWidget> createState() => _RegisterPageState();
 }
 
 class _RegisterPageState extends State<RegisterPage> {
+  TextEditingController _accountController = TextEditingController();
+  TextEditingController _passwordController = TextEditingController();
+  TextEditingController _rePasswordController = TextEditingController();
+
+  @override
+  void initState() {
+    super.initState();
+    // _accountController.text = "admin";
+    // _passwordController.text = "123";
+    // _rePasswordController.text = "123";
+  }
+
+  _loginHandle() {
+    String account = _accountController.text.trim();
+    if (account.isEmpty) {
+      ToastUtil.showToast(message: MStrings.accountEmpty);
+      return;
+    }
+    String password = _passwordController.text.trim();
+    if (password.isEmpty) {
+      ToastUtil.showToast(message: MStrings.passwordEmpty);
+      return;
+    }
+    print('$account $password');
+    if (account == 'admin' && password == '123') {
+      NavigatorUtil.pushFadeInReplace(context, "/");
+      SharedUtil.putBool(MStrings.isLogin, true);
+    } else {
+      ToastUtil.showToast(message: MStrings.accountPasswordError);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
+    print("build .... ");
+
     ScreenUtil.instance = ScreenUtil(width: 750, height: 1334)..init(context);
 
-    ScreenUtil sc = ScreenUtil.getInstance();
     return Scaffold(
-      appBar: new AppBar(
-        title: new Text(MStrings.registerTitle),
-        centerTitle: true,
-      ),
-      body: SafeArea(
-        child: Container(
-          child: ClipPath(
-            clipper: RegisterClipper(),
-            child: Container(
-                height: sc.setHeight(200.0),
-                // width: ScreenUtil.screenWidth,
-                color: Theme.of(context).primaryColor),
-          ),
+        appBar: AppBar(
+          title: Text(MStrings.registerTitle),
         ),
-      ),
+        // 防止键盘弹出影响布局高度
+        resizeToAvoidBottomInset: false,
+        body: SafeArea(
+          child: GestureDetector(
+              behavior: HitTestBehavior.translucent,
+              // 触摸收起键盘
+              onTap: () {
+                FocusScope.of(context).requestFocus(FocusNode());
+              },
+              child: Stack(
+                children: <Widget>[
+                  Container(
+                    padding:
+                        EdgeInsets.all(ScreenUtil.getInstance().setWidth(32.0)),
+                    margin: EdgeInsets.only(
+                        top: ScreenUtil.getInstance().setHeight(260.0)),
+                    child: Column(
+                      children: <Widget>[
+                        InputItem(
+                          hintText: MStrings.accountHintText,
+                          icon: Icon(Icons.person),
+                          controller: _accountController,
+                        ),
+                        InputItem(
+                          hintText: MStrings.passwordHintText,
+                          icon: Icon(Icons.lock),
+                          controller: _passwordController,
+                          obscureText: true,
+                          suffixIcon: Icon(Icons.remove_red_eye),
+                        ),
+                        InputItem(
+                          hintText: MStrings.rePasswordHintText,
+                          icon: Icon(Icons.lock),
+                          controller: _rePasswordController,
+                          obscureText: true,
+                          suffixIcon: Icon(Icons.remove_red_eye),
+                        ),
+                        _buildLoginButton(),
+                      ],
+                    ),
+                  ),
+                ],
+              )),
+        ));
+  }
+
+  Widget _buildLoginButton() {
+    return Row(
+      children: <Widget>[
+        Expanded(
+          child: Container(
+            height: ScreenUtil.getInstance().setHeight(82.0),
+            margin: EdgeInsets.fromLTRB(
+                0, ScreenUtil.getInstance().setHeight(20.0), 0, 0),
+            child: RaisedButton(
+              color: MColors.primaryColor,
+              child: Text(
+                MStrings.registerTitle,
+                style: TextStyle(color: Colors.white),
+              ),
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(
+                      ScreenUtil.getInstance().setHeight(8.0))),
+              onPressed: _loginHandle,
+            ),
+          ),
+        )
+      ],
     );
-  }
-}
-
-class RegisterClipper extends CustomClipper<Path> {
-  @override
-  Path getClip(Size size) {
-    print(size);
-    Path path = Path();
-
-    /// path.lineTo(0, 0); //第1个点
-    /// path.lineTo(0, size.height - 50.0); //第2个点
-    /// Offset firstControlPoint = Offset(size.width / 2, size.height);
-    /// Offset firstEdnPoint = Offset(size.width, size.height - 50.0);
-    /// path.quadraticBezierTo(firstControlPoint.dx, firstControlPoint.dy,
-    ///     firstEdnPoint.dx, firstEdnPoint.dy);
-    /// path.lineTo(size.width, size.height - 50.0); //第3个点
-    /// path.lineTo(size.width, 0); //第4个点
-
-    /// 波浪曲线路径
-    /// 第1个点
-    path.lineTo(0, 0);
-
-    /// 第2个点
-    path.lineTo(0, size.height - 40.0);
-
-    /// 第一段曲线控制点
-    Offset firstControlPoint = Offset(size.width / 4, size.height);
-
-    /// 第一段曲线结束点
-    Offset firstEndPoint = Offset(size.width / 2.25, size.height - 30);
-    print(firstEndPoint);
-
-    /// 形成曲线
-    path.quadraticBezierTo(firstControlPoint.dx, firstControlPoint.dy,
-        firstEndPoint.dx, firstEndPoint.dy);
-
-    /// 第二段曲线控制点
-    Offset secondControlPoint = Offset(size.width / 4 * 3, size.height - 90);
-
-    /// 第二段曲线结束点
-    Offset secondEndPoint = Offset(size.width, size.height - 40);
-
-    /// 形成曲线
-    path.quadraticBezierTo(secondControlPoint.dx, secondControlPoint.dy,
-        secondEndPoint.dx, secondEndPoint.dy);
-
-    path.lineTo(size.width, size.height - 40);
-    path.lineTo(size.width, 0);
-
-    return path;
-  }
-
-  @override
-  bool shouldReclip(CustomClipper<Path> oldClipper) {
-    return false;
   }
 }
