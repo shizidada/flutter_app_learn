@@ -28,7 +28,7 @@ class _MimePageState extends State<MimePage>
     print(" ------ MimePage ------ ");
     return Scaffold(
       appBar: AppBar(
-        title: Text(MStrings.publicPraiseTitle),
+        title: Text(MStrings.mimeTitle),
       ),
       body: SafeArea(
         child: Container(child: Text('MimePage')),
