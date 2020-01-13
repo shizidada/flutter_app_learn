@@ -59,8 +59,8 @@ class _IndexPageState extends State<IndexPage>
       ),
 
       bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: MColors.primaryColor,
-        selectedItemColor: Colors.white,
+        backgroundColor: Colors.white,
+        selectedItemColor: MColors.alipayColor,
         unselectedItemColor: Colors.grey[600],
         type: BottomNavigationBarType.fixed,
         currentIndex: provider.currentTabIndex,

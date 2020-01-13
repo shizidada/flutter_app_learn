@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:fluro/fluro.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_app_learn/src/pages/index_page.dart';
 import 'package:flutter_app_learn/src/pages/login_page.dart';
 import 'package:provider/provider.dart';
 
@@ -50,9 +51,9 @@ class MooseApp extends StatelessWidget {
       child: MaterialApp(
         title: 'Moose',
         // debugShowCheckedModeBanner: false,
-        theme: ThemeData(primaryColor: MColors.primaryColor),
-        // color: MColors.primaryColor,
-        home: LoginPage(),
+        theme: ThemeData(primaryColor: MColors.alipayColor),
+        // color: MColors.alipayColor,
+        home: IndexPage(),
         // home: WelcomePage(),
         onGenerateRoute: Application.router.generator,
         // localizationsDelegates: [

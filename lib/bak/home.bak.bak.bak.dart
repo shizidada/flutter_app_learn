@@ -80,11 +80,11 @@
 //             ),
 //             child: TabBar(
 //                 controller: _controller,
-//                 indicatorColor: Theme.of(context).primaryColor,
+//                 indicatorColor: Theme.of(context).alipayColor,
 //                 //tab标签的下划线颜色
 //                 // labelColor: const Color(0xFF000000),
 //                 indicatorWeight: 0.1, // 设置显示下划线 高度
-//                 labelColor: Theme.of(context).primaryColor,
+//                 labelColor: Theme.of(context).alipayColor,
 //                 unselectedLabelColor: const Color(0xFF8E8E8E),
 //                 tabs: _tabs),
 //           ),

@@ -28,7 +28,7 @@ class InputItem extends StatelessWidget {
         controller: controller,
         keyboardType: keyboardType,
         obscureText: obscureText,
-        cursorColor: MColors.primaryColor,
+        cursorColor: MColors.alipayColor,
         decoration: InputDecoration(
           icon: icon,
           suffixIcon: suffixIcon,
@@ -40,7 +40,7 @@ class InputItem extends StatelessWidget {
             borderRadius: BorderRadius.all(
               Radius.circular(5),
             ),
-            borderSide: BorderSide(color: MColors.primaryColor, width: 0.5),
+            borderSide: BorderSide(color: MColors.alipayColor, width: 0.5),
           ),
           enabledBorder:
               UnderlineInputBorder(borderSide: BorderSide(color: MColors.de)),

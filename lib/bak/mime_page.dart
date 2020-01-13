@@ -47,7 +47,7 @@
 //               Expanded(
 //                 flex: 1,
 //                 child: Container(
-//                   color: Theme.of(context).primaryColor,
+//                   color: Theme.of(context).alipayColor,
 //                 ),
 //               ),
 //               Expanded(
@@ -80,7 +80,7 @@
 //                         child: Container(
 //                           width: width,
 //                           height: ScreenUtil.getInstance().setHeight(240.0),
-//                           color: Theme.of(context).primaryColor,
+//                           color: Theme.of(context).alipayColor,
 //                         ),
 //                       ),
 //                     ),

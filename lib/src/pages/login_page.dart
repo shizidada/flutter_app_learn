@@ -136,7 +136,7 @@ class _LoginPageState extends State<LoginPage> {
             margin: EdgeInsets.fromLTRB(
                 0, ScreenUtil.getInstance().setHeight(20.0), 0, 0),
             child: RaisedButton(
-              color: MColors.primaryColor,
+              color: MColors.alipayColor,
               child: Text(
                 "登录",
                 style: TextStyle(color: Colors.white),

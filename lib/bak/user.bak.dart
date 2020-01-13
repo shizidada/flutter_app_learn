@@ -67,7 +67,7 @@
 //                 "RaisedButton",
 //                 style: TextStyle(color: Colors.white),
 //               ),
-//               color: Theme.of(context).primaryColor,
+//               color: Theme.of(context).alipayColor,
 //               onPressed: _raisedButtonClick,
 //             ),
 //             RaisedButton(
@@ -87,7 +87,7 @@
 //                 "Start new page",
 //                 style: TextStyle(color: Colors.white),
 //               ),
-//               color: Theme.of(context).primaryColor,
+//               color: Theme.of(context).alipayColor,
 //               onPressed: () {
 //                 Navigator.pushNamed(context, "register");
 //                 // Navigator.of(context)
