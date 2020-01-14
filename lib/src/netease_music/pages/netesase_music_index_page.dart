@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:cached_network_image/cached_network_image.dart';
+import 'package:flutter_app_learn/src/netease_music/providers/netease_music_provider.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
+import 'package:provider/provider.dart';
+import 'package:flutter_app_learn/src/netease_music/models/banner_model.dart';
+import 'package:flutter_app_learn/src/netease_music/pages/netease_music_search_page.dart';
 
 class NeteaseMusicIndexPage extends StatefulWidget {
   NeteaseMusicIndexPage({Key key}) : super(key: key);
@@ -35,6 +40,10 @@ class _NeteaseMusicIndexPageState extends State<NeteaseMusicIndexPage>
     ScreenUtil.instance = ScreenUtil(width: 750, height: 1334)..init(context);
     ScreenUtil sc = ScreenUtil.getInstance();
 
+    NeteaseMusicProvider bannerProvider =
+        Provider.of<NeteaseMusicProvider>(context);
+    bannerProvider.getBanner({'type': 2});
+
     return Material(
       child: Scaffold(
         appBar: AppBar(
@@ -52,7 +61,9 @@ class _NeteaseMusicIndexPageState extends State<NeteaseMusicIndexPage>
             controller: scrollController,
             slivers: <Widget>[
               SliverToBoxAdapter(
-                child: bannerSwiperView(context),
+                child: bannerProvider.bannerModel != null
+                    ? bannerSwiperView(context, bannerProvider)
+                    : Container(),
               ),
               SliverPersistentHeader(
                 delegate: StickyTabBarDelegate(
@@ -87,13 +98,7 @@ class _NeteaseMusicIndexPageState extends State<NeteaseMusicIndexPage>
                         title: Text("Content of 热歌榜 Item $index"),
                       ),
                     ),
-                    ListView.builder(
-                      itemCount: 10,
-                      itemBuilder: (BuildContext context, int index) =>
-                          ListTile(
-                        title: Text("Content of 搜索 Item $index"),
-                      ),
-                    )
+                    NeteaseMusicSearchPage()
                   ],
                 ),
               ),
@@ -104,19 +109,29 @@ class _NeteaseMusicIndexPageState extends State<NeteaseMusicIndexPage>
     );
   }
 
-  Widget bannerSwiperView(BuildContext context) {
+  Widget bannerSwiperView(
+      BuildContext context, NeteaseMusicProvider bannerProvider) {
     ScreenUtil.instance = ScreenUtil(width: 750, height: 1334)..init(context);
     ScreenUtil sc = ScreenUtil.getInstance();
+
+    BannerModel bannerModel = bannerProvider.bannerModel;
     return Container(
       width: ScreenUtil.screenWidth,
       height: sc.setHeight(280.0),
       child: Swiper(
-        itemCount: 4,
+        itemCount: bannerModel != null ? bannerModel.banners.length : 0,
         itemBuilder: (BuildContext context, int position) {
-          return Container(
-            height: sc.setHeight(280.0),
-            color: Colors.redAccent,
-          );
+          List<Banners> banners = bannerModel?.banners;
+          return bannerModel != null && banners.length > 0
+              ? Container(
+                  height: sc.setHeight(280.0),
+                  color: Colors.redAccent,
+                  child: CachedNetworkImage(
+                    imageUrl: banners[position].pic,
+                    fit: BoxFit.fill,
+                  ),
+                )
+              : Container();
         },
         pagination: SwiperPagination(
             alignment: Alignment.bottomCenter,

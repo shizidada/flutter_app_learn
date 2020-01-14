@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:fluro/fluro.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_app_learn/src/netease_music/pages/netesase_music_index_page.dart';
+import 'package:flutter_app_learn/src/netease_music/providers/netease_music_provider.dart';
 import 'package:flutter_app_learn/src/pages/index_page.dart';
 import 'package:flutter_app_learn/src/pages/login_page.dart';
 import 'package:flutter_app_learn/src/provider/comment_provider.dart';
@@ -51,6 +52,9 @@ class MooseApp extends StatelessWidget {
         ),
         ChangeNotifierProvider(
           create: (context) => CommentProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => NeteaseMusicProvider(),
         )
       ],
       child: MaterialApp(
