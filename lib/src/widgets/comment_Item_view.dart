@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app_learn/src/widgets/input_item.dart';
+import 'package:flutter_app_learn/src/mock/riches_page_mock_data.dart';
+import 'package:flutter_app_learn/src/provider/comment_provider.dart';
+import 'package:flutter_app_learn/src/utils/toast_util.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:keyboard_actions/keyboard_actions.dart';
+import 'package:provider/provider.dart';
 
 class CommentItemView extends StatefulWidget {
   CommentItemView({Key key}) : super(key: key);
@@ -10,63 +14,149 @@ class CommentItemView extends StatefulWidget {
 }
 
 class _CommentItemViewState extends State<CommentItemView> {
-  TextEditingController controller;
+  TextEditingController textEditingController;
+
+  FocusNode nodeText;
 
   @override
   void initState() {
     super.initState();
-    controller = TextEditingController();
+    textEditingController = TextEditingController();
+    nodeText = FocusNode();
+  }
+
+  KeyboardActionsConfig _buildConfig(BuildContext context) {
+    return KeyboardActionsConfig(
+      keyboardActionsPlatform: KeyboardActionsPlatform.ALL,
+      keyboardBarColor: Colors.grey[200],
+      nextFocus: true,
+      actions: [
+        KeyboardAction(
+          focusNode: nodeText,
+          // footerBuilder: (_) => PreferredSize(
+          //     child: SizedBox(
+          //         height: 40,
+          //         child: Center(
+          //           child: Text('Custom Footer'),
+          //         )),
+          //     preferredSize: Size.fromHeight(40)),
+        ),
+      ],
+    );
   }
 
   @override
   Widget build(BuildContext context) {
     ScreenUtil.instance = ScreenUtil(width: 750, height: 1334)..init(context);
 
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      children: <Widget>[
-        Container(
-          padding: EdgeInsets.symmetric(
-              horizontal: ScreenUtil.getInstance().setWidth(8.0)),
-          height: ScreenUtil.getInstance().setHeight(80.0),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    CommentProvider commentProvider = Provider.of<CommentProvider>(context);
+    List<CommentInfo> commentInfos = commentProvider.commentInfos;
+    return Scaffold(
+      appBar: AppBar(
+        leading: Container(),
+        elevation: 0.0,
+        backgroundColor: Colors.grey[50],
+        title: Center(
+          child: Text(
+            "${commentInfos.length}条评论",
+            style: TextStyle(color: Colors.black),
+          ),
+        ),
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(Icons.close),
+            color: Colors.black,
+            onPressed: () {
+              Navigator.pop(context);
+            },
+          )
+        ],
+      ),
+      body: KeyboardActions(
+        config: _buildConfig(context),
+        child: Container(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
             children: <Widget>[
-              Center(
-                child: Text("11111"),
+              Container(
+                height: ScreenUtil.getInstance().setHeight(500),
+                child: ListView.builder(
+                  itemCount: commentInfos.length,
+                  shrinkWrap: true,
+                  itemBuilder: (BuildContext context, int index) {
+                    CommentInfo commentInfo = commentInfos[index];
+                    return ListTile(
+                      title: Text(
+                        commentInfo.userName,
+                        style: TextStyle(color: Colors.black),
+                      ),
+                      subtitle: Text(commentInfo.commentContent,
+                          style: TextStyle(),
+                          maxLines: 2,
+                          overflow: TextOverflow.ellipsis),
+                      leading: Image.network(commentInfo.avator),
+                      trailing: Icon(Icons.reply),
+                    );
+                  },
+                ),
               ),
-              Text("222222")
+              Container(
+                child: Flex(
+                  direction: Axis.horizontal,
+                  children: <Widget>[
+                    Expanded(
+                      child: IconButton(
+                        icon: Icon(Icons.sentiment_satisfied),
+                        onPressed: () {},
+                      ),
+                    ),
+                    Expanded(
+                      flex: 5,
+                      child: TextField(
+                        focusNode: nodeText,
+                        decoration: InputDecoration(
+                          hintText: "请输入评论",
+                        ),
+                        controller: textEditingController,
+                      ),
+                    ),
+                    Expanded(
+                      child: IconButton(
+                        icon: Icon(
+                          Icons.send,
+                          color: Colors.grey,
+                        ),
+                        onPressed: () {
+                          sendCommnet(commentProvider, context);
+                        },
+                      ),
+                    ),
+                  ],
+                ),
+              )
             ],
           ),
         ),
-        Container(
-          height: ScreenUtil.getInstance().setHeight(500),
-          child: ListView.builder(
-            itemCount: 20,
-            shrinkWrap: true,
-            itemBuilder: (BuildContext context, int index) {
-              return ListTile(
-                title: Text("景区付款哈哈发生了疯狂的按时"),
-                subtitle: Text("及缴费卡借款方就看到三家分晋金风科技大"),
-                leading: Icon(Icons.supervised_user_circle),
-                trailing: Icon(Icons.add_to_photos),
-              );
-            },
-          ),
-        ),
-        Row(
-          children: <Widget>[
-            Flexible(
-              flex: 1,
-              child: InputItem(
-                icon: Icon(Icons.adb),
-                controller: controller,
-              ),
-            ),
-            Icon(Icons.add)
-          ],
-        )
-      ],
+      ),
     );
+  }
+
+  sendCommnet(CommentProvider commentProvider, BuildContext context) {
+    String comment = textEditingController.text;
+    if (comment == "") {
+      return ToastUtil.showToast(message: "请输入评论");
+    }
+
+    CommentInfo commentInfo = CommentInfo(
+        id: "5e0ee9c032d14098b62297ff",
+        avator:
+            'https://p2.music.126.net/6BtIzcTnGuJ1jQFnBPLRmg==/109951164157960782.jpg?param=50y50',
+        userId: "56565656565656565",
+        userName: "江景",
+        commentContent: comment);
+    commentProvider.addComment(commentInfo);
+    textEditingController.text = "";
+    // Navigator.pop(context);
+    FocusScope.of(context).requestFocus(FocusNode());
   }
 }

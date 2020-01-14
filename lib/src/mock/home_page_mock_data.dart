@@ -1,8 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app_learn/src/config/colors.dart';
-import 'package:flutter_app_learn/src/models/alipay_data.dart';
 
-class MockData {
+import 'package:flutter/cupertino.dart';
+
+class AlipayIndexData {
+  AlipayIndexData({this.name, this.icon});
+  String name;
+  Icon icon;
+}
+
+class HomePageMockData {
   static List<AlipayIndexData> alipayIndexData = [
     AlipayIndexData(
         name: "转账",

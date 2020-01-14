@@ -1,13 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app_learn/src/config/colors.dart';
-import 'package:flutter_app_learn/src/mock/mock_data.dart';
-import 'package:flutter_app_learn/src/models/alipay_data.dart';
+import 'package:flutter_app_learn/src/mock/home_page_mock_data.dart';
 import 'package:flutter_app_learn/src/utils/toast_util.dart';
-import 'package:flutter_app_learn/src/widgets/home_page_content.dart';
-import 'package:flutter_app_learn/src/widgets/input_item.dart';
 import 'package:flutter_app_learn/src/widgets/search_input.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 // import 'package:flutter_app_learn/provider/current_index_provide.dart';
 // import 'package:provider/provider.dart';
 
@@ -35,7 +30,7 @@ class _HomePageState extends State<HomePage>
 
     scrollController = ScrollController();
 
-    alipayIndexData = MockData.alipayIndexData;
+    alipayIndexData = HomePageMockData.alipayIndexData;
   }
 
   @override
@@ -84,11 +79,12 @@ class _HomePageState extends State<HomePage>
                 color: Colors.grey,
               ),
             ),
+            backgroundColor: Colors.redAccent,
             centerTitle: true,
             flexibleSpace: FlexibleSpaceBar(
-              background: Image.asset("assets/images/nz.jpg", fit: BoxFit.fill),
+              background: Image.asset("assets/images/x.png", fit: BoxFit.fill),
             ),
-            expandedHeight: sc.setHeight(360.0),
+            expandedHeight: sc.setHeight(500.0),
             floating: false,
             pinned: true,
             snap: false,
