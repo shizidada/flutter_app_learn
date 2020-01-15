@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:flutter_app_learn/src/netease_music/pages/netease_music_hot_song_page.dart';
+import 'package:flutter_app_learn/src/netease_music/pages/netease_music_recommend_page.dart';
 import 'package:flutter_app_learn/src/netease_music/providers/netease_music_provider.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
@@ -51,7 +53,7 @@ class _NeteaseMusicIndexPageState extends State<NeteaseMusicIndexPage>
           leading: Container(
             padding: EdgeInsets.only(left: sc.setWidth(16.0)),
             child: SvgPicture.asset("assets/svg/netease_logo.svg",
-                fit: BoxFit.contain, color: Colors.white),
+                fit: BoxFit.contain),
           ),
           title: Text('网易云音乐'),
           centerTitle: true,
@@ -59,6 +61,7 @@ class _NeteaseMusicIndexPageState extends State<NeteaseMusicIndexPage>
         body: SafeArea(
           child: CustomScrollView(
             controller: scrollController,
+            physics: NeverScrollableScrollPhysics(),
             slivers: <Widget>[
               SliverToBoxAdapter(
                 child: bannerProvider.bannerModel != null
@@ -86,18 +89,8 @@ class _NeteaseMusicIndexPageState extends State<NeteaseMusicIndexPage>
                 child: TabBarView(
                   controller: this.tabController,
                   children: <Widget>[
-                    ListView.builder(
-                      itemBuilder: (BuildContext context, int index) =>
-                          ListTile(
-                        title: Text("Content of 推荐音乐 Item $index"),
-                      ),
-                    ),
-                    ListView.builder(
-                      itemBuilder: (BuildContext context, int index) =>
-                          ListTile(
-                        title: Text("Content of 热歌榜 Item $index"),
-                      ),
-                    ),
+                    NeteaseMusicRecommendPage(),
+                    NeteaseMusicHotSongPage(),
                     NeteaseMusicSearchPage()
                   ],
                 ),

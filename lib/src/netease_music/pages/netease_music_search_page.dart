@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app_learn/src/netease_music/models/search_hot_model.dart';
 import 'package:flutter_app_learn/src/netease_music/providers/netease_music_provider.dart';
+import 'package:flutter_app_learn/src/netease_music/widgets/netease_music_tip_item.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 
@@ -29,8 +30,8 @@ class _NeteaseMusicSearchPageState extends State<NeteaseMusicSearchPage> {
           avatar: CircleAvatar(
               backgroundColor: Colors.grey.shade500,
               child: Text(
-                hots.first,
-                style: TextStyle(fontSize: 10.0),
+                '${hots.second}',
+                style: TextStyle(fontSize: 20.0, color: Colors.redAccent),
               )),
           label: Text(hots.first),
         ));
@@ -44,7 +45,7 @@ class _NeteaseMusicSearchPageState extends State<NeteaseMusicSearchPage> {
           children: <Widget>[
             Flexible(
               child: Container(
-                height: sc.setHeight(56.0),
+                height: sc.setHeight(58.0),
                 margin: EdgeInsets.all(sc.setWidth(16.0)),
                 decoration: BoxDecoration(
                     color: Color(0xffebecec),
@@ -64,7 +65,7 @@ class _NeteaseMusicSearchPageState extends State<NeteaseMusicSearchPage> {
                       // focusedBorder: OutlineInputBorder(
                       //     borderSide: BorderSide(color: Colors.grey)),
                       border: InputBorder.none,
-                      contentPadding: EdgeInsets.only(top: sc.setHeight(6.0))),
+                      contentPadding: EdgeInsets.only(top: sc.setWidth(1.0))),
                 ),
               ),
             ),
@@ -72,13 +73,12 @@ class _NeteaseMusicSearchPageState extends State<NeteaseMusicSearchPage> {
               height: sc.setHeight(1.0),
               color: Colors.grey[200],
             ),
-            Container(
-              child: Text("热门搜索"),
-              padding: EdgeInsets.only(
-                  left: sc.setWidth(16.0), top: sc.setWidth(16.0)),
+            NeteaseMusicTipItem(
+              tipName: "热门搜索",
             ),
             searchHotModel != null
                 ? Flexible(
+                    flex: 1,
                     child: Container(
                       padding: EdgeInsets.only(
                           left: sc.setWidth(16.0), top: sc.setWidth(16.0)),
@@ -89,7 +89,10 @@ class _NeteaseMusicSearchPageState extends State<NeteaseMusicSearchPage> {
                       ),
                     ),
                   )
-                : Container()
+                : Container(),
+            Container(
+              child: Text('data'),
+            )
           ],
         ),
       ),
