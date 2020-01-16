@@ -1,17 +1,21 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:web_socket_channel/io.dart';
-import 'package:web_socket_channel/status.dart' as status;
+import 'package:flutter_app_learn/src/models/message_model.dart';
+import 'package:flutter_app_learn/src/provider/chat_provider.dart';
+import 'package:flutter_app_learn/src/utils/toast_util.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:keyboard_actions/keyboard_actions.dart';
+import 'package:provider/provider.dart';
 
 class ChatPage extends StatefulWidget {
   ChatPage({
     Key key,
-    this.userId,
+    this.toId,
     this.username,
   }) : super(key: key);
 
-  final String userId;
+  final String toId;
   final String username;
 
   @override
@@ -19,70 +23,138 @@ class ChatPage extends StatefulWidget {
 }
 
 class _ChatPageState extends State<ChatPage> {
-  IOWebSocketChannel _webSocketChannel;
+  TextEditingController textEditingController;
+
+  FocusNode nodeText;
+
   @override
   void initState() {
     super.initState();
-    _webSocketChannel = IOWebSocketChannel.connect(
-        "ws://127.0.0.1:7000/ws/5e0b6d05424ac70ab28b70b6");
-    _webSocketChannel.stream.listen(_socketChannelDataListen,
-        onError: _socketChannelErrorListen, onDone: _socketChannelDoneListen);
-  }
 
-  _socketChannelDataListen(message) {
-    // _webSocketChannel.sink.close(status.goingAway);
-    print(message);
-    print('------------ _socketChannelDataListen ---------------');
-  }
-
-  _socketChannelErrorListen(message) {
-    print('----------- _socketChannelErrorListen ----------------');
-  }
-
-  _socketChannelDoneListen() {
-    _webSocketChannel.sink.add("received!");
-    print('-------------- _socketChannelDoneListen -------------');
+    textEditingController = TextEditingController();
+    nodeText = FocusNode();
   }
 
   @override
   void dispose() {
-    // _webSocketChannel.sink.close(status.goingAway);
     super.dispose();
+  }
+
+  KeyboardActionsConfig _buildConfig(BuildContext context) {
+    return KeyboardActionsConfig(
+      keyboardActionsPlatform: KeyboardActionsPlatform.ALL,
+      keyboardBarColor: Colors.grey[200],
+      nextFocus: true,
+      actions: [
+        KeyboardAction(
+          focusNode: nodeText,
+          // footerBuilder: (_) => PreferredSize(
+          //     child: SizedBox(
+          //         height: 40,
+          //         child: Center(
+          //           child: Text('Custom Footer'),
+          //         )),
+          //     preferredSize: Size.fromHeight(40)),
+        ),
+      ],
+    );
   }
 
   @override
   Widget build(BuildContext context) {
+    ChatProvider chatProvider = Provider.of<ChatProvider>(context);
+    List<MessageModel> messages = chatProvider.messages;
+
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.username),
         centerTitle: true,
       ),
-      body: SafeArea(
-        child: Container(
-          child: Row(
-            children: <Widget>[
-              Text(widget.username),
-              RaisedButton(
-                child: Text('Send Message'),
-                onPressed: () {
-                  _sendMessage();
-                },
-              )
-            ],
+      body: KeyboardActions(
+        config: _buildConfig(context),
+        child: SafeArea(
+          child: Container(
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: <Widget>[
+                Container(
+                  height: ScreenUtil.getInstance().setHeight(500),
+                  child: ListView.builder(
+                    itemCount: messages.length,
+                    shrinkWrap: true,
+                    itemBuilder: (BuildContext context, int index) {
+                      MessageModel messageModel = messages[index];
+                      return ListTile(
+                        title: Text(
+                          messageModel.from.username,
+                          style: TextStyle(color: Colors.black),
+                        ),
+                        subtitle: Text(messageModel.msg,
+                            style: TextStyle(),
+                            maxLines: 2,
+                            overflow: TextOverflow.ellipsis),
+                        leading: Image.network(messageModel.from.avatar),
+                        trailing: Icon(Icons.reply),
+                      );
+                    },
+                  ),
+                ),
+                Container(
+                  child: Flex(
+                    direction: Axis.horizontal,
+                    children: <Widget>[
+                      Expanded(
+                        child: IconButton(
+                          icon: Icon(Icons.sentiment_satisfied),
+                          onPressed: () {},
+                        ),
+                      ),
+                      Expanded(
+                        flex: 5,
+                        child: TextField(
+                          focusNode: nodeText,
+                          decoration: InputDecoration(
+                            hintText: "请输入评论",
+                          ),
+                          controller: textEditingController,
+                        ),
+                      ),
+                      Expanded(
+                        child: IconButton(
+                          icon: Icon(
+                            Icons.send,
+                            color: Colors.grey,
+                          ),
+                          onPressed: () {
+                            _sendMessage(context, chatProvider);
+                          },
+                        ),
+                      ),
+                    ],
+                  ),
+                )
+              ],
+            ),
           ),
         ),
       ),
     );
   }
 
-  void _sendMessage() {
-    _webSocketChannel.sink.add(
-      jsonEncode(
-        {
-          "toId": widget.userId,
-          'msg': 'Hi i\'m test message',
-        },
-      ),
+  void _sendMessage(BuildContext context, ChatProvider chatProvider) {
+    String message = textEditingController.text.trim();
+    if (message.isEmpty) {
+      ToastUtil.showToast(message: "请输入消息");
+      return;
+    }
+    String jsonMessage = jsonEncode(
+      {
+        "toId": widget.toId,
+        'msg': message,
+      },
     );
+    chatProvider.sendMessage(jsonMessage);
+    textEditingController.text = "";
+    FocusScope.of(context).requestFocus(FocusNode());
   }
 }

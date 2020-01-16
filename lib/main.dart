@@ -4,24 +4,26 @@ import 'package:flutter/material.dart';
 import 'package:fluro/fluro.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_app_learn/src/netease_music/pages/netesase_music_index_page.dart';
-import 'package:flutter_app_learn/src/netease_music/providers/netease_music_provider.dart';
-import 'package:flutter_app_learn/src/pages/index_page.dart';
-import 'package:flutter_app_learn/src/pages/login_page.dart';
+
+import 'package:flutter_app_learn/src/pages/main/friends_page.dart';
+import 'package:flutter_app_learn/src/provider/chat_provider.dart';
 import 'package:flutter_app_learn/src/provider/comment_provider.dart';
 import 'package:provider/provider.dart';
 
 import 'src/provider/index_provider.dart';
-import 'src/provider/friends_provider.dart';
 import 'src/provider/home_provider.dart';
+import 'src/provider/favorite_provider.dart';
 
-import 'src/pages/welcome_page.dart';
+import 'src/provider/netease_music_provider.dart';
 import 'src/routers/application.dart';
 import 'src/routers/routers.dart';
 
-import 'src/config/index.dart';
+import 'src/pages/welcome_page.dart';
+import 'src/pages/index_page.dart';
+import 'src/pages/login_page.dart';
+import 'src/pages/register_page.dart';
 
-import 'package:flutter_app_learn/src/pages/register_page.dart';
-import 'package:flutter_app_learn/src/provider/favorite_provider.dart';
+import 'src/config/index.dart';
 
 void main() async {
   runApp(MooseApp());
@@ -48,7 +50,7 @@ class MooseApp extends StatelessWidget {
           create: (context) => FavoriteProvider(),
         ),
         ChangeNotifierProvider(
-          create: (context) => FriendsProvider(),
+          create: (context) => ChatProvider(),
         ),
         ChangeNotifierProvider(
           create: (context) => CommentProvider(),
@@ -62,8 +64,8 @@ class MooseApp extends StatelessWidget {
         // debugShowCheckedModeBanner: false,
         theme: ThemeData(primaryColor: MColors.alipayColor),
         // color: MColors.alipayColor,
-        home: NeteaseMusicIndexPage(),
-        // home: WelcomePage(),
+        // home: NeteaseMusicIndexPage(),
+        home: FriendsPage(),
         onGenerateRoute: Application.router.generator,
         // localizationsDelegates: [
         //   // 国际化

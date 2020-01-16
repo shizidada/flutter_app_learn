@@ -4,7 +4,7 @@ import 'package:flutter_app_learn/src/netease_music/models/new_song_model.dart';
 import 'package:flutter_app_learn/src/netease_music/models/recommend_model.dart';
 import 'package:flutter_app_learn/src/netease_music/models/search_hot_model.dart';
 import 'package:flutter_app_learn/src/netease_music/models/top_list_model.dart';
-import 'package:flutter_app_learn/src/netease_music/services/index.dart';
+import 'package:flutter_app_learn/src/service/index.dart';
 
 class NeteaseMusicProvider with ChangeNotifier {
   BannerModel bannerModel;

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app_learn/src/config/index.dart';
-import 'package:flutter_app_learn/src/provider/friends_provider.dart';
 import 'package:flutter_app_learn/src/utils/toast_util.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_sticky_header/flutter_sticky_header.dart';
@@ -36,11 +35,10 @@ class _ContactListPageState extends State<ContactListPage>
   @override
   Widget build(BuildContext context) {
     ScreenUtil.instance = ScreenUtil(width: 750, height: 1334)..init(context);
-    double width = ScreenUtil.screenWidth;
-    double height = ScreenUtil.screenHeight;
-    print(" ------ FriendsPage $width, $height ------ ");
-    FriendsProvider provider = Provider.of<FriendsProvider>(context);
-    provider.getFriendsList();
+    // double width = ScreenUtil.screenWidth;
+    // double height = ScreenUtil.screenHeight;
+    // print(" ------ FriendsPage $width, $height ------ ");
+    // FriendsProvider provider = Provider.of<FriendsProvider>(context);
     return Scaffold(
       appBar: AppBar(
         title: Text(MStrings.contactTitle),

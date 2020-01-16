@@ -3,7 +3,7 @@ import 'package:flutter/rendering.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter_app_learn/src/netease_music/pages/netease_music_hot_song_page.dart';
 import 'package:flutter_app_learn/src/netease_music/pages/netease_music_recommend_page.dart';
-import 'package:flutter_app_learn/src/netease_music/providers/netease_music_provider.dart';
+import 'package:flutter_app_learn/src/provider/netease_music_provider.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';

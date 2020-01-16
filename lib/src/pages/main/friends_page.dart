@@ -1,8 +1,9 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app_learn/src/config/index.dart';
-import 'package:flutter_app_learn/src/models/user_info_model.dart';
-import 'package:flutter_app_learn/src/provider/friends_provider.dart';
+import 'package:flutter_app_learn/src/models/friends_list_model.dart'
+    as FriendsModel;
+import 'package:flutter_app_learn/src/provider/chat_provider.dart';
 import 'package:flutter_app_learn/src/utils/navigate_util.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
@@ -32,10 +33,10 @@ class _FriendsPageState extends State<FriendsPage>
   @override
   Widget build(BuildContext context) {
     ScreenUtil.instance = ScreenUtil(width: 750, height: 1334)..init(context);
-    double width = ScreenUtil.screenWidth;
-    double height = ScreenUtil.screenHeight;
-    print(" ------ FriendsPage $width, $height ------ ");
-    FriendsProvider provider = Provider.of<FriendsProvider>(context);
+    // double width = ScreenUtil.screenWidth;
+    // double height = ScreenUtil.screenHeight;
+    // print(" ------ FriendsPage $width, $height ------ ");
+    ChatProvider provider = Provider.of<ChatProvider>(context);
     return Scaffold(
       appBar: AppBar(
         title: Text(MStrings.friendTitle),
@@ -65,31 +66,34 @@ class _FriendsPageState extends State<FriendsPage>
     );
   }
 
-  Widget _buildFriendList(FriendsProvider provider) {
-    List<UserInfoModel> friendsList = provider.friendsList;
+  Widget _buildFriendList(ChatProvider provider) {
+    FriendsModel.FriendsListModel friendsListModel = provider.friendsListModel;
 
-    return Expanded(
-      child: ListView.builder(
-        itemCount: friendsList.length,
-        itemBuilder: (_, index) {
-          UserInfoModel friends = friendsList[index];
-          return GestureDetector(
-            onTap: () {
-              NavigatorUtil.pushFromRight(
-                  context, "/chat/${friends.userId}/${friends.username}");
-            },
-            child: ListTile(
-              leading: CachedNetworkImage(
-                imageUrl: friends.avatar,
-              ),
-              title: Text(friends.username),
-              subtitle: Text(friends.description),
-              trailing: Text(friends.gender == null ? "" : friends.gender),
+    return friendsListModel != null
+        ? Expanded(
+            child: ListView.builder(
+              itemCount: friendsListModel.data.length,
+              itemBuilder: (_, index) {
+                FriendsModel.Data friends = friendsListModel.data[index];
+                return GestureDetector(
+                  onTap: () {
+                    NavigatorUtil.pushFromRight(
+                        context, "/chat/${friends.userId}/${friends.username}");
+                  },
+                  child: ListTile(
+                    leading: CachedNetworkImage(
+                      imageUrl: friends.avatar,
+                    ),
+                    title: Text(friends.username),
+                    subtitle: Text(friends.description),
+                    trailing:
+                        Text(friends.gender == null ? "" : friends.gender),
+                  ),
+                );
+              },
             ),
-          );
-        },
-      ),
-    );
+          )
+        : Container();
   }
 
   Widget _buildSearch() {

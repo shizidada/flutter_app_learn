@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app_learn/src/netease_music/models/search_hot_model.dart';
-import 'package:flutter_app_learn/src/netease_music/providers/netease_music_provider.dart';
+import 'package:flutter_app_learn/src/provider/netease_music_provider.dart';
 import 'package:flutter_app_learn/src/netease_music/widgets/netease_music_tip_item.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';

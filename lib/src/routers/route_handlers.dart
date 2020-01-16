@@ -51,10 +51,10 @@ Handler contactListHander = Handler(
 
 Handler chatHander = Handler(
     handlerFunc: (BuildContext context, Map<String, List<String>> params) {
-  String userId = params['userId']?.first;
+  String toId = params['userId']?.first;
   String username = params['username']?.first;
   print("$params");
-  return ChatPage(userId: userId, username: username);
+  return ChatPage(toId: toId, username: username);
 });
 
 /// example demo page router
