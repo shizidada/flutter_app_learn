@@ -36,7 +36,7 @@ class _NeteaseMusicHotSongPageState extends State<NeteaseMusicHotSongPage>
             child: ListView.builder(
               itemCount: 10,
               itemBuilder: (BuildContext context, int position) {
-                Data item = topListModel.list[position];
+                Data item = topListModel?.list[position];
                 return GestureDetector(
                   onTap: () {
                     print('object $position');
