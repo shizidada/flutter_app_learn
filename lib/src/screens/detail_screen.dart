@@ -7,20 +7,21 @@ class DetailScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<DetailBloc, int>(builder: (_, counter) {
-      print('DetailScreen $counter');
-      return Scaffold(
-        appBar: AppBar(
-          centerTitle: false,
-          title: Text('DetailScreen'),
-        ),
-        body: SafeArea(
-            child: Container(
-          child: Column(children: <Widget>[
-            Text('DetailScreen $counter'),
-          ]),
-        )),
-      );
-    });
+    return Scaffold(
+      appBar: AppBar(
+        centerTitle: false,
+        automaticallyImplyLeading: false,
+        title: Text('DetailScreen'),
+      ),
+      body: SafeArea(
+          child: Container(
+        child: Column(children: <Widget>[
+          BlocBuilder<DetailBloc, int>(builder: (_, counter) {
+            print('DetailScreen $counter');
+            return Text('DetailScreen $counter');
+          })
+        ]),
+      )),
+    );
   }
 }
