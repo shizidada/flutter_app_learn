@@ -11,29 +11,25 @@ class MooseBlocContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: buildWithBloc(context),
-    );
+    return buildWithBloc(context);
   }
 
   Widget buildWithBloc(BuildContext context) {
     return BlocProvider(
         create: (_) => ThemeBloc(),
-        child: BlocBuilder<ThemeBloc, ThemeData>(builder: (_, themeData) {
-          return MaterialApp(
-            title: 'Flutter App Learn',
-            theme: themeData,
-            home: MultiBlocProvider(providers: [
-              BlocProvider(
-                create: (context) => DetailBloc(),
-              ),
-              BlocProvider(
-                create: (context) =>
+        child: BlocBuilder<ThemeBloc, ThemeData>(
+          builder: (_, theme) {
+            return MaterialApp(
+              title: 'Flutter App Learn',
+              theme: theme,
+              home: BlocProvider(
+                create: (_) =>
                     HomeBloc(detailBloc: BlocProvider.of<DetailBloc>(context)),
-              )
-            ], child: HomeScreen()),
-            onGenerateRoute: Application.router.generator,
-          );
-        }));
+                child: HomeScreen(),
+              ),
+              onGenerateRoute: Application.router.generator,
+            );
+          },
+        ));
   }
 }

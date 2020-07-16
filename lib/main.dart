@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fluro/fluro.dart';
+import 'package:flutter_app_learn/src/blocs/detail_bloc.dart';
 import 'package:flutter_app_learn/src/blocs/simple_bloc_observer.dart';
 import 'package:flutter_app_learn/src/moose_bloc_container.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -8,7 +9,14 @@ import 'src/routers/routers.dart';
 
 void main() async {
   Bloc.observer = SimpleBlocObserver();
-  runApp(MooseApp());
+  runApp(MultiBlocProvider(
+    providers: [
+      BlocProvider(
+        create: (_) => DetailBloc(),
+      ),
+    ],
+    child: MooseApp(),
+  ));
 }
 
 class MooseApp extends StatelessWidget {

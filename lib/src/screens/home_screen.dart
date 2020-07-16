@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app_learn/src/blocs/detail_bloc.dart';
 import 'package:flutter_app_learn/src/blocs/home_bloc.dart';
 import 'package:flutter_app_learn/src/blocs/theme_bloc.dart';
 import 'package:flutter_app_learn/src/screens/detail_screen.dart';
