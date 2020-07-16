@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:fluro/fluro.dart';
 import 'package:flutter_app_learn/src/blocs/detail_bloc.dart';
 import 'package:flutter_app_learn/src/blocs/simple_bloc_observer.dart';
+import 'package:flutter_app_learn/src/blocs/theme_bloc.dart';
 import 'package:flutter_app_learn/src/moose_bloc_container.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'src/routers/application.dart';
@@ -9,14 +10,7 @@ import 'src/routers/routers.dart';
 
 void main() async {
   Bloc.observer = SimpleBlocObserver();
-  runApp(MultiBlocProvider(
-    providers: [
-      BlocProvider(
-        create: (_) => DetailBloc(),
-      ),
-    ],
-    child: MooseApp(),
-  ));
+  runApp(MooseApp());
 }
 
 class MooseApp extends StatelessWidget {
@@ -28,6 +22,16 @@ class MooseApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MooseBlocContainer();
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (_) => ThemeBloc(),
+        ),
+        BlocProvider(
+          create: (_) => DetailBloc(),
+        ),
+      ],
+      child: MooseBlocContainer(),
+    );
   }
 }
