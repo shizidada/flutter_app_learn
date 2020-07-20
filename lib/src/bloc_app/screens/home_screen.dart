@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app_learn/src/bloc_app/blocs/home_bloc.dart';
+import 'package:flutter_app_learn/src/bloc_app/blocs/login/login_bloc.dart';
+import 'package:flutter_app_learn/src/bloc_app/blocs/login/login_event.dart';
+import 'package:flutter_app_learn/src/bloc_app/blocs/login/login_state.dart';
 import 'package:flutter_app_learn/src/bloc_app/blocs/theme_bloc.dart';
 import 'package:flutter_app_learn/src/bloc_app/components/loading_dialog.dart';
 import 'package:flutter_app_learn/src/bloc_app/screens/detail_screen.dart';
@@ -16,24 +19,48 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
+    /// todo:
     Density.instance.init(context, 750, 750);
-    return BlocListener<HomeBloc, int>(
-      listener: (context, state) {
-        if (state % 2 == 0) {
-          showDialog(
-              context: context,
-              barrierDismissible: false,
-              builder: (_) {
-                return LoadingDialog(
-                  outsideDismiss: false,
-                );
+    return MultiBlocListener(
+      listeners: [
+        BlocListener<HomeBloc, int>(
+          listener: (context, state) {
+            if (state % 2 == 0) {
+              showDialog(
+                  context: context,
+                  barrierDismissible: false,
+                  builder: (_) {
+                    return LoadingDialog(
+                      outsideDismiss: false,
+                    );
+                  });
+              Future.delayed(Duration(seconds: 2), () {
+                Navigator.pop(context);
               });
-          Future.delayed(Duration(seconds: 2), () {
-            Navigator.pop(context);
-          });
-        }
-        print('BlocListener :: $state');
-      },
+            }
+            print('HomeBloc BlocListener :: $state');
+          },
+        ),
+        BlocListener<LoginBloc, LoginState>(
+          listener: (context, state) {
+            if (state is LoginLoadingState) {
+              showDialog(
+                  context: context,
+                  barrierDismissible: false,
+                  builder: (_) {
+                    return LoadingDialog(
+                      loadingText: '正在登录中...',
+                      outsideDismiss: false,
+                    );
+                  });
+            } else if (state is LoginSuccessState) {
+              Navigator.pop(context);
+              _toDetail();
+            }
+            print('LoginBloc BlocListener :: $state');
+          },
+        ),
+      ],
       child: Scaffold(
         appBar: AppBar(
           centerTitle: false,
@@ -48,9 +75,12 @@ class _HomeScreenState extends State<HomeScreen> {
             RaisedButton(
                 child: Text('Detail'),
                 onPressed: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) {
-                    return DetailScreen();
-                  }));
+                  _toDetail();
+                }),
+            RaisedButton(
+                child: Text('Login'),
+                onPressed: () {
+                  BlocProvider.of<LoginBloc>(context)..add(LoginLoadingEvent());
                 })
           ]),
         )),
@@ -88,5 +118,11 @@ class _HomeScreenState extends State<HomeScreen> {
             ]),
       ),
     );
+  }
+
+  _toDetail() {
+    Navigator.push(context, MaterialPageRoute(builder: (context) {
+      return DetailScreen();
+    }));
   }
 }

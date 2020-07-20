@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app_learn/src/bloc_app/blocs/detail_bloc.dart';
 import 'package:flutter_app_learn/src/bloc_app/blocs/home_bloc.dart';
+import 'package:flutter_app_learn/src/bloc_app/blocs/login/login_bloc.dart';
 import 'package:flutter_app_learn/src/bloc_app/blocs/theme_bloc.dart';
 import 'package:flutter_app_learn/src/bloc_app/screens/home_screen.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -42,9 +43,17 @@ class MooseBlocContainer extends StatelessWidget {
     );
   }
 
-  BlocProvider<HomeBloc> buildHomeScreen(BuildContext context) {
-    return BlocProvider(
-      create: (_) => HomeBloc(detailBloc: BlocProvider.of<DetailBloc>(context)),
+  MultiBlocProvider buildHomeScreen(BuildContext context) {
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => LoginBloc(),
+        ),
+        BlocProvider(
+          create: (_) =>
+              HomeBloc(detailBloc: BlocProvider.of<DetailBloc>(context)),
+        )
+      ],
       child: HomeScreen(),
     );
   }
