@@ -10,7 +10,7 @@ class HomeMockUtils {
   static List<HomeMockBean> homeLists = [
     HomeMockBean('自定义 Sheet ', 'app://customBottomSheet'),
     HomeMockBean('Login Screen ', 'app://login'),
-    HomeMockBean('Detail Screen ', 'app://detail'),
+    HomeMockBean('Sliver Screen ', 'app://sliver'),
     HomeMockBean('StaggeredGridView Screen ', 'app://staggeredGridView'),
   ];
 }

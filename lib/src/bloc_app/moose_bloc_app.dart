@@ -4,9 +4,11 @@ import 'package:flutter_app_learn/src/bloc_app/blocs/detail_bloc.dart';
 import 'package:flutter_app_learn/src/bloc_app/blocs/home_bloc.dart';
 import 'package:flutter_app_learn/src/bloc_app/blocs/login/login_bloc.dart';
 import 'package:flutter_app_learn/src/bloc_app/blocs/theme_bloc.dart';
-import 'package:flutter_app_learn/src/bloc_app/screens/home_screen.dart';
+// import 'package:flutter_app_learn/src/bloc_app/screens/home_screen.dart';
 import 'package:flutter_app_learn/src/bloc_app/routers/application.dart';
 import 'package:flutter_app_learn/src/bloc_app/routers/routers.dart';
+import 'package:flutter_app_learn/src/bloc_app/screens/drag_sort_page.dart';
+import 'package:flutter_app_learn/src/bloc_app/screens/single_picture_page.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class MooseBlocApp extends StatelessWidget {
@@ -45,7 +47,9 @@ class MooseBlocContainer extends StatelessWidget {
           return MaterialApp(
             title: 'Flutter App Learn',
             theme: theme,
-            home: HomeScreen(),
+            // home: HomeScreen(),
+            home: SinglePictureScreen(),
+            // home: DragSortScreen(),
             onGenerateRoute: Application.router.generator,
           );
         },

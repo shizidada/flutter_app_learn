@@ -38,6 +38,7 @@ dependencies:
   flutter_easyrefresh: ^2.0.8
   keyboard_actions: ^3.1.2
   flutter_spinkit: ^4.1.1
+  nine_grid_view: ^1.0.5
   # fijkplayer: ^0.8.7
 
   ###

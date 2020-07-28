@@ -5,7 +5,7 @@ import './route_handlers.dart';
 class Routes {
   static String rootScreen = "app://";
   static String loginScreen = "app://login";
-  static String detailScreen = "app://detail";
+  static String sliverScreen = "app://sliver";
   static String staggeredGridViewScreen = "app://staggeredGridView";
   static String customBottomSheetScreen = "app://customBottomSheet";
 
@@ -14,7 +14,7 @@ class Routes {
 
     router.define(loginScreen, handler: loginHandler);
 
-    router.define(detailScreen, handler: detailHandler);
+    router.define(sliverScreen, handler: sliverHandler);
 
     router.define(staggeredGridViewScreen, handler: staggeredGridViewHandler);
 
