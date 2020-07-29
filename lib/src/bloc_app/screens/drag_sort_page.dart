@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app_learn/src/bloc_app/mocks/home_mock_data.dart';
 import 'package:nine_grid_view/nine_grid_view.dart';
 import 'package:flutter_app_learn/src/bloc_app/utils/image_util.dart';
 import 'package:flutter_app_learn/src/bloc_app/mocks/image_bean.dart';
@@ -20,7 +21,7 @@ class _DragSortScreenState extends State<DragSortScreen> {
   }
 
   void _init() {
-    imageList = ImageUtil.getTestData();
+    imageList = HomeMockUtils.getTestData();
   }
 
   void _loadAssets(BuildContext context) {

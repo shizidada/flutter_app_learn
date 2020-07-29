@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app_learn/src/bloc_app/mocks/home_mock_data.dart';
 import 'package:nine_grid_view/nine_grid_view.dart';
 import 'package:flutter_app_learn/src/bloc_app/utils/image_util.dart';
 import 'package:flutter_app_learn/src/bloc_app/mocks/image_bean.dart';
@@ -14,7 +15,7 @@ class _SinglePictureScreenState extends State<SinglePictureScreen> {
   @override
   void initState() {
     super.initState();
-    imageList = ImageUtil.getTestData();
+    imageList = HomeMockUtils.getTestData();
   }
 
   Widget _buildItem(BuildContext context, int _index) {

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app_learn/src/bloc_app/res/colors.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
 class StaggeredGridViewScreen extends StatelessWidget {
@@ -12,7 +13,7 @@ class StaggeredGridViewScreen extends StatelessWidget {
       crossAxisCount: 4,
       itemCount: 10,
       itemBuilder: (BuildContext context, int index) => Container(
-          color: Colors.green,
+          color: MColors.kPrimaryColor,
           child: Center(
             child: CircleAvatar(
               backgroundColor: Colors.white,

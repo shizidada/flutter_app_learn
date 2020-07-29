@@ -8,6 +8,13 @@ class Routes {
   static String sliverScreen = "app://sliver";
   static String staggeredGridViewScreen = "app://staggeredGridView";
   static String customBottomSheetScreen = "app://customBottomSheet";
+  static String nineGridViewScreen = "app://nineGridView";
+  static String singlePictureScreen = "app://singlePicture";
+  static String dragSortScreen = "app://dragSort";
+  static String cachedNetworkImageScreen = "app://cachedNetworkImage";
+  static String flutterToastScreen = "app://flutterToast";
+  static String flutteri18nScreen = "app://flutteri18n";
+  static String flutterEasyRefreshScreen = "app://flutterEasyRefresh";
 
   static void configureRoutes(Router router) {
     router.define(rootScreen, handler: rootHandler);
@@ -19,5 +26,19 @@ class Routes {
     router.define(staggeredGridViewScreen, handler: staggeredGridViewHandler);
 
     router.define(customBottomSheetScreen, handler: customBottomSheetHandler);
+
+    router.define(nineGridViewScreen, handler: nineGridViewHandler);
+
+    router.define(singlePictureScreen, handler: singlePictureHandler);
+
+    router.define(dragSortScreen, handler: dragSortHandler);
+
+    router.define(cachedNetworkImageScreen, handler: cachedNetworkImageHandler);
+
+    router.define(flutterToastScreen, handler: flutterToastHandler);
+
+    router.define(flutteri18nScreen, handler: flutteri18nHandler);
+
+    router.define(flutterEasyRefreshScreen, handler: flutterEasyRefreshHandler);
   }
 }
