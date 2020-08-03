@@ -48,8 +48,8 @@ class MooseBlocContainer extends StatelessWidget {
           return MaterialApp(
             title: 'Flutter App Learn',
             theme: ThemeData(primaryColor: MColors.kPrimaryColor),
-            // home: HomeScreen(),
-            home: SqfliteScreen(),
+            home: HomeScreen(),
+            // home: SqfliteScreen(),
             onGenerateRoute: Application.router.generator,
 
             /// i18n

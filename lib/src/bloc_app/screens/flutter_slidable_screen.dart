@@ -6,7 +6,11 @@ class FlutterSlidableScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body: _buildList(context));
+    return Scaffold(
+        appBar: AppBar(
+          title: Text("Flutter Slidable"),
+        ),
+        body: _buildList(context));
   }
 
   Widget _buildList(BuildContext context) {
