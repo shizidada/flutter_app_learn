@@ -15,6 +15,8 @@ class Routes {
   static String flutterToastScreen = "app://flutterToast";
   static String flutteri18nScreen = "app://flutteri18n";
   static String flutterEasyRefreshScreen = "app://flutterEasyRefresh";
+  static String convexAppBarScreen = "app://convexAppBar";
+  static String flutterSlidableScreen = "app://flutterSlidable";
 
   static void configureRoutes(Router router) {
     router.define(rootScreen, handler: rootHandler);
@@ -40,5 +42,10 @@ class Routes {
     router.define(flutteri18nScreen, handler: flutteri18nHandler);
 
     router.define(flutterEasyRefreshScreen, handler: flutterEasyRefreshHandler);
+
+    router.define(convexAppBarScreen, handler: convexAppBarHandler);
+
+    router.define(flutterSlidableScreen, handler: flutterSlidableHandler);
+    
   }
 }

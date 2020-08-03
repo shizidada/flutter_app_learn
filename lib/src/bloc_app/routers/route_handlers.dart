@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:fluro/fluro.dart';
 import 'package:flutter_app_learn/src/bloc_app/screens/cached_network_image_screen.dart';
+import 'package:flutter_app_learn/src/bloc_app/screens/convex_bottom_bar_screen.dart';
 import 'package:flutter_app_learn/src/bloc_app/screens/custom_bottom_sheet_screen.dart';
 import 'package:flutter_app_learn/src/bloc_app/screens/drag_sort_page.dart';
 import 'package:flutter_app_learn/src/bloc_app/screens/flutter_easyrefresh/flutter_easyrefresh_screen.dart';
 import 'package:flutter_app_learn/src/bloc_app/screens/flutter_i18n_screen.dart';
 import 'package:flutter_app_learn/src/bloc_app/screens/flutter_toast_screen.dart';
+import 'package:flutter_app_learn/src/bloc_app/screens/flutter_slidable_screen.dart';
 import 'package:flutter_app_learn/src/bloc_app/screens/nine_grid_view/nine_grid_view_screen.dart';
 import 'package:flutter_app_learn/src/bloc_app/screens/nine_grid_view/single_picture_screen.dart';
 import 'package:flutter_app_learn/src/bloc_app/screens/sliver_screen.dart';
@@ -71,4 +73,14 @@ Handler flutteri18nHandler = Handler(
 Handler flutterEasyRefreshHandler = Handler(
     handlerFunc: (BuildContext context, Map<String, List<String>> params) {
   return FlutterEasyRefreshScreen();
+});
+
+Handler convexAppBarHandler = Handler(
+    handlerFunc: (BuildContext context, Map<String, List<String>> params) {
+  return ConvexAppBarScreen();
+});
+
+Handler flutterSlidableHandler = Handler(
+    handlerFunc: (BuildContext context, Map<String, List<String>> params) {
+  return FlutterSlidableScreen();
 });

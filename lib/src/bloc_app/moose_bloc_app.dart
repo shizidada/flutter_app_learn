@@ -8,6 +8,7 @@ import 'package:flutter_app_learn/src/bloc_app/routers/application.dart';
 import 'package:flutter_app_learn/src/bloc_app/routers/routers.dart';
 import 'package:flutter_app_learn/src/bloc_app/res/colors.dart';
 import 'package:flutter_app_learn/src/bloc_app/screens/home_screen.dart';
+import 'package:flutter_app_learn/src/bloc_app/screens/sqflite_screen.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 // import 'package:flutter_i18n/flutter_i18n.dart';
 
@@ -47,7 +48,8 @@ class MooseBlocContainer extends StatelessWidget {
           return MaterialApp(
             title: 'Flutter App Learn',
             theme: ThemeData(primaryColor: MColors.kPrimaryColor),
-            home: HomeScreen(),
+            // home: HomeScreen(),
+            home: SqfliteScreen(),
             onGenerateRoute: Application.router.generator,
 
             /// i18n

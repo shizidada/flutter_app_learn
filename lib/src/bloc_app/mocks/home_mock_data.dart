@@ -20,6 +20,8 @@ class HomeMockUtils {
     HomeMockBean('Flutter Toast', Routes.flutterToastScreen),
     HomeMockBean('Flutter i18n', Routes.flutteri18nScreen),
     HomeMockBean('Flutter EasyRefresh', Routes.flutterEasyRefreshScreen),
+    HomeMockBean('ConvexAppBar', Routes.convexAppBarScreen),
+    HomeMockBean('Flutter Slidable', Routes.flutterSlidableScreen),
   ];
 
   static List<ImageBean> getTestData() {

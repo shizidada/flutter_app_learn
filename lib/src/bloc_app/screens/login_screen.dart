@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app_learn/src/bloc_app/blocs/home_bloc.dart';
-import 'package:flutter_app_learn/src/bloc_app/blocs/login/login_index.dart';
+import 'package:flutter_app_learn/src/bloc_app/blocs/login/login.dart';
 import 'package:flutter_app_learn/src/bloc_app/blocs/theme_bloc.dart';
 import 'package:flutter_app_learn/src/bloc_app/components/loading_dialog.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
