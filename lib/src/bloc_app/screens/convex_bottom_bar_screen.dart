@@ -13,7 +13,8 @@ class ConvexAppBarScreen extends StatelessWidget {
           title: Text("ConvexAppBar"),
         ),
         bottomNavigationBar: ConvexAppBar(
-          backgroundColor: MColors.kPrimaryColor,
+          backgroundColor: Colors.white,
+          style: TabStyle.custom,
           items: [
             TabItem(
                 icon: SvgPicture.asset('assets/icons/tab_index.svg'),

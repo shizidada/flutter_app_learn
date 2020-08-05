@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app_learn/src/bloc_app/res/colors.dart';
-import 'package:flutter_app_learn/src/bloc_app/screens/page_view/home_page_view.dart';
-import 'package:flutter_app_learn/src/bloc_app/screens/page_view/mime_page_view.dart';
-import 'package:flutter_app_learn/src/bloc_app/screens/page_view/other_page_view.dart';
+import 'package:flutter_app_learn/src/bloc_app/res/values/strings.dart';
+import 'package:flutter_app_learn/src/bloc_app/screens/pages/home_page.dart';
+import 'package:flutter_app_learn/src/bloc_app/screens/pages/mime_page.dart';
+import 'package:flutter_app_learn/src/bloc_app/screens/pages/other_page.dart';
 import 'package:flutter_app_learn/src/bloc_app/utils/density.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -19,11 +20,11 @@ class _HomeScreenState extends State<HomeScreen>
   PageController pageController = new PageController(initialPage: 0);
 
   List<Widget> body = <Widget>[
-    HomePageView(),
-    OtherPageView(content: "Discovery"),
-    OtherPageView(content: "Order"),
-    OtherPageView(content: "Message"),
-    MimePageView(),
+    HomePage(),
+    OtherPage(content: "Discovery"),
+    OtherPage(content: "Order"),
+    OtherPage(content: "Message"),
+    MimePage(),
   ];
 
   @override
@@ -39,14 +40,10 @@ class _HomeScreenState extends State<HomeScreen>
     /// todo:
     Density.instance.init(context, 750, 750);
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: false,
-        title: Text('Home Screen'),
-      ),
       body: PageView(
         children: body,
         controller: pageController,
-        onPageChanged: onPageViewChange,
+        onPageChanged: onPageChange,
         physics: NeverScrollableScrollPhysics(),
       ),
       floatingActionButton: FloatingActionButton(
@@ -56,12 +53,12 @@ class _HomeScreenState extends State<HomeScreen>
         backgroundColor: MColors.kPrimaryColor,
         child: Icon(
           Icons.add,
-          color: getColor(2),
+          color: Colors.white,
         ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: BottomAppBar(
-        color: MColors.kPrimaryColor,
+        // color: MColors.kPrimaryColor,
         shape: CircularNotchedRectangle(),
         child: Padding(
           padding: EdgeInsets.fromLTRB(0, 6, 0, 6),
@@ -77,7 +74,8 @@ class _HomeScreenState extends State<HomeScreen>
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
                       Icon(Icons.home, color: getColor(0)),
-                      Text("Home", style: TextStyle(color: getColor(0)))
+                      Text(MStrings.kIndexText,
+                          style: TextStyle(color: getColor(0)))
                     ],
                   )),
               GestureDetector(
@@ -87,7 +85,8 @@ class _HomeScreenState extends State<HomeScreen>
                   child:
                       Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
                     Icon(Icons.forum, color: getColor(1)),
-                    Text("Discovery", style: TextStyle(color: getColor(1))),
+                    Text(MStrings.kDiscoveryText,
+                        style: TextStyle(color: getColor(1))),
                   ])),
               GestureDetector(
                   onTap: () {
@@ -100,7 +99,8 @@ class _HomeScreenState extends State<HomeScreen>
                         Icons.home,
                         color: getColor(2),
                       ),
-                      Text("Order", style: TextStyle(color: getColor(2)))
+                      Text(MStrings.kOrderText,
+                          style: TextStyle(color: getColor(2)))
                     ],
                   )),
               GestureDetector(
@@ -111,7 +111,8 @@ class _HomeScreenState extends State<HomeScreen>
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
                       Icon(Icons.mail, color: getColor(3)),
-                      Text("Message", style: TextStyle(color: getColor(3)))
+                      Text(MStrings.kMessageText,
+                          style: TextStyle(color: getColor(3)))
                     ],
                   )),
               GestureDetector(
@@ -122,7 +123,8 @@ class _HomeScreenState extends State<HomeScreen>
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
                       Icon(Icons.person, color: getColor(4)),
-                      Text("Profile", style: TextStyle(color: getColor(4)))
+                      Text(MStrings.kMimeText,
+                          style: TextStyle(color: getColor(4)))
                     ],
                   ))
             ],
@@ -133,10 +135,12 @@ class _HomeScreenState extends State<HomeScreen>
   }
 
   Color getColor(int value) {
-    return this._currentIndex == value ? Colors.white : Colors.white54;
+    return this._currentIndex == value
+        ? MColors.kPrimaryColor
+        : MColors.k99Color;
   }
 
-  void onPageViewChange(value) {
+  void onPageChange(value) {
     setState(() {
       _currentIndex = value;
     });

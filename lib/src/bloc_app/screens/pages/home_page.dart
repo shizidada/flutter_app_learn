@@ -4,16 +4,15 @@ import 'package:flutter_app_learn/src/bloc_app/utils/navigate_util.dart';
 
 // with AutomaticKeepAliveClientMixin
 
-class HomePageView extends StatefulWidget {
-  HomePageView({Key key}) : super(key: key);
+class HomePage extends StatefulWidget {
+  HomePage({Key key}) : super(key: key);
 
   @override
-  _HomePageViewState createState() => _HomePageViewState();
+  _HomePageState createState() => _HomePageState();
 }
 
-class _HomePageViewState extends State<HomePageView>
+class _HomePageState extends State<HomePage>
     with AutomaticKeepAliveClientMixin {
-
   @override
   Widget build(BuildContext context) {
     List<HomeMockBean> homeLists = HomeMockUtils.homeLists;
