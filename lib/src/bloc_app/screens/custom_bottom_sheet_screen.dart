@@ -17,13 +17,17 @@ class CustomBottomSheetScreen extends StatelessWidget {
           child: RaisedButton(
               child: Text('Bottom Sheet'),
               onPressed: () {
-                CustomBottomSheet.showModalBottomSheet(
-                  backgroundColor: Colors.white.withOpacity(0),
-                  context: context,
-                  builder: (BuildContext context) => Container(
-                    child: CommentBottomSheet(),
-                  ),
-                );
+                // CustomBottomSheet.showModalBottomSheet(
+                //   backgroundColor: Colors.white.withOpacity(0),
+                //   context: context,
+                //   builder: (BuildContext context) => Container(
+                //     child: CommentBottomSheet(),
+                //   ),
+                // );
+                // showCupertinoModalBottomSheet(
+                //     expand: true,
+                //     context: context,
+                //     builder: (context, scrollController) => Container());
               }),
         ));
   }

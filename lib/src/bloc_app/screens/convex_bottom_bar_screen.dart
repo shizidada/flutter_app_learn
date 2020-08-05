@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:convex_bottom_bar/convex_bottom_bar.dart';
 import 'package:flutter_app_learn/src/bloc_app/res/colors.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class ConvexAppBarScreen extends StatelessWidget {
   const ConvexAppBarScreen({Key key}) : super(key: key);
@@ -14,11 +15,27 @@ class ConvexAppBarScreen extends StatelessWidget {
         bottomNavigationBar: ConvexAppBar(
           backgroundColor: MColors.kPrimaryColor,
           items: [
-            TabItem(icon: Icons.home, title: 'Home'),
-            TabItem(icon: Icons.map, title: 'Discovery'),
-            TabItem(icon: Icons.add, title: 'Add'),
-            TabItem(icon: Icons.message, title: 'Message'),
-            TabItem(icon: Icons.people, title: 'Profile'),
+            TabItem(
+                icon: SvgPicture.asset('assets/icons/tab_index.svg'),
+                activeIcon: SvgPicture.asset('assets/icons/tab_index_s.svg'),
+                title: 'Home'),
+            TabItem(
+                icon: SvgPicture.asset('assets/icons/tab_discovery.svg'),
+                activeIcon:
+                    SvgPicture.asset('assets/icons/tab_discovery_s.svg'),
+                title: 'Discovery'),
+            TabItem(
+                icon: SvgPicture.asset('assets/icons/tab_order.svg'),
+                activeIcon: SvgPicture.asset('assets/icons/tab_order_s.svg'),
+                title: 'Order'),
+            TabItem(
+                icon: SvgPicture.asset('assets/icons/tab_message.svg'),
+                activeIcon: SvgPicture.asset('assets/icons/tab_message_s.svg'),
+                title: 'Message'),
+            TabItem(
+                icon: SvgPicture.asset('assets/icons/tab_mime.svg'),
+                activeIcon: SvgPicture.asset('assets/icons/tab_mime_s.svg'),
+                title: 'Profile'),
           ],
           initialActiveIndex: 2, //optional, default as 0
           onTap: (int i) => print('click index=$i'),

@@ -20,9 +20,9 @@ class _HomeScreenState extends State<HomeScreen>
 
   List<Widget> body = <Widget>[
     HomePageView(),
-    OtherPageView(content: "论坛"),
-    OtherPageView(content: "发布"),
-    OtherPageView(content: "消息"),
+    OtherPageView(content: "Discovery"),
+    OtherPageView(content: "Order"),
+    OtherPageView(content: "Message"),
     MimePageView(),
   ];
 
@@ -39,10 +39,10 @@ class _HomeScreenState extends State<HomeScreen>
     /// todo:
     Density.instance.init(context, 750, 750);
     return Scaffold(
-      // appBar: AppBar(
-      //   centerTitle: false,
-      //   title: Text('Home Screen'),
-      // ),
+      appBar: AppBar(
+        centerTitle: false,
+        title: Text('Home Screen'),
+      ),
       body: PageView(
         children: body,
         controller: pageController,
@@ -53,7 +53,7 @@ class _HomeScreenState extends State<HomeScreen>
         onPressed: () {
           onTap(2);
         },
-        backgroundColor: Colors.yellow,
+        backgroundColor: MColors.kPrimaryColor,
         child: Icon(
           Icons.add,
           color: getColor(2),
@@ -77,7 +77,7 @@ class _HomeScreenState extends State<HomeScreen>
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
                       Icon(Icons.home, color: getColor(0)),
-                      Text("首页", style: TextStyle(color: getColor(0)))
+                      Text("Home", style: TextStyle(color: getColor(0)))
                     ],
                   )),
               GestureDetector(
@@ -87,7 +87,7 @@ class _HomeScreenState extends State<HomeScreen>
                   child:
                       Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
                     Icon(Icons.forum, color: getColor(1)),
-                    Text("论坛", style: TextStyle(color: getColor(1))),
+                    Text("Discovery", style: TextStyle(color: getColor(1))),
                   ])),
               GestureDetector(
                   onTap: () {
@@ -100,7 +100,7 @@ class _HomeScreenState extends State<HomeScreen>
                         Icons.home,
                         color: getColor(2),
                       ),
-                      Text("发布", style: TextStyle(color: getColor(2)))
+                      Text("Order", style: TextStyle(color: getColor(2)))
                     ],
                   )),
               GestureDetector(
@@ -111,7 +111,7 @@ class _HomeScreenState extends State<HomeScreen>
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
                       Icon(Icons.mail, color: getColor(3)),
-                      Text("消息", style: TextStyle(color: getColor(3)))
+                      Text("Message", style: TextStyle(color: getColor(3)))
                     ],
                   )),
               GestureDetector(
@@ -122,7 +122,7 @@ class _HomeScreenState extends State<HomeScreen>
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
                       Icon(Icons.person, color: getColor(4)),
-                      Text("我的", style: TextStyle(color: getColor(4)))
+                      Text("Profile", style: TextStyle(color: getColor(4)))
                     ],
                   ))
             ],
