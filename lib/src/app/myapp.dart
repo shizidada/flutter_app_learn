@@ -23,6 +23,7 @@ class MyAppContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter App Learn',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(primaryColor: AppColors.kPrimaryColor),
       home: MainScreen(),
       onGenerateRoute: Application.router.generator,

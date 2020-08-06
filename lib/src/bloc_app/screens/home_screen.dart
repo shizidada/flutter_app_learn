@@ -72,9 +72,8 @@ class _HomeScreenState extends State<HomeScreen>
       child: Swiper(
         itemCount: 2,
         itemBuilder: (BuildContext context, int position) {
-          return CachedNetworkImage(
-            imageUrl:
-                'https://img.zcool.cn/community/01c6615d3ae047a8012187f447cfef.jpg@1280w_1l_2o_100sh.jpg',
+          return Image.asset(
+            'assets/images/nz.jpg',
             fit: BoxFit.fill,
           );
         },

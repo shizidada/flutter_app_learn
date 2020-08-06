@@ -1,7 +1,7 @@
 import 'package:fluro/fluro.dart';
 import 'package:flutter_app_learn/src/app/routers/application.dart';
 
-class NavigatorUtil {
+class AppNavigator {
   static push(context, path) {
     Application.router
         .navigateTo(context, path, transitionDuration: Duration(seconds: 1));

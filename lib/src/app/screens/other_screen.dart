@@ -8,6 +8,6 @@ class OtherScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title: Text("$content")), body: Text("$content Page"));
+        appBar: AppBar(title: Text("$content")), body: Text("$content Screen"));
   }
 }

@@ -119,9 +119,9 @@ class _CommentRow extends StatelessWidget {
         height: 36,
         width: 36,
         child: ClipOval(
-          child: Image.network(
-            "https://img.zcool.cn/community/01c6615d3ae047a8012187f447cfef.jpg@1280w_1l_2o_100sh.jpg",
-            fit: BoxFit.cover,
+          child: Image.asset(
+            'assets/images/nz.jpg',
+            fit: BoxFit.fill,
           ),
         ),
       ),
