@@ -1,7 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app_learn/src/bloc_app/res/colors.dart';
-import 'package:flutter_swiper/flutter_swiper.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class MimePage extends StatefulWidget {
   MimePage({Key key}) : super(key: key);
@@ -17,10 +17,12 @@ class _MimePageState extends State<MimePage> {
       body: SingleChildScrollView(
         child: Column(children: <Widget>[
           Container(
-              height: 400,
+              width: double.infinity,
+              height: ScreenUtil().setHeight(600.0),
               child: Stack(children: [
                 Container(
-                  height: 300,
+                  width: double.infinity,
+                  height: ScreenUtil().setHeight(450.0),
                   child: CachedNetworkImage(
                       fit: BoxFit.fill,
                       imageUrl:
@@ -32,10 +34,10 @@ class _MimePageState extends State<MimePage> {
                     right: 0,
                     child: Container(
                       width: double.infinity,
-                      height: 150,
-                      margin: EdgeInsets.symmetric(horizontal: 2),
+                      height: ScreenUtil().setHeight(200.0),
+                      // margin: EdgeInsets.symmetric(horizontal: 2),
                       decoration: BoxDecoration(
-                          color: MColors.kBoxShowColor,
+                          color: MColors.k9fColor,
                           borderRadius: BorderRadius.only(
                             topLeft: Radius.circular(30.0),
                             topRight: Radius.circular(30.0),
@@ -56,10 +58,9 @@ class _MimePageState extends State<MimePage> {
   Widget _buildItem() {
     return Card(
       child: Container(
-        margin: EdgeInsets.symmetric(horizontal: 2),
         width: double.infinity,
         height: 120,
-        color: MColors.k99Color,
+        color: MColors.k9fColor,
       ),
     );
   }

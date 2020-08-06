@@ -33,9 +33,6 @@ class _RichesPageState extends State<RichesPage>
   Widget build(BuildContext context) {
     print(' ------ RichesPage ------ ');
 
-    ScreenUtil.instance = ScreenUtil(width: 750, height: 1334)..init(context);
-    ScreenUtil sc = ScreenUtil.getInstance();
-
     IndexProvider provider = Provider.of<IndexProvider>(context);
     return Scaffold(
       appBar: AppBar(
@@ -52,7 +49,7 @@ class _RichesPageState extends State<RichesPage>
             child: ListTile(
               title: Text(
                 listData[position],
-                style: TextStyle(fontSize: sc.setSp(38.0)),
+                style: TextStyle(fontSize: ScreenUtil().setSp(38.0)),
               ),
             ),
           );

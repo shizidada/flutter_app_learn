@@ -10,10 +10,10 @@ class FlutterSlidableScreen extends StatelessWidget {
         appBar: AppBar(
           title: Text("Flutter Slidable"),
         ),
-        body: _buildList(context));
+        body: _buildListView(context));
   }
 
-  Widget _buildList(BuildContext context) {
+  Widget _buildListView(BuildContext context) {
     return ListView.builder(
       itemBuilder: (context, index) {
         return Slidable(

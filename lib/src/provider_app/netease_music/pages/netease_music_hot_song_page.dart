@@ -19,10 +19,6 @@ class _NeteaseMusicHotSongPageState extends State<NeteaseMusicHotSongPage>
   Widget build(BuildContext context) {
     super.build(context);
 
-    ScreenUtil.instance = ScreenUtil(width: 750, height: 1334)..init(context);
-
-    ScreenUtil sc = ScreenUtil.getInstance();
-
     NeteaseMusicProvider neteaseMusicProvider =
         Provider.of<NeteaseMusicProvider>(context);
     neteaseMusicProvider.getTopList(null);
@@ -46,7 +42,7 @@ class _NeteaseMusicHotSongPageState extends State<NeteaseMusicHotSongPage>
                       item.name,
                       overflow: TextOverflow.ellipsis,
                       maxLines: 2,
-                      style: TextStyle(fontSize: sc.setSp(22.0)),
+                      style: TextStyle(fontSize: ScreenUtil().setSp(22.0)),
                     ),
                     leading: CircleAvatar(
                       child: CachedNetworkImage(

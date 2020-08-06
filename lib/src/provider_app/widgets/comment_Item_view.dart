@@ -47,7 +47,6 @@ class _CommentItemViewState extends State<CommentItemView> {
 
   @override
   Widget build(BuildContext context) {
-    ScreenUtil.instance = ScreenUtil(width: 750, height: 1334)..init(context);
 
     CommentProvider commentProvider = Provider.of<CommentProvider>(context);
     List<CommentInfo> commentInfos = commentProvider.commentInfos;
@@ -79,7 +78,7 @@ class _CommentItemViewState extends State<CommentItemView> {
             mainAxisSize: MainAxisSize.min,
             children: <Widget>[
               Container(
-                height: ScreenUtil.getInstance().setHeight(500),
+                height: ScreenUtil().setHeight(500),
                 child: ListView.builder(
                   itemCount: commentInfos.length,
                   shrinkWrap: true,

@@ -12,22 +12,20 @@ class CustomBottomSheetScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(),
+        appBar: AppBar(
+          title: Text('Bottom Sheet'),
+        ),
         body: Container(
           child: RaisedButton(
               child: Text('Bottom Sheet'),
               onPressed: () {
-                // CustomBottomSheet.showModalBottomSheet(
-                //   backgroundColor: Colors.white.withOpacity(0),
-                //   context: context,
-                //   builder: (BuildContext context) => Container(
-                //     child: CommentBottomSheet(),
-                //   ),
-                // );
-                // showCupertinoModalBottomSheet(
-                //     expand: true,
-                //     context: context,
-                //     builder: (context, scrollController) => Container());
+                CustomBottomSheet.showModalBottomSheet(
+                  backgroundColor: Colors.white.withOpacity(0),
+                  context: context,
+                  builder: (BuildContext context) => Container(
+                    child: CommentBottomSheet(),
+                  ),
+                );
               }),
         ));
   }

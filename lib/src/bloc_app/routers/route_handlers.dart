@@ -13,7 +13,7 @@ import 'package:flutter_app_learn/src/bloc_app/screens/nine_grid_view/single_pic
 import 'package:flutter_app_learn/src/bloc_app/screens/sliver_screen.dart';
 import 'package:flutter_app_learn/src/bloc_app/screens/home_screen.dart';
 import 'package:flutter_app_learn/src/bloc_app/screens/login_screen.dart';
-import 'package:flutter_app_learn/src/bloc_app/screens/nine_grid_view/staggered_grid_view_screen.dart';
+import 'package:flutter_app_learn/src/bloc_app/screens/staggered_grid_view_screen.dart';
 
 Handler rootHandler = Handler(
     handlerFunc: (BuildContext context, Map<String, List<String>> params) {

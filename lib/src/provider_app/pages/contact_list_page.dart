@@ -34,11 +34,6 @@ class _ContactListPageState extends State<ContactListPage>
 
   @override
   Widget build(BuildContext context) {
-    ScreenUtil.instance = ScreenUtil(width: 750, height: 1334)..init(context);
-    // double width = ScreenUtil.screenWidth;
-    // double height = ScreenUtil.screenHeight;
-    // print(" ------ FriendsPage $width, $height ------ ");
-    // FriendsProvider provider = Provider.of<FriendsProvider>(context);
     return Scaffold(
       appBar: AppBar(
         title: Text(MStrings.contactTitle),

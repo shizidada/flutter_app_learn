@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app_learn/src/bloc_app/utils/density.dart';
+import 'package:flutter_app_learn/src/bloc_app/res/colors.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 ///加载弹窗动画
 class LoadingDialog extends StatefulWidget {
@@ -41,14 +42,14 @@ class _LoadingDialogState extends State<LoadingDialog> {
           onTap: () {},
           child: Center(
             child: SizedBox(
-              width: Density.instance.dp(200),
-              height: Density.instance.dp(200),
+              width: ScreenUtil().setWidth(200),
+              height: ScreenUtil().setWidth(200),
               child: Container(
                 decoration: ShapeDecoration(
                   color: Color(0xffffffff),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.all(
-                      Radius.circular(Density.instance.dp(16)),
+                      Radius.circular(ScreenUtil().setWidth(16)),
                     ),
                   ),
                 ),
@@ -57,22 +58,23 @@ class _LoadingDialogState extends State<LoadingDialog> {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: <Widget>[
                     SizedBox(
-                      width: Density.instance.dp(70),
-                      height: Density.instance.dp(70),
+                      width: ScreenUtil().setWidth(70),
+                      height: ScreenUtil().setWidth(70),
                       child: CircularProgressIndicator(
-                        strokeWidth: Density.instance.dp(5),
+                        strokeWidth: ScreenUtil().setWidth(5),
+                        // Color.fromARGB(255, 51, 51, 51)
                         valueColor: AlwaysStoppedAnimation<Color>(
-                            Color.fromARGB(255, 51, 51, 51)),
+                            MColors.kPrimaryColor),
                       ),
                     ),
                     Padding(
                       padding: EdgeInsets.only(
-                        top: Density.instance.dp(10),
+                        top: ScreenUtil().setWidth(10),
                       ),
                       child: Text(
                         widget.loadingText,
                         style: TextStyle(
-                            fontSize: Density.instance.dp(24),
+                            fontSize: ScreenUtil().setWidth(24),
                             color: Color.fromARGB(255, 51, 51, 51)),
                       ),
                     ),

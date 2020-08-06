@@ -18,24 +18,38 @@ class ConvexAppBarScreen extends StatelessWidget {
           items: [
             TabItem(
                 icon: SvgPicture.asset('assets/icons/tab_index.svg'),
-                activeIcon: SvgPicture.asset('assets/icons/tab_index_s.svg'),
+                activeIcon: SvgPicture.asset(
+                  'assets/icons/tab_index_s.svg',
+                  color: MColors.kPrimaryColor,
+                ),
                 title: 'Home'),
             TabItem(
                 icon: SvgPicture.asset('assets/icons/tab_discovery.svg'),
-                activeIcon:
-                    SvgPicture.asset('assets/icons/tab_discovery_s.svg'),
+                activeIcon: SvgPicture.asset(
+                  'assets/icons/tab_discovery_s.svg',
+                  color: MColors.kPrimaryColor,
+                ),
                 title: 'Discovery'),
             TabItem(
                 icon: SvgPicture.asset('assets/icons/tab_order.svg'),
-                activeIcon: SvgPicture.asset('assets/icons/tab_order_s.svg'),
+                activeIcon: SvgPicture.asset(
+                  'assets/icons/tab_order_s.svg',
+                  color: MColors.kPrimaryColor,
+                ),
                 title: 'Order'),
             TabItem(
                 icon: SvgPicture.asset('assets/icons/tab_message.svg'),
-                activeIcon: SvgPicture.asset('assets/icons/tab_message_s.svg'),
+                activeIcon: SvgPicture.asset(
+                  'assets/icons/tab_message_s.svg',
+                  color: MColors.kPrimaryColor,
+                ),
                 title: 'Message'),
             TabItem(
                 icon: SvgPicture.asset('assets/icons/tab_mime.svg'),
-                activeIcon: SvgPicture.asset('assets/icons/tab_mime_s.svg'),
+                activeIcon: SvgPicture.asset(
+                  'assets/icons/tab_mime_s.svg',
+                  color: MColors.kPrimaryColor,
+                ),
                 title: 'Profile'),
           ],
           initialActiveIndex: 2, //optional, default as 0

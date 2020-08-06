@@ -32,10 +32,6 @@ class _FriendsPageState extends State<FriendsPage>
 
   @override
   Widget build(BuildContext context) {
-    ScreenUtil.instance = ScreenUtil(width: 750, height: 1334)..init(context);
-    // double width = ScreenUtil.screenWidth;
-    // double height = ScreenUtil.screenHeight;
-    // print(" ------ FriendsPage $width, $height ------ ");
     ChatProvider provider = Provider.of<ChatProvider>(context);
     return Scaffold(
       appBar: AppBar(
@@ -100,7 +96,7 @@ class _FriendsPageState extends State<FriendsPage>
     return TextField(
       decoration: InputDecoration(
           contentPadding:
-              EdgeInsets.all(ScreenUtil.getInstance().setWidth(16.0)),
+              EdgeInsets.all(ScreenUtil().setWidth(16.0)),
           hintText: "几多风雨 ...",
           border: InputBorder.none,
           focusedBorder: OutlineInputBorder(

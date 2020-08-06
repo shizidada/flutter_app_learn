@@ -51,8 +51,6 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     print("build .... ");
 
-    ScreenUtil.instance = ScreenUtil(width: 750, height: 1334)..init(context);
-
     return Scaffold(
         // 防止键盘弹出影响布局高度
         resizeToAvoidBottomInset: false,
@@ -67,9 +65,9 @@ class _LoginPageState extends State<LoginPage> {
                 children: <Widget>[
                   Container(
                     padding:
-                        EdgeInsets.all(ScreenUtil.getInstance().setWidth(32.0)),
+                        EdgeInsets.all(ScreenUtil().setWidth(32.0)),
                     margin: EdgeInsets.only(
-                        top: ScreenUtil.getInstance().setHeight(260.0)),
+                        top: ScreenUtil().setHeight(260.0)),
                     child: Column(
                       children: <Widget>[
                         InputItem(
@@ -104,7 +102,7 @@ class _LoginPageState extends State<LoginPage> {
                                     "记住密码",
                                     style: TextStyle(
                                       fontSize:
-                                          ScreenUtil.getInstance().setSp(30.0),
+                                          ScreenUtil().setSp(30.0),
                                     ),
                                   ),
                                   onPanDown: (_) {
@@ -132,9 +130,9 @@ class _LoginPageState extends State<LoginPage> {
       children: <Widget>[
         Expanded(
           child: Container(
-            height: ScreenUtil.getInstance().setHeight(82.0),
+            height: ScreenUtil().setHeight(82.0),
             margin: EdgeInsets.fromLTRB(
-                0, ScreenUtil.getInstance().setHeight(20.0), 0, 0),
+                0, ScreenUtil().setHeight(20.0), 0, 0),
             child: RaisedButton(
               color: MColors.alipayColor,
               child: Text(
@@ -143,7 +141,7 @@ class _LoginPageState extends State<LoginPage> {
               ),
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(
-                      ScreenUtil.getInstance().setHeight(8.0))),
+                      ScreenUtil().setHeight(8.0))),
               onPressed: _loginHandle,
             ),
           ),
@@ -155,17 +153,17 @@ class _LoginPageState extends State<LoginPage> {
   Widget _buildRegister() {
     return Container(
       margin: EdgeInsets.fromLTRB(
-          0, ScreenUtil.getInstance().setHeight(40.0), 0, 0),
+          0, ScreenUtil().setHeight(40.0), 0, 0),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           Container(
             margin:
-                EdgeInsets.only(right: ScreenUtil.getInstance().setWidth(16.0)),
+                EdgeInsets.only(right: ScreenUtil().setWidth(16.0)),
             child: Text(
               '忘记密码?',
               textDirection: TextDirection.ltr,
-              style: TextStyle(fontSize: ScreenUtil.getInstance().setSp(30.0)),
+              style: TextStyle(fontSize: ScreenUtil().setSp(30.0)),
             ),
           ),
           GestureDetector(
@@ -173,7 +171,7 @@ class _LoginPageState extends State<LoginPage> {
               "注册",
               style: TextStyle(
                   color: Colors.black,
-                  fontSize: ScreenUtil.getInstance().setSp(30.0)),
+                  fontSize: ScreenUtil().setSp(30.0)),
             ),
             onTap: () {
               NavigatorUtil.pushFromRight(context, "/register");

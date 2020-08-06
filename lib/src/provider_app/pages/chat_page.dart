@@ -78,7 +78,7 @@ class _ChatPageState extends State<ChatPage> {
               mainAxisSize: MainAxisSize.min,
               children: <Widget>[
                 Container(
-                  height: ScreenUtil.getInstance().setHeight(500),
+                  height: ScreenUtil().setHeight(500),
                   child: ListView.builder(
                     itemCount: messages.length,
                     shrinkWrap: true,

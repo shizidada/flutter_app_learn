@@ -8,25 +8,24 @@ class NeteaseMusicTipItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    ScreenUtil.instance = ScreenUtil(width: 750, height: 1334)..init(context);
-    ScreenUtil sc = ScreenUtil.getInstance();
-
     return Container(
-      height: sc.setHeight(56.0),
+      height: ScreenUtil().setHeight(56.0),
       child: Row(
         children: <Widget>[
           Container(
-            margin:
-                EdgeInsets.only(left: sc.setWidth(8.0), top: sc.setWidth(8.0)),
-            width: sc.setWidth(5.0),
+            margin: EdgeInsets.only(
+                left: ScreenUtil().setWidth(8.0),
+                top: ScreenUtil().setWidth(8.0)),
+            width: ScreenUtil().setWidth(5.0),
             color: Colors.redAccent,
           ),
           Container(
-            margin:
-                EdgeInsets.only(left: sc.setWidth(8.0), top: sc.setWidth(8.0)),
+            margin: EdgeInsets.only(
+                left: ScreenUtil().setWidth(8.0),
+                top: ScreenUtil().setWidth(8.0)),
             child: Text(
               tipName,
-              style: TextStyle(fontSize: sc.setSp(32.0)),
+              style: TextStyle(fontSize: ScreenUtil().setSp(32.0)),
             ),
           ),
         ],

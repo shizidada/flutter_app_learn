@@ -42,9 +42,6 @@ class _HomePageState extends State<HomePage>
   Widget build(BuildContext context) {
     super.build(context);
     print('HomePage...');
-    ScreenUtil.instance = ScreenUtil(width: 750, height: 1334)..init(context);
-
-    ScreenUtil sc = ScreenUtil.getInstance();
 
     return Scaffold(
       // appBar: AppBar(
@@ -62,7 +59,7 @@ class _HomePageState extends State<HomePage>
       //   actions: <Widget>[
       //     Icon(Icons.person),
       //     SizedBox(
-      //       width: sc.setWidth(10.0),
+      //       width: ScreenUtil().setWidth(10.0),
       //     ),
       //     Icon(Icons.add)
       //   ],
@@ -84,14 +81,14 @@ class _HomePageState extends State<HomePage>
             flexibleSpace: FlexibleSpaceBar(
               background: Image.asset("assets/images/x.png", fit: BoxFit.fill),
             ),
-            expandedHeight: sc.setHeight(500.0),
+            expandedHeight: ScreenUtil().setHeight(500.0),
             floating: false,
             pinned: true,
             snap: false,
             actions: <Widget>[
               Icon(Icons.person),
               SizedBox(
-                width: sc.setWidth(10.0),
+                width: ScreenUtil().setWidth(10.0),
               ),
               Icon(Icons.add)
             ],
@@ -99,8 +96,8 @@ class _HomePageState extends State<HomePage>
           SliverGrid(
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 4,
-                crossAxisSpacing: sc.setWidth(16.0),
-                mainAxisSpacing: sc.setHeight(16.0),
+                crossAxisSpacing: ScreenUtil().setWidth(16.0),
+                mainAxisSpacing: ScreenUtil().setHeight(16.0),
                 childAspectRatio: 1),
             delegate: SliverChildBuilderDelegate(
                 (BuildContext context, int index) => GestureDetector(
@@ -116,10 +113,10 @@ class _HomePageState extends State<HomePage>
                               child: alipayIndexData[index].icon,
                             ),
                             Container(
-                              margin: EdgeInsets.only(top: sc.setHeight(16.0)),
+                              margin: EdgeInsets.only(top: ScreenUtil().setHeight(16.0)),
                               child: Text(
                                 alipayIndexData[index].name,
-                                style: TextStyle(fontSize: sc.setSp(32.0)),
+                                style: TextStyle(fontSize: ScreenUtil().setSp(32.0)),
                               ),
                             ),
                           ],
@@ -182,10 +179,10 @@ class _HomePageState extends State<HomePage>
 //     // 配置控制器
 //     isScrollable: true,
 //     indicatorColor: Colors.transparent,
-//     labelStyle: TextStyle(fontSize: ScreenUtil.getInstance().setSp(40.0)),
+//     labelStyle: TextStyle(fontSize: ScreenUtil().setSp(40.0)),
 //     unselectedLabelColor: MColors.de,
 //     unselectedLabelStyle: TextStyle(
-//       fontSize: ScreenUtil.getInstance().setSp(32.0),
+//       fontSize: ScreenUtil().setSp(32.0),
 //     ),
 //   ),
 // ),
@@ -207,24 +204,24 @@ class _HomePageState extends State<HomePage>
 // child: Column(
 //   children: <Widget>[
 //     Container(
-//       height: sc.setHeight(360.0),
+//       height: ScreenUtil().setHeight(360.0),
 //       color: Colors.grey,
 //     ),
 //     Container(
-//       height: sc.setHeight(560.0),
-//       padding: EdgeInsets.all(sc.setWidth(10.0)),
+//       height: ScreenUtil().setHeight(560.0),
+//       padding: EdgeInsets.all(ScreenUtil().setWidth(10.0)),
 //       child: GridView.builder(
 //         controller: scrollController,
 //         physics: NeverScrollableScrollPhysics(),
 //         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
 //             crossAxisCount: 4,
-//             crossAxisSpacing: sc.setWidth(16.0),
-//             mainAxisSpacing: sc.setHeight(16.0),
+//             crossAxisSpacing: ScreenUtil().setWidth(16.0),
+//             mainAxisSpacing: ScreenUtil().setHeight(16.0),
 //             childAspectRatio: 1),
 //         itemCount: alipayIndexData.length,
 //         itemBuilder: (BuildContext context, int index) => Container(
-//           // width: sc.setWidth(80.0),
-//           // height: sc.setHeight(80.0),
+//           // width: ScreenUtil().setWidth(80.0),
+//           // height: ScreenUtil().setHeight(80.0),
 //           child: GestureDetector(
 //             child: Column(
 //               mainAxisAlignment: MainAxisAlignment.center,
@@ -234,14 +231,14 @@ class _HomePageState extends State<HomePage>
 //                   child: Icon(
 //                     alipayIndexData[index].icon,
 //                     color: MColors.alipayColor,
-//                     size: sc.setWidth(56.0),
+//                     size: ScreenUtil().setWidth(56.0),
 //                   ),
 //                 ),
 //                 Container(
-//                   margin: EdgeInsets.only(top: sc.setHeight(16.0)),
+//                   margin: EdgeInsets.only(top: ScreenUtil().setHeight(16.0)),
 //                   child: Text(
 //                     alipayIndexData[index].name,
-//                     style: TextStyle(fontSize: sc.setSp(32.0)),
+//                     style: TextStyle(fontSize: ScreenUtil().setSp(32.0)),
 //                   ),
 //                 ),
 //               ],
@@ -251,7 +248,7 @@ class _HomePageState extends State<HomePage>
 //       ),
 //     ),
 //     Container(
-//       height: sc.setHeight(360.0),
+//       height: ScreenUtil().setHeight(360.0),
 //       color: Colors.grey,
 //     ),
 //   ],

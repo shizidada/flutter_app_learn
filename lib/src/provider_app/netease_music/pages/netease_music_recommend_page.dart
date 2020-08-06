@@ -32,8 +32,6 @@ class _NeteaseMusicRecommendPageState extends State<NeteaseMusicRecommendPage>
   @override
   Widget build(BuildContext context) {
     super.build(context);
-    ScreenUtil.instance = ScreenUtil(width: 750, height: 1334)..init(context);
-    ScreenUtil sc = ScreenUtil.getInstance();
 
     NeteaseMusicProvider neteaseMusicProvider =
         Provider.of<NeteaseMusicProvider>(context);
@@ -46,7 +44,7 @@ class _NeteaseMusicRecommendPageState extends State<NeteaseMusicRecommendPage>
     Song.NewSongModel newSongModel = neteaseMusicProvider.newSongModel;
 
     return SingleChildScrollView(
-      // padding: EdgeInsets.only(left: sc.setWidth(10.0),top: sc.setWidth(10.0)),
+      // padding: EdgeInsets.only(left: ScreenUtil().setWidth(10.0),top: ScreenUtil().setWidth(10.0)),
       controller: scrollController,
       child: Column(
         mainAxisSize: MainAxisSize.min,
@@ -82,8 +80,8 @@ class _NeteaseMusicRecommendPageState extends State<NeteaseMusicRecommendPage>
                                   )
                                 ],
                               ),
-                              right: sc.setWidth(8.0),
-                              top: sc.setHeight(8.0),
+                              right: ScreenUtil().setWidth(8.0),
+                              top: ScreenUtil().setHeight(8.0),
                             ),
                             Positioned(
                               child: Text(
@@ -92,8 +90,8 @@ class _NeteaseMusicRecommendPageState extends State<NeteaseMusicRecommendPage>
                                 maxLines: 1,
                                 overflow: TextOverflow.ellipsis,
                               ),
-                              left: sc.setWidth(8.0),
-                              bottom: sc.setHeight(8.0),
+                              left: ScreenUtil().setWidth(8.0),
+                              bottom: ScreenUtil().setHeight(8.0),
                             )
                           ],
                         ),
@@ -106,16 +104,16 @@ class _NeteaseMusicRecommendPageState extends State<NeteaseMusicRecommendPage>
                       crossAxisCount: 2,
 
                       /// 纵轴间距
-                      mainAxisSpacing: sc.setWidth(2.0),
+                      mainAxisSpacing: ScreenUtil().setWidth(2.0),
 
                       /// 横轴间距
-                      crossAxisSpacing: sc.setWidth(2.0),
+                      crossAxisSpacing: ScreenUtil().setWidth(2.0),
 
                       /// 子组件宽高长度比例
                       childAspectRatio: 1.0),
                 )
               : Container(
-                  height: sc.setHeight(380.0),
+                  height: ScreenUtil().setHeight(380.0),
                 ),
           NeteaseMusicTipItem(
             tipName: "最新音乐",
@@ -128,12 +126,12 @@ class _NeteaseMusicRecommendPageState extends State<NeteaseMusicRecommendPage>
                     Song.Result result = newSongModel.result[positon];
                     return Card(
                       child: Container(
-                        margin: EdgeInsets.only(top: sc.setHeight(8.0)),
+                        margin: EdgeInsets.only(top: ScreenUtil().setHeight(8.0)),
                         child: ListTile(
                           title: Text(result.name),
                           subtitle: Text(result.alg),
                           leading: CircleAvatar(
-                            radius: sc.setWidth(30.0),
+                            radius: ScreenUtil().setWidth(30.0),
                             child: CachedNetworkImage(
                               imageUrl: result.picUrl,
                             ),
@@ -146,10 +144,10 @@ class _NeteaseMusicRecommendPageState extends State<NeteaseMusicRecommendPage>
                   itemCount: newSongModel.result.length,
                 )
               : Container(
-                  height: sc.setHeight(380.0),
+                  height: ScreenUtil().setHeight(380.0),
                 ),
           Container(
-            padding: EdgeInsets.all(sc.setWidth(16.0)),
+            padding: EdgeInsets.all(ScreenUtil().setWidth(16.0)),
             child: Stack(
               children: <Widget>[
                 CachedNetworkImage(

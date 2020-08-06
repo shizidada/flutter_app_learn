@@ -10,8 +10,10 @@ class Flutteri18nScreen extends StatefulWidget {
 class _Flutteri18nScreenState extends State<Flutteri18nScreen> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Text('data'),
-    );
+    return Scaffold(
+        appBar: AppBar(title: Text("Flutter i18n")),
+        body: Container(
+          child: Text('data'),
+        ));
   }
 }

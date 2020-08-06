@@ -105,7 +105,6 @@ class _ViderPlayerPageState extends State<ViderPlayerPage> {
 
   @override
   Widget build(BuildContext context) {
-    ScreenUtil.instance = ScreenUtil(width: 750, height: 1334)..init(context);
     return Scaffold(
       body: SafeArea(
         child: _videoPlayerController.value.initialized
@@ -128,8 +127,8 @@ class _ViderPlayerPageState extends State<ViderPlayerPage> {
                     ),
                   ),
                   Positioned(
-                    left: ScreenUtil.getInstance().setWidth(40),
-                    top: ScreenUtil.getInstance().setHeight(80),
+                    left: ScreenUtil().setWidth(40),
+                    top: ScreenUtil().setHeight(80),
                     child: Container(
                       child: Row(
                         children: <Widget>[

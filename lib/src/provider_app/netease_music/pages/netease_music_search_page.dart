@@ -19,9 +19,6 @@ class _NeteaseMusicSearchPageState extends State<NeteaseMusicSearchPage> {
         Provider.of<NeteaseMusicProvider>(context);
     neteaseMusicProvider.getSearchHot({"key": "1"});
 
-    ScreenUtil.instance = ScreenUtil(width: 750, height: 1334)..init(context);
-    ScreenUtil sc = ScreenUtil.getInstance();
-
     SearchHotModel searchHotModel = neteaseMusicProvider.searchHotModel;
     List<Widget> searchHotWidgets = [];
     if (searchHotModel != null) {
@@ -45,8 +42,8 @@ class _NeteaseMusicSearchPageState extends State<NeteaseMusicSearchPage> {
           children: <Widget>[
             Flexible(
               child: Container(
-                height: sc.setHeight(58.0),
-                margin: EdgeInsets.all(sc.setWidth(16.0)),
+                height: ScreenUtil().setHeight(58.0),
+                margin: EdgeInsets.all(ScreenUtil().setWidth(16.0)),
                 decoration: BoxDecoration(
                     color: Color(0xffebecec),
                     borderRadius: BorderRadius.all(Radius.circular(30.0))),
@@ -65,12 +62,12 @@ class _NeteaseMusicSearchPageState extends State<NeteaseMusicSearchPage> {
                       // focusedBorder: OutlineInputBorder(
                       //     borderSide: BorderSide(color: Colors.grey)),
                       border: InputBorder.none,
-                      contentPadding: EdgeInsets.only(top: sc.setWidth(1.0))),
+                      contentPadding: EdgeInsets.only(top: ScreenUtil().setWidth(1.0))),
                 ),
               ),
             ),
             Container(
-              height: sc.setHeight(1.0),
+              height: ScreenUtil().setHeight(1.0),
               color: Colors.grey[200],
             ),
             NeteaseMusicTipItem(
@@ -81,10 +78,10 @@ class _NeteaseMusicSearchPageState extends State<NeteaseMusicSearchPage> {
                     flex: 1,
                     child: Container(
                       padding: EdgeInsets.only(
-                          left: sc.setWidth(16.0), top: sc.setWidth(16.0)),
+                          left: ScreenUtil().setWidth(16.0), top: ScreenUtil().setWidth(16.0)),
                       child: Wrap(
-                        spacing: sc.setWidth(8.0), // gap between adjacent chips
-                        runSpacing: sc.setWidth(4.0), // gap between lines
+                        spacing: ScreenUtil().setWidth(8.0), // gap between adjacent chips
+                        runSpacing: ScreenUtil().setWidth(4.0), // gap between lines
                         children: searchHotWidgets,
                       ),
                     ),

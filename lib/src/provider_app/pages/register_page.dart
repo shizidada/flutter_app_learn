@@ -50,8 +50,6 @@ class _RegisterPageState extends State<RegisterPage> {
   Widget build(BuildContext context) {
     print("build .... ");
 
-    ScreenUtil.instance = ScreenUtil(width: 750, height: 1334)..init(context);
-
     return Scaffold(
         appBar: AppBar(
           title: Text(MStrings.registerTitle),
@@ -68,10 +66,8 @@ class _RegisterPageState extends State<RegisterPage> {
               child: Stack(
                 children: <Widget>[
                   Container(
-                    padding:
-                        EdgeInsets.all(ScreenUtil.getInstance().setWidth(32.0)),
-                    margin: EdgeInsets.only(
-                        top: ScreenUtil.getInstance().setHeight(260.0)),
+                    padding: EdgeInsets.all(ScreenUtil().setWidth(32.0)),
+                    margin: EdgeInsets.only(top: ScreenUtil().setHeight(260.0)),
                     child: Column(
                       children: <Widget>[
                         InputItem(
@@ -107,9 +103,8 @@ class _RegisterPageState extends State<RegisterPage> {
       children: <Widget>[
         Expanded(
           child: Container(
-            height: ScreenUtil.getInstance().setHeight(82.0),
-            margin: EdgeInsets.fromLTRB(
-                0, ScreenUtil.getInstance().setHeight(20.0), 0, 0),
+            height: ScreenUtil().setHeight(82.0),
+            margin: EdgeInsets.fromLTRB(0, ScreenUtil().setHeight(20.0), 0, 0),
             child: RaisedButton(
               color: MColors.alipayColor,
               child: Text(
@@ -117,8 +112,8 @@ class _RegisterPageState extends State<RegisterPage> {
                 style: TextStyle(color: Colors.white),
               ),
               shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(
-                      ScreenUtil.getInstance().setHeight(8.0))),
+                  borderRadius:
+                      BorderRadius.circular(ScreenUtil().setHeight(8.0))),
               onPressed: _loginHandle,
             ),
           ),

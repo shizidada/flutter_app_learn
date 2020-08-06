@@ -72,8 +72,7 @@ class _WelcomePageState extends State<WelcomePage>
 
   @override
   Widget build(BuildContext context) {
-    ScreenUtil.instance = ScreenUtil(width: 750, height: 1334)..init(context);
-
+    ScreenUtil.init(context, width: 750, height: 1334);
     return Scaffold(
         // 防止键盘弹出影响布局高度
         resizeToAvoidBottomPadding: false,
@@ -91,20 +90,20 @@ class _WelcomePageState extends State<WelcomePage>
                         .animate(_animationController),
                     child: Padding(
                         padding: EdgeInsets.only(
-                            bottom: ScreenUtil.getInstance().setHeight(25.0)),
+                            bottom: ScreenUtil().setHeight(25.0)),
                         child: CircleAvatar(
-                          radius: ScreenUtil.getInstance().setWidth(100.0),
+                          radius: ScreenUtil().setWidth(100.0),
                           child: Image.asset(
                             'assets/images/splash_logo.jpeg',
-                            width: ScreenUtil.getInstance().setWidth(100.0),
-                            height: ScreenUtil.getInstance().setHeight(100.0),
+                            width: ScreenUtil().setWidth(100.0),
+                            height: ScreenUtil().setHeight(100.0),
                             fit: BoxFit.cover,
                           ),
                         )),
                   ),
                   Padding(
-                      padding: EdgeInsets.only(
-                          bottom: ScreenUtil.getInstance().setHeight(60.0)),
+                      padding:
+                          EdgeInsets.only(bottom: ScreenUtil().setHeight(60.0)),
                       child: Text('Moose App'))
                 ],
               ),
@@ -113,10 +112,8 @@ class _WelcomePageState extends State<WelcomePage>
                 children: <Widget>[
                   Image.asset(
                     'assets/images/splash_logo.jpeg',
-                    width: _animation.value *
-                        ScreenUtil.getInstance().setWidth(600.0),
-                    height: _animation.value *
-                        ScreenUtil.getInstance().setHeight(300.0),
+                    width: _animation.value * ScreenUtil().setWidth(600.0),
+                    height: _animation.value * ScreenUtil().setHeight(300.0),
                   ),
                 ],
               ),

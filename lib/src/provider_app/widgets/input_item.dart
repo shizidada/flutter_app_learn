@@ -20,10 +20,8 @@ class InputItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    ScreenUtil.instance = ScreenUtil(width: 750, height: 1334)..init(context);
-
     return Container(
-      padding: EdgeInsets.all(ScreenUtil.getInstance().setWidth(8.0)),
+      padding: EdgeInsets.all(ScreenUtil().setWidth(8.0)),
       child: TextField(
         controller: controller,
         keyboardType: keyboardType,
@@ -34,7 +32,7 @@ class InputItem extends StatelessWidget {
           suffixIcon: suffixIcon,
           hintText: hintText,
           contentPadding:
-              EdgeInsets.all(ScreenUtil.getInstance().setWidth(16.0)),
+              EdgeInsets.all(ScreenUtil().setWidth(16.0)),
           border: InputBorder.none,
           focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.all(

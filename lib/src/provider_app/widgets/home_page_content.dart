@@ -44,10 +44,7 @@ class _HomePageContentState extends State<HomePageContent>
   @override
   Widget build(BuildContext context) {
     super.build(context);
-    ScreenUtil.instance = ScreenUtil(width: 750, height: 1334)..init(context);
-
     String title = widget.title;
-
     return Container(
       child: Column(
         children: <Widget>[
@@ -57,12 +54,12 @@ class _HomePageContentState extends State<HomePageContent>
               itemBuilder: (contxt, index) {
                 if (index == 0) {
                   return bannerSwiperView(
-                      ScreenUtil.getInstance().setHeight(300.0));
+                      ScreenUtil().setHeight(300.0));
                 }
                 return Container(
                   padding:
-                      EdgeInsets.all(ScreenUtil.getInstance().setWidth(8.0)),
-                  height: ScreenUtil.getInstance().setHeight(188.0),
+                      EdgeInsets.all(ScreenUtil().setWidth(8.0)),
+                  height: ScreenUtil().setHeight(188.0),
                   child: Card(
                     child: ListTile(
                       leading: Icon(Icons.book),

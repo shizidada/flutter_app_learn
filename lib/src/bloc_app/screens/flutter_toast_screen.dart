@@ -13,22 +13,23 @@ class _FlutterToastScreenState extends State<FlutterToastScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        appBar: AppBar(title: Text("Flutter Toast")),
         body: Container(
-      child: Column(children: [
-        RaisedButton(
-          child: Text('show toast'),
-          onPressed: () {
-            Fluttertoast.showToast(
-                msg: "This is Center Short Toast",
-                toastLength: Toast.LENGTH_SHORT,
-                gravity: ToastGravity.CENTER,
-                timeInSecForIosWeb: 1,
-                backgroundColor: MColors.kPrimaryColor,
-                textColor: Colors.white,
-                fontSize: 16.0);
-          },
-        )
-      ]),
-    ));
+          child: Column(children: [
+            RaisedButton(
+              child: Text('show toast'),
+              onPressed: () {
+                Fluttertoast.showToast(
+                    msg: "This is Center Short Toast",
+                    toastLength: Toast.LENGTH_SHORT,
+                    gravity: ToastGravity.CENTER,
+                    timeInSecForIosWeb: 1,
+                    backgroundColor: MColors.kPrimaryColor,
+                    textColor: Colors.white,
+                    fontSize: 16.0);
+              },
+            )
+          ]),
+        ));
   }
 }

@@ -4,7 +4,7 @@ import 'package:flutter_app_learn/src/bloc_app/res/values/strings.dart';
 import 'package:flutter_app_learn/src/bloc_app/screens/pages/home_page.dart';
 import 'package:flutter_app_learn/src/bloc_app/screens/pages/mime_page.dart';
 import 'package:flutter_app_learn/src/bloc_app/screens/pages/other_page.dart';
-import 'package:flutter_app_learn/src/bloc_app/utils/density.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class HomeScreen extends StatefulWidget {
   HomeScreen({Key key}) : super(key: key);
@@ -29,16 +29,7 @@ class _HomeScreenState extends State<HomeScreen>
 
   @override
   Widget build(BuildContext context) {
-    /**
-      BlocBuilder<HomeBloc, int>(builder: (_, counter) {
-        return Text('Home Bloc of Data $counter');
-      }),
-      BlocBuilder<DetailBloc, int>(builder: (_, counter) {
-        return Text('Detail Bloc of Data $counter');
-      }),
-     */
-    /// todo:
-    Density.instance.init(context, 750, 750);
+    ScreenUtil.init(context, width: 750, height: 1334);
     return Scaffold(
       body: PageView(
         children: body,
@@ -50,7 +41,7 @@ class _HomeScreenState extends State<HomeScreen>
         onPressed: () {
           onTap(2);
         },
-        backgroundColor: MColors.kPrimaryColor,
+        backgroundColor: getColor(2),
         child: Icon(
           Icons.add,
           color: Colors.white,
@@ -84,7 +75,7 @@ class _HomeScreenState extends State<HomeScreen>
                   },
                   child:
                       Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
-                    Icon(Icons.forum, color: getColor(1)),
+                    Icon(Icons.airplay, color: getColor(1)),
                     Text(MStrings.kDiscoveryText,
                         style: TextStyle(color: getColor(1))),
                   ])),
