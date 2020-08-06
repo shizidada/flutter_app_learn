@@ -7,7 +7,6 @@ import 'package:flutter_app_learn/src/provider_app/provider/comment_provider.dar
 import 'package:flutter_app_learn/src/provider_app/provider/favorite_provider.dart';
 import 'package:flutter_app_learn/src/provider_app/provider/home_provider.dart';
 import 'package:flutter_app_learn/src/provider_app/provider/index_provider.dart';
-import 'package:flutter_app_learn/src/provider_app/provider/netease_music_provider.dart';
 import 'package:flutter_app_learn/src/provider_app/routers/application.dart';
 import 'package:flutter_app_learn/src/provider_app/routers/routers.dart';
 import 'package:provider/provider.dart';
@@ -53,9 +52,6 @@ class MooseProviderContainer extends StatelessWidget {
         ChangeNotifierProvider(
           create: (context) => CommentProvider(),
         ),
-        ChangeNotifierProvider(
-          create: (context) => NeteaseMusicProvider(),
-        )
       ],
       child: MaterialApp(
         title: 'Flutter App Learn',

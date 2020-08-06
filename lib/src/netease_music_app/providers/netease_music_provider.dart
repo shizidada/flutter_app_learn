@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app_learn/src/provider_app/netease_music/models/banner_model.dart';
-import 'package:flutter_app_learn/src/provider_app/netease_music/models/new_song_model.dart';
-import 'package:flutter_app_learn/src/provider_app/netease_music/models/recommend_model.dart';
-import 'package:flutter_app_learn/src/provider_app/netease_music/models/search_hot_model.dart';
-import 'package:flutter_app_learn/src/provider_app/netease_music/models/top_list_model.dart';
-import 'package:flutter_app_learn/src/provider_app/service/index.dart';
+import 'package:flutter_app_learn/src/netease_music_app/models/banner_model.dart';
+import 'package:flutter_app_learn/src/netease_music_app/models/new_song_model.dart';
+import 'package:flutter_app_learn/src/netease_music_app/models/recommend_model.dart';
+import 'package:flutter_app_learn/src/netease_music_app/models/search_hot_model.dart';
+import 'package:flutter_app_learn/src/netease_music_app/models/top_list_model.dart';
+import 'package:flutter_app_learn/src/netease_music_app/services/index.dart';
 
 class NeteaseMusicProvider with ChangeNotifier {
   BannerModel bannerModel;
-  
+
   SearchHotModel searchHotModel;
 
   RecommendModel recommendModel;

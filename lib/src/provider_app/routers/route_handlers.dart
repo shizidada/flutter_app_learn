@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fluro/fluro.dart';
-import 'package:flutter_app_learn/src/provider_app/example_demo/keyboard_actions_demo_page.dart';
-import 'package:flutter_app_learn/src/provider_app/netease_music/pages/netesase_music_index_page.dart';
+import 'package:flutter_app_learn/src/provider_app/pages/keyboard_actions_demo_page.dart';
 import 'package:flutter_app_learn/src/provider_app/pages/chat_page.dart';
 import 'package:flutter_app_learn/src/provider_app/pages/contact_list_page.dart';
 import 'package:flutter_app_learn/src/provider_app/pages/detail_page.dart';
@@ -60,20 +59,4 @@ Handler chatHander = Handler(
 Handler keyboardActionsHander = Handler(
     handlerFunc: (BuildContext context, Map<String, List<String>> params) {
   return KeyboardActionsPage();
-});
-
-///
-///
-///
-///
-///
-///
-///
-///
-///
-/// 网易云音乐 API
-///
-Handler neteaseMusicIndexHander = Handler(
-    handlerFunc: (BuildContext context, Map<String, List<String>> params) {
-  return NeteaseMusicIndexPage();
 });

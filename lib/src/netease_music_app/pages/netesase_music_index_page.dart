@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:flutter_app_learn/src/provider_app/netease_music/pages/netease_music_hot_song_page.dart';
-import 'package:flutter_app_learn/src/provider_app/netease_music/pages/netease_music_recommend_page.dart';
-import 'package:flutter_app_learn/src/provider_app/provider/netease_music_provider.dart';
+import 'package:flutter_app_learn/src/netease_music_app/pages/netease_music_recommend_page.dart';
+import 'package:flutter_app_learn/src/netease_music_app/pages/netease_music_hot_song_page.dart';
+import 'package:flutter_app_learn/src/netease_music_app/providers/netease_music_provider.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:provider/provider.dart';
-import 'package:flutter_app_learn/src/provider_app/netease_music/models/banner_model.dart';
-import 'package:flutter_app_learn/src/provider_app/netease_music/pages/netease_music_search_page.dart';
+import 'package:flutter_app_learn/src/netease_music_app/models/banner_model.dart';
+import 'package:flutter_app_learn/src/netease_music_app/pages/netease_music_search_page.dart';
 
 class NeteaseMusicIndexPage extends StatefulWidget {
   NeteaseMusicIndexPage({Key key}) : super(key: key);

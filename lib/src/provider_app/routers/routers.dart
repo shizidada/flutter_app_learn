@@ -12,9 +12,6 @@ class Routes {
 
   static String keyboardActionsPage = "/keyboardActionsPage";
 
-  /// 网易云音乐
-  static String neteaseMusicIndexPage = "/netease/music/index/page";
-
   static void configureRoutes(Router router) {
     router.define(rootPage, handler: rootHandler);
     router.define(loginPage, handler: loginHandler);
@@ -27,7 +24,5 @@ class Routes {
     /// example demo
     router.define(keyboardActionsPage, handler: keyboardActionsHander);
 
-    /// 网易云音乐
-    router.define(neteaseMusicIndexPage, handler: neteaseMusicIndexHander);
   }
 }

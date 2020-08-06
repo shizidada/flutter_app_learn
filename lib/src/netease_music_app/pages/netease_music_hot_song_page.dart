@@ -1,7 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_app_learn/src/provider_app/netease_music/models/top_list_model.dart';
-import 'package:flutter_app_learn/src/provider_app/provider/netease_music_provider.dart';
+import 'package:flutter_app_learn/src/netease_music_app/models/top_list_model.dart';
+import 'package:flutter_app_learn/src/netease_music_app/providers/netease_music_provider.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 

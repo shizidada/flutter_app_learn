@@ -1,16 +1,15 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_app_learn/src/bloc_app/res/colors.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class MimePage extends StatefulWidget {
-  MimePage({Key key}) : super(key: key);
+class MimeScreen extends StatefulWidget {
+  MimeScreen({Key key}) : super(key: key);
 
   @override
-  _MimePageState createState() => _MimePageState();
+  _MimeScreenState createState() => _MimeScreenState();
 }
 
-class _MimePageState extends State<MimePage> {
+class _MimeScreenState extends State<MimeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,9 +34,8 @@ class _MimePageState extends State<MimePage> {
                     child: Container(
                       width: double.infinity,
                       height: ScreenUtil().setHeight(200.0),
-                      // margin: EdgeInsets.symmetric(horizontal: 2),
                       decoration: BoxDecoration(
-                          color: MColors.k9fColor,
+                          color: Colors.grey,
                           borderRadius: BorderRadius.only(
                             topLeft: Radius.circular(30.0),
                             topRight: Radius.circular(30.0),
@@ -60,7 +58,7 @@ class _MimePageState extends State<MimePage> {
       child: Container(
         width: double.infinity,
         height: 120,
-        color: MColors.k9fColor,
+        color: Colors.grey,
       ),
     );
   }

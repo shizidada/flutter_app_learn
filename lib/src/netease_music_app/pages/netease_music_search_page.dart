@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app_learn/src/provider_app/netease_music/models/search_hot_model.dart';
-import 'package:flutter_app_learn/src/provider_app/provider/netease_music_provider.dart';
-import 'package:flutter_app_learn/src/provider_app/netease_music/widgets/netease_music_tip_item.dart';
+import 'package:flutter_app_learn/src/netease_music_app/models/search_hot_model.dart';
+import 'package:flutter_app_learn/src/netease_music_app/providers/netease_music_provider.dart';
+import 'package:flutter_app_learn/src/netease_music_app/widgets/netease_music_tip_item.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 
@@ -62,7 +62,8 @@ class _NeteaseMusicSearchPageState extends State<NeteaseMusicSearchPage> {
                       // focusedBorder: OutlineInputBorder(
                       //     borderSide: BorderSide(color: Colors.grey)),
                       border: InputBorder.none,
-                      contentPadding: EdgeInsets.only(top: ScreenUtil().setWidth(1.0))),
+                      contentPadding:
+                          EdgeInsets.only(top: ScreenUtil().setWidth(1.0))),
                 ),
               ),
             ),
@@ -78,10 +79,13 @@ class _NeteaseMusicSearchPageState extends State<NeteaseMusicSearchPage> {
                     flex: 1,
                     child: Container(
                       padding: EdgeInsets.only(
-                          left: ScreenUtil().setWidth(16.0), top: ScreenUtil().setWidth(16.0)),
+                          left: ScreenUtil().setWidth(16.0),
+                          top: ScreenUtil().setWidth(16.0)),
                       child: Wrap(
-                        spacing: ScreenUtil().setWidth(8.0), // gap between adjacent chips
-                        runSpacing: ScreenUtil().setWidth(4.0), // gap between lines
+                        spacing: ScreenUtil()
+                            .setWidth(8.0), // gap between adjacent chips
+                        runSpacing:
+                            ScreenUtil().setWidth(4.0), // gap between lines
                         children: searchHotWidgets,
                       ),
                     ),

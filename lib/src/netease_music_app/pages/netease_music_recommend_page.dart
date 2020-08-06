@@ -1,14 +1,14 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_app_learn/src/provider_app/netease_music/widgets/netease_music_tip_item.dart';
-import 'package:flutter_app_learn/src/provider_app/provider/netease_music_provider.dart';
+import 'package:flutter_app_learn/src/netease_music_app/widgets/netease_music_tip_item.dart';
+import 'package:flutter_app_learn/src/netease_music_app/providers/netease_music_provider.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
 
-import 'package:flutter_app_learn/src/provider_app/netease_music/models/new_song_model.dart'
+import 'package:flutter_app_learn/src/netease_music_app/models/new_song_model.dart'
     as Song;
-import 'package:flutter_app_learn/src/provider_app/netease_music/models/recommend_model.dart'
+import 'package:flutter_app_learn/src/netease_music_app/models/recommend_model.dart'
     as Recommend;
 
 class NeteaseMusicRecommendPage extends StatefulWidget {
@@ -126,7 +126,8 @@ class _NeteaseMusicRecommendPageState extends State<NeteaseMusicRecommendPage>
                     Song.Result result = newSongModel.result[positon];
                     return Card(
                       child: Container(
-                        margin: EdgeInsets.only(top: ScreenUtil().setHeight(8.0)),
+                        margin:
+                            EdgeInsets.only(top: ScreenUtil().setHeight(8.0)),
                         child: ListTile(
                           title: Text(result.name),
                           subtitle: Text(result.alg),
