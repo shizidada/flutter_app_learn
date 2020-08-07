@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app_learn/src/app/routers/application.dart';
 import 'package:flutter_app_learn/src/app/res/values/colors.dart';
 import 'package:flutter_app_learn/src/app/routers/routers.dart';
+import 'package:flutter_app_learn/src/app/screens/login_screen.dart';
 import 'package:flutter_app_learn/src/app/screens/main_screen.dart';
 
 class MyApp extends StatelessWidget {
@@ -26,6 +27,7 @@ class MyAppContainer extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(primaryColor: AppColors.kPrimaryColor),
       home: MainScreen(),
+      // home: LoginScreen(),
       onGenerateRoute: Application.router.generator,
     );
   }

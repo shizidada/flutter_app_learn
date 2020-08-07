@@ -3,37 +3,7 @@ import 'package:flutter/material.dart';
 class AppColors {
   static const Color kPrimaryColor = Colors.indigoAccent;
 
-  static const Color notWhite = Color(0xFFEDF0F2);
-  static const Color nearlyWhite = Color(0xFFFFFFFF);
-  static const Color nearlyBlack = Color(0xFF213333);
-  static const Color grey = Color(0xFF3A5160);
-  static const Color dark_grey = Color(0xFF313A44);
+  static const Color kNormalColor = Color(0xFF7D7E80);
 
-  static const Color darkText = Color(0xFF253840);
-  static const Color darkerText = Color(0xFF17262A);
-  static const Color lightText = Color(0xFF4A6572);
-  static const Color deactivatedText = Color(0xFF767676);
-  static const Color dismissibleBackground = Color(0xFF364A54);
-  static const Color chipBackground = Color(0xFFEEF1F3);
-  static const Color spacer = Color(0xFFF2F2F2);
-
-  // Color currentColor;
-  // switch (index) {
-  //   case 0:
-  //     currentColor = Colors.red;
-  //     break;
-  //   case 1:
-  //     currentColor = Colors.purpleAccent;
-  //     break;
-  //   case 2:
-  //     currentColor = Colors.green;
-  //     break;
-  //   case 3:
-  //     currentColor = Colors.pink;
-  //     break;
-  //   case 4:
-  //     currentColor = Colors.blue;
-  //     break;
-  //   default:
-  // }
+  static const Color kTextColor = Color(0xFF595959);
 }

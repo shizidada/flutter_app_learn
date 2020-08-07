@@ -1,9 +1,6 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app_learn/src/app/res/values/colors.dart';
-import 'package:flutter_app_learn/src/app/res/values/strings.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_app_learn/src/app/utils/screen_util.dart';
+import 'package:flutter_app_learn/src/app/res/size/size.dart';
 
 class MimeScreen extends StatefulWidget {
   MimeScreen({Key key}) : super(key: key);
@@ -26,7 +23,7 @@ class _MimeScreenState extends State<MimeScreen> {
         child: Column(children: <Widget>[
           Container(
               width: double.infinity,
-              height: AppScreen.setHeight(580.0),
+              height: AppHeightSize.height580,
               child: Stack(children: [
                 buildUserInfoContainer(),
                 buildBasicInfoContainer()
@@ -39,8 +36,11 @@ class _MimeScreenState extends State<MimeScreen> {
                 String title = listData[index];
                 return Container(
                   width: double.infinity,
-                  margin: EdgeInsets.only(left: 4, right: 4, bottom: 8),
-                  padding: EdgeInsets.symmetric(vertical: 16),
+                  margin: EdgeInsets.only(
+                      left: AppWidthSize.width20,
+                      right: AppWidthSize.width20,
+                      bottom: AppWidthSize.width40),
+                  padding: EdgeInsets.symmetric(vertical: AppWidthSize.width20),
                   decoration: buildBoxDecoration(),
                   child: ListTile(
                       leading: CircleAvatar(
@@ -49,7 +49,12 @@ class _MimeScreenState extends State<MimeScreen> {
                             title.substring(0, 1),
                             style: TextStyle(color: Colors.white),
                           )),
-                      title: Text(title)),
+                      title: Text(
+                        title,
+                        style: TextStyle(
+                            color: AppColors.kTextColor,
+                            fontSize: AppFontSize.fonstSize36),
+                      )),
                 );
               })
         ]),
@@ -60,7 +65,7 @@ class _MimeScreenState extends State<MimeScreen> {
   Container buildUserInfoContainer() {
     return Container(
       width: double.infinity,
-      height: AppScreen.setHeight(420.0),
+      height: AppHeightSize.height420,
       decoration: BoxDecoration(gradient: buildMimeLinearGradient()),
       child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
         Container(
@@ -92,7 +97,8 @@ class _MimeScreenState extends State<MimeScreen> {
                   margin: EdgeInsets.only(left: 10),
                   child: Text(
                     "Leo",
-                    style: TextStyle(color: Colors.white, fontSize: 18),
+                    style: TextStyle(
+                        color: Colors.white, fontSize: AppFontSize.fonstSize36),
                   ),
                 ),
                 SizedBox(
@@ -106,7 +112,8 @@ class _MimeScreenState extends State<MimeScreen> {
                       borderRadius: BorderRadius.all(Radius.circular(20))),
                   child: Text(
                     "shizidada@gmail.com",
-                    style: TextStyle(color: Colors.white, fontSize: 10),
+                    style: TextStyle(
+                        color: Colors.white, fontSize: AppFontSize.fonstSize28),
                   ),
                 )
               ]),
@@ -129,15 +136,18 @@ class _MimeScreenState extends State<MimeScreen> {
         right: 0,
         child: Container(
           width: double.infinity,
-          height: AppScreen.setHeight(220.0),
-          margin: EdgeInsets.only(left: 4, right: 4),
+          height: AppHeightSize.height220,
+          margin: EdgeInsets.only(
+            left: AppWidthSize.width20,
+            right: AppWidthSize.width20,
+          ),
           decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(15.0),
-                topRight: Radius.circular(15.0),
-                bottomLeft: Radius.circular(15.0),
-                bottomRight: Radius.circular(15.0),
+                topLeft: AppRadiusSize.circular15,
+                topRight: AppRadiusSize.circular15,
+                bottomLeft: AppRadiusSize.circular15,
+                bottomRight: AppRadiusSize.circular15,
               ),
               boxShadow: [BoxShadow(color: Colors.grey)]),
           child: Column(
@@ -150,32 +160,26 @@ class _MimeScreenState extends State<MimeScreen> {
                           child: Text(
                         "发布: 12323",
                         style: TextStyle(
-                            fontSize: 18, color: AppColors.darkerText),
+                            fontSize: AppFontSize.fonstSize36,
+                            color: AppColors.kTextColor),
                       )),
                       Container(
                           child: Text(
                         "积分：6666",
                         style: TextStyle(
-                            fontSize: 18, color: AppColors.darkerText),
+                            fontSize: AppFontSize.fonstSize36,
+                            color: AppColors.kTextColor),
                       )),
                       Container(
                           child: Text(
                         "阅读：2658",
                         style: TextStyle(
-                            fontSize: 18, color: AppColors.darkerText),
+                            fontSize: AppFontSize.fonstSize36,
+                            color: AppColors.kTextColor),
                       )),
                     ]),
               ]),
         ));
-  }
-
-  Widget _buildItem() {
-    return Container(
-      height: 100,
-      width: double.infinity,
-      margin: EdgeInsets.only(left: 4, right: 4, bottom: 8),
-      decoration: buildBoxDecoration(),
-    );
   }
 
   LinearGradient buildMimeLinearGradient() {
@@ -189,10 +193,10 @@ class _MimeScreenState extends State<MimeScreen> {
     return BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.only(
-          topLeft: Radius.circular(15.0),
-          topRight: Radius.circular(15.0),
-          bottomLeft: Radius.circular(15.0),
-          bottomRight: Radius.circular(15.0),
+          topLeft: AppRadiusSize.circular15,
+          topRight: AppRadiusSize.circular15,
+          bottomLeft: AppRadiusSize.circular15,
+          bottomRight: AppRadiusSize.circular15,
         ),
         boxShadow: [BoxShadow(color: Colors.grey)]);
   }
