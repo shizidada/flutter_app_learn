@@ -36,6 +36,7 @@ class _IndexPageState extends State<IndexPage>
   @override
   Widget build(BuildContext context) {
     super.build(context);
+    ScreenUtil.init(context, width: 750, height: 1334);
     IndexProvider provider = Provider.of<IndexProvider>(context);
 
     return Scaffold(

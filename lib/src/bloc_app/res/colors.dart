@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 class MColors {
   static Color kPrimaryColor = Colors.indigoAccent;
+  static Color primaryColor = Colors.indigoAccent;
 
   static Color k99Color = const Color(0xFF999999);
 

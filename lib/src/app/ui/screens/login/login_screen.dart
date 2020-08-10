@@ -1,17 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app_learn/src/app/ui/res/values/values.dart';
 
-class LoginScreen extends StatefulWidget {
-  LoginScreen({Key key}) : super(key: key);
+import 'login_body.dart';
 
-  @override
-  _LoginScreenState createState() => _LoginScreenState();
-}
+class ATHLoginScreen extends StatelessWidget {
+  static final String routeName = "app://login";
 
-class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
+    ScreenUtil.init(context, width: 750, height: 1334);
     return Scaffold(
-      body: Stack(children: [Text("1")]),
+      body: Container(
+          padding: EdgeInsets.symmetric(vertical: 150.w),
+          margin: EdgeInsets.symmetric(horizontal: 30.w),
+          child: ATHLoginBody()),
     );
   }
 }

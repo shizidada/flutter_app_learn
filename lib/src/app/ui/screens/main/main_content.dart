@@ -82,7 +82,9 @@ class _ATHMainContentState extends State<ATHMainContent> {
                                 color: getBarItemActiveColor(0)),
                           ),
                           Text(ATHStrings.homeTitle,
-                              style: TextStyle(color: getBarItemActiveColor(0)))
+                              style: TextStyle(
+                                  color: getBarItemActiveColor(0),
+                                  fontSize: 24.sp))
                         ],
                       )),
                   GestureDetector(
@@ -100,8 +102,9 @@ class _ATHMainContentState extends State<ATHMainContent> {
                                   color: getBarItemActiveColor(1)),
                             ),
                             Text(ATHStrings.discoveryTitle,
-                                style:
-                                    TextStyle(color: getBarItemActiveColor(1))),
+                                style: TextStyle(
+                                    color: getBarItemActiveColor(1),
+                                    fontSize: 24.sp)),
                           ])),
                   GestureDetector(
                     child: Column(
@@ -122,12 +125,13 @@ class _ATHMainContentState extends State<ATHMainContent> {
                           Container(
                             width: tabBarSize,
                             height: tabBarSize,
-                            child: SvgPicture.asset(
-                                'assets/app/tab_order.svg',
+                            child: SvgPicture.asset('assets/app/tab_order.svg',
                                 color: getBarItemActiveColor(3)),
                           ),
                           Text(ATHStrings.orderTitle,
-                              style: TextStyle(color: getBarItemActiveColor(3)))
+                              style: TextStyle(
+                                  color: getBarItemActiveColor(3),
+                                  fontSize: 24.sp))
                         ],
                       )),
                   GestureDetector(
@@ -144,7 +148,9 @@ class _ATHMainContentState extends State<ATHMainContent> {
                                 color: getBarItemActiveColor(4)),
                           ),
                           Text(ATHStrings.mimeTitle,
-                              style: TextStyle(color: getBarItemActiveColor(4)))
+                              style: TextStyle(
+                                  color: getBarItemActiveColor(4),
+                                  fontSize: 24.sp))
                         ],
                       ))
                 ],

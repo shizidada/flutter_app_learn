@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
 
-class ATHMessageScreen extends StatefulWidget {
-  @override
-  _ATHMessageScreenState createState() => _ATHMessageScreenState();
-}
+class ATHMessageScreen extends StatelessWidget {
+  static final String routeName = "app://message";
 
-class _ATHMessageScreenState extends State<ATHMessageScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

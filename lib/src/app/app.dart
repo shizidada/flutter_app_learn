@@ -5,6 +5,8 @@ import 'package:flutter_app_learn/src/app/ui/routers/application.dart';
 import 'package:flutter_app_learn/src/app/ui/routers/routers.dart';
 import 'package:flutter_app_learn/src/app/ui/screens/main/main_screen.dart';
 
+import 'ui/screens/login/login_screen.dart';
+
 class ATHApp extends StatelessWidget {
   ATHApp() {
     final router = Router();
@@ -24,8 +26,11 @@ class ATHAppContainer extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter ATH App',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(primaryColor: ATHColors.primaryColor),
-      home: ATHMainScreen(),
+      theme: ThemeData(
+        primaryColor: ATHColors.primaryColor,
+        fontFamily: 'PingFang',
+      ),
+      home: ATHLoginScreen(),
       // home: LoginScreen(),
       onGenerateRoute: ATHApplication.router.generator,
     );

@@ -1,17 +1,16 @@
 import 'package:fluro/fluro.dart';
+import 'package:flutter_app_learn/src/app/ui/screens/main/main_screen.dart';
+import 'package:flutter_app_learn/src/app/ui/screens/message/message_screen.dart';
+import 'package:flutter_app_learn/src/app/ui/screens/search/search_screen.dart';
 
 import 'route_handlers.dart';
 
 class ATHRoutes {
-//  static String exampleScreen = "app://example";
-  static String messageScreen = "app://message";
-  static String searchScreen = "app://search";
-
   static void configureRoutes(Router router) {
-//    router.define(exampleScreen, handler: exampleHandler);
+    router.define(ATHMainScreen.routeName, handler: mainHandler);
 
-    router.define(messageScreen, handler: messageHandler);
+    router.define(ATHMessageScreen.routeName, handler: messageHandler);
 
-    router.define(searchScreen, handler: searchHandler);
+    router.define(ATHSearchScreen.routeName, handler: searchHandler);
   }
 }

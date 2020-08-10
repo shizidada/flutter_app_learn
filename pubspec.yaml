@@ -114,17 +114,10 @@ flutter:
   # list giving the asset and other descriptors for the font. For
   # example:
   fonts:
-    - family: appIcon
+    - family: PingFang
       fonts:
-        - asset: assets/fonts/iconfont.ttf
+        - asset: assets/fonts/PingFang_Bold.ttf
 
-    - family: indexIcon
-      fonts:
-        - asset: assets/fonts/index_iconfont.ttf
-
-    - family: mimeIcon
-      fonts:
-        - asset: assets/fonts/mime_iconfont.ttf
   # fonts:
   #   - family: Schyler
   #     fonts:

@@ -39,6 +39,7 @@ class _NeteaseMusicIndexPageState extends State<NeteaseMusicIndexPage>
   @override
   Widget build(BuildContext context) {
     super.build(context);
+    ScreenUtil.init(context, width: 750, height: 1334);
 
     NeteaseMusicProvider bannerProvider =
         Provider.of<NeteaseMusicProvider>(context);

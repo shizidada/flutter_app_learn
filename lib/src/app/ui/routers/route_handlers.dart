@@ -1,5 +1,6 @@
 import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_app_learn/src/app/ui/screens/main/main_screen.dart';
 import 'package:flutter_app_learn/src/app/ui/screens/message/message_screen.dart';
 import 'package:flutter_app_learn/src/app/ui/screens/search/search_screen.dart';
 
@@ -7,6 +8,11 @@ import 'package:flutter_app_learn/src/app/ui/screens/search/search_screen.dart';
 //    handlerFunc: (BuildContext context, Map<String, List<String>> params) {
 //  return ATHExampleScreen();
 //});
+
+Handler mainHandler = Handler(
+    handlerFunc: (BuildContext context, Map<String, List<String>> params) {
+  return ATHMainScreen();
+});
 
 Handler messageHandler = Handler(
     handlerFunc: (BuildContext context, Map<String, List<String>> params) {

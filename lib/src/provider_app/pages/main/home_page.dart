@@ -41,8 +41,6 @@ class _HomePageState extends State<HomePage>
   @override
   Widget build(BuildContext context) {
     super.build(context);
-    print('HomePage...');
-
     return Scaffold(
       // appBar: AppBar(
       //   // iconTheme: IconThemeData(color: Colors.white),

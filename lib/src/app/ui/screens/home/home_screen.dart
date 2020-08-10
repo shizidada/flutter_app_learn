@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app_learn/src/app/core/utils/navigator_util.dart';
 import 'package:flutter_app_learn/src/app/ui/res/values/values.dart';
-import 'package:flutter_app_learn/src/app/ui/routers/routers.dart';
+import 'package:flutter_app_learn/src/app/ui/screens/message/message_screen.dart';
+import 'package:flutter_app_learn/src/app/ui/screens/search/search_screen.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 
@@ -153,7 +154,7 @@ class _ATHHomeScreenState extends State<ATHHomeScreen>
       leading: GestureDetector(
         child: Icon(Icons.search),
         onTap: () {
-          ATHNavigator.pushFromRight(context, ATHRoutes.searchScreen);
+          ATHNavigator.pushFromRight(context, ATHSearchScreen.routeName);
         },
       ),
       actions: <Widget>[
@@ -163,7 +164,7 @@ class _ATHHomeScreenState extends State<ATHHomeScreen>
             child: Icon(Icons.message),
           ),
           onTap: () {
-            ATHNavigator.pushFromRight(context, ATHRoutes.messageScreen);
+            ATHNavigator.pushFromRight(context, ATHMessageScreen.routeName);
           },
         )
       ],
