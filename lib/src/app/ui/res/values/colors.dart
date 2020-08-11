@@ -5,7 +5,7 @@ class ATHColors {
   static const Color redColor = Color(0xFFFF5946);
   static const Color yellowColor = Color(0xFFFFCC5D);
   static const Color pinkColor = Color(0xFFFFD6CB);
-  static const Color pinkLinghtColor = Color(0xFFFFE1E1);
+  static const Color pinkLightColor = Color(0xFFFFE1E1);
 
   static const Color normalColor = Color(0xFF7D7E80);
   static const Color textColor = Color(0xFF595959);

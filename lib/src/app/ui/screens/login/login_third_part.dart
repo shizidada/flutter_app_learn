@@ -26,7 +26,7 @@ class ATHLoginThirdPart extends StatelessWidget {
 
   Expanded buildDivider() {
     return Expanded(
-      child: Divider(color: ATHColors.colorbe, height: 1.5),
+      child: Divider(color: ATHColors.colorbe, height: 1.5.h),
     );
   }
 }

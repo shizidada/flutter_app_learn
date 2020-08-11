@@ -5,7 +5,7 @@ class ATHLoginForgetPassword extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(vertical: 20.w),
+      padding: EdgeInsets.symmetric(vertical: 20.h),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[

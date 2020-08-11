@@ -18,7 +18,7 @@ class ATHInputFiled extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           Container(
-            padding: EdgeInsets.symmetric(horizontal: 24.w),
+            padding: EdgeInsets.only(right: 36.w),
             constraints: BoxConstraints(maxWidth: 240.w),
             child: Text(
               labelTitle,

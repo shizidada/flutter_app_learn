@@ -7,13 +7,13 @@ import 'package:flutter_app_learn/src/app/ui/screens/order/order_list_screen.dar
 import 'package:flutter_app_learn/src/app/ui/screens/other_screen.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class ATHMainContent extends StatefulWidget {
+class ATHMainBody extends StatefulWidget {
   @override
-  _ATHMainContentState createState() => _ATHMainContentState();
+  _ATHMainBodyState createState() => _ATHMainBodyState();
 }
 
 // with TickerProviderStateMixin
-class _ATHMainContentState extends State<ATHMainContent> {
+class _ATHMainBodyState extends State<ATHMainBody> {
   int _currentIndex = 0;
 
   PageController _pageController;
@@ -43,7 +43,7 @@ class _ATHMainContentState extends State<ATHMainContent> {
 
   @override
   Widget build(BuildContext context) {
-    final tabBarSize = 56.w;
+    final tabBarSize = 52.w;
 
     return Scaffold(
         body: buildPageView(),
@@ -53,8 +53,8 @@ class _ATHMainContentState extends State<ATHMainContent> {
             },
             backgroundColor: Colors.white,
             child: Container(
-              width: 56.w,
-              height: 56.w,
+              width: tabBarSize,
+              height: tabBarSize,
               child: SvgPicture.asset('assets/app/tab_discovery.svg',
                   color: getBarItemActiveColor(2)),
             )),
@@ -63,7 +63,7 @@ class _ATHMainContentState extends State<ATHMainContent> {
             color: Colors.white,
             shape: CircularNotchedRectangle(),
             child: Padding(
-              padding: EdgeInsets.fromLTRB(0, 6, 0, 6),
+              padding: EdgeInsets.fromLTRB(0, 6.h, 0, 6.h),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -84,7 +84,7 @@ class _ATHMainContentState extends State<ATHMainContent> {
                           Text(ATHStrings.homeTitle,
                               style: TextStyle(
                                   color: getBarItemActiveColor(0),
-                                  fontSize: 24.sp))
+                                  fontSize: 20.sp))
                         ],
                       )),
                   GestureDetector(
@@ -104,7 +104,7 @@ class _ATHMainContentState extends State<ATHMainContent> {
                             Text(ATHStrings.discoveryTitle,
                                 style: TextStyle(
                                     color: getBarItemActiveColor(1),
-                                    fontSize: 24.sp)),
+                                    fontSize: 20.sp)),
                           ])),
                   GestureDetector(
                     child: Column(
@@ -131,7 +131,7 @@ class _ATHMainContentState extends State<ATHMainContent> {
                           Text(ATHStrings.orderTitle,
                               style: TextStyle(
                                   color: getBarItemActiveColor(3),
-                                  fontSize: 24.sp))
+                                  fontSize: 20.sp))
                         ],
                       )),
                   GestureDetector(
@@ -150,7 +150,7 @@ class _ATHMainContentState extends State<ATHMainContent> {
                           Text(ATHStrings.mimeTitle,
                               style: TextStyle(
                                   color: getBarItemActiveColor(4),
-                                  fontSize: 24.sp))
+                                  fontSize: 20.sp))
                         ],
                       ))
                 ],
