@@ -22,7 +22,10 @@ class ATHInputFiled extends StatelessWidget {
             constraints: BoxConstraints(maxWidth: 240.w),
             child: Text(
               labelTitle,
-              style: TextStyle(color: ATHColors.color2b, fontSize: 30.sp),
+              style: TextStyle(
+                  color: ATHColors.primaryColor,
+                  fontSize: 30.sp,
+                  fontWeight: FontWeight.bold),
             ),
           ),
           Expanded(
@@ -30,7 +33,8 @@ class ATHInputFiled extends StatelessWidget {
             child: TextField(
               decoration: InputDecoration(
                 hintText: hintText,
-                hintStyle: TextStyle(color: ATHColors.colorbe, fontSize: 30.sp),
+                hintStyle:
+                    TextStyle(color: ATHColors.normalColor, fontSize: 30.sp),
                 border: InputBorder.none,
               ),
             ),

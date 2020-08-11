@@ -48,7 +48,7 @@ class ATHLoginBody extends StatelessWidget {
                 children: <Widget>[
                   Text(
                     "还没有账号?",
-                    style: TextStyle(color: ATHColors.colorbe),
+                    style: TextStyle(color: ATHColors.normalColor),
                   ),
                   SizedBox(width: 16.w),
                   Text(

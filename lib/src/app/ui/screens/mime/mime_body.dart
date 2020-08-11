@@ -42,7 +42,7 @@ class ATHMimeBody extends StatelessWidget {
                             )),
                         title: Text(
                           title,
-                          style: TextStyle(color: ATHColors.textColor),
+                          style: TextStyle(color: ATHColors.primaryColor),
                         )),
                   );
                 }),

@@ -12,6 +12,6 @@ class ATHInputDecorationContainer extends StatelessWidget {
         child: child,
         margin: EdgeInsets.symmetric(vertical: 36.h),
         decoration: BoxDecoration(
-            border: Border(bottom: BorderSide(color: ATHColors.colorbe))));
+            border: Border(bottom: BorderSide(color: ATHColors.normalColor))));
   }
 }

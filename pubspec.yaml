@@ -116,7 +116,7 @@ flutter:
   fonts:
     - family: PingFang
       fonts:
-        - asset: assets/fonts/PingFang_Regular.ttf
+        - asset: assets/fonts/PingFang_Bold.ttf
 
   # fonts:
   #   - family: Schyler

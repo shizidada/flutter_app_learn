@@ -9,7 +9,10 @@ class ATHLoginTitle extends StatelessWidget {
         children: <Widget>[
           Text(
             "密码登录",
-            style: TextStyle(fontSize: 38.sp),
+            style: TextStyle(
+                fontSize: 38.sp,
+                color: ATHColors.primaryColor,
+                fontWeight: FontWeight.bold),
           )
         ],
       ),

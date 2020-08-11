@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app_learn/src/app/ui/res/values/values.dart';
+import 'package:flutter_app_learn/src/app/ui/screens/collect/collect_screen.dart';
 import 'package:flutter_app_learn/src/app/ui/screens/discovery/discovery_screen.dart';
 import 'package:flutter_app_learn/src/app/ui/screens/home/home_screen.dart';
+import 'package:flutter_app_learn/src/app/ui/screens/message/message_screen.dart';
 import 'package:flutter_app_learn/src/app/ui/screens/mime/mime_screen.dart';
-import 'package:flutter_app_learn/src/app/ui/screens/order/order_list_screen.dart';
-import 'package:flutter_app_learn/src/app/ui/screens/other_screen.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class ATHMainBody extends StatefulWidget {
@@ -25,8 +25,8 @@ class _ATHMainBodyState extends State<ATHMainBody> {
     _pageBodies = <Widget>[
       ATHHomeScreen(),
       ATHDiscoveryScreen(),
-      ATHOtherScreen(content: ATHStrings.publishTitle),
-      ATHOrderListScreen(),
+      ATHCollectScreen(),
+      ATHMessageScreen(),
       ATHMimeScreen(),
     ];
 
@@ -66,13 +66,15 @@ class _ATHMainBodyState extends State<ATHMainBody> {
                           Container(
                             width: tabBarSize,
                             height: tabBarSize,
-                            child: SvgPicture.asset('assets/icons/tabbar/tab_home.svg',
+                            child: SvgPicture.asset(
+                                'assets/icons/tabbar/tab_home.svg',
                                 color: getBarItemActiveColor(0)),
                           ),
                           Text(ATHStrings.homeTitle,
                               style: TextStyle(
                                   color: getBarItemActiveColor(0),
-                                  fontSize: 20.sp))
+                                  fontSize: 20.sp,
+                                  fontWeight: FontWeight.bold))
                         ],
                       )),
                   GestureDetector(
@@ -86,13 +88,14 @@ class _ATHMainBodyState extends State<ATHMainBody> {
                               width: tabBarSize,
                               height: tabBarSize,
                               child: SvgPicture.asset(
-                                  'assets/icons/tabbar/tab_order.svg',
+                                  'assets/icons/tabbar/tab_discovery.svg',
                                   color: getBarItemActiveColor(1)),
                             ),
-                            Text(ATHStrings.orderTitle,
+                            Text(ATHStrings.discoveryTitle,
                                 style: TextStyle(
                                     color: getBarItemActiveColor(1),
-                                    fontSize: 20.sp)),
+                                    fontSize: 20.sp,
+                                    fontWeight: FontWeight.bold)),
                           ])),
                   GestureDetector(
                     child: Column(
@@ -102,13 +105,14 @@ class _ATHMainBodyState extends State<ATHMainBody> {
                           width: tabBarSize,
                           height: tabBarSize,
                           child: SvgPicture.asset(
-                              'assets/icons/tabbar/tab_discovery.svg',
+                              'assets/icons/tabbar/tab_collect.svg',
                               color: getBarItemActiveColor(2)),
                         ),
-                        Text(ATHStrings.discoveryTitle,
+                        Text(ATHStrings.collectTitle,
                             style: TextStyle(
                                 color: getBarItemActiveColor(2),
-                                fontSize: 20.sp)),
+                                fontSize: 20.sp,
+                                fontWeight: FontWeight.bold)),
                       ],
                     ),
                     onTap: () {
@@ -125,13 +129,15 @@ class _ATHMainBodyState extends State<ATHMainBody> {
                           Container(
                             width: tabBarSize,
                             height: tabBarSize,
-                            child: SvgPicture.asset('assets/icons/tabbar/tab_message.svg',
+                            child: SvgPicture.asset(
+                                'assets/icons/tabbar/tab_message.svg',
                                 color: getBarItemActiveColor(3)),
                           ),
                           Text(ATHStrings.messageTitle,
                               style: TextStyle(
                                   color: getBarItemActiveColor(3),
-                                  fontSize: 20.sp))
+                                  fontSize: 20.sp,
+                                  fontWeight: FontWeight.bold))
                         ],
                       )),
                   GestureDetector(
@@ -144,13 +150,15 @@ class _ATHMainBodyState extends State<ATHMainBody> {
                           Container(
                             width: tabBarSize,
                             height: tabBarSize,
-                            child: SvgPicture.asset('assets/icons/tabbar/tab_mime.svg',
+                            child: SvgPicture.asset(
+                                'assets/icons/tabbar/tab_mime.svg',
                                 color: getBarItemActiveColor(4)),
                           ),
                           Text(ATHStrings.mimeTitle,
                               style: TextStyle(
                                   color: getBarItemActiveColor(4),
-                                  fontSize: 20.sp))
+                                  fontSize: 20.sp,
+                                  fontWeight: FontWeight.bold))
                         ],
                       ))
                 ],
@@ -169,12 +177,8 @@ class _ATHMainBodyState extends State<ATHMainBody> {
 
   Color getBarItemActiveColor(int index) {
     return _currentIndex == index
-        ? getBarItemColor(index)
+        ? ATHColors.primaryColor
         : ATHColors.normalColor;
-  }
-
-  Color getBarItemColor(int index) {
-    return ATHColors.primaryColor;
   }
 
   void _onPageChange(value) {

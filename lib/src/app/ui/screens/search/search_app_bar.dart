@@ -7,7 +7,7 @@ import 'search_input.dart';
 class ATHSearchAppBar extends StatelessWidget implements PreferredSizeWidget {
   final double height;
 
-  ATHSearchAppBar({this.height: 140});
+  ATHSearchAppBar({this.height: 200});
 
   @override
   Widget build(BuildContext context) {
