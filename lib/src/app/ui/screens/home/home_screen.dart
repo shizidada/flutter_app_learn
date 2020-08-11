@@ -164,7 +164,10 @@ class _ATHHomeScreenState extends State<ATHHomeScreen>
   SliverAppBar buildSliverAppBar() {
     return SliverAppBar(
       leading: GestureDetector(
-        child: Icon(Icons.search),
+        child: IconButton(
+          icon: SvgPicture.asset('assets/icons/icon_search.svg',
+              width: 44.w, height: 44.w, color: Colors.white),
+        ),
         onTap: () {
           ATHNavigator.pushFromRight(context, ATHSearchScreen.routeName);
         },
@@ -174,7 +177,7 @@ class _ATHHomeScreenState extends State<ATHHomeScreen>
           child: Container(
             margin: EdgeInsets.only(right: 18.w),
             child: SvgPicture.asset('assets/icons/icon_notice.svg',
-                width: 48.w, height: 48.w, color: Colors.white),
+                width: 44.w, height: 44.w, color: Colors.white),
           ),
           onTap: () {
             ATHNavigator.pushFromRight(context, ATHMessageScreen.routeName);
