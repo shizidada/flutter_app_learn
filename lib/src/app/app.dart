@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app_learn/src/app/ui/res/values/values.dart';
 import 'package:flutter_app_learn/src/app/ui/routers/application.dart';
 import 'package:flutter_app_learn/src/app/ui/routers/routers.dart';
-import 'package:flutter_app_learn/src/app/ui/screens/main/main_screen.dart';
 
 import 'ui/screens/login/login_screen.dart';
 
@@ -29,7 +28,8 @@ class ATHAppContainer extends StatelessWidget {
       theme: ThemeData(
         primaryColor: ATHColors.primaryColor,
         fontFamily: 'PingFang',
-      ),
+      ).copyWith(
+          splashColor: Colors.transparent, highlightColor: Colors.transparent),
       home: ATHLoginScreen(),
       // home: LoginScreen(),
       onGenerateRoute: ATHApplication.router.generator,

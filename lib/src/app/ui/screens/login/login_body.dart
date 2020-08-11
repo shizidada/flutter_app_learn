@@ -3,8 +3,8 @@ import 'package:flutter_app_learn/src/app/core/utils/navigator_util.dart';
 import 'package:flutter_app_learn/src/app/ui/res/values/values.dart';
 import 'package:flutter_app_learn/src/app/ui/screens/main/main_screen.dart';
 import 'package:flutter_app_learn/src/app/ui/widgets/input_field.dart';
-import 'package:flutter_app_learn/src/app/ui/widgets/over_scroll_behavior.dart';
 import 'package:flutter_app_learn/src/app/ui/widgets/round_button.dart';
+import 'package:flutter_app_learn/src/app/ui/widgets/scroller_configuration_wrapper.dart';
 
 import 'login_forget_password.dart';
 import 'login_third_part.dart';
@@ -13,8 +13,7 @@ import 'login_title.dart';
 class ATHLoginBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return ScrollConfiguration(
-      behavior: OverScrollBehavior(),
+    return ATHScrollerConfigurationWrapper(
       child: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

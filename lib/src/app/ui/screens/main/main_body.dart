@@ -43,22 +43,10 @@ class _ATHMainBodyState extends State<ATHMainBody> {
 
   @override
   Widget build(BuildContext context) {
-    final tabBarSize = 52.w;
+    final tabBarSize = 56.w;
 
     return Scaffold(
         body: buildPageView(),
-        floatingActionButton: FloatingActionButton(
-            onPressed: () {
-              _onItemSelected(2);
-            },
-            backgroundColor: Colors.white,
-            child: Container(
-              width: tabBarSize,
-              height: tabBarSize,
-              child: SvgPicture.asset('assets/app/tab_discovery.svg',
-                  color: getBarItemActiveColor(2)),
-            )),
-        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         bottomNavigationBar: BottomAppBar(
             color: Colors.white,
             shape: CircularNotchedRectangle(),
@@ -78,7 +66,7 @@ class _ATHMainBodyState extends State<ATHMainBody> {
                           Container(
                             width: tabBarSize,
                             height: tabBarSize,
-                            child: SvgPicture.asset('assets/app/tab_home.svg',
+                            child: SvgPicture.asset('assets/icons/tabbar/tab_home.svg',
                                 color: getBarItemActiveColor(0)),
                           ),
                           Text(ATHStrings.homeTitle,
@@ -98,10 +86,10 @@ class _ATHMainBodyState extends State<ATHMainBody> {
                               width: tabBarSize,
                               height: tabBarSize,
                               child: SvgPicture.asset(
-                                  'assets/app/tab_discovery.svg',
+                                  'assets/icons/tabbar/tab_order.svg',
                                   color: getBarItemActiveColor(1)),
                             ),
-                            Text(ATHStrings.discoveryTitle,
+                            Text(ATHStrings.orderTitle,
                                 style: TextStyle(
                                     color: getBarItemActiveColor(1),
                                     fontSize: 20.sp)),
@@ -109,7 +97,19 @@ class _ATHMainBodyState extends State<ATHMainBody> {
                   GestureDetector(
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
-                      children: <Widget>[],
+                      children: <Widget>[
+                        Container(
+                          width: tabBarSize,
+                          height: tabBarSize,
+                          child: SvgPicture.asset(
+                              'assets/icons/tabbar/tab_discovery.svg',
+                              color: getBarItemActiveColor(2)),
+                        ),
+                        Text(ATHStrings.discoveryTitle,
+                            style: TextStyle(
+                                color: getBarItemActiveColor(2),
+                                fontSize: 20.sp)),
+                      ],
                     ),
                     onTap: () {
                       _onItemSelected(2);
@@ -125,10 +125,10 @@ class _ATHMainBodyState extends State<ATHMainBody> {
                           Container(
                             width: tabBarSize,
                             height: tabBarSize,
-                            child: SvgPicture.asset('assets/app/tab_order.svg',
+                            child: SvgPicture.asset('assets/icons/tabbar/tab_message.svg',
                                 color: getBarItemActiveColor(3)),
                           ),
-                          Text(ATHStrings.orderTitle,
+                          Text(ATHStrings.messageTitle,
                               style: TextStyle(
                                   color: getBarItemActiveColor(3),
                                   fontSize: 20.sp))
@@ -144,7 +144,7 @@ class _ATHMainBodyState extends State<ATHMainBody> {
                           Container(
                             width: tabBarSize,
                             height: tabBarSize,
-                            child: SvgPicture.asset('assets/app/tab_mime.svg',
+                            child: SvgPicture.asset('assets/icons/tabbar/tab_mime.svg',
                                 color: getBarItemActiveColor(4)),
                           ),
                           Text(ATHStrings.mimeTitle,

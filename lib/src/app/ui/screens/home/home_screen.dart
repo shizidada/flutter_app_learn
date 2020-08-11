@@ -1,9 +1,13 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app_learn/src/app/core/utils/navigator_util.dart';
 import 'package:flutter_app_learn/src/app/ui/res/values/values.dart';
 import 'package:flutter_app_learn/src/app/ui/screens/message/message_screen.dart';
 import 'package:flutter_app_learn/src/app/ui/screens/search/search_screen.dart';
+import 'package:flutter_app_learn/src/app/ui/widgets/global_container_wrapper.dart';
+import 'package:flutter_app_learn/src/app/ui/widgets/scroller_configuration_wrapper.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 
 // with AutomaticKeepAliveClientMixin
@@ -53,47 +57,55 @@ class _ATHHomeScreenState extends State<ATHHomeScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: NestedScrollView(
-        headerSliverBuilder: _silverBuilder,
-        body: TabBarView(
-          controller: tabController,
-          children: <Widget>[
-            ListView.builder(
-                itemCount: 6,
-                itemBuilder: (context, index) => ListTile(
-                      leading: CircleAvatar(
-                        backgroundColor: ATHColors.primaryColor,
-                        child: Text('关注'),
-                        foregroundColor: Colors.white,
-                      ),
-                      title: Text('title'),
-                      subtitle: Text('subtitle'),
-                    )),
-            ListView.builder(
-              itemCount: 10,
-              itemBuilder: (context, index) => ListTile(
-                leading: CircleAvatar(
-                  backgroundColor: ATHColors.primaryColor,
-                  child: Text('推荐'),
-                  foregroundColor: Colors.white,
-                ),
-                title: Text('title'),
-                subtitle: Text('subtitle'),
+      body: ATHScrollerConfigurationWrapper(
+        child: NestedScrollView(
+          headerSliverBuilder: _silverBuilder,
+          body: TabBarView(
+            controller: tabController,
+            children: <Widget>[
+              ATHGlobalContainerWrapper(
+                child: ListView.builder(
+                    itemCount: 6,
+                    itemBuilder: (context, index) => ListTile(
+                          leading: CircleAvatar(
+                            backgroundColor: ATHColors.primaryColor,
+                            child: Text('关注'),
+                            foregroundColor: Colors.white,
+                          ),
+                          title: Text('title'),
+                          subtitle: Text('subtitle'),
+                        )),
               ),
-            ),
-            ListView.builder(
-              itemCount: 10,
-              itemBuilder: (context, index) => ListTile(
-                leading: CircleAvatar(
-                  backgroundColor: ATHColors.primaryColor,
-                  child: Text('附近'),
-                  foregroundColor: Colors.white,
+              ATHGlobalContainerWrapper(
+                child: ListView.builder(
+                  itemCount: 10,
+                  itemBuilder: (context, index) => ListTile(
+                    leading: CircleAvatar(
+                      backgroundColor: ATHColors.primaryColor,
+                      child: Text('推荐'),
+                      foregroundColor: Colors.white,
+                    ),
+                    title: Text('title'),
+                    subtitle: Text('subtitle'),
+                  ),
                 ),
-                title: Text('title'),
-                subtitle: Text('subtitle'),
               ),
-            ),
-          ],
+              ATHGlobalContainerWrapper(
+                child: ListView.builder(
+                  itemCount: 10,
+                  itemBuilder: (context, index) => ListTile(
+                    leading: CircleAvatar(
+                      backgroundColor: ATHColors.primaryColor,
+                      child: Text('附近'),
+                      foregroundColor: Colors.white,
+                    ),
+                    title: Text('title'),
+                    subtitle: Text('subtitle'),
+                  ),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
@@ -159,9 +171,10 @@ class _ATHHomeScreenState extends State<ATHHomeScreen>
       ),
       actions: <Widget>[
         GestureDetector(
-          child: Padding(
-            padding: EdgeInsets.only(right: 30.w),
-            child: Icon(Icons.message),
+          child: Container(
+            margin: EdgeInsets.only(right: 18.w),
+            child: SvgPicture.asset('assets/icons/icon_notice.svg',
+                width: 48.w, height: 48.w, color: Colors.white),
           ),
           onTap: () {
             ATHNavigator.pushFromRight(context, ATHMessageScreen.routeName);
@@ -173,7 +186,7 @@ class _ATHHomeScreenState extends State<ATHHomeScreen>
       pinned: true,
       floating: true,
       snap: true,
-      expandedHeight: 400.0.h,
+      expandedHeight: 300.0.h,
       flexibleSpace: FlexibleSpaceBar(
         titlePadding: EdgeInsets.fromLTRB(20, 40, 110, 10),
         background: buildBannerSwiperView(),

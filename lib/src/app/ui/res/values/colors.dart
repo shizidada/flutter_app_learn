@@ -19,4 +19,5 @@ class ATHColors {
   static const Color color60 = Color(0xFF607B9C);
   static const Color colorbe = Color(0xFFBECAD7);
   static const Color colorf1 = Color(0xFFF1F1F4);
+  static const Color colorf2 = Color(0xFFF2F2F2);
 }
