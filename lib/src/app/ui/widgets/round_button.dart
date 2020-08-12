@@ -10,7 +10,7 @@ class ATHRoundButton extends StatelessWidget {
     Key key,
     this.text,
     this.press,
-    this.color = ATHColors.primaryColor,
+    this.color = ATHColors.color22,
     this.textColor = Colors.white,
   }) : super(key: key);
 

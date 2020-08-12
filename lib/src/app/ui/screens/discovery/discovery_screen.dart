@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app_learn/src/app/ui/res/values/values.dart';
-import 'package:flutter_app_learn/src/app/ui/widgets/scroller_configuration_wrapper.dart';
+import 'file:///E:/Code/flutter/flutter_app_learn/lib/src/app/ui/widgets/scroll/scroller_configuration_wrapper.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
 import 'discovery_item.dart';

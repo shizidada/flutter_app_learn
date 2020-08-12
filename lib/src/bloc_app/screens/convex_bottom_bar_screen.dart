@@ -17,37 +17,37 @@ class ConvexAppBarScreen extends StatelessWidget {
           style: TabStyle.custom,
           items: [
             TabItem(
-                icon: SvgPicture.asset('assets/icons/tabbar/tab_index.svg'),
+                icon: SvgPicture.asset('assets/icons/tabbar/icon_home.svg'),
                 activeIcon: SvgPicture.asset(
-                  'assets/icons/tabbar/tab_index.svg',
+                  'assets/icons/tabbar/icon_home.svg',
                   color: MColors.kPrimaryColor,
                 ),
                 title: 'Home'),
             TabItem(
-                icon: SvgPicture.asset('assets/icons/tabbar/tab_discovery.svg'),
+                icon: SvgPicture.asset('assets/icons/tabbar/icon_discovery.svg'),
                 activeIcon: SvgPicture.asset(
-                  'assets/icons/tabbar/tab_discovery.svg',
+                  'assets/icons/tabbar/icon_discovery.svg',
                   color: MColors.kPrimaryColor,
                 ),
                 title: 'Discovery'),
             TabItem(
-                icon: SvgPicture.asset('assets/icons/tabbar/tab_order.svg'),
+                icon: SvgPicture.asset('assets/icons/tabbar/icon_order.svg'),
                 activeIcon: SvgPicture.asset(
-                  'assets/icons/tabbar/tab_order.svg',
+                  'assets/icons/tabbar/icon_order.svg',
                   color: MColors.kPrimaryColor,
                 ),
                 title: 'Order'),
             TabItem(
-                icon: SvgPicture.asset('assets/icons/tabbar/tab_message.svg'),
+                icon: SvgPicture.asset('assets/icons/tabbar/icon_message.svg'),
                 activeIcon: SvgPicture.asset(
-                  'assets/icons/tabbar/tab_message.svg',
+                  'assets/icons/tabbar/icon_message.svg',
                   color: MColors.kPrimaryColor,
                 ),
                 title: 'Message'),
             TabItem(
-                icon: SvgPicture.asset('assets/icons/tabbar/tab_mime.svg'),
+                icon: SvgPicture.asset('assets/icons/tabbar/icon_mime.svg'),
                 activeIcon: SvgPicture.asset(
-                  'assets/icons/tabbar/tab_mime.svg',
+                  'assets/icons/tabbar/icon_mime.svg',
                   color: MColors.kPrimaryColor,
                 ),
                 title: 'Profile'),

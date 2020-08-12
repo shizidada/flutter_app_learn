@@ -11,7 +11,7 @@ class ATHLoginTitle extends StatelessWidget {
             "密码登录",
             style: TextStyle(
                 fontSize: 38.sp,
-                color: ATHColors.primaryColor,
+                color: ATHColors.color22,
                 fontWeight: FontWeight.bold),
           )
         ],

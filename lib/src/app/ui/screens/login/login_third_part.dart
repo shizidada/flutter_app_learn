@@ -15,7 +15,7 @@ class ATHLoginThirdPart extends StatelessWidget {
             padding: EdgeInsets.symmetric(horizontal: 8.w),
             child: Text(
               '第三方登录',
-              style: TextStyle(color: ATHColors.normalColor),
+              style: TextStyle(color: ATHColors.color8c),
             ),
           ),
           buildDivider(),
@@ -26,7 +26,7 @@ class ATHLoginThirdPart extends StatelessWidget {
 
   Expanded buildDivider() {
     return Expanded(
-      child: Divider(color: ATHColors.normalColor, height: 1.5.h),
+      child: Divider(color: ATHColors.color8c, height: 1.5.h),
     );
   }
 }

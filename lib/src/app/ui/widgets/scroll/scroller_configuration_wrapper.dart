@@ -10,7 +10,7 @@ class ATHScrollerConfigurationWrapper extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ScrollConfiguration(
-      behavior: OverScrollBehavior(),
+      behavior: ATHOverScrollBehavior(),
       child: child,
     );
   }

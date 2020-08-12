@@ -1,4 +1,3 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app_learn/src/app/ui/res/values/values.dart';
 
@@ -11,9 +10,13 @@ class ATHDiscoveryItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
         decoration: buildBoxDecoration(),
-        child: CachedNetworkImage(
+        /**
+         *
+         * CachedNetworkImage(
             imageUrl: 'https://gank.io/images/882afc997ad84f8ab2a313f6ce0f3522',
-            fit: BoxFit.fill));
+            fit: BoxFit.fill)
+         */
+        child: Image.asset('assets/images/nz.jpg', fit: BoxFit.fill));
   }
 
   BoxDecoration buildBoxDecoration() {

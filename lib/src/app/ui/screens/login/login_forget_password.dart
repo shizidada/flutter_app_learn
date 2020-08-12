@@ -11,9 +11,9 @@ class ATHLoginForgetPassword extends StatelessWidget {
         children: <Widget>[
           Text(
             '忘记密码',
-            style: TextStyle(color: ATHColors.primaryColor),
+            style: TextStyle(color: ATHColors.color22),
           ),
-          Text('免密码登录', style: TextStyle(color: ATHColors.primaryColor)),
+          Text('免密码登录', style: TextStyle(color: ATHColors.color22)),
         ],
       ),
     );

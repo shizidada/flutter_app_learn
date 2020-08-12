@@ -2,9 +2,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app_learn/src/app/ui/res/values/values.dart';
 import 'package:flutter_app_learn/src/app/ui/widgets/global_container_wrapper.dart';
-import 'package:flutter_app_learn/src/app/ui/widgets/scroller_configuration_wrapper.dart';
+import 'file:///E:/Code/flutter/flutter_app_learn/lib/src/app/ui/widgets/scroll/scroller_configuration_wrapper.dart';
 
-import 'basic_info_item.dart';
+import 'widgets/basic_info_item.dart';
 
 class ATHMimeBody extends StatelessWidget {
   final List<String> listData = ["总资产", "我的收藏", "我的关注", "历史记录", "我的客服"];
@@ -35,14 +35,14 @@ class ATHMimeBody extends StatelessWidget {
                     decoration: buildBoxDecoration(),
                     child: ListTile(
                         leading: CircleAvatar(
-                            backgroundColor: ATHColors.primaryColor,
+                            backgroundColor: ATHColors.color22,
                             child: Text(
                               title.substring(0, 1),
                               style: TextStyle(color: Colors.white),
                             )),
                         title: Text(
                           title,
-                          style: TextStyle(color: ATHColors.primaryColor),
+                          style: TextStyle(color: ATHColors.color22),
                         )),
                   );
                 }),
@@ -68,7 +68,7 @@ class ATHMimeBody extends StatelessWidget {
             margin: EdgeInsets.only(left: 24.w),
             decoration: BoxDecoration(
                 shape: BoxShape.circle,
-                border: Border.all(color: Colors.white, width: 3.w),
+                border: Border.all(color: Colors.white, width: 2.w),
                 boxShadow: [
                   BoxShadow(
                       offset: Offset(0, 2),
@@ -96,13 +96,13 @@ class ATHMimeBody extends StatelessWidget {
                 ),
                 Container(
                   margin: EdgeInsets.only(left: 24.w, top: 16.h),
-                  padding: EdgeInsets.all(8.w),
+                  padding: EdgeInsets.symmetric(horizontal: 8.w),
                   decoration: BoxDecoration(
                       border: Border.all(color: Colors.white),
-                      borderRadius: BorderRadius.all(Radius.circular(20.w))),
+                      borderRadius: BorderRadius.all(Radius.circular(15.w))),
                   child: Text(
                     "shizidada@gmail.com",
-                    style: TextStyle(color: Colors.white, fontSize: 28.sp),
+                    style: TextStyle(color: Colors.white, fontSize: 22.sp),
                   ),
                 )
               ]),
@@ -125,14 +125,15 @@ class ATHMimeBody extends StatelessWidget {
         right: 0,
         child: Container(
           width: double.infinity,
-          height: 160.h,
+          height: 180.h,
           margin: EdgeInsets.only(left: 20.w, right: 20.w),
           decoration: buildBoxDecoration(),
           child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
             Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
               ATHBasicInfoItem("2658", "收藏"),
               ATHBasicInfoItem("6666", "评价"),
-              ATHBasicInfoItem("12333", "卡券")
+              ATHBasicInfoItem("12333", "卡券"),
+              ATHBasicInfoItem("2659", "订单")
             ]),
           ]),
         ));
@@ -140,11 +141,11 @@ class ATHMimeBody extends StatelessWidget {
 
   LinearGradient buildMimeLinearGradient() {
     return LinearGradient(colors: [
-//      ATHColors.primaryColor.withAlpha(180),
-//      ATHColors.primaryColor.withAlpha(190),
-//      ATHColors.primaryColor.withAlpha(200),
-      ATHColors.primaryColor,
-      ATHColors.primaryColor,
+//      ATHColors.color22.withAlpha(180),
+//      ATHColors.color22.withAlpha(190),
+//      ATHColors.color22.withAlpha(200),
+      ATHColors.color22,
+      ATHColors.color22,
     ]);
   }
 

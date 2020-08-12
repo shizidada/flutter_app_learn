@@ -67,7 +67,7 @@ class _ATHMainBodyState extends State<ATHMainBody> {
                             width: tabBarSize,
                             height: tabBarSize,
                             child: SvgPicture.asset(
-                                'assets/icons/tabbar/tab_home.svg',
+                                'assets/icons/tabbar/icon_home.svg',
                                 color: getBarItemActiveColor(0)),
                           ),
                           Text(ATHStrings.homeTitle,
@@ -88,7 +88,7 @@ class _ATHMainBodyState extends State<ATHMainBody> {
                               width: tabBarSize,
                               height: tabBarSize,
                               child: SvgPicture.asset(
-                                  'assets/icons/tabbar/tab_discovery.svg',
+                                  'assets/icons/tabbar/icon_discovery.svg',
                                   color: getBarItemActiveColor(1)),
                             ),
                             Text(ATHStrings.discoveryTitle,
@@ -105,7 +105,7 @@ class _ATHMainBodyState extends State<ATHMainBody> {
                           width: tabBarSize,
                           height: tabBarSize,
                           child: SvgPicture.asset(
-                              'assets/icons/tabbar/tab_collect.svg',
+                              'assets/icons/tabbar/icon_collect.svg',
                               color: getBarItemActiveColor(2)),
                         ),
                         Text(ATHStrings.collectTitle,
@@ -130,7 +130,7 @@ class _ATHMainBodyState extends State<ATHMainBody> {
                             width: tabBarSize,
                             height: tabBarSize,
                             child: SvgPicture.asset(
-                                'assets/icons/tabbar/tab_message.svg',
+                                'assets/icons/tabbar/icon_message.svg',
                                 color: getBarItemActiveColor(3)),
                           ),
                           Text(ATHStrings.messageTitle,
@@ -151,7 +151,7 @@ class _ATHMainBodyState extends State<ATHMainBody> {
                             width: tabBarSize,
                             height: tabBarSize,
                             child: SvgPicture.asset(
-                                'assets/icons/tabbar/tab_mime.svg',
+                                'assets/icons/tabbar/icon_mime.svg',
                                 color: getBarItemActiveColor(4)),
                           ),
                           Text(ATHStrings.mimeTitle,
@@ -177,8 +177,8 @@ class _ATHMainBodyState extends State<ATHMainBody> {
 
   Color getBarItemActiveColor(int index) {
     return _currentIndex == index
-        ? ATHColors.primaryColor
-        : ATHColors.normalColor;
+        ? ATHColors.color22
+        : ATHColors.color8c;
   }
 
   void _onPageChange(value) {

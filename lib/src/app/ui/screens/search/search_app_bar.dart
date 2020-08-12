@@ -50,7 +50,7 @@ class ATHSearchAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   BoxDecoration buildBoxDecoration() {
     return BoxDecoration(
-        color: ATHColors.primaryColor,
+        color: ATHColors.color22,
         boxShadow: [BoxShadow(color: Colors.grey)]);
   }
 }

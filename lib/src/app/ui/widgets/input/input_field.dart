@@ -8,7 +8,7 @@ class ATHInputFiled extends StatelessWidget {
 
   final String hintText;
 
-  ATHInputFiled({this.labelTitle = "LabelTitle", this.hintText = "HintText"});
+  ATHInputFiled({this.labelTitle = "Label", this.hintText = "HintText"});
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +23,7 @@ class ATHInputFiled extends StatelessWidget {
             child: Text(
               labelTitle,
               style: TextStyle(
-                  color: ATHColors.primaryColor,
+                  color: ATHColors.color22,
                   fontSize: 30.sp,
                   fontWeight: FontWeight.bold),
             ),
@@ -33,8 +33,7 @@ class ATHInputFiled extends StatelessWidget {
             child: TextField(
               decoration: InputDecoration(
                 hintText: hintText,
-                hintStyle:
-                    TextStyle(color: ATHColors.normalColor, fontSize: 30.sp),
+                hintStyle: TextStyle(color: ATHColors.color88, fontSize: 30.sp),
                 border: InputBorder.none,
               ),
             ),

@@ -3,12 +3,14 @@ import 'package:flutter_app_learn/src/app/core/utils/navigator_util.dart';
 import 'package:flutter_app_learn/src/app/ui/res/values/values.dart';
 import 'package:flutter_app_learn/src/app/ui/screens/message/message_screen.dart';
 import 'package:flutter_app_learn/src/app/ui/screens/search/search_screen.dart';
-import 'package:flutter_app_learn/src/app/ui/widgets/global_container_wrapper.dart';
-import 'package:flutter_app_learn/src/app/ui/widgets/scroller_configuration_wrapper.dart';
+import 'package:flutter_app_learn/src/app/ui/widgets/scroll/scroller_configuration_wrapper.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 
-import 'home_banner_swiper_view.dart';
+import 'widgets/home_banner_swiper_view.dart';
+import 'widgets/home_basic_info_view.dart';
+import 'widgets/home_sliver_persistent_header_delegate.dart';
+import 'widgets/home_tab_content_view.dart';
 
 class ATHHomeBody extends StatefulWidget {
   ATHHomeBody({Key key}) : super(key: key);
@@ -19,117 +21,83 @@ class ATHHomeBody extends StatefulWidget {
 
 class _ATHHomeBodyState extends State<ATHHomeBody>
     with AutomaticKeepAliveClientMixin, SingleTickerProviderStateMixin {
-  ScrollController _scrollController;
+  ScrollController _homeScrollController;
 
-  SwiperController _swiperController;
+  SwiperController _homeSwiperController;
 
-  TabController tabController;
+  TabController _homeTabController;
+
+  List<String> _homeTabTexts = ["关注", "推荐", "附近"];
 
   List<Widget> _homeTabs = <Tab>[];
 
   @override
   void initState() {
-    _scrollController = ScrollController();
+    _homeScrollController = ScrollController();
 
-    _swiperController = SwiperController();
+    _homeSwiperController = SwiperController();
 
-    _scrollController
+    _homeScrollController
       ..addListener(() {
-        int offset = _scrollController.offset.toInt();
+        int offset = _homeScrollController.offset.toInt();
 
         print('object $offset');
       });
 
-    _homeTabs = <Tab>[
-      Tab(
-        text: "关注",
-      ),
-      Tab(
-        text: "推荐",
-      ),
-      Tab(
-        text: "附近",
-      ),
-    ];
+    _homeTabTexts.forEach((title) => _homeTabs.add(Tab(
+          text: title,
+        )));
 
-    //initialIndex初始选中第几个
-    tabController =
+    // initialIndex 初始选中第几个
+    _homeTabController =
         TabController(initialIndex: 1, length: _homeTabs.length, vsync: this);
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
-    return ATHScrollerConfigurationWrapper(
-      child: NestedScrollView(
-        controller: _scrollController,
-        headerSliverBuilder: _silverBuilder,
-        body: TabBarView(
-          controller: tabController,
-          children: <Widget>[
-            ATHGlobalContainerWrapper(
-              child: ListView.builder(
-                  itemCount: 6,
-                  itemBuilder: (context, index) => ListTile(
-                        leading: CircleAvatar(
-                          backgroundColor: ATHColors.primaryColor,
-                          child: Text('关注'),
-                          foregroundColor: Colors.white,
-                        ),
-                        title: Text('title'),
-                        subtitle: Text('subtitle'),
-                      )),
-            ),
-            ATHGlobalContainerWrapper(
-              child: ListView.builder(
-                itemCount: 10,
-                itemBuilder: (context, index) => ListTile(
-                  leading: CircleAvatar(
-                    backgroundColor: ATHColors.primaryColor,
-                    child: Text('推荐'),
-                    foregroundColor: Colors.white,
-                  ),
-                  title: Text('title'),
-                  subtitle: Text('subtitle'),
-                ),
-              ),
-            ),
-            ATHGlobalContainerWrapper(
-              child: ListView.builder(
-                itemCount: 10,
-                itemBuilder: (context, index) => ListTile(
-                  leading: CircleAvatar(
-                    backgroundColor: ATHColors.primaryColor,
-                    child: Text('附近'),
-                    foregroundColor: Colors.white,
-                  ),
-                  title: Text('title'),
-                  subtitle: Text('subtitle'),
-                ),
-              ),
-            ),
-          ],
-        ),
-      ),
+    super.build(context);
+    return ATHScrollerConfigurationWrapper(child: _buildNestedScrollView());
+  }
+
+  NestedScrollView _buildNestedScrollView() {
+    return NestedScrollView(
+      controller: _homeScrollController,
+      headerSliverBuilder: _buildHeaderSilverBuilder,
+      body: _buildTabBarView(),
     );
   }
 
-  List<Widget> _silverBuilder(BuildContext context, bool innerBoxIsScrolled) {
+  TabBarView _buildTabBarView() {
+    return TabBarView(
+      controller: _homeTabController,
+      children: _homeTabTexts
+          .map((e) => ATHHomeTabContentView(
+                title: e,
+              ))
+          .toList(),
+    );
+  }
+
+  List<Widget> _buildHeaderSilverBuilder(
+      BuildContext context, bool innerBoxIsScrolled) {
     return <Widget>[
-      _buildSliverAppBar(),
+      _buildHomeSliverAppBar(),
+      SliverPersistentHeader(
+        delegate: ATHHomeSliverPersistentHeaderDelegate(),
+      ),
+      ATHHomeBasicInfoView()
     ];
   }
 
-  SliverAppBar _buildSliverAppBar() {
+  SliverAppBar _buildHomeSliverAppBar() {
     return SliverAppBar(
-      leading: GestureDetector(
-        child: IconButton(
-          icon: SvgPicture.asset('assets/icons/icon_search.svg',
-              width: 44.w, height: 44.w, color: Colors.white),
-        ),
-        onTap: () {
+      leading: IconButton(
+        onPressed: () {
           ATHNavigator.pushFromRight(context, ATHSearchScreen.routeName);
         },
+        icon: SvgPicture.asset('assets/icons/icon_search.svg',
+            width: 44.w, height: 44.w, color: Colors.white),
       ),
       actions: <Widget>[
         GestureDetector(
@@ -144,32 +112,32 @@ class _ATHHomeBodyState extends State<ATHHomeBody>
         )
       ],
       elevation: 0,
-      title: _buildAppBarTitle(),
+      title: _buildHomeAppBarTitle(),
       pinned: true,
       floating: true,
       snap: true,
       expandedHeight: 300.h,
       flexibleSpace: FlexibleSpaceBar(
         titlePadding: EdgeInsets.fromLTRB(20, 40, 110, 10),
-        background: _buildBannerSwiperView(),
+        background: _buildHomeBannerSwiperView(),
       ),
     );
   }
 
-  Container _buildAppBarTitle() {
+  Container _buildHomeAppBarTitle() {
     return Container(
         child: TabBar(
             tabs: _homeTabs,
             indicator: BoxDecoration(),
-            controller: tabController,
+            controller: _homeTabController,
             labelColor: Colors.white,
             labelStyle: TextStyle(fontSize: 34.sp),
-            unselectedLabelColor: ATHColors.normalColor,
+            unselectedLabelColor: ATHColors.color88,
             unselectedLabelStyle: TextStyle(fontSize: 34.sp)));
   }
 
-  Widget _buildBannerSwiperView() {
-    return ATHHomeBannerSwiperView(swiperController: _swiperController);
+  Widget _buildHomeBannerSwiperView() {
+    return ATHHomeBannerSwiperView(swiperController: _homeSwiperController);
   }
 
   @override

@@ -8,7 +8,7 @@ class ATHSearchInput extends StatelessWidget {
       cursorColor: Colors.white,
       decoration: InputDecoration(
           hintText: "了∑(っ°Д°;)っ卧槽，不见了∑(っ°Д°;)っ卧槽，不见了∑(っ°Д°;)っ卧槽，不见了",
-          hintStyle: TextStyle(fontSize: 22.sp, color: ATHColors.normalColor),
+          hintStyle: TextStyle(fontSize: 22.sp, color: ATHColors.color8c),
           border: InputBorder.none,
           focusedBorder: InputBorder.none,
           prefixIcon: Icon(
