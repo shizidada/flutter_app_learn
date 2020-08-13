@@ -9,8 +9,13 @@ class ATHSearchScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: ATHSearchAppBar(),
+      appBar: buildSearchAppBar(),
       body: ATHSearchContent(),
     );
   }
+
+  AppBar buildSearchAppBar() => AppBar(
+        automaticallyImplyLeading: false,
+        title: ATHSearchTitle(),
+      );
 }

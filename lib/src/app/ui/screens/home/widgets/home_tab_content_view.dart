@@ -15,7 +15,7 @@ class ATHHomeTabContentView extends StatelessWidget {
           shrinkWrap: true,
           itemBuilder: (context, index) => ListTile(
                 leading: CircleAvatar(
-                  backgroundColor: ATHColors.color22,
+                  backgroundColor: ATHColors.primaryColor,
                   child: Text(title.substring(0, 1)),
                   foregroundColor: Colors.white,
                 ),

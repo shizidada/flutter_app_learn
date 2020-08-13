@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 
 class ATHColors {
-  static const Color primaryColor = Color(0xFF2E77FC);
-  static const Color color22 = Color(0xFF222222);
-  static const Color color26 = Color(0xFF262626);
+  static const Color primaryColor = Color(0xFF1677FF);
+
+  static const Color lightBlueColor = Color(0xFF4B87FF);
+
+  static const Color primaryLightColor = Color(0xFFE2F3FF);
+  static const Color lightWhiteColor = Color(0xFFf7f7f7);
+
   static const Color color33 = Color(0xFF333333);
   static const Color color66 = Color(0xFF666666);
   static const Color color59 = Color(0xFF595959);

@@ -20,12 +20,7 @@ class ATHSearchContent extends StatelessWidget {
   BoxDecoration buildBoxDecoration() {
     return BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.only(
-          topLeft: Radius.circular(8.w),
-          topRight: Radius.circular(8.w),
-          bottomLeft: Radius.circular(8.w),
-          bottomRight: Radius.circular(8.w),
-        ),
+        borderRadius: BorderRadius.all(Radius.circular(10.w)),
         boxShadow: [BoxShadow(color: Colors.grey)]);
   }
 }

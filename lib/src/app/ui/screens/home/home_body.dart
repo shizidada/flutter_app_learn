@@ -132,8 +132,8 @@ class _ATHHomeBodyState extends State<ATHHomeBody>
             controller: _homeTabController,
             labelColor: Colors.white,
             labelStyle: TextStyle(fontSize: 34.sp),
-            unselectedLabelColor: ATHColors.color88,
-            unselectedLabelStyle: TextStyle(fontSize: 34.sp)));
+            unselectedLabelColor: ATHColors.color33,
+            unselectedLabelStyle: TextStyle(fontSize: 32.sp)));
   }
 
   Widget _buildHomeBannerSwiperView() {

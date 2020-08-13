@@ -23,7 +23,7 @@ class ATHInputFiled extends StatelessWidget {
             child: Text(
               labelTitle,
               style: TextStyle(
-                  color: ATHColors.color22,
+                  color: ATHColors.color33,
                   fontSize: 30.sp,
                   fontWeight: FontWeight.bold),
             ),

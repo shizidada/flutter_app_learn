@@ -35,14 +35,14 @@ class ATHMimeBody extends StatelessWidget {
                     decoration: buildBoxDecoration(),
                     child: ListTile(
                         leading: CircleAvatar(
-                            backgroundColor: ATHColors.color22,
+                            backgroundColor: ATHColors.primaryColor,
                             child: Text(
                               title.substring(0, 1),
                               style: TextStyle(color: Colors.white),
                             )),
                         title: Text(
                           title,
-                          style: TextStyle(color: ATHColors.color22),
+                          style: TextStyle(color: ATHColors.primaryColor),
                         )),
                   );
                 }),
@@ -99,7 +99,7 @@ class ATHMimeBody extends StatelessWidget {
                   padding: EdgeInsets.symmetric(horizontal: 8.w),
                   decoration: BoxDecoration(
                       border: Border.all(color: Colors.white),
-                      borderRadius: BorderRadius.all(Radius.circular(15.w))),
+                      borderRadius: BorderRadius.all(Radius.circular(10.w))),
                   child: Text(
                     "shizidada@gmail.com",
                     style: TextStyle(color: Colors.white, fontSize: 22.sp),
@@ -141,23 +141,18 @@ class ATHMimeBody extends StatelessWidget {
 
   LinearGradient buildMimeLinearGradient() {
     return LinearGradient(colors: [
-//      ATHColors.color22.withAlpha(180),
-//      ATHColors.color22.withAlpha(190),
-//      ATHColors.color22.withAlpha(200),
-      ATHColors.color22,
-      ATHColors.color22,
+//      ATHColors.primaryColor.withAlpha(180),
+//      ATHColors.primaryColor.withAlpha(190),
+//      ATHColors.primaryColor.withAlpha(200),
+      ATHColors.primaryColor,
+      ATHColors.primaryColor,
     ]);
   }
 
   BoxDecoration buildBoxDecoration() {
     return BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.only(
-          topLeft: Radius.circular(8.w),
-          topRight: Radius.circular(8.w),
-          bottomLeft: Radius.circular(8.w),
-          bottomRight: Radius.circular(8.w),
-        ),
+        borderRadius: BorderRadius.all(Radius.circular(10.w)),
         boxShadow: [BoxShadow(color: Colors.grey)]);
   }
 }

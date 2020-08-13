@@ -177,7 +177,7 @@ class _ATHMainBodyState extends State<ATHMainBody> {
 
   Color getBarItemActiveColor(int index) {
     return _currentIndex == index
-        ? ATHColors.color22
+        ? ATHColors.primaryColor
         : ATHColors.color8c;
   }
 

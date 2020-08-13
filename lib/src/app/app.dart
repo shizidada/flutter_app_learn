@@ -26,7 +26,7 @@ class ATHAppContainer extends StatelessWidget {
       title: 'Flutter ATH App',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primaryColor: ATHColors.color22,
+        primaryColor: ATHColors.primaryColor,
         fontFamily: 'PingFang',
       ).copyWith(
           splashColor: Colors.transparent, highlightColor: Colors.transparent),

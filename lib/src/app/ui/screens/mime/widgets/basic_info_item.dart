@@ -15,7 +15,7 @@ class ATHBasicInfoItem extends StatelessWidget {
         Container(
             child: Text(
           count,
-          style: TextStyle(fontSize: 28.sp, color: ATHColors.color22),
+          style: TextStyle(fontSize: 28.sp, color: ATHColors.primaryColor),
         )),
         Container(
             child: Text(

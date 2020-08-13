@@ -27,7 +27,10 @@ class ATHHomeBasicInfoView extends StatelessWidget {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
-                    Icon(Icons.apps),
+                    Icon(
+                      Icons.apps,
+                      color: ATHColors.color33,
+                    ),
                     SizedBox(
                       height: 16.h,
                     ),
@@ -35,7 +38,7 @@ class ATHHomeBasicInfoView extends StatelessWidget {
                       'current $index',
                       textAlign: TextAlign.center,
                       style: TextStyle(
-                        color: ATHColors.color22,
+                        color: ATHColors.color33,
                       ),
                     )
                   ],

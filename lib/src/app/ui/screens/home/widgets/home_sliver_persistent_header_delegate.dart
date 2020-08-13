@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app_learn/src/app/ui/res/values/colors.dart';
 import 'package:flutter_app_learn/src/app/ui/res/values/shadow.dart';
 import 'package:flutter_app_learn/src/app/ui/res/values/values.dart';
 
@@ -15,7 +16,7 @@ class ATHHomeSliverPersistentHeaderDelegate
             boxShadow: [
               ATHBoxShadow.shadow,
             ],
-            borderRadius: BorderRadius.all(Radius.circular(20.w))),
+            borderRadius: BorderRadius.all(Radius.circular(10.w))),
         child: GridView.builder(
             itemCount: 8,
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
@@ -30,7 +31,10 @@ class ATHHomeSliverPersistentHeaderDelegate
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
-                    Icon(Icons.apps),
+                    Icon(
+                      Icons.apps,
+                      color: ATHColors.color33,
+                    ),
                     SizedBox(
                       height: 16.h,
                     ),
@@ -38,7 +42,7 @@ class ATHHomeSliverPersistentHeaderDelegate
                       'current $index',
                       textAlign: TextAlign.center,
                       style: TextStyle(
-                        color: ATHColors.color22,
+                        color: ATHColors.color33,
                       ),
                     )
                   ],

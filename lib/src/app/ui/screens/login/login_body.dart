@@ -23,7 +23,7 @@ class ATHLoginBody extends StatelessWidget {
               height: 250.h,
               margin: EdgeInsets.only(top: 150.h),
               child: CircleAvatar(
-                backgroundColor: ATHColors.color22,
+                backgroundColor: ATHColors.primaryColor,
                 child: Text(
                   "ATH",
                   style: TextStyle(color: Colors.white),
@@ -56,7 +56,7 @@ class ATHLoginBody extends StatelessWidget {
                   SizedBox(width: 16.w),
                   Text(
                     "立即注册",
-                    style: TextStyle(color: ATHColors.color22),
+                    style: TextStyle(color: ATHColors.primaryColor),
                   ),
                 ],
               ),
