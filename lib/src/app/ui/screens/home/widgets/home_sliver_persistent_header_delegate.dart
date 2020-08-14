@@ -19,6 +19,7 @@ class ATHHomeSliverPersistentHeaderDelegate
             borderRadius: BorderRadius.all(Radius.circular(10.w))),
         child: GridView.builder(
             itemCount: 8,
+            physics: NeverScrollableScrollPhysics(),
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 4,
               mainAxisSpacing: 30.w,

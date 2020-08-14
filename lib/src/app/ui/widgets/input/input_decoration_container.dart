@@ -9,7 +9,7 @@ class ATHInputDecorationContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        margin: EdgeInsets.symmetric(vertical: 36.h),
+        margin: EdgeInsets.symmetric(vertical: 20.h),
         decoration: BoxDecoration(
             border: Border(bottom: BorderSide(color: ATHColors.color8c))),
         child: child);

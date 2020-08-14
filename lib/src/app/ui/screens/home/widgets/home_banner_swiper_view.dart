@@ -15,7 +15,7 @@ class ATHHomeBannerSwiperView extends StatelessWidget {
       child: Swiper(
         itemCount: 2,
         itemBuilder: (BuildContext context, int position) {
-          return Image.asset('assets/images/nz.jpg', fit: BoxFit.fill);
+          return Image.asset('assets/images/nz.jpg', fit: BoxFit.cover);
         },
         pagination: SwiperPagination(
             alignment: Alignment.bottomCenter,

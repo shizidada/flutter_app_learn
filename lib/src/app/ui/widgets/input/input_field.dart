@@ -18,14 +18,13 @@ class ATHInputFiled extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           Container(
-            padding: EdgeInsets.only(right: 36.w),
+            padding: EdgeInsets.only(right: 24.w),
             constraints: BoxConstraints(maxWidth: 240.w),
             child: Text(
               labelTitle,
               style: TextStyle(
-                  color: ATHColors.color33,
-                  fontSize: 30.sp,
-                  fontWeight: FontWeight.bold),
+                  color: ATHColors.color66,
+                  fontSize: 30.sp),
             ),
           ),
           Expanded(
@@ -33,7 +32,7 @@ class ATHInputFiled extends StatelessWidget {
             child: TextField(
               decoration: InputDecoration(
                 hintText: hintText,
-                hintStyle: TextStyle(color: ATHColors.color88, fontSize: 30.sp),
+                hintStyle: TextStyle(color: ATHColors.color99, fontSize: 30.sp),
                 border: InputBorder.none,
               ),
             ),

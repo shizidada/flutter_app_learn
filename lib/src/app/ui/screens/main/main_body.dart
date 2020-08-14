@@ -72,9 +72,9 @@ class _ATHMainBodyState extends State<ATHMainBody> {
                           ),
                           Text(ATHStrings.homeTitle,
                               style: TextStyle(
-                                  color: getBarItemActiveColor(0),
-                                  fontSize: 20.sp,
-                                  fontWeight: FontWeight.bold))
+                                color: getBarItemActiveColor(0),
+                                fontSize: 20.sp,
+                              ))
                         ],
                       )),
                   GestureDetector(
@@ -93,9 +93,9 @@ class _ATHMainBodyState extends State<ATHMainBody> {
                             ),
                             Text(ATHStrings.discoveryTitle,
                                 style: TextStyle(
-                                    color: getBarItemActiveColor(1),
-                                    fontSize: 20.sp,
-                                    fontWeight: FontWeight.bold)),
+                                  color: getBarItemActiveColor(1),
+                                  fontSize: 20.sp,
+                                )),
                           ])),
                   GestureDetector(
                     child: Column(
@@ -110,9 +110,9 @@ class _ATHMainBodyState extends State<ATHMainBody> {
                         ),
                         Text(ATHStrings.collectTitle,
                             style: TextStyle(
-                                color: getBarItemActiveColor(2),
-                                fontSize: 20.sp,
-                                fontWeight: FontWeight.bold)),
+                              color: getBarItemActiveColor(2),
+                              fontSize: 20.sp,
+                            )),
                       ],
                     ),
                     onTap: () {
@@ -136,8 +136,7 @@ class _ATHMainBodyState extends State<ATHMainBody> {
                           Text(ATHStrings.messageTitle,
                               style: TextStyle(
                                   color: getBarItemActiveColor(3),
-                                  fontSize: 20.sp,
-                                  fontWeight: FontWeight.bold))
+                                  fontSize: 20.sp))
                         ],
                       )),
                   GestureDetector(
@@ -156,9 +155,9 @@ class _ATHMainBodyState extends State<ATHMainBody> {
                           ),
                           Text(ATHStrings.mimeTitle,
                               style: TextStyle(
-                                  color: getBarItemActiveColor(4),
-                                  fontSize: 20.sp,
-                                  fontWeight: FontWeight.bold))
+                                color: getBarItemActiveColor(4),
+                                fontSize: 20.sp,
+                              ))
                         ],
                       ))
                 ],
@@ -176,9 +175,7 @@ class _ATHMainBodyState extends State<ATHMainBody> {
   }
 
   Color getBarItemActiveColor(int index) {
-    return _currentIndex == index
-        ? ATHColors.primaryColor
-        : ATHColors.color8c;
+    return _currentIndex == index ? ATHColors.primaryColor : ATHColors.color99;
   }
 
   void _onPageChange(value) {

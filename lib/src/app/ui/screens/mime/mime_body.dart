@@ -1,7 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_app_learn/src/app/ui/res/values/colors.dart';
 import 'package:flutter_app_learn/src/app/ui/res/values/values.dart';
 import 'package:flutter_app_learn/src/app/ui/widgets/global_container_wrapper.dart';
+
 import 'file:///E:/Code/flutter/flutter_app_learn/lib/src/app/ui/widgets/scroll/scroller_configuration_wrapper.dart';
 
 import 'widgets/basic_info_item.dart';
@@ -16,7 +18,7 @@ class ATHMimeBody extends StatelessWidget {
         child: Column(children: <Widget>[
           Container(
               width: double.infinity,
-              height: 500.h,
+              height: 500.w,
               child: Stack(children: [
                 buildUserInfoContainer(),
                 buildBasicInfoContainer()
@@ -26,6 +28,7 @@ class ATHMimeBody extends StatelessWidget {
                 itemCount: listData.length,
                 shrinkWrap: true,
                 physics: NeverScrollableScrollPhysics(),
+                padding: EdgeInsets.zero,
                 itemBuilder: (context, index) {
                   String title = listData[index];
                   return Container(
@@ -38,11 +41,11 @@ class ATHMimeBody extends StatelessWidget {
                             backgroundColor: ATHColors.primaryColor,
                             child: Text(
                               title.substring(0, 1),
-                              style: TextStyle(color: Colors.white),
+                              style: TextStyle(color: ATHColors.lightWhiteColor),
                             )),
                         title: Text(
                           title,
-                          style: TextStyle(color: ATHColors.primaryColor),
+                          style: TextStyle(color: ATHColors.color33),
                         )),
                   );
                 }),
@@ -59,12 +62,12 @@ class ATHMimeBody extends StatelessWidget {
       decoration: BoxDecoration(
           gradient: buildMimeLinearGradient(),
           borderRadius: BorderRadius.only(
-              bottomLeft: Radius.circular(20.w),
-              bottomRight: Radius.circular(20.w))),
+              bottomLeft: Radius.circular(25.w),
+              bottomRight: Radius.circular(25.w))),
       child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
         Container(
-            width: 200.w,
-            height: 200.w,
+            width: 135.w,
+            height: 135.w,
             margin: EdgeInsets.only(left: 24.w),
             decoration: BoxDecoration(
                 shape: BoxShape.circle,
@@ -82,7 +85,6 @@ class ATHMimeBody extends StatelessWidget {
               ),
             )),
         Expanded(
-          flex: 1,
           child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -111,6 +113,7 @@ class ATHMimeBody extends StatelessWidget {
           margin: EdgeInsets.only(right: 24.w),
           child: Icon(
             Icons.arrow_forward_ios,
+            size: 32.w,
             color: Colors.white,
           ),
         )
@@ -141,10 +144,10 @@ class ATHMimeBody extends StatelessWidget {
 
   LinearGradient buildMimeLinearGradient() {
     return LinearGradient(colors: [
-//      ATHColors.primaryColor.withAlpha(180),
-//      ATHColors.primaryColor.withAlpha(190),
-//      ATHColors.primaryColor.withAlpha(200),
-      ATHColors.primaryColor,
+      ATHColors.primaryColor.withAlpha(220),
+      ATHColors.primaryColor.withAlpha(230),
+      ATHColors.primaryColor.withAlpha(240),
+      ATHColors.primaryColor.withAlpha(250),
       ATHColors.primaryColor,
     ]);
   }

@@ -50,8 +50,9 @@ dependencies:
   bottom_navy_bar: ^5.4.0
 
   flutter_slidable: ^0.5.5
+  animations: ^1.1.2
   # smooth_star_rating: ^1.1.1  # todo
-  # modal_bottom_sheet: ^0.2.0+1  # todo
+  modal_bottom_sheet: ^0.2.0+1  # todo
 
   video_player: ^0.10.5  # todo
   # fijkplayer: ^0.8.7

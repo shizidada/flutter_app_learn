@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app_learn/src/app/core/utils/navigator_util.dart';
+import 'package:flutter_app_learn/src/app/ui/res/values/colors.dart';
 import 'package:flutter_app_learn/src/app/ui/res/values/values.dart';
 import 'package:flutter_app_learn/src/app/ui/screens/message/message_screen.dart';
 import 'package:flutter_app_learn/src/app/ui/screens/search/search_screen.dart';
@@ -83,9 +84,9 @@ class _ATHHomeBodyState extends State<ATHHomeBody>
       BuildContext context, bool innerBoxIsScrolled) {
     return <Widget>[
       _buildHomeSliverAppBar(),
-      SliverPersistentHeader(
-        delegate: ATHHomeSliverPersistentHeaderDelegate(),
-      ),
+//      SliverPersistentHeader(
+//        delegate: ATHHomeSliverPersistentHeaderDelegate(),
+//      ),
       ATHHomeBasicInfoView()
     ];
   }
@@ -97,14 +98,14 @@ class _ATHHomeBodyState extends State<ATHHomeBody>
           ATHNavigator.pushFromRight(context, ATHSearchScreen.routeName);
         },
         icon: SvgPicture.asset('assets/icons/icon_search.svg',
-            width: 44.w, height: 44.w, color: Colors.white),
+            width: 48.w, height: 48.w, color: ATHColors.lightWhiteColor),
       ),
       actions: <Widget>[
         GestureDetector(
           child: Container(
             margin: EdgeInsets.only(right: 24.w),
             child: SvgPicture.asset('assets/icons/icon_notice.svg',
-                width: 44.w, height: 44.w, color: Colors.white),
+                width: 48.w, height: 48.w, color: ATHColors.lightWhiteColor),
           ),
           onTap: () {
             ATHNavigator.pushFromRight(context, ATHMessageScreen.routeName);
@@ -118,7 +119,6 @@ class _ATHHomeBodyState extends State<ATHHomeBody>
       snap: true,
       expandedHeight: 300.h,
       flexibleSpace: FlexibleSpaceBar(
-        titlePadding: EdgeInsets.fromLTRB(20, 40, 110, 10),
         background: _buildHomeBannerSwiperView(),
       ),
     );
@@ -130,9 +130,9 @@ class _ATHHomeBodyState extends State<ATHHomeBody>
             tabs: _homeTabs,
             indicator: BoxDecoration(),
             controller: _homeTabController,
-            labelColor: Colors.white,
-            labelStyle: TextStyle(fontSize: 34.sp),
-            unselectedLabelColor: ATHColors.color33,
+            labelColor: ATHColors.lightWhiteColor,
+            labelStyle: TextStyle(fontSize: 32.sp),
+            unselectedLabelColor: ATHColors.color99,
             unselectedLabelStyle: TextStyle(fontSize: 32.sp)));
   }
 
