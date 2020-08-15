@@ -70,3 +70,5 @@
 !/packages/flutter_tools/test/data/dart_dependencies_test/**/.packages
 
 .iml
+/assets/fonts/PingFang_Bold.ttf
+/assets/fonts/PingFang_Regular.ttf
