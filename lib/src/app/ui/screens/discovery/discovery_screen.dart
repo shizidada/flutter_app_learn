@@ -5,8 +5,8 @@ import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
 import 'file:///E:/Code/flutter/flutter_app_learn/lib/src/app/ui/widgets/scroll/scroller_configuration_wrapper.dart';
 
-import 'widgets/discovery_info_item.dart';
 import 'widgets/discovery_item.dart';
+import 'widgets/discovery_list_view.dart';
 
 // 发现
 class ATHDiscoveryScreen extends StatelessWidget {
@@ -14,15 +14,7 @@ class ATHDiscoveryScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(title: Text("发现")),
-        body: ATHGlobalContainerWrapper(
-          child: ATHScrollerConfigurationWrapper(
-            child: ListView.builder(
-                itemCount: 13,
-                itemBuilder: (ctx, index) {
-                  return ATHDiscoveryInfoItem();
-                }),
-          ),
-        ));
+        body: ATHGlobalContainerWrapper(child: ATHDiscoveryListView()));
   }
 
   Widget buildStaggeredGridView() {
@@ -33,7 +25,7 @@ class ATHDiscoveryScreen extends StatelessWidget {
         mainAxisSpacing: 8.0.w,
         crossAxisSpacing: 8.0.w,
         crossAxisCount: 8.w.toInt(),
-        itemBuilder: (context, index) => ATHDiscoveryItem(index.toString()),
+        itemBuilder: (context, index) => ATHDiscoveryItem(),
         staggeredTileBuilder: (int index) =>
             StaggeredTile.count(2, index.isEven ? 3 : 2),
       ),
