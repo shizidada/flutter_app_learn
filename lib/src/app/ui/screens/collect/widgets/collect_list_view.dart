@@ -48,28 +48,28 @@ class ATHCollectOperation extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
           Container(
-              padding: EdgeInsets.all(10.px),
+              padding: EdgeInsets.all(2.px),
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.all(Radius.circular(8.px)),
                   shape: BoxShape.rectangle,
                   color: ATHColors.colorf1),
               child: Text(
                 '这个是话题',
-                style: TextStyle(fontSize: 22.px, color: ATHColors.color99),
+                style: TextStyle(fontSize: 26.px, color: ATHColors.color99),
               )),
           Row(
             children: <Widget>[
               Text(
                 '分享 12',
-                style: TextStyle(fontSize: 22.px, color: ATHColors.color99),
+                style: TextStyle(fontSize: 26.px, color: ATHColors.color33),
               ),
               Text(
                 '评论 125',
-                style: TextStyle(fontSize: 22.px, color: ATHColors.color99),
+                style: TextStyle(fontSize: 26.px, color: ATHColors.color33),
               ),
               Text(
                 '点赞 365',
-                style: TextStyle(fontSize: 22.px, color: ATHColors.color99),
+                style: TextStyle(fontSize: 26.px, color: ATHColors.color33),
               ),
             ],
           )

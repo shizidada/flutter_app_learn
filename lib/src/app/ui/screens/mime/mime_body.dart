@@ -3,8 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app_learn/src/app/ui/res/values/colors.dart';
 import 'package:flutter_app_learn/src/app/ui/res/values/values.dart';
 import 'package:flutter_app_learn/src/app/ui/widgets/global_container_wrapper.dart';
-
-import 'file:///E:/Code/flutter/flutter_app_learn/lib/src/app/ui/widgets/scroll/scroller_configuration_wrapper.dart';
+import 'package:flutter_app_learn/src/app/ui/widgets/scroll/scroller_configuration_wrapper.dart';
 
 import 'widgets/basic_info_item.dart';
 

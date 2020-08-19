@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app_learn/src/app/core/utils/navigator_util.dart';
 import 'package:flutter_app_learn/src/app/ui/res/values/values.dart';
 import 'package:flutter_app_learn/src/app/ui/screens/main/main_screen.dart';
-import 'file:///E:/Code/flutter/flutter_app_learn/lib/src/app/ui/widgets/input/input_field.dart';
+import 'package:flutter_app_learn/src/app/ui/widgets/input/input_field.dart';
 import 'package:flutter_app_learn/src/app/ui/widgets/round_button.dart';
-import 'file:///E:/Code/flutter/flutter_app_learn/lib/src/app/ui/widgets/scroll/scroller_configuration_wrapper.dart';
+import 'package:flutter_app_learn/src/app/ui/widgets/scroll/scroller_configuration_wrapper.dart';
 
-import 'login_forget_password.dart';
-import 'login_third_part.dart';
-import 'login_title.dart';
+import 'widgets/login_forget_password.dart';
+import 'widgets/login_third_part.dart';
+import 'widgets/login_title.dart';
 
 class ATHLoginBody extends StatelessWidget {
   @override

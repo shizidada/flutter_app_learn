@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app_learn/src/app/ui/widgets/global_container_wrapper.dart';
-import 'package:flutter_app_learn/src/app/ui/widgets/modal/nested_scroll_modal_content.dart';
 import 'package:flutter_app_learn/src/app/ui/widgets/scroll/scroller_configuration_wrapper.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 
-import 'message_item.dart';
+import 'widgets/message_item.dart';
+import 'widgets/message_modal_content.dart';
 
 class ATHMessageBody extends StatelessWidget {
   @override
@@ -35,7 +35,7 @@ class ATHMessageBody extends StatelessWidget {
 //      expand: true,
       context: context,
       builder: (context, scrollController) =>
-          ATHNestedScrollModalContent(scrollController: scrollController),
+          ATHMessageModalContent(scrollController: scrollController),
     );
     print('object $index');
   }

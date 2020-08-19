@@ -1,4 +1,5 @@
 import 'package:fluro/fluro.dart';
+import 'package:flutter_app_learn/src/app/ui/screens/category/category_screen.dart';
 import 'package:flutter_app_learn/src/app/ui/screens/discovery_detail/discovery_detail_screen.dart';
 import 'package:flutter_app_learn/src/app/ui/screens/main/main_screen.dart';
 import 'package:flutter_app_learn/src/app/ui/screens/message/message_screen.dart';
@@ -15,6 +16,8 @@ class ATHRoutes {
     router.define(ATHSearchScreen.routeName, handler: searchHandler);
 
     router.define(ATHDiscoveryDetailScreen.routeName, handler: discoveryDetailHandler);
+
+    router.define(ATHCategoryScreen.routeName, handler: couponHandler);
 
   }
 }

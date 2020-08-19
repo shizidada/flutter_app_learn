@@ -5,7 +5,7 @@ class ATHItemDivider extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(vertical: 35.px),
+      padding: EdgeInsets.symmetric(vertical: 20.px),
       child: Divider(),
     );
   }
