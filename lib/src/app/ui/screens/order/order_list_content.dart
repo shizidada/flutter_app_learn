@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app_learn/src/app/ui/res/values/values.dart';
+import 'package:flutter_app_learn/src/app/core/extension/num_extension.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 
 class ATHOrderListContent extends StatefulWidget {
@@ -34,11 +34,11 @@ class _ATHOrderListContentState extends State<ATHOrderListContent> {
   Widget buildBannerSwiperView() {
     return Container(
       width: double.infinity,
-      height: 240.h,
+      height: 240.px,
       child: Swiper(
         itemCount: 2,
         itemBuilder: (BuildContext context, int position) {
-          return Image.asset('assets/images/nz.jpg', fit: BoxFit.fill);
+          return Image.asset('assets/images/dhxy.jpg', fit: BoxFit.fill);
         },
         pagination: SwiperPagination(
             alignment: Alignment.bottomCenter,

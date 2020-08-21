@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app_learn/src/app/core/extension/num_extension.dart';
 import 'package:flutter_app_learn/src/app/core/utils/navigator_util.dart';
 import 'package:flutter_app_learn/src/app/ui/res/values/colors.dart';
 import 'package:flutter_app_learn/src/app/ui/res/values/values.dart';
@@ -98,14 +99,14 @@ class _ATHHomeBodyState extends State<ATHHomeBody>
           ATHNavigator.pushFromRight(context, ATHSearchScreen.routeName);
         },
         icon: SvgPicture.asset('assets/icons/icon_search.svg',
-            width: 48.w, height: 48.w, color: ATHColors.lightWhiteColor),
+            width: 48.px, height: 48.px, color: ATHColors.lightWhiteColor),
       ),
       actions: <Widget>[
         GestureDetector(
           child: Container(
-            margin: EdgeInsets.only(right: 24.w),
+            margin: EdgeInsets.only(right: 24.px),
             child: SvgPicture.asset('assets/icons/icon_notice.svg',
-                width: 48.w, height: 48.w, color: ATHColors.lightWhiteColor),
+                width: 48.px, height: 48.px, color: ATHColors.lightWhiteColor),
           ),
           onTap: () {
             ATHNavigator.pushFromRight(context, ATHMessageScreen.routeName);
@@ -117,7 +118,7 @@ class _ATHHomeBodyState extends State<ATHHomeBody>
       pinned: true,
       floating: true,
       snap: true,
-      expandedHeight: 300.h,
+      expandedHeight: 300.px,
       flexibleSpace: FlexibleSpaceBar(
         background: _buildHomeBannerSwiperView(),
       ),
@@ -131,9 +132,9 @@ class _ATHHomeBodyState extends State<ATHHomeBody>
             indicator: BoxDecoration(),
             controller: _homeTabController,
             labelColor: ATHColors.lightWhiteColor,
-            labelStyle: TextStyle(fontSize: 32.sp),
+            labelStyle: TextStyle(fontSize: 32.px),
             unselectedLabelColor: ATHColors.color99,
-            unselectedLabelStyle: TextStyle(fontSize: 32.sp)));
+            unselectedLabelStyle: TextStyle(fontSize: 32.px)));
   }
 
   Widget _buildHomeBannerSwiperView() {

@@ -77,7 +77,7 @@ class _HomePageState extends State<HomePage>
             backgroundColor: Colors.redAccent,
             centerTitle: true,
             flexibleSpace: FlexibleSpaceBar(
-              background: Image.asset("assets/images/x.png", fit: BoxFit.fill),
+              background: Image.asset("assets/images/dhxy.jpg", fit: BoxFit.fill),
             ),
             expandedHeight: ScreenUtil().setHeight(500.0),
             floating: false,

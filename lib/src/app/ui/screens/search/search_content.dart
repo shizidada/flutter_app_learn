@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app_learn/src/app/ui/res/values/values.dart';
+import 'package:flutter_app_learn/src/app/core/extension/num_extension.dart';
 import 'package:flutter_app_learn/src/app/ui/widgets/global_container_wrapper.dart';
 
 class ATHSearchContent extends StatelessWidget {
@@ -20,7 +20,7 @@ class ATHSearchContent extends StatelessWidget {
   BoxDecoration buildBoxDecoration() {
     return BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.all(Radius.circular(10.w)),
+        borderRadius: BorderRadius.all(Radius.circular(10.px)),
         boxShadow: [BoxShadow(color: Colors.grey)]);
   }
 }

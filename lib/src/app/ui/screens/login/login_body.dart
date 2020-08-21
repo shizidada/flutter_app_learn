@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app_learn/src/app/core/utils/navigator_util.dart';
+import 'package:flutter_app_learn/src/app/core/extension/num_extension.dart';
 import 'package:flutter_app_learn/src/app/ui/res/values/values.dart';
 import 'package:flutter_app_learn/src/app/ui/screens/main/main_screen.dart';
 import 'package:flutter_app_learn/src/app/ui/widgets/input/input_field.dart';
@@ -20,8 +21,8 @@ class ATHLoginBody extends StatelessWidget {
           children: <Widget>[
             Container(
               width: double.infinity,
-              height: 250.h,
-              margin: EdgeInsets.only(top: 150.h),
+              height: 250.px,
+              margin: EdgeInsets.only(top: 150.px),
               child: CircleAvatar(
                 backgroundColor: ATHColors.primaryColor,
                 child: Text(
@@ -45,7 +46,7 @@ class ATHLoginBody extends StatelessWidget {
               },
             ),
             Container(
-              margin: EdgeInsets.only(top: 24.h),
+              margin: EdgeInsets.only(top: 24.px),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
@@ -53,7 +54,7 @@ class ATHLoginBody extends StatelessWidget {
                     "还没有账号?",
                     style: TextStyle(color: ATHColors.color8c),
                   ),
-                  SizedBox(width: 16.w),
+                  SizedBox(width: 16.px),
                   Text(
                     "立即注册",
                     style: TextStyle(color: ATHColors.primaryColor),

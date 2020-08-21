@@ -6,6 +6,7 @@ import 'package:flutter_app_learn/src/bloc_app/routers/application.dart';
 import 'package:flutter_app_learn/src/bloc_app/routers/routers.dart';
 
 import 'screens/home_screen.dart';
+import 'screens/sqflite_screen.dart';
 
 class BlocApp extends StatelessWidget {
   BlocApp() {
@@ -30,7 +31,8 @@ class AppContainer extends StatelessWidget {
         primaryColor: MColors.primaryColor,
         fontFamily: 'PingFang',
       ),
-      home: HomeScreen(),
+//      home: HomeScreen(),
+       home: SqfliteScreen(),
       // home: LoginScreen(),
       onGenerateRoute: Application.router.generator,
     );

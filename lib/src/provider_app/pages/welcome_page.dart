@@ -94,7 +94,7 @@ class _WelcomePageState extends State<WelcomePage>
                         child: CircleAvatar(
                           radius: ScreenUtil().setWidth(100.0),
                           child: Image.asset(
-                            'assets/images/splash_logo.jpeg',
+                            'assets/images/dhxy.jpg',
                             width: ScreenUtil().setWidth(100.0),
                             height: ScreenUtil().setHeight(100.0),
                             fit: BoxFit.cover,
@@ -111,7 +111,7 @@ class _WelcomePageState extends State<WelcomePage>
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   Image.asset(
-                    'assets/images/splash_logo.jpeg',
+                    'assets/images/dhxy.jpg',
                     width: _animation.value * ScreenUtil().setWidth(600.0),
                     height: _animation.value * ScreenUtil().setHeight(300.0),
                   ),

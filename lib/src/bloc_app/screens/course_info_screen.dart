@@ -61,7 +61,7 @@ class _CourseInfoScreenState extends State<CourseInfoScreen>
                 AspectRatio(
                   aspectRatio: 1.2,
                   child: Image.asset(
-                    'assets/images/nz.jpg',
+                    'assets/images/dhxy.jpg',
                     fit: BoxFit.fill,
                   ),
                 ),

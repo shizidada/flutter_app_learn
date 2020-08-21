@@ -101,7 +101,7 @@ class ATHCollectCommentItem extends StatelessWidget {
                   SvgPicture.asset('assets/icons/icon_hot.svg', width: 30.px),
                   Text(
                     "热评",
-                    style: TextStyle(color: ATHColors.color33, fontSize: 22.sp),
+                    style: TextStyle(color: ATHColors.color33, fontSize: 22.px),
                   )
                 ],
               ),
@@ -151,7 +151,7 @@ class ATHCollectGridImageItem extends StatelessWidget {
             child: ClipRRect(
               borderRadius: BorderRadius.all(Radius.circular(16.px)),
               child: Image.asset(
-                'assets/images/nz.jpg',
+                'assets/images/dhxy.jpg',
                 fit: BoxFit.cover,
               ),
             ),

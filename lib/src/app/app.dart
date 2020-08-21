@@ -3,10 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app_learn/src/app/ui/res/values/values.dart';
 import 'package:flutter_app_learn/src/app/ui/routers/application.dart';
 import 'package:flutter_app_learn/src/app/ui/routers/routers.dart';
-import 'package:flutter_app_learn/src/app/ui/screens/category/category_screen.dart';
 
-import 'ui/screens/discovery_detail/discovery_detail_screen.dart';
-import 'ui/screens/main/main_screen.dart';
+import 'ui/screens/login/login_screen.dart';
 
 class ATHApp extends StatelessWidget {
   ATHApp() {
@@ -32,9 +30,9 @@ class ATHAppContainer extends StatelessWidget {
         fontFamily: 'PingFang',
       ).copyWith(
           splashColor: Colors.transparent, highlightColor: Colors.transparent),
-//      home: ATHLoginScreen(),
+      home: ATHLoginScreen(),
 //      home: ATHMainScreen(),
-       home: ATHDiscoveryDetailScreen(),
+//       home: ATHDiscoveryDetailScreen(),
       onGenerateRoute: ATHApplication.router.generator,
     );
   }

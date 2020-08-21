@@ -120,7 +120,7 @@ class _CommentRow extends StatelessWidget {
         width: 36,
         child: ClipOval(
           child: Image.asset(
-            'assets/images/nz.jpg',
+            'assets/images/dhxy.jpg',
             fit: BoxFit.fill,
           ),
         ),

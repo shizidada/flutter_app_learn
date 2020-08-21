@@ -136,7 +136,7 @@ class ATHDiscoveryCardItem extends StatelessWidget {
                             topLeft: Radius.circular(20.px),
                             bottomLeft: Radius.circular(20.px)),
                         child: Container(
-                            child: Image.asset('assets/images/nz.jpg',
+                            child: Image.asset('assets/images/dhxy.jpg',
                                 fit: BoxFit.cover)),
                       ),
                     ),
@@ -188,7 +188,7 @@ class ATHDiscoveryUserInfoItem extends StatelessWidget {
                       child: Container(
                         width: 60.px,
                         height: 60.px,
-                        child: Image.asset('assets/images/nz.jpg',
+                        child: Image.asset('assets/images/dhxy.jpg',
                             fit: BoxFit.cover),
                       ),
                     ),

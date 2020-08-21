@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app_learn/src/app/ui/res/values/values.dart';
+import 'package:flutter_app_learn/src/app/core/extension/num_extension.dart';
 import 'package:flutter_app_learn/src/app/ui/widgets/global_container_wrapper.dart';
 import 'package:flutter_app_learn/src/app/ui/widgets/scroll/scroller_configuration_wrapper.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
@@ -21,9 +21,9 @@ class ATHDiscoveryScreen extends StatelessWidget {
       child: StaggeredGridView.countBuilder(
         shrinkWrap: true,
         itemCount: 10,
-        mainAxisSpacing: 8.0.w,
-        crossAxisSpacing: 8.0.w,
-        crossAxisCount: 8.w.toInt(),
+        mainAxisSpacing: 8.0.px,
+        crossAxisSpacing: 8.0.px,
+        crossAxisCount: 8.px.toInt(),
         itemBuilder: (context, index) => ATHDiscoveryItem(),
         staggeredTileBuilder: (int index) =>
             StaggeredTile.count(2, index.isEven ? 3 : 2),

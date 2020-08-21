@@ -6,6 +6,7 @@ import 'package:flutter_app_learn/src/app/ui/screens/home/home_screen.dart';
 import 'package:flutter_app_learn/src/app/ui/screens/message/message_screen.dart';
 import 'package:flutter_app_learn/src/app/ui/screens/mime/mime_screen.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_app_learn/src/app/core/extension/num_extension.dart';
 
 class ATHMainBody extends StatefulWidget {
   @override
@@ -43,7 +44,7 @@ class _ATHMainBodyState extends State<ATHMainBody> {
 
   @override
   Widget build(BuildContext context) {
-    final tabBarSize = 56.w;
+    final tabBarSize = 56.px;
 
     return Scaffold(
         body: buildPageView(),
@@ -51,7 +52,7 @@ class _ATHMainBodyState extends State<ATHMainBody> {
             color: Colors.white,
             shape: CircularNotchedRectangle(),
             child: Padding(
-              padding: EdgeInsets.fromLTRB(0, 6.h, 0, 6.h),
+              padding: EdgeInsets.fromLTRB(0, 6.px, 0, 6.px),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -73,7 +74,7 @@ class _ATHMainBodyState extends State<ATHMainBody> {
                           Text(ATHStrings.homeTitle,
                               style: TextStyle(
                                 color: getBarItemActiveColor(0),
-                                fontSize: 20.sp,
+                                fontSize: 20.px,
                               ))
                         ],
                       )),
@@ -94,7 +95,7 @@ class _ATHMainBodyState extends State<ATHMainBody> {
                             Text(ATHStrings.discoveryTitle,
                                 style: TextStyle(
                                   color: getBarItemActiveColor(1),
-                                  fontSize: 20.sp,
+                                  fontSize: 20.px,
                                 )),
                           ])),
                   GestureDetector(
@@ -111,7 +112,7 @@ class _ATHMainBodyState extends State<ATHMainBody> {
                         Text(ATHStrings.collectTitle,
                             style: TextStyle(
                               color: getBarItemActiveColor(2),
-                              fontSize: 20.sp,
+                              fontSize: 20.px,
                             )),
                       ],
                     ),
@@ -136,7 +137,7 @@ class _ATHMainBodyState extends State<ATHMainBody> {
                           Text(ATHStrings.messageTitle,
                               style: TextStyle(
                                   color: getBarItemActiveColor(3),
-                                  fontSize: 20.sp))
+                                  fontSize: 20.px))
                         ],
                       )),
                   GestureDetector(
@@ -156,7 +157,7 @@ class _ATHMainBodyState extends State<ATHMainBody> {
                           Text(ATHStrings.mimeTitle,
                               style: TextStyle(
                                 color: getBarItemActiveColor(4),
-                                fontSize: 20.sp,
+                                fontSize: 20.px,
                               ))
                         ],
                       ))

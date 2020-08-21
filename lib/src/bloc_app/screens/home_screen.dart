@@ -74,7 +74,7 @@ class _HomeScreenState extends State<HomeScreen>
         itemCount: 2,
         itemBuilder: (BuildContext context, int position) {
           return Image.asset(
-            'assets/images/nz.jpg',
+            'assets/images/dhxy.jpg',
             fit: BoxFit.fill,
           );
         },

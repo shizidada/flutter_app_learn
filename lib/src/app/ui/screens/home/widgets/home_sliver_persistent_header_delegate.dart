@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app_learn/src/app/core/extension/num_extension.dart';
 import 'package:flutter_app_learn/src/app/ui/res/values/colors.dart';
 import 'package:flutter_app_learn/src/app/ui/res/values/shadow.dart';
 import 'package:flutter_app_learn/src/app/ui/res/values/values.dart';
@@ -9,21 +10,21 @@ class ATHHomeSliverPersistentHeaderDelegate
   Widget build(
       BuildContext context, double shrinkOffset, bool overlapsContent) {
     return Container(
-        padding: EdgeInsets.all(24.w),
-        margin: EdgeInsets.symmetric(vertical: 20.w),
+        padding: EdgeInsets.all(24.px),
+        margin: EdgeInsets.symmetric(vertical: 20.px),
         decoration: BoxDecoration(
             color: Colors.white,
             boxShadow: [
               ATHBoxShadow.shadow,
             ],
-            borderRadius: BorderRadius.all(Radius.circular(10.w))),
+            borderRadius: BorderRadius.all(Radius.circular(10.px))),
         child: GridView.builder(
             itemCount: 8,
             physics: NeverScrollableScrollPhysics(),
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 4,
-              mainAxisSpacing: 30.w,
-              crossAxisSpacing: 30.w,
+              mainAxisSpacing: 30.px,
+              crossAxisSpacing: 30.px,
               childAspectRatio: 1.0,
             ),
             itemBuilder: (ctx, index) {
@@ -37,7 +38,7 @@ class ATHHomeSliverPersistentHeaderDelegate
                       color: ATHColors.color33,
                     ),
                     SizedBox(
-                      height: 16.h,
+                      height: 16.px,
                     ),
                     Text(
                       'current $index',
@@ -53,10 +54,10 @@ class ATHHomeSliverPersistentHeaderDelegate
   }
 
   @override
-  double get maxExtent => 500.h;
+  double get maxExtent => 500.px;
 
   @override
-  double get minExtent => 200.h;
+  double get minExtent => 200.px;
 
   @override
   bool shouldRebuild(SliverPersistentHeaderDelegate oldDelegate) {

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
-import 'package:flutter_app_learn/src/app/ui/res/values/values.dart';
+import 'package:flutter_app_learn/src/app/core/extension/num_extension.dart';
 
 class ATHHomeBannerSwiperView extends StatelessWidget {
   final SwiperController swiperController;
@@ -11,11 +11,11 @@ class ATHHomeBannerSwiperView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      height: 400.h,
+      height: 380.px,
       child: Swiper(
         itemCount: 2,
         itemBuilder: (BuildContext context, int position) {
-          return Image.asset('assets/images/nz.jpg', fit: BoxFit.cover);
+          return Image.asset('assets/images/dhxy.jpg', fit: BoxFit.cover);
         },
         pagination: SwiperPagination(
             alignment: Alignment.bottomCenter,

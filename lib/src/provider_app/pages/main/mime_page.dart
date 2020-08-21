@@ -58,7 +58,7 @@ class _MimePageState extends State<MimePage>
                 ],
               ),
             )
-                // Image.asset("assets/images/nz.jpg", fit: BoxFit.fill),
+                // Image.asset("assets/images/dhxy.jpg", fit: BoxFit.fill),
                 ),
             expandedHeight: ScreenUtil().setHeight(300.0),
             floating: false,

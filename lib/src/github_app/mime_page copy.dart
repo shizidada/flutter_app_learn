@@ -121,7 +121,7 @@
 //             title: Text(MStrings.mimeTitle),
 //             centerTitle: true,
 //             flexibleSpace: FlexibleSpaceBar(
-//               background: Image.asset("assets/images/nz.jpg", fit: BoxFit.fill),
+//               background: Image.asset("assets/images/dhxy.jpg", fit: BoxFit.fill),
 //             ),
 //             expandedHeight: sc.setHeight(360.0),
 //             floating: false,

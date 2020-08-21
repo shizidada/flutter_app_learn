@@ -23,9 +23,9 @@ class ATHHomeScreen extends StatelessWidget {
 //        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
 //          //Grid按两列显示
 //          crossAxisCount: 2,
-//          mainAxisSpacing: 10.w,
-//          crossAxisSpacing: 10.w,
-//          childAspectRatio: 4.w,
+//          mainAxisSpacing: 10.px,
+//          crossAxisSpacing: 10.px,
+//          childAspectRatio: 4.px,
 //        ),
 //        delegate: SliverChildBuilderDelegate(
 //              (BuildContext context, int index) {
@@ -42,7 +42,7 @@ class ATHHomeScreen extends StatelessWidget {
 //    ),
 //    //List
 //    SliverFixedExtentList(
-//      itemExtent: 100.h,
+//      itemExtent: 100.px,
 //      delegate: SliverChildBuilderDelegate((BuildContext context, int index) {
 //        //创建列表项
 //        return Container(

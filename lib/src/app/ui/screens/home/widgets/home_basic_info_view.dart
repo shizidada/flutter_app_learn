@@ -1,23 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app_learn/src/app/core/extension/num_extension.dart';
 import 'package:flutter_app_learn/src/app/ui/res/values/values.dart';
 
 class ATHHomeBasicInfoView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SliverPadding(
-      padding: EdgeInsets.symmetric(horizontal: 24.w, vertical: 12.h),
+      padding: EdgeInsets.symmetric(horizontal: 24.px, vertical: 12.px),
       sliver: SliverGrid(
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 4,
-          mainAxisSpacing: 30.w,
-          crossAxisSpacing: 30.w,
+          mainAxisSpacing: 30.px,
+          crossAxisSpacing: 30.px,
           childAspectRatio: 1.0,
         ),
         delegate: SliverChildBuilderDelegate(
           (BuildContext context, int index) {
             //创建子widget
             return PhysicalModel(
-              borderRadius: BorderRadius.circular(16.w),
+              borderRadius: BorderRadius.circular(16.px),
               clipBehavior: Clip.antiAlias,
               color: Colors.white,
               elevation: 2,
@@ -32,7 +33,7 @@ class ATHHomeBasicInfoView extends StatelessWidget {
                       color: ATHColors.color33,
                     ),
                     SizedBox(
-                      height: 16.h,
+                      height: 16.px,
                     ),
                     Text(
                       'current $index',

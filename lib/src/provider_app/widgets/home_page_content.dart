@@ -23,19 +23,19 @@ class _HomePageContentState extends State<HomePageContent>
     super.initState();
     _swiperImageList
       ..add(Image.asset(
-        'assets/images/1.jpeg',
+        'assets/images/1.jpg',
         fit: BoxFit.cover,
       ))
       ..add(Image.asset(
-        'assets/images/2.jpeg',
+        'assets/images/2.jpg',
         fit: BoxFit.cover,
       ))
       ..add(Image.asset(
-        'assets/images/3.jpeg',
+        'assets/images/3.jpg',
         fit: BoxFit.cover,
       ))
       ..add(Image.asset(
-        'assets/images/4.jpeg',
+        'assets/images/4.jpg',
         fit: BoxFit.cover,
       ));
     print("initState ... " + widget.title);

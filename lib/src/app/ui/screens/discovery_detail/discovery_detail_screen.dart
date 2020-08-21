@@ -4,6 +4,7 @@ import 'package:flutter_app_learn/src/app/core/extension/num_extension.dart';
 import 'package:flutter_app_learn/src/app/ui/res/values/colors.dart';
 import 'package:flutter_app_learn/src/app/ui/widgets/scroll/scroller_configuration_wrapper.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 import 'discovery_background.dart';
 
@@ -21,42 +22,46 @@ class ATHDiscoveryDetailScreen extends StatelessWidget {
             slivers: <Widget>[
               SliverToBoxAdapter(
                 child: Container(
-                  height: size.height * .9,
+                  height: (size.height * .9).px,
                   color: Colors.white,
                   child: Stack(
                     children: [
-                      ClipPath(
-                        clipper: WaveClipperTwo(reverse: false, flip: true),
-                        child: Image.asset(
-                          'assets/images/nz.jpg',
-                          fit: BoxFit.fill,
-                          height: size.height * .8,
-                        ),
+                      Image.asset(
+                        'assets/images/dhxy.jpg',
+                        fit: BoxFit.cover,
+                        height: (size.height * .9).px,
                       ),
                       Positioned(
                         left: 0,
                         right: 0,
-                        bottom: 30.px,
+                        bottom: 0,
                         child: Container(
                           alignment: Alignment.center,
-                          padding: EdgeInsets.symmetric(horizontal: 24.px, vertical: 20.px),
+                          padding: EdgeInsets.symmetric(
+                              horizontal: 24.px, vertical: 20.px),
                           decoration: BoxDecoration(
                             color: Colors.white,
                             borderRadius: BorderRadius.only(
-                                topLeft: Radius.circular(80.px)),
+                              topLeft: Radius.circular(80.px),
+                              topRight: Radius.circular(80.px),
+                            ),
                           ),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: <Widget>[
-                              Text(
-                                '喜剧',
-                                style: TextStyle(
-                                    fontSize: 30.sp,
-                                    color: ATHColors.color99),
+                              Padding(
+                                padding: EdgeInsets.symmetric(vertical: 20.px),
+                                child: Text(
+                                  '喜剧',
+                                  style: TextStyle(
+                                      fontSize: 30.px,
+                                      color: ATHColors.color99),
+                                ),
                               ),
                               Row(
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
+                                crossAxisAlignment: CrossAxisAlignment.center,
                                 children: <Widget>[
                                   Expanded(
                                     child: Text(
@@ -64,13 +69,16 @@ class ATHDiscoveryDetailScreen extends StatelessWidget {
                                       overflow: TextOverflow.ellipsis,
                                       maxLines: 1,
                                       style: TextStyle(
-                                          fontSize: 42.sp,
+                                          fontSize: 36.px,
                                           color: ATHColors.color33),
                                     ),
                                   ),
-                                  Icon(
-                                    Icons.star,
-                                    color: ATHColors.color66,
+                                  Padding(
+                                    padding: EdgeInsets.only(left: 10.px),
+                                    child: SvgPicture.asset(
+                                      'assets/icons/icon_star.svg',
+                                      width: 46.px,
+                                    ),
                                   )
                                 ],
                               )
@@ -98,7 +106,7 @@ class ATHDiscoveryDetailScreen extends StatelessWidget {
                         "但更确切地来说Apple II而在它身旁还伫立着另一个身影，携手Apple II一起把人类带入了个人电脑时代，"
                         "也同时拉开了生产力工具的序幕，那便是本文的主角VisiCalc。",
                         style: TextStyle(
-                            fontSize: 32.sp, color: ATHColors.color99),
+                            fontSize: 32.px, color: ATHColors.color99),
                       ),
                       Container(
                         height: 600.px,
@@ -113,35 +121,4 @@ class ATHDiscoveryDetailScreen extends StatelessWidget {
       ),
     );
   }
-}
-
-class WaveClipperTwo extends CustomClipper<Path> {
-  bool reverse;
-  bool flip;
-
-  WaveClipperTwo({this.reverse = false, this.flip = false});
-
-  @override
-  Path getClip(Size size) {
-    var path = Path();
-
-    path.lineTo(0.0, size.height);
-
-    var firstControlPoint = Offset(size.width, size.height - 30);
-    var firstPoint = Offset((size.width / 2), (size.height - 30));
-    path.quadraticBezierTo(firstControlPoint.dx, firstControlPoint.dy,
-        firstPoint.dx, firstPoint.dy);
-
-    var secondCP = Offset(size.width, size.height);
-    var secondEP = Offset(size.width, size.height - 120);
-    path.quadraticBezierTo(secondCP.dx, secondCP.dy, secondEP.dx, secondEP.dy);
-
-    path.lineTo(size.width, 0.0);
-    path.close();
-
-    return path;
-  }
-
-  @override
-  bool shouldReclip(CustomClipper<Path> oldClipper) => true;
 }

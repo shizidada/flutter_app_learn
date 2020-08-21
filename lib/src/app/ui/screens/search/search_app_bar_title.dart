@@ -1,5 +1,5 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_app_learn/src/app/core/extension/num_extension.dart';
 import 'package:flutter_app_learn/src/app/core/utils/navigator_util.dart';
 import 'package:flutter_app_learn/src/app/ui/res/values/values.dart';
 
@@ -15,10 +15,10 @@ class ATHSearchAppBarTitle extends StatelessWidget {
         ATHSearchInput(),
         GestureDetector(
           child: Padding(
-            padding: EdgeInsets.only(left: 24.w),
+            padding: EdgeInsets.only(left: 24.px),
               child: Text(
             "取消",
-            style: TextStyle(color: Colors.white, fontSize: 32.sp),
+            style: TextStyle(color: Colors.white, fontSize: 32.px),
           )),
           onTap: () {
             FocusScope.of(context).requestFocus(FocusNode());
